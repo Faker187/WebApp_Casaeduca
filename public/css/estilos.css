@@ -1,5 +1,81 @@
+@font-face {
+    font-family: Rockewell!important;
+    src: url('font/rockwen.ttf')!important;
+}
 
 
-.colorNav{
-    background-color:#bd9cd8 !important;
+/*:::::::::::::::::::::::::::::::::::
+        Cursos Slide card
+:::::::::::::::::::::::::::::::::::*/
+
+
+/* equal card height */
+
+.row-equal>div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.row-equal .card {
+    width: 100%;
+}
+
+
+/* ensure equal card height inside carousel */
+
+.carousel-inner>.row-equal.active,
+.carousel-inner>.row-equal.next,
+.carousel-inner>.row-equal.prev {
+    display: flex;
+}
+
+
+/* prevent flicker during transition */
+
+.carousel-inner>.row-equal.active.left,
+.carousel-inner>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+
+
+/* control image height */
+
+.card-img-top-250 {
+    max-height: 250px;
+    overflow: hidden;
+}
+
+
+/*:::::::::::::::::::::::::::::::::::
+        Colores Casa educa
+        #dbd7ec
+        #bd9cd8
+        #7c4d99
+        #b5dbf5
+        #f9e085
+:::::::::::::::::::::::::::::::::::*/
+
+body {
+    background-color: #dbd7ec !important;
+}
+
+.colorNav {
+    background-color: #dbd7ec !important;
+}
+
+.colorNav2 {
+    background-color: #b5dbf5 !important;
+}
+
+div.transbox {
+    margin: 50px;
+    background-color: #ffffff;
+    opacity: 0.6;
+}
+
+div.transbox h1.card-title {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
 }
