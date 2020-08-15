@@ -33,9 +33,15 @@ class SuscripcionController extends Controller
         $pagoRealizado = true; //false, el pago fallo
         //Verificar si el Email está usado
         $user = User::all()->where('email', $request->email)->first();
-        // dd($request);
+
         if (!$user) {
             if ($pagoRealizado) {
+
+                // se realiza el pago y parte desde hoy
+                $fechaActual = date("Y-m-d");
+                // y termina en la cantidad de meses seleccionada
+                $fin_plan = date('Y-m-d', strtotime("+".$request->plan." months", strtotime($fechaActual)));
+
                 //Se crea el nuevo Usuario
                 User::create([
                     'name' => $request->nombreCompletoAlumno,
@@ -46,6 +52,9 @@ class SuscripcionController extends Controller
                     'email' => $request->email,
                     'password' => \Hash::make($request->password),
                     'tipo' => 1, //0 es admin 2 es profesor
+                    'fecha_pago' => $fechaActual,
+                    'fin_plan' => $fin_plan,
+                    'estado' => 1
                 ]);
     
                  return view('Suscripcion.suscripcionRealizada'); //invitar a loguear junto con el mensaje de felicitaciones

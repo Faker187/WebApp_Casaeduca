@@ -24,6 +24,9 @@ class User extends Authenticatable
         'email', 
         'password',
         'tipo',
+        'fecha_pago',
+        'fin_plan',
+        'estado',
     ];
 
     /**

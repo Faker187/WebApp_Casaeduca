@@ -21,7 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/verificarCuenta', 'HomeController@verificarCuenta')->name('verificarCuenta');
 Route::get('/Administrador', 'AdminController@admin')->name('admin');
-Route::get('/Alumno', 'AlumnoController@alumno')->name('alumno');
+// Route::get('/Alumnos', 'AlumnoController@alumno')->name('adminAlumnos');
+Route::get('/Profesores', 'AdminController@profesores')->name('adminProfesores');
+Route::get('/adminAsignaturas/{idCurso}', 'AdminController@adminAsignaturas')->name('adminAsignaturas');
+Route::get('/adminUnidades/{idCurso}', 'AdminController@adminUnidades')->name('adminUnidades');
+Route::get('/adminClases/{idCurso}', 'AdminController@adminClases')->name('adminClases');
 
 //Suscipcion
 Route::get('/suscribete', 'SuscripcionController@suscribirse')->name('suscribete'); //Pantalla Suscripción
