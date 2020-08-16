@@ -59,13 +59,14 @@
                 </div>
                 <div class="col-md-9 my-auto">
                   <div class="pl-5">
-                    <i class="far fa-image fa-2x mr-4 grey p-3 white-text rounded-circle" aria-hidden="true"></i>
-                    <i class="fas fa-briefcase fa-2x mr-4 mr-4 grey p-3 white-text rounded-circle" aria-hidden="true"></i>
-                    <i class="fas fa-anchor fa-2x mr-4 mr-4 grey p-3 white-text rounded-circle" aria-hidden="true"></i>
-                    <i class="far fa-image fa-2x mr-4 grey p-3 white-text rounded-circle " aria-hidden="true"></i>
-                    <i class="fas fa-briefcase fa-2x mr-4 mr-4 grey p-3 white-text rounded-circle" aria-hidden="true"></i>
-                    <i class="fas fa-anchor fa-2x mr-4 mr-4 grey p-3 white-text rounded-circle" aria-hidden="true"></i>
-                    <i class="fas fa-anchor fa-2x mr-4 mr-4 grey p-3 white-text rounded-circle" aria-hidden="true"></i>
+                      
+                    <i class="far fa-image fa-2x mr-4 bg-ce2 p-3 white-text rounded-circle" aria-hidden="true"></i>
+                    <i class="fas fa-briefcase fa-2x mr-4 mr-4 bg-ce1 p-3 white-text rounded-circle" aria-hidden="true"></i>
+                    <i class="fas fa-anchor fa-2x mr-4 mr-4 bg-ce3 p-3 white-text rounded-circle" aria-hidden="true"></i>
+                    <i class="far fa-image fa-2x mr-4 bg-ce4 p-3 white-text rounded-circle " aria-hidden="true"></i>
+                    <i class="fas fa-briefcase fa-2x mr-4 mr-4 bg-ce1 p-3 white-text rounded-circle" aria-hidden="true"></i>
+                    <i class="fas fa-anchor fa-2x mr-4 mr-4 bg-ce2 p-3 white-text rounded-circle" aria-hidden="true"></i>
+                    <i class="far fa-image fa-2x mr-4 bg-ce4 p-3 white-text rounded-circle" aria-hidden="true"></i>
                   </div>
                 </div>
             </div>
