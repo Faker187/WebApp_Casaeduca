@@ -108,12 +108,17 @@ class SuscripcionController extends Controller
         $tokenWs = filter_input(INPUT_POST, 'token_ws');
         $result = $transaction->getTransactionResult($request->input("token_ws"));
         $output = $result->detailOutput;
+
         if ($output->responseCode == 0) {
             // Transaccion exitosa, puedes procesar el resultado con el contenido de
             // las variables result y output.
+            return view('Suscripcion.terminarPago', compact('result','tokenWs'));
+
+        }else{
+            // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
+           return redirect()->route('alumno');
         }
 
-        return view('Suscripcion.terminarPago', compact('result','tokenWs'));
     }
 
     public function activarCuenta(Request $request)
