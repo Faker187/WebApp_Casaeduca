@@ -1,5 +1,106 @@
+@font-face {
+    font-family: 'Rockwell';
+    src: url('../font/rockwen.ttf');
+}
 
 
-.colorNav{
-    background-color:#bd9cd8 !important;
+/*:::::::::::::::::::::::::::::::::::
+        Cursos Slide card
+:::::::::::::::::::::::::::::::::::*/
+
+
+/* equal card height */
+
+.row-equal>div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.row-equal .card {
+    width: 100%;
+}
+
+
+/* ensure equal card height inside carousel */
+
+.carousel-inner>.row-equal.active,
+.carousel-inner>.row-equal.next,
+.carousel-inner>.row-equal.prev {
+    display: flex;
+}
+
+
+/* prevent flicker during transition */
+
+.carousel-inner>.row-equal.active.left,
+.carousel-inner>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+
+
+/* control image height */
+
+.card-img-top-250 {
+    max-height: 250px;
+    overflow: hidden;
+}
+
+
+/*:::::::::::::::::::::::::::::::::::
+        Colores Casa educa
+        #dbd7ec
+        #bd9cd8
+        #7c4d99
+        #b5dbf5
+        #f9e085
+:::::::::::::::::::::::::::::::::::*/
+
+body {
+    background-color: #dbd7ec !important;
+    font-family: Rockwell!important;
+}
+
+.bg-ce1 {
+    background-color: #dbd7ec !important;
+}
+
+.bg-ce2 {
+    background-color: #b5dbf5 !important;
+}
+
+.bg-ce3 {
+    background-color: #bd9cd8 !important;
+}
+
+.bg-ce4 {
+    background-color: #7c4d99 !important;
+}
+
+.bg-ce5 {
+    background-color: #f9e085 !important;
+}
+
+div.transbox {
+    margin: 50px;
+    background-color: #ffffff;
+    opacity: 0.6;
+}
+
+div.transbox h1.card-title {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+}
+
+.border-light {
+    border-color: #fff !important;
+}
+
+.font-5 {
+    font-size: 24px!important;
+}
+
+a.nav-link:hover {
+    color: #bd9cd8!important;
 }
