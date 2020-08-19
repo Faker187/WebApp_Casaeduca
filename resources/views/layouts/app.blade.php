@@ -109,6 +109,11 @@
     <title>Document</title>
 </head>
 <body>
+
+    @php
+        // dd(Session::getId());
+    @endphp
+
  <div id="app">
         <nav class="navbar navbar-expand-md colorNav navbar-light bg-white shadow-sm">
             <div class="container">
