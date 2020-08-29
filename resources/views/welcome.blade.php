@@ -42,7 +42,7 @@
         <img class="card-img" src="{{ asset('img/3.png') }}" alt="Card image">
         <div class="card-img-overlay transbox">
             <h1 class="card-title display-3">Plan academico</h1>
-            <a class="btn btn-dark-outline btn-lg text-dark" href="#" role="button">Leer mas</a>
+            <a class="btn btn-dark-outline btn-lg text-dark" href="{{ url('/Planacademico') }}" role="button">Leer mas</a>
         </div>
       </div>
     <!-- ====== /plan academico ====== -->

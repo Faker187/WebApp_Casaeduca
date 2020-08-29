@@ -170,19 +170,19 @@
         <div class="collapse navbar-collapse navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
             <li class="nav-item px-2">
-                <a class="nav-link text-white font-5" href="#">
-                    <img style="width:26px;" src="{{ asset('img/casaeducaEscudo.png') }}" alt="">
+                <a class="nav-link text-white font-5" href="{{ url('/Cursos') }}">
+                    <img style="width:26px;" src="{{ asset('img/casaeducaEscudo.png') }}" alt="cursos">
                     Cursos
                 </a>
             </li>
             <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Casa educa</a>
+                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Casaeduca') }}">Casa educa</a>
             </li>
             <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Blog</a>
+                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Blog') }}">Blog</a>
             </li>
             <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Contacto</a>
+                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Contacto') }}">Contacto</a>
             </li>
             </ul>
         </div>

@@ -88,6 +88,26 @@ footer {
     background-color: #f9e085 !important;
 }
 
+.color-ce1 {
+    color: #dbd7ec !important;
+}
+
+.color-ce2 {
+    color: #b5dbf5 !important;
+}
+
+.color-ce3 {
+    color: #bd9cd8 !important;
+}
+
+.color-ce4 {
+    color: #7c4d99 !important;
+}
+
+.color-ce5 {
+    color: #f9e085 !important;
+}
+
 div.transbox {
     margin: 50px;
     background-color: #ffffff;
@@ -110,4 +130,8 @@ div.transbox h1.card-title {
 
 a.nav-link:hover {
     color: #bd9cd8!important;
+}
+
+.imgplan {
+    width: 240px;
 }

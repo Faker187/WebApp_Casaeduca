@@ -14,6 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/Cursos', function () {
+    return view('cursos');
+});
+Route::get('/Casaeduca', function () {
+    return view('casaeduca');
+});
+Route::get('/Blog', function () {
+    return view('blog');
+});
+Route::get('/Planacademico', function () {
+    return view('planacademico');
+});
+Route::get('/Contacto', function () {
+    return view('contacto');
+});
 
 Auth::routes();
 
