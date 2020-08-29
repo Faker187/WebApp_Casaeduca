@@ -172,14 +172,14 @@
             <li class="nav-item px-2">
                 <a class="nav-link text-white font-5" href="#">
                     <img style="width:26px;" src="{{ asset('img/casaeducaEscudo.png') }}" alt="">
-                    ¿Quiénes somos?
+                    Cursos
                 </a>
             </li>
             <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Cursos</a>
+                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Casa educa</a>
             </li>
             <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Plan Académico</a>
+                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Blog</a>
             </li>
             <li class="nav-item px-2 border-left border-light">
                 <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Contacto</a>
@@ -194,72 +194,32 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="page-footer font-small blue mt-4">
-        <!-- Footer Links -->
+    <footer class="page-footer font-small mt-4 pt-5">
         <div class="container-fluid text-center text-md-left">
-
-            <!-- Grid row -->
             <div class="row">
+                <div class="col-md-6 px-5">
+                    <h3 class="h3-responsive pb-1">Contáctanos</h3>
+                    <p><i class="fas fa-phone-volume fa-lg px-2"></i> +56 9 87654321</p>
+                    <p><i class="fas fa-envelope fa-lg px-2"></i> contacto@casaeduca.cl</p>
+                </div>
 
-            <!-- Grid column -->
-            <div class="col-md-6 mt-md-0 mt-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase">Síguenos</h5>
+                    <ul class="list-unstyled">
+                        <li class="py-1">
+                            <a href="#!"><i class="fab fa-facebook-square fa-lg"></i></a>
+                        </li>
+                        <li class="py-1">
+                            <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                        </li>
+                    </ul>
+                </div>
 
-                <!-- Content -->
-                <h5 class="text-uppercase">¿Necesitas mas información?</h5>
-                <p>- Teléfono: +562 2419 8792<br>-Whatsapp: +569 4098 7519</p>
-
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <!-- LOGO -->
+                </div>
             </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none pb-3">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">Casa educa</h5>
-
-                <ul class="list-unstyled">
-                <li>
-                    <a href="#!">¿Quienes somos?</a>
-                </li>
-                <li>
-                    <a href="#!">Ponte en contacto con nosotros.</a>
-                </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">Redes sociales</h5>
-
-                <ul class="list-unstyled">
-                <li>
-                    <a href="#!">Facebook</a>
-                </li>
-                <li>
-                    <a href="#!">Whatsapp</a>
-                </li>
-                <li>
-                    <a href="#!">Instagram</a>
-                </li>
-                <li>
-                    <a href="#!">Twitter</a>
-                </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
         </div>
-        <!-- Footer Links -->
 
         <!-- Copyright -->
         <div class="footer-copyright text-center bg-ce4 py-3">© 2020 Copyright:

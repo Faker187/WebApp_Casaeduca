@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
     font-family: 'Rockwell';
     src: url('../font/rockwen.ttf');
-}
+} */
 
 
 /*:::::::::::::::::::::::::::::::::::
@@ -58,7 +58,14 @@
 
 body {
     background-color: #dbd7ec !important;
-    font-family: Rockwell!important;
+}
+
+footer {
+    background-image: url("../img/FOOTER.png")!important;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .bg-ce1 {
