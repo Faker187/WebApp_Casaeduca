@@ -113,7 +113,7 @@
     <nav class="navbar navbar-expand-md bg-ce1 navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img style="width:300px;" src="{{ asset('img/casaeducalogo1.png') }}" alt="LOGO">
+                <img style="width:300px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -130,7 +130,7 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="btn bg-ce4 text-white nav-link rounded" href="{{ route('login') }}"><i class="fas fa-sign-in-alt pr-2"></i> Ingresar</a>
+                            <a class="btn bg-ce4 text-white nav-link rounded px-3" href="{{ route('login') }}"><i class="fas fa-home text-white"></i> Ingresa</a>
                         </li>
                         {{-- @if (Route::has('register'))
                             <li class="nav-item">
@@ -139,7 +139,7 @@
                         @endif --}}
 
                         <li class="nav-item">
-                            <a class="btn bg-ce4 text-white nav-link rounded" href="/suscribete">Suscríbete</a>
+                            <a class="btn bg-ce4 text-white nav-link rounded" href="/suscribete"><i class="fas fa-user text-white"></i> Crea tu cuenta</a>
                         </li>
                     @else
                         <li class="nav-item dropdown">
@@ -169,21 +169,18 @@
     <nav class="navbar navbar-expand-md bg-ce2 navbar-light bg-white shadow-sm">
         <div class="collapse navbar-collapse navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-2">
-                <a class="nav-link text-white font-5" href="{{ url('/Cursos') }}">
-                    <img style="width:26px;" src="{{ asset('img/casaeducaEscudo.png') }}" alt="cursos">
-                    Cursos
-                </a>
-            </li>
-            <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Casaeduca') }}">Casa educa</a>
-            </li>
-            <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Blog') }}">Blog</a>
-            </li>
-            <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Contacto') }}">Contacto</a>
-            </li>
+                <li class="nav-item px-2 ">
+                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Casaeduca') }}">Casa educa</a>
+                </li>
+                <li class="nav-item px-2 border-left border-light">
+                    <a class="nav-link text-white font-5" href="{{ url('/Cursos') }}">Cursos</a>
+                </li>
+                <li class="nav-item px-2 border-left border-light">
+                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Blog') }}">Blog</a>
+                </li>
+                <li class="nav-item px-2 border-left border-light">
+                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Contacto') }}">Contacto</a>
+                </li>
             </ul>
         </div>
     </nav>

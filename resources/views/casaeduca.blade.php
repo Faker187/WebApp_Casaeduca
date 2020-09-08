@@ -10,7 +10,10 @@
 <!-- ====== Casaeduca ====== -->
 <div class="row justify-content-center mt-5">
     <div class="col-md-12">
-        <h1 class="h1-responsive text-center text-white">Casa Educa</h1>
+        <h1 class="h1-responsive text-center text-white">
+        <img class="card-img" src="{{ asset('img/REGLA_CORAZON.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
+        Casa Educa
+        </h1>
         <hr class="my-5"> 
     </div>
 </div>
@@ -32,6 +35,9 @@
        <br>
        <p class="lead text-white">Durante estos años que hemos educado a nuestros hijos bajo la modalidad de exámenes libres, hemos adquirido una experiencia y conocimiento de las distintas etapas, tanto reglamentarias como académicas, que nos han servido para apoyar a otros padres, que en más de alguna ocasión nos impulsaron a desarrollar un plataforma educacional enfocada a padres y alumnos y alumnas Homescholer.</p>
     </div>
+</div>
+<div class="row justify-content-center">
+    <img class="card-img" style="width: 120px;margin-bottom: 1rem;" src="{{ asset('img/MANOS_C.png') }}" alt="manos 3">
 </div>
 <!-- ====== /Casaeduca ====== -->
 </div>
