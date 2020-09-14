@@ -253,7 +253,7 @@
 {{-- <script src="{{asset('public/js/slideCursos.js')}}"></script>  --}}
 <!-- HOME -->
 
-{{-- <script src="{{ asset('public/js/funciones.js')}}"></script>  --}}
+<script src="{{ asset('public/js/funciones.js')}}"></script>
 
 
 <script>
