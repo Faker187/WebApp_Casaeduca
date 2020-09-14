@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
     font-family: 'Rockwell';
     src: url('../font/rockwen.ttf');
-}
+} */
 
 
 /*:::::::::::::::::::::::::::::::::::
@@ -58,9 +58,20 @@
 
 body {
     background-color: #dbd7ec !important;
+<<<<<<< HEAD
     /* font-family: Rockwell!important; */
     /* font-family: Rockwell; */
     font-family: 'Merriweather', serif !important;
+=======
+}
+
+footer {
+    background-image: url("../img/FOOTER.png")!important;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+>>>>>>> develop_benj
 }
 
 .bg-ce1 {
@@ -81,6 +92,47 @@ body {
 
 .bg-ce5 {
     background-color: #f9e085 !important;
+}
+
+.color-ce1 {
+    color: #dbd7ec !important;
+}
+
+.color-ce2 {
+    color: #b5dbf5 !important;
+}
+
+.color-ce3 {
+    color: #bd9cd8 !important;
+}
+
+.color-ce4 {
+    color: #7c4d99 !important;
+}
+
+.color-ce5 {
+    color: #f9e085 !important;
+}
+
+.color-ce-dark {
+    color: #000 !important;
+}
+
+.btn-outline-light:hover {
+    color: #000 !important;
+}
+
+.btn-outline-light:focus {
+    color: #000 !important;
+}
+
+.cardplan {
+    background-image: url("../img/blog2.jpg")!important;
+    background-position: center!important;
+    background-repeat: no-repeat, repeat!important;
+    background-size: cover!important;
+    width: 100%;
+    height: 60vh;
 }
 
 div.transbox {
@@ -105,4 +157,8 @@ div.transbox h1.card-title {
 
 a.nav-link:hover {
     color: #bd9cd8!important;
+}
+
+.imgplan {
+    width: 240px;
 }

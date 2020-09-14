@@ -120,7 +120,7 @@
     <nav class="navbar navbar-expand-md bg-ce1 navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img style="width:300px;" src="{{ asset('img/casaeducalogo1.png') }}" alt="LOGO">
+                <img style="width:300px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -137,7 +137,7 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="btn bg-ce4 text-white nav-link rounded" href="{{ route('login') }}"><i class="fas fa-sign-in-alt pr-2"></i> Ingresar</a>
+                            <a class="btn bg-ce4 text-white nav-link rounded px-3" href="{{ route('login') }}"><i class="fas fa-home text-white"></i> Ingresa</a>
                         </li>
                         {{-- @if (Route::has('register'))
                             <li class="nav-item">
@@ -146,7 +146,7 @@
                         @endif --}}
 
                         <li class="nav-item">
-                            <a class="btn bg-ce4 text-white nav-link rounded" href="/suscribete">Suscríbete</a>
+                            <a class="btn bg-ce4 text-white nav-link rounded" href="/suscribete"><i class="fas fa-user text-white"></i> Crea tu cuenta</a>
                         </li>
                     @else
                         <li class="nav-item dropdown">
@@ -177,21 +177,18 @@
     <nav class="navbar navbar-expand-md bg-ce2 navbar-light bg-white shadow-sm">
         <div class="collapse navbar-collapse navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-2">
-                <a class="nav-link text-white font-5" href="#">
-                    <img style="width:26px;" src="{{ asset('img/casaeducaEscudo.png') }}" alt="">
-                    ¿Quiénes somos?
-                </a>
-            </li>
-            <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Cursos</a>
-            </li>
-            <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Plan Académico</a>
-            </li>
-            <li class="nav-item px-2 border-left border-light">
-                <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="#">Contacto</a>
-            </li>
+                <li class="nav-item px-2 ">
+                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Casaeduca') }}">Casa educa</a>
+                </li>
+                <li class="nav-item px-2 border-left border-light">
+                    <a class="nav-link text-white font-5" href="{{ url('/Cursos') }}">Cursos</a>
+                </li>
+                <li class="nav-item px-2 border-left border-light">
+                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Blog') }}">Blog</a>
+                </li>
+                <li class="nav-item px-2 border-left border-light">
+                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Contacto') }}">Contacto</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -205,72 +202,32 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="page-footer font-small blue mt-4">
-        <!-- Footer Links -->
+    <footer class="page-footer font-small mt-4 pt-5">
         <div class="container-fluid text-center text-md-left">
-
-            <!-- Grid row -->
             <div class="row">
+                <div class="col-md-6 px-5">
+                    <h3 class="h3-responsive pb-1">Contáctanos</h3>
+                    <p><i class="fas fa-phone-volume fa-lg px-2"></i> +56 9 87654321</p>
+                    <p><i class="fas fa-envelope fa-lg px-2"></i> contacto@casaeduca.cl</p>
+                </div>
 
-            <!-- Grid column -->
-            <div class="col-md-6 mt-md-0 mt-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase">Síguenos</h5>
+                    <ul class="list-unstyled">
+                        <li class="py-1">
+                            <a href="#!"><i class="fab fa-facebook-square fa-lg"></i></a>
+                        </li>
+                        <li class="py-1">
+                            <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                        </li>
+                    </ul>
+                </div>
 
-                <!-- Content -->
-                <h5 class="text-uppercase">¿Necesitas mas información?</h5>
-                <p>- Teléfono: +562 2419 8792<br>-Whatsapp: +569 4098 7519</p>
-
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <!-- LOGO -->
+                </div>
             </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none pb-3">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">Casa educa</h5>
-
-                <ul class="list-unstyled">
-                <li>
-                    <a href="#!">¿Quienes somos?</a>
-                </li>
-                <li>
-                    <a href="#!">Ponte en contacto con nosotros.</a>
-                </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">Redes sociales</h5>
-
-                <ul class="list-unstyled">
-                <li>
-                    <a href="#!">Facebook</a>
-                </li>
-                <li>
-                    <a href="#!">Whatsapp</a>
-                </li>
-                <li>
-                    <a href="#!">Instagram</a>
-                </li>
-                <li>
-                    <a href="#!">Twitter</a>
-                </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
         </div>
-        <!-- Footer Links -->
 
         <!-- Copyright -->
         <div class="footer-copyright text-center bg-ce4 py-3">© 2020 Copyright:
