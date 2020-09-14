@@ -171,8 +171,8 @@
 
                 <div class="col-sm-4 " style="float:left">
                     <div class="grid">
-                        <figure class="effect-kira">
-                        <img src="{{ asset('public/img/segundobasico.png') }}" alt="sexto basico">
+                    <figure class="effect-kira">
+                        <img class="card-img" src="{{ asset('public/img/segundobasico.jpg') }}" alt="quinto basico">
                         <figcaption>
                             <h2><span>6° </span>Básico</h2>
                             <p>
