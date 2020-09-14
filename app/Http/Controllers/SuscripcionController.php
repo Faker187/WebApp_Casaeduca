@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Plan;
+use App\Pago;
 use Auth;
 use DB;
 use Session;
@@ -43,8 +45,8 @@ class SuscripcionController extends Controller
                     'name' => $request->nombreCompletoAlumno,
                     'name_apoderado' => $request->nombreCompletoApoderado,
                     'genero' => $request->genero,
-                    'id_curso' => $request->curso,
-                    'id_plan' => $request->plan,
+                    // 'id_curso' => $request->curso,
+                    // 'id_plan' => $request->plan,
                     'email' => $request->email,
                     'password' => \Hash::make($request->password),
                     'tipo' => 1, //0 es admin 2 es profesor
@@ -65,26 +67,26 @@ class SuscripcionController extends Controller
 
     public function pagarPlan(Request $request)
     {
+
+            $planes = Plan::all();
+            return view('Suscripcion.seleccionarPlan',compact('planes'));
+  
+
+    }
+
+    public function procesarPago(Request $request)
+    {
         $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
         ->getNormalTransaction();
 
-        $usuario = Auth::user();
-        switch ($usuario->id_plan) {
-            case '1':
-                $monto = 10000;
-                break;
-            case '2':
-                $monto = 20000;
-                break;
-            case '3':
-                $monto = 30000;
-                break;
-            
-            default:
-                $monto = 0;
-                break;
-        }   
-        // dd($monto);
+        $precio = DB::table('plan')->where('id_curso' , $request->curso)->first()->precio;
+        $monto = $precio * $request->plan;
+
+        //Subir a sesión que curso y plan eligió, una vez procesado el pago se le asignará curso y plan en bd
+        Session::forget('idCurso');
+        Session::forget('idPlan');
+        Session::put('idCurso', $request->curso);
+        Session::put('idPlan', $request->plan);
 
         $sessionId = Session::getId();
 
@@ -112,6 +114,25 @@ class SuscripcionController extends Controller
         if ($output->responseCode == 0) {
             // Transaccion exitosa, puedes procesar el resultado con el contenido de
             // las variables result y output.
+            $idUsuario = Auth::user()->id;
+
+            $pago = new Pago;
+            $pago->buyOrder = $result->buyOrder;
+            $pago->idAlumno = $idUsuario;
+            $pago->amount = $output->amount;
+            $pago->cardNumber = $result->cardDetail->cardNumber;
+            $pago->transactionDate = $result->transactionDate;
+            $pago->commerceCode = $output->commerceCode;
+            $pago->save();
+
+            $idCurso = Session::get('idCurso');
+            $idPlan = Session::get('idPlan');
+            
+            $usuario = DB::table('users')
+            ->where('id', $idUsuario)
+            ->update(['id_curso' => $idCurso,'id_plan' => $idPlan]);
+
+
             return view('Suscripcion.terminarPago', compact('result','tokenWs'));
 
         }else{

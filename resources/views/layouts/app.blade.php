@@ -105,6 +105,8 @@
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    
     <title>Casa educa</title>
 </head>
 <body>
@@ -170,7 +172,8 @@
         </div>
     </nav>
 
-    <!-- SEGUNDO NAVBAR -->
+    @guest
+         <!-- SEGUNDO NAVBAR -->
     <nav class="navbar navbar-expand-md bg-ce2 navbar-light bg-white shadow-sm">
         <div class="collapse navbar-collapse navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
@@ -192,6 +195,9 @@
             </ul>
         </div>
     </nav>
+    @endguest
+   
+
 
     <!-- MAIN CONTENT -->
     <main class="">
@@ -289,7 +295,9 @@
 <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 {{-- <script src="{{asset('/js/slideCursos.js')}}"></script>  --}}
 <!-- HOME -->
+
 {{-- <script src="{{asset("public/js/funciones.js")}}"></script>  --}}
+
 
 <script>
     $('.cargarClase').click(function(e){
@@ -312,17 +320,11 @@
     })
 });
 
-
-
 $(".list-group-item").click(function() {
     // $(this).parent().addClass('active').siblings().removeClass('active');
     $(this).addClass('active').siblings().removeClass('active');
 });
 
-
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );
 
 </script>
 

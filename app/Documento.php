@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Unidad extends Model
+class Documento extends Model
 {
-    protected $table = 'unidad';
+    protected $table = 'documento';
     public $timestamps = false;
-    public $primaryKey  = 'idunidad';
-
 }

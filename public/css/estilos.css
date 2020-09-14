@@ -58,7 +58,9 @@
 
 body {
     background-color: #dbd7ec !important;
-    font-family: Rockwell!important;
+    /* font-family: Rockwell!important; */
+    /* font-family: Rockwell; */
+    font-family: 'Merriweather', serif !important;
 }
 
 .bg-ce1 {

@@ -20,6 +20,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'http://localhost:8000/finalizarPago',
-        'http://localhost:8000/activarCuenta'
+        'http://localhost:8000/activarCuenta',
+        'http://localhost:8000/procesarPago'
     ];
 }

@@ -8,4 +8,5 @@ class Asignatura extends Model
 {
     protected $table = 'asignatura';
     public $timestamps = false;
+    public $primaryKey  = 'idasignatura';
 }

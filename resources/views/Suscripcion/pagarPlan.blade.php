@@ -1,18 +1,11 @@
-@extends('layouts.app')
-
-@section('content')
-
-@php
-    
-
-@endphp
-
 
 <div class="container">
-    <h1>Activa tu cuenta</h1>
-    <form action="{{$formAction}}" method="POST">
+    <form id="return-form" action="{{$formAction}}" method="POST">
     <input type="hidden" name="token_ws" value={{$tokenWs}}>
-    <button type="submit" class="btn primary">Pagar</button>
+    <button type="submit" class="btn primary"></button>
     </form>
 </div>
-@endsection
+
+<script>
+    document.getElementById('return-form').submit();
+</script>
