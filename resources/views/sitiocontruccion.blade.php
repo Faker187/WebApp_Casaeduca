@@ -23,7 +23,7 @@
     <div class="container-fluid m-0 p-0">
         <div class="row m-0 p-0">
             <div class="col-md-12 m-0 p-0">
-                <img src="{{ URL::asset('img/POPUPSITIOENCONSTRUCCION.png') }} " class="imgfluid m-0 p-0" alt="sitio en contruccion">
+                <img src="{{ URL::asset('/img/POPUPSITIOENCONSTRUCCION.png') }} " class="imgfluid m-0 p-0" alt="sitio en contruccion">
             </div>
         </div>
     </div>
