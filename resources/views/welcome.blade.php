@@ -11,16 +11,16 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ asset('img/1.png') }}" alt="First slide">
+                <img class="d-block w-100" src="{{ asset('public/img/1.png') }}" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/2.png') }}" alt="Second slide">
+                <img class="d-block w-100" src="{{ asset('public/img/2.png') }}" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/3.png') }}" alt="Third slide">
+                <img class="d-block w-100" src="{{ asset('public/img/3.png') }}" alt="Third slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/4.png') }}" alt="Third slide">
+                <img class="d-block w-100" src="{{ asset('public/img/4.png') }}" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -53,12 +53,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3">
-                    <h2 class="h2 text-white">Métodos <img src="{{ asset('img/casaeducaMetodos.png') }}" width="30" alt="img05"/></h2>
+                    <h2 class="h2 text-white">Métodos <img src="{{ asset('public/img/casaeducaMetodos.png') }}" width="30" alt="img05"/></h2>
                     <p class="text-justify text-white">Lorem ipsum dolor sit amet consectetur velit habitant enim tempus proin potenti sollicitudin.</p>
                 </div>
                 <div class="col-md-9 my-auto">
                   <div class="pl-5">
-                    <img class="card-img" src="{{ asset('img/ICONOS.png') }}" alt="primero blog">
+                    <img class="card-img" src="{{ asset('public/img/ICONOS.png') }}" alt="primero blog">
                   </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
     <!-- ====== Cursos ====== -->
       <div id="multi-item-cursos" class="carousel slide carousel-multi-item pb-5 pt-2" data-ride="carousel">
         <h2 class="h1-responsive text-center my-4">
-        <img class="card-img" src="{{ asset('img/SOMBRERO.png') }}" style="width: 100px;margin-bottom: 1rem;" alt="sombrero">
+        <img class="card-img" src="{{ asset('public/img/SOMBRERO.png') }}" style="width: 100px;margin-bottom: 1rem;" alt="sombrero">
           Nuestros cursos
         </h2>
         <!--Controles-->
@@ -97,7 +97,7 @@
                 <div class="col-sm-4 " style="float:left">
                     <div class="grid">
                         <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/primerobasico.png') }}" alt="primero basico">
+                        <img class="card-img" src="{{ asset('public/img/primerobasico.png') }}" alt="primero basico">
                         <figcaption>
                             <h2><span>1° </span>Básico</h2>
                             <p>
@@ -111,7 +111,7 @@
                 <div class="col-sm-4" style="float:left">
                     <div class="grid">
                     <figure class="effect-kira">
-                    <img class="card-img" src="{{ asset('img/segundobasico.png') }}" alt="segundo basico">
+                    <img class="card-img" src="{{ asset('public/img/segundobasico.png') }}" alt="segundo basico">
                         <figcaption>
                             <h2><span>2° </span>Básico</h2>
                             <p>
@@ -125,7 +125,7 @@
                 <div class="col-sm-4" style="float:left">
                     <div class="grid">
                         <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/tercerobasico.png') }}" alt="tercero basico">
+                        <img class="card-img" src="{{ asset('public/img/tercerobasico.png') }}" alt="tercero basico">
                         <figcaption>
                             <h2><span>3° </span>Básico</h2>
                             <p>
@@ -144,7 +144,7 @@
                 <div class="col-sm-4 " style="float:left">
                     <div class="grid">
                         <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/cuartobasico.jpg') }}" alt="cuarto basico">
+                        <img class="card-img" src="{{ asset('public/img/cuartobasico.jpg') }}" alt="cuarto basico">
                         <figcaption>
                             <h2><span>4° </span>Básico</h2>
                             <p>
@@ -158,7 +158,7 @@
                 <div class="col-sm-4 " style="float:left">
                     <div class="grid">
                         <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/cuartobasico.jpg') }}" alt="cuarto basico">
+                        <img class="card-img" src="{{ asset('public/img/quintobasico.jpg') }}" alt="quinto basico">
                         <figcaption>
                             <h2><span>5° </span>Básico</h2>
                             <p>
@@ -172,7 +172,7 @@
                 <div class="col-sm-4 " style="float:left">
                     <div class="grid">
                         <figure class="effect-kira">
-                        <img src="{{ asset('img/sextobasico.png') }}" alt="sexto basico">
+                        <img src="{{ asset('public/img/cuartobasico.png') }}" alt="sexto basico">
                         <figcaption>
                             <h2><span>6° </span>Básico</h2>
                             <p>
@@ -190,9 +190,9 @@
                 <div class="col-sm-4 " style="float:left">
                     <div class="grid">
                         <figure class="effect-kira">
-                        <img src="{{ asset('img/septimobasico.jpg') }}" alt="septimo basico">
+                        <img src="{{ asset('public/img/cuartobasico.jpg') }}" alt="septimo basico">
                         <figcaption>
-                            <h2><span>4° </span>Básico</h2>
+                            <h2><span>7° </span>Básico</h2>
                             <p>
                                 <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
@@ -204,9 +204,9 @@
                 <div class="col-sm-4 " style="float:left">
                     <div class="grid">
                         <figure class="effect-kira">
-                        <img src="{{ asset('img/octavobasico.jpg') }}" alt="octavo basico">
+                        <img src="{{ asset('public/img/cuartobasico.jpg') }}" alt="octavo basico">
                         <figcaption>
-                            <h2><span>5° </span>Básico</h2>
+                            <h2><span>8° </span>Básico</h2>
                             <p>
                                 <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>

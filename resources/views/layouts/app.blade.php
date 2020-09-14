@@ -10,14 +10,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">|
@@ -100,8 +100,8 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/hover.css') }}" rel="stylesheet">
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
@@ -250,10 +250,10 @@
 
 {{-- datatable --}}
 <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-{{-- <script src="{{asset('/js/slideCursos.js')}}"></script>  --}}
+{{-- <script src="{{asset('public/js/slideCursos.js')}}"></script>  --}}
 <!-- HOME -->
 
-{{-- <script src="{{asset("public/js/funciones.js")}}"></script>  --}}
+{{-- <script src="{{ asset('public/js/funciones.js')}}"></script>  --}}
 
 
 <script>
