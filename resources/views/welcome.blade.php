@@ -101,7 +101,7 @@
                         <figcaption>
                             <h2><span>1° </span>Básico</h2>
                             <p>
-                                <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
+                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
                         </figcaption>			
                         </figure>
@@ -115,7 +115,7 @@
                         <figcaption>
                             <h2><span>2° </span>Básico</h2>
                             <p>
-                                <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
+                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
                         </figcaption>			
                     </figure>
@@ -129,7 +129,7 @@
                         <figcaption>
                             <h2><span>3° </span>Básico</h2>
                             <p>
-                                <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
+                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
                         </figcaption>			
                         </figure>
@@ -148,7 +148,7 @@
                         <figcaption>
                             <h2><span>4° </span>Básico</h2>
                             <p>
-                                <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
+                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
                         </figcaption>			
                         </figure>
@@ -162,7 +162,7 @@
                         <figcaption>
                             <h2><span>5° </span>Básico</h2>
                             <p>
-                                <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
+                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
                         </figcaption>			
                         </figure>
@@ -176,7 +176,7 @@
                         <figcaption>
                             <h2><span>6° </span>Básico</h2>
                             <p>
-                                <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
+                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
                         </figcaption>			
                         </figure>
@@ -194,7 +194,7 @@
                         <figcaption>
                             <h2><span>7° </span>Básico</h2>
                             <p>
-                                <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
+                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
                         </figcaption>			
                         </figure>
@@ -208,7 +208,7 @@
                         <figcaption>
                             <h2><span>8° </span>Básico</h2>
                             <p>
-                                <a href="#"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
+                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
                             </p>
                         </figcaption>			
                         </figure>
