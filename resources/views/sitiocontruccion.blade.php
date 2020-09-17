@@ -17,6 +17,11 @@
             width: 101%!important;
             height: 101vh!important;
         }
+        @media (max-width: 600px){
+            .imgfluid{
+                background-image: url("../../public/img/POPUPCASAEDUCA-2.png png")!important;
+            }
+        }
     </style>
 </head>
 <body>
