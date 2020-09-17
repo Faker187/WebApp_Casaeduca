@@ -35,7 +35,7 @@
         <div class="row m-0 p-0">
             <div class="col-md-12 m-0 p-0">
                 <img src="{{ URL::asset('public/img/POPUPSITIOENCONSTRUCCION.png') }} " class="imgfluid m-0 p-0" alt="sitio en contruccion">
-                <img src="{{ URL::asset('public/img/POPUPCASAEDUCA-2.png') }} " id="movile" class="imgfluid m-0 p-0" alt="sitio en contruccion">
+                <img src="{{ URL::asset('public/img/POPUPCASAEDUCA.png') }} " id="movile" class="imgfluid m-0 p-0" alt="sitio en contruccion">
             </div>
         </div>
     </div>
