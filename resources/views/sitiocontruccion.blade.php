@@ -17,13 +17,13 @@
             width: 101%!important;
             height: 101vh!important;
         }
-        .movile{
+        #mobile{
             display:none;
             width: 101%!important;
             height: 101vh!important;
         }
         @media (max-width: 600px){
-            .movile{
+            #mobile{
                 display:block!important;
                 width: 101%!important;
                 height: 101vh!important;
@@ -39,7 +39,7 @@
         <div class="row m-0 p-0">
             <div class="col-md-12 m-0 p-0">
                 <img src="{{ URL::asset('public/img/POPUPSITIOENCONSTRUCCION.png') }} " class="imgfluid m-0 p-0" alt="sitio en contruccion">
-                <img src="{{ URL::asset('public/img/POPUPCASAEDUCA.png') }} " id="movile" class="m-0 p-0" alt="sitio en contruccion">
+                <img src="{{ URL::asset('public/img/POPUPCASAEDUCA.png') }} " id="mobile" class="m-0 p-0" alt="sitio en contruccion">
             </div>
         </div>
     </div>
