@@ -19,7 +19,7 @@
         }
         @media (max-width: 600px){
             .imgfluid{
-                background-image: url("../../public/img/POPUPCASAEDUCA-2.png png")!important;
+                background-image: url("../../public/img/POPUPCASAEDUCA-2.png")!important;
             }
         }
     </style>
