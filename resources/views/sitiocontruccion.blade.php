@@ -17,9 +17,15 @@
             width: 101%!important;
             height: 101vh!important;
         }
+        .movile{
+            display:none;
+        }
         @media (max-width: 600px){
+            .movile{
+                display:block!important;
+            }
             .imgfluid{
-                background-image: url("../../public/img/POPUPCASAEDUCA-2.png")!important;
+                display:none;
             }
         }
     </style>
@@ -29,6 +35,7 @@
         <div class="row m-0 p-0">
             <div class="col-md-12 m-0 p-0">
                 <img src="{{ URL::asset('public/img/POPUPSITIOENCONSTRUCCION.png') }} " class="imgfluid m-0 p-0" alt="sitio en contruccion">
+                <img src="{{ URL::asset('public/img/POPUPCASAEDUCA-2.png') }} " id="movile" class="imgfluid m-0 p-0" alt="sitio en contruccion">
             </div>
         </div>
     </div>
