@@ -11,7 +11,7 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-12">
         <h1 class="h1-responsive text-center text-white">
-        <img class="card-img" src="{{ asset('public/img/REGLA_CORAZON.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
+        <img class="card-img" src="{{ asset('img/REGLA_CORAZON.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
         Casa Educa
         </h1>
         <hr class="my-5"> 
@@ -19,13 +19,13 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <img class="card-img" src="{{ asset('public/img/casaeduca1.jpg') }}" alt="casa educa 1">
+        <img class="card-img" src="{{ asset('img/casaeduca1.jpg') }}" alt="casa educa 1">
     </div>
     <div class="col-md-4">
-        <img class="card-img" src="{{ asset('public/img/casaeduca2.jpg') }}" alt="casa educa 2">
+        <img class="card-img" src="{{ asset('img/casaeduca2.jpg') }}" alt="casa educa 2">
     </div>
     <div class="col-md-4">
-        <img class="card-img" src="{{ asset('public/img/casaeduca3.jpg') }}" alt="casa educa 3">
+        <img class="card-img" src="{{ asset('img/casaeduca3.jpg') }}" alt="casa educa 3">
     </div>
 </div>
 
@@ -37,7 +37,7 @@
     </div>
 </div>
 <div class="row justify-content-center">
-    <img class="card-img" style="width: 120px;margin-bottom: 1rem;" src="{{ asset('public/img/MANOS_C.png') }}" alt="manos 3">
+    <img class="card-img" style="width: 120px;margin-bottom: 1rem;" src="{{ asset('img/MANOS_C.png') }}" alt="manos 3">
 </div>
 <!-- ====== /Casaeduca ====== -->
 </div>
