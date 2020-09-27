@@ -54,21 +54,195 @@
         #7c4d99
         #b5dbf5
         #f9e085
+        #002147
 :::::::::::::::::::::::::::::::::::*/
 
 body {
-    background-color: #dbd7ec !important;
+    background-color: #fff !important;
     /* font-family: Rockwell!important; */
     /* font-family: Rockwell; */
     font-family: 'Merriweather', serif !important;
 }
 
-footer {
-    background-image: url("../img/FOOTER.png")!important;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.footer-wrapper {
+    width: 100%;
+    float: left;
+    color: #d3d3d3;
+}
+
+.footer-wrapper p {
+    font-size: 14px;
+    color: #d3d3d3;
+}
+
+.footer {
+    width: 100%;
+    float: left;
+    padding: 9px 0 10px;
+    background: #673ab7;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.footer-bottom {
+    padding: 70px 0px;
+    background-color: #673ab7;
+    width: 100%;
+    float: left;
+    position: relative;
+    color: #777;
+}
+
+.footer-menu .widget:last-child {
+    margin: 0px;
+}
+
+.footer-menu .widget {
+    margin: 0 0 30px;
+    display: inline-block;
+    width: 100%;
+}
+
+.footer-static-title h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    text-transform: uppercase;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-menu ul.menu li a {
+    padding: 5px 0px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    color: #d3d3d3;
+    transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.copyright {
+    line-height: 22px;
+    padding: 15px 0px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    color: #d3d3d3;
+    float: left;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul.social-media {
+    float: left;
+    width: 100%;
+    margin-top: 0;
+}
+
+ul.social-media li {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+ul.social-media li a {
+    font-size: 0;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 38px;
+    color: #222;
+    display: inline-block;
+    background: #e5e5e5;
+    padding: 0px;
+    border-radius: 50%;
+}
+
+ul.social-media li a:before {
+    content: "\f09a";
+    font-family: 'FontAwesome';
+    line-height: 38px;
+    font-size: 14px;
+}
+
+ul.social-media li a span {
+    display: none;
+}
+
+ul.social-media li a:hover {
+    background: #ee2a7b;
+    color: #fff;
+}
+
+ul.social-media li a:hover.facebook {
+    background: #3b5998;
+}
+
+ul.social-media li a:hover.twitter {
+    background: #29c3f7;
+}
+
+ul.social-media li a:hover.rss {
+    background: #ffa500;
+}
+
+ul.social-media li a:hover.instagram {
+    background: #c10895;
+}
+
+ul.social-media li a:hover.pinterest {
+    background: #cc2127;
+}
+
+ul.social-media li a:hover.dribbble {
+    background: #dd3e7b;
+}
+
+ul.social-media li a.facebook:before {
+    font-family: "Font Awesome 5 Brands"!important;
+    content: "\f09a"!important;
+}
+
+ul.social-media li a.twitter:before {
+    font-family: "Font Awesome 5 Brands"!important;
+    content: "\f099";
+}
+
+ul.social-media li a.rss:before {
+    font-family: "Font Awesome 5 Brands"!important;
+    content: "\f09e";
+}
+
+ul.social-media li a.instagram:before {
+    font-family: "Font Awesome 5 Brands"!important;
+    content: "\f16d";
+}
+
+ul.social-media li a.pinterest:before {
+    font-family: "Font Awesome 5 Brands"!important;
+    content: "\f0d2";
+}
+
+ul.social-media li a.dribbble:before {
+    font-family: "Font Awesome 5 Brands"!important;
+    content: "\f17d";
 }
 
 .bg-ce1 {
@@ -84,11 +258,16 @@ footer {
 }
 
 .bg-ce4 {
-    background-color: #7c4d99 !important;
+    background-color: #673ab7 !important;
 }
 
 .bg-ce5 {
     background-color: #f9e085 !important;
+}
+
+.bg-ce6 {
+    /* background: linear-gradient(90deg, #f76a99 0%, #4a57a6 50%, #11b9f3 100%)!important; */
+    background-color: #002147 !important;
 }
 
 .color-ce1 {
@@ -121,6 +300,11 @@ footer {
 
 .btn-outline-light:focus {
     color: #000 !important;
+}
+
+.nav-item>.nav-link.active {
+    color: white;
+    background-color: red;
 }
 
 .cardplan {

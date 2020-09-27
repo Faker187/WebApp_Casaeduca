@@ -116,85 +116,72 @@
     @endphp
 
  <div id="app">
-    <!-- PRIMER NAVBAR -->
-    <nav class="navbar navbar-expand-md bg-ce1 navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img style="width:300px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-light navbar-expand-sm justify-content-center bg-ce6 py-1">
+        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+            <!-- Authentication Links -->
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('login') }}"><i class="fas fa-home text-white"></i> Ingresa</a>
+                </li>
+                {{-- @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif --}}
 
-            <div class="collapse navbar-collapse navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/suscribete"><i class="fas fa-user text-white"></i> Crea tu cuenta</a>
+                </li>
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
 
-                </ul>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        <li class="nav-item">
-                            <a class="btn bg-ce4 text-white nav-link rounded px-3" href="{{ route('login') }}"><i class="fas fa-home text-white"></i> Ingresa</a>
-                        </li>
-                        {{-- @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="btn bg-ce4 text-white nav-link rounded" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif --}}
-
-                        <li class="nav-item">
-                            <a class="btn bg-ce4 text-white nav-link rounded" href="/suscribete"><i class="fas fa-user text-white"></i> Crea tu cuenta</a>
-                        </li>
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
-            </div>
-        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
+        </ul>
     </nav>
-
     @guest
-         <!-- SEGUNDO NAVBAR -->
-    <nav class="navbar navbar-expand-md bg-ce2 navbar-light bg-white shadow-sm">
-        <div class="collapse navbar-collapse navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item px-2 ">
-                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Casaeduca') }}">Casa educa</a>
+    <nav class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+            <a class="navbar-brand mx-4 pl-5" href="{{ url('/') }}">
+                <img style="width:200px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO">
+            </a>
+            <ul class="navbar-nav w-100 justify-content-center">
+                <li class="nav-item {{ '/' == request()->path() ? 'active'  :  ''}}">
+                    <a class="nav-link color-ce4"  href="{{ url('/') }}">Casaeduca</a>
                 </li>
-                <li class="nav-item px-2 border-left border-light">
-                    <a class="nav-link text-white font-5" href="{{ url('/Cursos') }}">Cursos</a>
+                <li class="nav-item {{ 'Casaeduca' == request()->path() ? 'active'  :  ''}}">
+                    <a class="nav-link color-ce4"  href="{{ url('/Casaeduca') }}">Nosotros</a>
                 </li>
-                <li class="nav-item px-2 border-left border-light">
-                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Blog') }}">Blog</a>
+                <li class="nav-item {{ 'Cursos' == request()->path() ? 'active'  :  ''}}">
+                    <a class="nav-link color-ce4"  href="{{ url('/Cursos') }}">Cursos</a>
                 </li>
-                <li class="nav-item px-2 border-left border-light">
-                    <a class="nav-link font-5 text-white" style="padding-top: 0.6rem;" href="{{ url('/Contacto') }}">Contacto</a>
+                <li class="nav-item {{ 'Blog' == request()->path() ? 'active'  :  ''}}">
+                    <a class="nav-link color-ce4"  href="{{ url('/Blog') }}">Blog</a>
+                </li>
+                <li class="nav-item {{ 'Contacto' == request()->path() ? 'active'  :  ''}}">
+                    <a class="nav-link color-ce4"  href="{{ url('/Contacto') }}">Contacto</a>
                 </li>
             </ul>
         </div>
     </nav>
     @endguest
-   
-
 
     <!-- MAIN CONTENT -->
     <main class="">
@@ -202,39 +189,76 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="page-footer font-small mt-4 pt-5">
-        <div class="container-fluid text-center text-md-left">
-            <div class="row">
-                <div class="col-md-6 px-5">
-                    <h3 class="h3-responsive pb-1">Contáctanos</h3>
-                    <p><i class="fas fa-phone-volume fa-lg px-2"></i> +56 9 87654321</p>
-                    <p><i class="fas fa-envelope fa-lg px-2"></i> contacto@casaeduca.cl</p>
+    <div class="footer-wrapper">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row footer-menu">
+                    <div class="col-lg-5 col-md-5 col-sm-6 footer-1">
+                        <aside id="text-1" class="widget widget_text">
+                            <div class="footer-static-title"><h4><span>Sobre nosotros</span><span class="mobile-button visible-xs active"></span></h4></div>
+                            <div class="textwidget">
+                                <p class="mg4">
+                                CasaEduca fue creado con el objetivo de permitir un desarrollo de esta actividad de educación a través de soluciones integrales a quienes la practican, otorgando un verdadero soporte personalizado para alumnos y apoderados.
+                                </p>
+                                <ul class="social-media">
+                                    <li><a class="facebook" href="#">Facebook</a></li>
+                                    <li><a class="twitter" href="#">Twitter</a></li>
+                                    <li><a class="instagram" href="#">Instagram</a></li>
+                                    <li><a class="pinterest" href="#">Pinterest</a></li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+					<div class="col-lg-2 col-md-2 col-sm-6 footer-2">
+                        <aside id="nav_menu-1" class="widget widget_nav_menu">
+                            <div class="footer-static-title"><h4><span>Casa educa</span><span class="mobile-button visible-xs active"></span></h4></div>
+                            <div class="menu-my-account-container">
+                                <ul id="menu-my-account" class="menu">
+                                    <li id="menu-item-4970" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4970"><a href="{{ url('/Cursos') }}">Cursos</a></li>
+                                    <li id="menu-item-4971" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4971"><a href="{{ url('/Casaeduca') }}">Nosotros</a></li>
+                                    <li id="menu-item-4972" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4972"><a href="{{ url('/Blog') }}">Blog</a></li>
+                                </ul>
+                            </div>
+                        </aside>						
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 footer-3">
+                        <aside id="nav_menu-2" class="widget widget_nav_menu">
+                            <div class="footer-static-title"><h4><span>Mis servicios</span><span class="mobile-button visible-xs active"></span></h4></div>
+                            <div class="menu-my-services-container">
+                                <ul id="menu-my-services" class="menu">
+                                    <li id="menu-item-4977" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4977"><a href="{{ url('/suscribete') }}">Suscríbete</a></li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 footer-4">
+                        <aside id="text-2" class="widget widget_text"><div class="footer-static-title"><h4><span>Contáctanos</span><span class="mobile-button visible-xs active"></span></h4></div>
+                            <div class="textwidget">
+                                <div class="about-des">
+                                    <div class="address">
+                                        <p><i class="icon-location-pin icons color"></i> Dirección: Casa educa, Santiago</p>
+                                        <p><i class="icon-phone icons color"></i> Telefono: +569 123 456 78</p>
+                                        <p><i class="icon-envelope icons color"></i> E-mail: contacto@casaeduca.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
                 </div>
-
-                <div class="col-md-3 mb-md-0 mb-3">
-                    <h5 class="text-uppercase">Síguenos</h5>
-                    <ul class="list-unstyled">
-                        <li class="py-1">
-                            <a href="#!"><i class="fab fa-facebook-square fa-lg"></i></a>
-                        </li>
-                        <li class="py-1">
-                            <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                        </li>
-                    </ul>
+				</div>
+			</div>
+			
+			<!-- Footer -->
+			<div class="footer">
+				<div class="container">
+                    <div class="copyright-block">
+						<div class="copyright">
+                            Copyright 2020 <a href="#">Casaeduca</a>. Desarrollado por Aliados estratégicos.
+                        </div>
+					</div>
                 </div>
-
-                <div class="col-md-3 mb-md-0 mb-3">
-                    <!-- LOGO -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center bg-ce4 py-3">© 2020 Copyright:
-            <a href="https://casaeduca.cl/"> Casaeduca.cl</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
+			</div>
+		</div>
     <!-- FOOTER -->
  </div>
 
@@ -257,32 +281,32 @@
 
 
 <script>
-    $('.cargarClase').click(function(e){
-    e.preventDefault();
-    let idClase = $(this).attr('href');
-    // alert(idClase);
-    $.ajax({
-        url: '/CargarClase/'+idClase,
-        type:'GET',
-        // data:{idClase},
-        success: function(data){
-            console.log(data);
-            // let contenido = json_decode
-            $('#contenidoClase').empty().html(data);
-        },
-        error: function (error) {
-            console.log(error);
-        }
+    $(document).ready(function(){
+        $('.cargarClase').click(function(e){
+            e.preventDefault();
+            let idClase = $(this).attr('href');
+            // alert(idClase);
+            $.ajax({
+                url: '/CargarClase/'+idClase,
+                type:'GET',
+                // data:{idClase},
+                success: function(data){
+                    console.log(data);
+                    // let contenido = json_decode
+                    $('#contenidoClase').empty().html(data);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
 
-    })
-});
+            })
+        });
 
-$(".list-group-item").click(function() {
-    // $(this).parent().addClass('active').siblings().removeClass('active');
-    $(this).addClass('active').siblings().removeClass('active');
-});
-
-
+        $(".list-group-item").click(function() {
+            // $(this).parent().addClass('active').siblings().removeClass('active');
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    });
 </script>
 
 
