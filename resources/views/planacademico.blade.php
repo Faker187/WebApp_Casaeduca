@@ -19,7 +19,7 @@
 <div class="row mt-5">
     <div class="col-md-8">
         <h2 class="h2-responsive text-left text-white"><ins>Nuestro Proyecto Educativo</ins></h2>
-        <p class="my-3 lead text-white">Nuestro Proyecto Educativo esta orientado hacia los alumnos de enseñanza básica, con una clara orientación a la preparación de exámenes libres, de acuerdo a lo dispuesto en los planes y programas oficiales del Ministerio de educación vigentes para los respectivos cursos y niveles, con propósitos definidos, articulados para segurar una adecuada trayectpria educativa entre sí y correlacionado con la etapa de vida de los alumnos entre los 6 y 13 años.</p>
+        <p class="my-3 lead text-white">Nuestro Proyecto Educativo esta orientado hacia los alumnos de enseñanza básica, con una clara orientación a la preparación de exámenes libres, de acuerdo a lo dispuesto en los planes y programas oficiales del Ministerio de educación vigentes para los respectivos cursos y niveles, con propósitos definidos, articulados para asegurar una adecuada trayectoria educativa entre sí y correlacionado con la etapa de vida de los alumnos entre los 6 y 13 años.</p>
     </div>
     <hr class="my-5 text-white"> 
     <div class="col-md-4">

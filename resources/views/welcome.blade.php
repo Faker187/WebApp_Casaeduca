@@ -93,127 +93,247 @@
         <div class="carousel-inner" role="listbox">
             <!-- Primer slide-->
             <div class="carousel-item active">
+                <!-- Card deck -->
+                <div class="card-deck">
 
-                <div class="col-sm-4 " style="float:left">
-                    <div class="grid">
-                        <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/primerobasico.png') }}" alt="primero basico">
-                        <figcaption>
-                            <h2><span>1° </span>Básico</h2>
-                            <p>
-                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
-                            </p>
-                        </figcaption>			
-                        </figure>
-                    </div>
+                <!-- Card -->
+                <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{ asset('img/primerobasico.png') }}"
+                    alt="Card image cap">
+                    <a href="{{ url('/Cursos') }}">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
                 </div>
 
-                <div class="col-sm-4" style="float:left">
-                    <div class="grid">
-                    <figure class="effect-kira">
-                    <img class="card-img" src="{{ asset('img/segundobasico.png') }}" alt="segundo basico">
-                        <figcaption>
-                            <h2><span>2° </span>Básico</h2>
-                            <p>
-                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
-                            </p>
-                        </figcaption>			
-                    </figure>
-                    </div>
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">1° Básico</h4>
+                    <!--Text-->
+                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
+
                 </div>
 
-                <div class="col-sm-4" style="float:left">
-                    <div class="grid">
-                        <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/tercerobasico.png') }}" alt="tercero basico">
-                        <figcaption>
-                            <h2><span>3° </span>Básico</h2>
-                            <p>
-                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
-                            </p>
-                        </figcaption>			
-                        </figure>
-                    </div>
+                </div>
+                <!-- Card -->
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{ asset('img/segundobasico.png') }}"
+                    alt="Card image cap">
+                    <a href="{{ url('/Cursos') }}">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
                 </div>
 
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">2° Básico</h4>
+                    <!--Text-->
+                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!.</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
+
+                </div>
+
+                </div>
+                <!-- Card -->
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{ asset('img/tercerobasico.png') }}"
+                    alt="Card image cap">
+                    <a href="{{ url('/Cursos') }}">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">3° Básico</h4>
+                    <!--Text-->
+                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
+
+                </div>
+
+                </div>
+                <!-- Card -->
+
+                </div>
+                <!-- Card deck -->
             </div>
             <!-- Primer slide-->
 
             <!--SEgundo slide-->
             <div class="carousel-item">
-                <div class="col-sm-4 " style="float:left">
-                    <div class="grid">
-                        <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/cuartobasico.jpg') }}" alt="cuarto basico">
-                        <figcaption>
-                            <h2><span>4° </span>Básico</h2>
-                            <p>
-                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
-                            </p>
-                        </figcaption>			
-                        </figure>
-                    </div>
+                <!-- Card deck -->
+                <div class="card-deck">
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                    alt="Card image cap">
+                    <a href="{{ url('/Cursos') }}">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
                 </div>
 
-                <div class="col-sm-4 " style="float:left">
-                    <div class="grid">
-                        <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/cuartobasico.jpg') }}" alt="cuarto basico">
-                        <figcaption>
-                            <h2><span>5° </span>Básico</h2>
-                            <p>
-                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
-                            </p>
-                        </figcaption>			
-                        </figure>
-                    </div>
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">4° Básico</h4>
+                    <!--Text-->
+                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
+
                 </div>
 
-                <div class="col-sm-4 " style="float:left">
-                    <div class="grid">
-                        <figure class="effect-kira">
-                        <img class="card-img" src="{{ asset('img/cuartobasico.jpg') }}" alt="cuarto basico">
-                        <figcaption>
-                            <h2><span>6° </span>Básico</h2>
-                            <p>
-                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
-                            </p>
-                        </figcaption>			
-                        </figure>
-                    </div>
                 </div>
+                <!-- Card -->
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                    alt="Card image cap">
+                    <a href="{{ url('/Cursos') }}">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">5° Básico</h4>
+                    <!--Text-->
+                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
+
+                </div>
+
+                </div>
+                <!-- Card -->
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                    alt="Card image cap">
+                    <a href="{{ url('/Cursos') }}">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">6° Básico</h4>
+                    <!--Text-->
+                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
+
+                </div>
+
+                </div>
+                <!-- Card -->
+
+                </div>
+                <!-- Card deck -->
             </div>
             <!--Segundo slide-->
 
             <!--Tercer slide-->
             <div class="carousel-item">
-                <div class="col-sm-4 " style="float:left">
-                    <div class="grid">
-                        <figure class="effect-kira">
-                        <img src="{{ asset('img/cuartobasico.jpg') }}" alt="septimo basico">
-                        <figcaption>
-                            <h2><span>7° </span>Básico</h2>
-                            <p>
-                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
-                            </p>
-                        </figcaption>			
-                        </figure>
-                    </div>
+                <!-- Card deck -->
+                <div class="card-deck">
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                    alt="Card image cap">
+                    <a href="{{ url('/Cursos') }}">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
                 </div>
 
-                <div class="col-sm-4 " style="float:left">
-                    <div class="grid">
-                        <figure class="effect-kira">
-                        <img src="{{ asset('img/cuartobasico.jpg') }}" alt="octavo basico">
-                        <figcaption>
-                            <h2><span>8° </span>Básico</h2>
-                            <p>
-                                <a href="{{ url('/Cursos') }}"><i class="fas fas-fw fa-angle-double-right pr-2"></i> Ver mas</a>
-                            </p>
-                        </figcaption>			
-                        </figure>
-                    </div>
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">7° Básico</h4>
+                    <!--Text-->
+                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!.</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn btn-info btn-md">Ver más</button>
+
                 </div>
+
+                </div>
+                <!-- Card -->
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                    alt="Card image cap">
+                    <a href="{{ url('/Cursos') }}">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">8° Básico</h4>
+                    <!--Text-->
+                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
+
+                </div>
+
+                </div>
+                <!-- Card -->
+
+                </div>
+                <!-- Card deck -->
             </div>
             <!--TERCER slide-->
         </div>

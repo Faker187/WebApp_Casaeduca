@@ -24,11 +24,11 @@
                     </div>
                     <div class="col-md-3">
                         <h2 class="h2-responsive color-ce4"><span class="font-weight-bold">1°</span> Básico</h2>
-                        <h5 class="h5-responsive color-ce4">$ 19.990</h5>
+                        <h5 class="h5-responsive color-ce4">19.990</h5>
                         <button type="button" class="btn px-3 py-2 btn-outline-light color-ce-dark">Entrar</button>
                     </div>
                     <div class="col-md-6">
-                        <p class="my-5">Se espera que los niños que comienzan primero básico conozcan el alfabeto y las
+                        <p class="my-5" style="text-align:justify;">Se espera que los niños que comienzan primero básico conozcan el alfabeto y las
                         características básicas de las letras y las palabras. También suelen ser capaces de
                         reconocer y decir palabras que riman, lo que permite a nuestros nuevos lectores a
                         aprender palabras nuevas y leer libros sencillos. En cuanto a la escritura, se espera
@@ -53,11 +53,11 @@
                     </div>
                     <div class="col-md-3">
                         <h2 class="h2-responsive color-ce4"><span class="font-weight-bold">2°</span> Básico</h2>
-                        <h5 class="h5-responsive color-ce4">$ 19.990</h5>
+                        <h5 class="h5-responsive color-ce4">19.990</h5>
                         <button type="button" class="btn px-3 py-2 btn-outline-light color-ce-dark">Entrar</button>
                     </div>
                     <div class="col-md-6">
-                        <p class="my-5">El aprendizaje en este curso debe continuar con la conexión de letras y sonidos
+                        <p class="my-5" style="text-align:justify;">El aprendizaje en este curso debe continuar con la conexión de letras y sonidos
                         para armar palabras y escribir oraciones cortas. También deben leer historias y
                         poemas y aprender a discutir acerca de lo que han leído. Se espera que sepan
                         responder preguntas como: quién, qué, dónde, cuándo, por qué y cómo, acerca de
@@ -80,15 +80,15 @@
                     </div>
                     <div class="col-md-3">
                         <h2 class="h2-responsive color-ce4"><span class="font-weight-bold">3°</span> Básico</h2>
-                        <h5 class="h5-responsive color-ce4">$ 19.990</h5>
+                        <h5 class="h5-responsive color-ce4">19.990</h5>
                         <button type="button" class="btn px-3 py-2 btn-outline-light color-ce-dark">Entrar</button>
                     </div>
                     <div class="col-md-6">
-                        <p class="my-5">Se espera que los niños en esta etapa sepan cómo recopilar información sobre un
+                        <p class="my-5" style="text-align:justify;">Se espera que los niños en esta etapa sepan cómo recopilar información sobre un
                         tema en particular, revisando diversas fuentes y como resumirla. También se
                         espera que sepan editar y revisar trabajos escritos. También, empiezan a ocupar el
                         conocimiento abstracto, trabajan con cifras de tres dígitos, aplicando el
-                        conocimiento número según su posición. Esto último es muy importante, ya que
+                        conocimiento del número según su posición. Esto último es muy importante, ya que
                         permitirá sumar y restar, redondear cifras, multiplicar y dividir. Se les exigirá que
                         hagan cosas más complejas por su cuenta, que empiecen a usar habilidades para
                         organizarse y administrar su tiempo y motivarlos a pensar en materia crítica para
@@ -105,11 +105,11 @@
                     </div>
                     <div class="col-md-3">
                         <h2 class="h2-responsive color-ce4"><span class="font-weight-bold">4°</span> Básico</h2>
-                        <h5 class="h5-responsive color-ce4">$ 19.990</h5>
+                        <h5 class="h5-responsive color-ce4">19.990</h5>
                         <button type="button" class="btn px-3 py-2 btn-outline-light color-ce-dark">Entrar</button>
                     </div>
                     <div class="col-md-6">
-                        <p class="my-5">Desde decimales y fracciones más difíciles, hasta mediciones de ángulos, los
+                        <p class="my-5" style="text-align:justify;">Desde decimales y fracciones más difíciles, hasta mediciones de ángulos, los
                         estudiantes de cuarto básico trabajarán conceptos complejos y que pueden dejar
                         fuera fácilmente los antiguos conocimientos de sus padres. Puede ayudar a su hijo
                         a cronometrar su velocidad sobre la bicicleta, preparar algunos pasteles y hacer
@@ -132,19 +132,18 @@
                     </div>
                     <div class="col-md-3">
                         <h2 class="h2-responsive color-ce4"><span class="font-weight-bold">5°</span> Básico</h2>
-                        <h5 class="h5-responsive color-ce4">$ 19.990</h5>
+                        <h5 class="h5-responsive color-ce4">19.990</h5>
                         <button type="button" class="btn px-3 py-2 btn-outline-light color-ce-dark">Entrar</button>
                     </div>
                     <div class="col-md-6">
-                        <p class="my-5">Cuarto y Quinto Básico son años de cambios en muchos aspectos: sociales,
+                        <p class="my-5" style="text-align:justify;">Cuarto y Quinto Básico son años de cambios en muchos aspectos: sociales,
                         académicos y físicos. Usted podría notar que su hijo o hija pega un “estirón”, o
                         tiene una creciente necesidad de independencia y el deseo de ser aceptado por
                         sus pares. El desarrollo moral también ha progresado, por lo tanto, se pasa de la
                         obediencia impuesta a una internalización de los valores y de principios éticos
-                        rectores de la conducto. También pueden ser dispersos, disminuyendo su
-                        capacidad de concentración, sin tener ganas de nada, puede ser silenciosos. La
+                        rectores de la conducta. También pueden ser dispersos, disminuyendo su
+                        capacidad de concentración, sin tener ganas de nada, pueden ser silenciosos. La
                         aparición de la ansiedad, puede ser calmado comiendo carbohidratos como
-
                         chocolates y golosinas. Pueden buscar evadir la realidad a través de tecnologías
                         como los videojuegos, la televisión e internet.</p>
                     </div>
@@ -159,11 +158,11 @@
                     </div>
                     <div class="col-md-3">
                         <h2 class="h2-responsive color-ce4"><span class="font-weight-bold">6°</span> Básico</h2>
-                        <h5 class="h5-responsive color-ce4">$ 19.990</h5>
+                        <h5 class="h5-responsive color-ce4">19.990</h5>
                         <button type="button" class="btn px-3 py-2 btn-outline-light color-ce-dark">Entrar</button>
                     </div>
                     <div class="col-md-6">
-                    <p class="my-5">Los niños y niñas a esta edad son capaces de construir nuevas y propias ideas,
+                    <p class="my-5" style="text-align:justify;">Los niños y niñas a esta edad son capaces de construir nuevas y propias ideas,
                         pensando en forma abstracta y participar activamente en la exploración de las
                         áreas de interés de todas las disciplinas. Empiezan a predecir las consecuencias de
                         sus acciones y planifican acorde a ello. Pueden discutir sobre un tema en cuestión,
@@ -187,11 +186,11 @@
                     </div>
                     <div class="col-md-3">
                         <h2 class="h2-responsive color-ce4"><span class="font-weight-bold">7°</span> Básico</h2>
-                        <h5 class="h5-responsive color-ce4">$ 19.990</h5>
+                        <h5 class="h5-responsive color-ce4">19.990</h5>
                         <button type="button" class="btn px-3 py-2 btn-outline-light color-ce-dark">Entrar</button>
                     </div>
                     <div class="col-md-6">
-                        <p class="my-5">Llegamos al final de la primera etapa de vida de nuestros hijos, en uno de los
+                        <p class="my-5" style="text-align:justify;">Llegamos al final de la primera etapa de vida de nuestros hijos, en uno de los
                         acontecimientos más importantes en su desarrollo, pues justamente durante este
                         periodo comienza la pubertad. Durante estos años pronto dejarán de ser niños
                         para convertirse en adolescentes, pasarán por grandes cambios físicos y
@@ -213,11 +212,11 @@
                     </div>
                     <div class="col-md-3">
                         <h2 class="h2-responsive color-ce4"><span class="font-weight-bold">8°</span> Básico</h2>
-                        <h5 class="h5-responsive color-ce4">$ 19.990</h5>
+                        <h5 class="h5-responsive color-ce4">19.990</h5>
                         <button type="button" class="btn px-3 py-2 btn-outline-light color-ce-dark">Entrar</button>
                     </div>
                     <div class="col-md-6">
-                        <p class="my-5">A esta edad, adquieren nuevas habilidades intelectuales y sociales. Incrementan la
+                        <p class="my-5" style="text-align:justify;">A esta edad, adquieren nuevas habilidades intelectuales y sociales. Incrementan la
                         impulsividad y disminuye el umbral del goce. Les atrae lo novedoso. Desaparece la
                         melancolía y los miedos por la pérdida de la niñez. Buscan sensaciones que
                         encuentran en los grupos de amigos. Los hombres reciben testosterona, la
