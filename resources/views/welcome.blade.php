@@ -47,12 +47,12 @@
     <!-- ====== /plan academico ====== -->
 
 
-
+    <div class="container my-5 sol" > 
     <!-- ====== metodos ====== -->
-      <div class="card mt-5 bg-ce5">
+      <div class="card mt-5 bg-ce5" >
         <div class="card-body">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 text-center">
                     <h2 class="h2 text-white">Métodos <img src="{{ asset('img/casaeducaMetodos.png') }}" width="30" alt="img05"/></h2>
                     <p class="text-justify text-white">Lorem ipsum dolor sit amet consectetur velit habitant enim tempus proin potenti sollicitudin.</p>
                 </div>
@@ -66,281 +66,356 @@
         </div>
       </div>
     <!-- ====== metodos ====== -->
+    </div>
+   
+        <!-- ====== Cursos ====== -->
+        <div id="multi-item-cursos" class="carousel slide carousel-multi-item pb-5 pt-2" data-ride="carousel">
+            <h2 class="h1-responsive text-center my-4">
+            <img class="card-img" src="{{ asset('img/SOMBRERO.png') }}" style="width: 100px;margin-bottom: 1rem;" alt="sombrero">
+            Nuestros cursos
+            </h2>
+            <!--Controles-->
+            <div class="d-flex justify-content-center pb-3">
+                <a class="btn btn-sm rounded bg-ce4 text-white" href="#multi-item-cursos" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                <a class="btn btn-sm rounded bg-ce4 text-white" href="#multi-item-cursos" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+            </div>
+            <!--/.Controles-->
 
+            <!--Indicadores-->
+            <ol class="carousel-indicators">
+                <li data-target="#multi-item-cursos" data-slide-to="0" class="active"></li>
+                <li data-target="#multi-item-cursos" data-slide-to="1"></li>  
+                <li data-target="#multi-item-cursos" data-slide-to="2"></li>    
+            </ol>
+            <!--/.Indicadores-->
 
-    <!-- ====== Cursos ====== -->
-      <div id="multi-item-cursos" class="carousel slide carousel-multi-item pb-5 pt-2" data-ride="carousel">
-        <h2 class="h1-responsive text-center my-4">
-        <img class="card-img" src="{{ asset('img/SOMBRERO.png') }}" style="width: 100px;margin-bottom: 1rem;" alt="sombrero">
-          Nuestros cursos
-        </h2>
-        <!--Controles-->
-        <div class="d-flex justify-content-center pb-3">
-            <a class="btn btn-sm rounded bg-ce4 text-white" href="#multi-item-cursos" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-            <a class="btn btn-sm rounded bg-ce4 text-white" href="#multi-item-cursos" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                <!-- Primer slide-->
+                <div class="carousel-item active">
+                    <!-- Card deck -->
+                    <div class="card-deck">
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+
+                    <!--Card image-->
+                    <div class="card-header view overlay">
+                        <img class="header-img card-img-top" src="{{ asset('img/primerobasico.png') }}"
+                        alt="Card image cap">
+                        <a href="{{ url('/Cursos') }}">
+                        <div class="contenedor-precio">
+                            <div class="price">
+                                <label>$ 19.990</label>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">1° Básico</h4>
+                        <!--Text-->
+                        <p class="card-text">Nuestras actividades académicas constan de: <br>
+                       
+                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
+                            Si quieres saber más <a class="text-dark bg-ce5"><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
+
+                    </div>
+
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+
+                    <!--Card image-->
+                    <div class=" card-header view overlay">
+                        <img class="header-img card-img-top" src="{{ asset('img/segundobasico.png') }}"
+                        alt="Card image cap">
+                        <a href="{{ url('/Cursos') }}">
+                        <div class="contenedor-precio">
+                            <div class="price">
+                                    <label>$ 19.990</label>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">2° Básico</h4>
+                        <!--Text-->
+                        <p class="card-text">Nuestras actividades académicas constan de: <br>
+                       
+                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
+                            Si quieres saber más <a class="text-dark bg-ce5"><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
+
+                    </div>
+
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+
+                    <!--Card image-->
+                    <div class=" card-header view overlay">
+                        <img class=" header-img card-img-top" src="{{ asset('img/tercerobasico.png') }}"
+                        alt="Card image cap">
+                        <a href="{{ url('/Cursos') }}">
+                        <div class="contenedor-precio">
+                            <div class="price">
+                                    <label>$ 19.990</label>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">3° Básico</h4>
+                        <!--Text-->
+                        <p class="card-text">Nuestras actividades académicas constan de: <br>
+                        
+                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
+
+                        </p>
+                        <p class="card-text temblor animate__animated animate__bounce">
+                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
+
+                    </div>
+
+                    </div>
+                    <!-- Card -->
+
+                    </div>
+                    <!-- Card deck -->
+                </div>
+                <!-- Primer slide-->
+
+                <!--SEgundo slide-->
+                <div class="carousel-item">
+                    <!-- Card deck -->
+                    <div class="card-deck">
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+
+                    <!--Card image-->
+                    <div class="card-header view overlay">
+                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        alt="Card image cap">
+                        <a href="{{ url('/Cursos') }}">
+                        <div class="contenedor-precio">
+                            <div class="price">
+                                <label>$ 19.990</label>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">4° Básico</h4>
+                        <!--Text-->
+                        <p class="card-text">Nuestras actividades académicas constan de: <br>
+                       
+                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
+                            Si quieres saber más <a class="text-dark"><ins>Subscríbete<i class="far fa-bell color-ce5 pl-2"></i></ins></a>
+                        </p>
+
+                    </div>
+
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+
+                    <!--Card image-->
+                    <div class="card-header view overlay">
+                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        alt="Card image cap">
+                        <a href="{{ url('/Cursos') }}">
+                        <div class="contenedor-precio">
+                            <div class="price">
+                                <label>$ 19.990</label>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">5° Básico</h4>
+                        <!--Text-->
+                        <p class="card-text">Nuestras actividades académicas constan de: <br>
+                       
+                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
+                            Si quieres saber más <a class="text-dark"><ins>Subscríbete<i class="far fa-bell color-ce5 pl-2"></i></ins></a>
+                        </p>
+
+                    </div>
+
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+
+                    <!--Card image-->
+                    <div class="card-header view overlay">
+                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        alt="Card image cap">
+                        <a href="{{ url('/Cursos') }}">
+                        <div class="contenedor-precio">
+                            <div class="price">
+                                <label>$ 19.990</label>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">6° Básico</h4>
+                        <!--Text-->
+                        <p class="card-text">Nuestras actividades académicas constan de: <br>
+                       
+                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
+                            Si quieres saber más <a class="text-dark"><ins>Subscríbete<i class="far fa-bell color-ce5 pl-2"></i></ins></a>
+                        </p>
+
+                    </div>
+
+                    </div>
+                    <!-- Card -->
+
+                    </div>
+                    <!-- Card deck -->
+                </div>
+                <!--Segundo slide-->
+
+                <!--Tercer slide-->
+                <div class="carousel-item">
+                    <!-- Card deck -->
+                    <div class="card-deck">
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+
+                    <!--Card image-->
+                    <div class="card-header view overlay">
+                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        alt="Card image cap">
+                        <a href="{{ url('/Cursos') }}">
+                        <div class="contenedor-precio">
+                            <div class="price">
+                                <label>$ 19.990</label>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">7° Básico</h4>
+                        <!--Text-->
+                        <p class="card-text">Nuestras actividades académicas constan de: <br>
+                       
+                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
+                            Si quieres saber más <a class="text-dark"><ins>Subscríbete<i class="far fa-bell color-ce5 pl-2"></i></ins></a>
+                        </p>
+
+                    </div>
+
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+
+                    <!--Card image-->
+                    <div class="card-header view overlay">
+                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        alt="Card image cap">
+                        <a href="{{ url('/Cursos') }}">
+                        <div class="contenedor-precio">
+                            <div class="price">
+                                <label>$ 19.990</label>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">8° Básico</h4>
+                        <!--Text-->
+                        <p class="card-text">Nuestras actividades académicas constan de: <br>
+                       
+                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
+                            Si quieres saber más <a class="text-dark bg-ce5"><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
+
+                    </div>
+
+                    </div>
+                    <!-- Card -->
+
+                    </div>
+                    <!-- Card deck -->
+                </div>
+                <!--TERCER slide-->
+            </div>
+            <!--/.Slides-->
+
         </div>
-        <!--/.Controles-->
-
-        <!--Indicadores-->
-        <ol class="carousel-indicators">
-            <li data-target="#multi-item-cursos" data-slide-to="0" class="active"></li>
-            <li data-target="#multi-item-cursos" data-slide-to="1"></li>  
-            <li data-target="#multi-item-cursos" data-slide-to="2"></li>    
-        </ol>
-        <!--/.Indicadores-->
-
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
-            <!-- Primer slide-->
-            <div class="carousel-item active">
-                <!-- Card deck -->
-                <div class="card-deck">
-
-                <!-- Card -->
-                <div class="card mb-4">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('img/primerobasico.png') }}"
-                    alt="Card image cap">
-                    <a href="{{ url('/Cursos') }}">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body">
-
-                    <!--Title-->
-                    <h4 class="card-title">1° Básico</h4>
-                    <!--Text-->
-                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
-
-                </div>
-
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="card mb-4">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('img/segundobasico.png') }}"
-                    alt="Card image cap">
-                    <a href="{{ url('/Cursos') }}">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body">
-
-                    <!--Title-->
-                    <h4 class="card-title">2° Básico</h4>
-                    <!--Text-->
-                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!.</p>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
-
-                </div>
-
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="card mb-4">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('img/tercerobasico.png') }}"
-                    alt="Card image cap">
-                    <a href="{{ url('/Cursos') }}">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body">
-
-                    <!--Title-->
-                    <h4 class="card-title">3° Básico</h4>
-                    <!--Text-->
-                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
-
-                </div>
-
-                </div>
-                <!-- Card -->
-
-                </div>
-                <!-- Card deck -->
-            </div>
-            <!-- Primer slide-->
-
-            <!--SEgundo slide-->
-            <div class="carousel-item">
-                <!-- Card deck -->
-                <div class="card-deck">
-
-                <!-- Card -->
-                <div class="card mb-4">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
-                    alt="Card image cap">
-                    <a href="{{ url('/Cursos') }}">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body">
-
-                    <!--Title-->
-                    <h4 class="card-title">4° Básico</h4>
-                    <!--Text-->
-                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
-
-                </div>
-
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="card mb-4">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
-                    alt="Card image cap">
-                    <a href="{{ url('/Cursos') }}">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body">
-
-                    <!--Title-->
-                    <h4 class="card-title">5° Básico</h4>
-                    <!--Text-->
-                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
-
-                </div>
-
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="card mb-4">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
-                    alt="Card image cap">
-                    <a href="{{ url('/Cursos') }}">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body">
-
-                    <!--Title-->
-                    <h4 class="card-title">6° Básico</h4>
-                    <!--Text-->
-                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
-
-                </div>
-
-                </div>
-                <!-- Card -->
-
-                </div>
-                <!-- Card deck -->
-            </div>
-            <!--Segundo slide-->
-
-            <!--Tercer slide-->
-            <div class="carousel-item">
-                <!-- Card deck -->
-                <div class="card-deck">
-
-                <!-- Card -->
-                <div class="card mb-4">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
-                    alt="Card image cap">
-                    <a href="{{ url('/Cursos') }}">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body">
-
-                    <!--Title-->
-                    <h4 class="card-title">7° Básico</h4>
-                    <!--Text-->
-                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!.</p>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn btn-info btn-md">Ver más</button>
-
-                </div>
-
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="card mb-4">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
-                    alt="Card image cap">
-                    <a href="{{ url('/Cursos') }}">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body">
-
-                    <!--Title-->
-                    <h4 class="card-title">8° Básico</h4>
-                    <!--Text-->
-                    <p class="card-text">¿Quieres saber de que consta este curso?, subscribete!</p>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-light-blue btn-md">Ver más</button>
-
-                </div>
-
-                </div>
-                <!-- Card -->
-
-                </div>
-                <!-- Card deck -->
-            </div>
-            <!--TERCER slide-->
-        </div>
-        <!--/.Slides-->
-
-      </div>
-    <!-- ====== Cursos ====== -->
+        <!-- ====== Cursos ====== -->
 
     </div>
 @endsection

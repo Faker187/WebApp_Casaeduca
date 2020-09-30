@@ -1,9 +1,3 @@
-/* @font-face {
-    font-family: 'Rockwell';
-    src: url('../font/rockwen.ttf');
-} */
-
-
 /*:::::::::::::::::::::::::::::::::::
         Cursos Slide card
 :::::::::::::::::::::::::::::::::::*/
@@ -59,9 +53,7 @@
 
 body {
     background-color: #fff !important;
-    /* font-family: Rockwell!important; */
-    /* font-family: Rockwell; */
-    font-family: 'Merriweather', serif !important;
+    font-family: 'Dancing Script', cursive!important;
 }
 
 .footer-wrapper {
@@ -343,3 +335,10 @@ a.nav-link:hover {
 .imgplan {
     width: 240px;
 }
+.temblor:hover{
+    display: inline-block;
+    animation: bounce!important;
+    animation-duration: 2s!important;
+
+}
+    

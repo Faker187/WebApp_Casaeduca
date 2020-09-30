@@ -14,7 +14,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<!--  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -99,13 +100,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/cards.css') }}" rel="stylesheet">
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
     
     <title>Casa educa</title>
 </head>
@@ -154,7 +157,7 @@
         </ul>
     </nav>
     @guest
-    <nav class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center">
+    <nav class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center bg-white">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
             <span class="navbar-toggler-icon"></span>
         </button>
