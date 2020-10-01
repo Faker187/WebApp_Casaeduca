@@ -120,7 +120,7 @@
     @endphp
 
  <div id="app">
-    <nav class="navbar navbar-light navbar-expand-sm justify-content-center bg-ce6 py-1">
+    <nav id="navbar_top" class="navbar navbar-light navbar-expand-sm justify-content-center bg-ce4 py-1">
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <!-- Authentication Links -->
             @guest
@@ -158,7 +158,7 @@
         </ul>
     </nav>
     @guest
-    <nav class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center bg-white">
+    <nav  class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center bg-white">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -174,7 +174,83 @@
                     <a class="nav-link color-ce4"  href="{{ url('/Casaeduca') }}">Nosotros</a>
                 </li>
                 <li class="nav-item {{ 'Cursos' == request()->path() ? 'active'  :  ''}}">
-                    <a class="nav-link color-ce4"  href="{{ url('/Cursos') }}">Cursos</a>
+                    <a class="nav-link  color-ce4 dropdown-toggle" href="#" data-toggle="dropdown"> Cursos  </a>
+                    <div class="dropdown-menu megamenu fade-up">
+                        <div class="container text-center my-2">
+                            <div class="row mx-auto my-auto">
+                                <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+                                    <div class="carousel-inner w-100" role="listbox">
+                                        <div class="carousel-item active">
+                                            <div class="col-md-4">
+                                                <div class="card card-body">
+                                                    <img class="img-fluid" src="http://placehold.it/380?text=1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-4">
+                                                <div class="card card-body">
+                                                    <img class="img-fluid" src="http://placehold.it/380?text=2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-4">
+                                                <div class="card card-body">
+                                                    <img class="img-fluid" src="http://placehold.it/380?text=3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-4">
+                                                <div class="card card-body">
+                                                    <img class="img-fluid" src="http://placehold.it/380?text=4">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-4">
+                                                <div class="card card-body">
+                                                    <img class="img-fluid" src="http://placehold.it/380?text=5">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-4">
+                                                <div class="card card-body">
+                                                    <img class="img-fluid" src="http://placehold.it/380?text=6">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-4">
+                                                <div class="card card-body">
+                                                    <img class="img-fluid" src="http://placehold.it/380?text=7">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-4">
+                                                <div class="card card-body">
+                                                    <img class="img-fluid" src="http://placehold.it/380?text=8">
+                                                    <p class="card-text">Textoooo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <a class="nav-link color-ce4"  href="{{ url('/Cursos') }}">Cursos</a> -->
                 </li>
                 <li class="nav-item {{ 'Blog' == request()->path() ? 'active'  :  ''}}">
                     <a class="nav-link color-ce4"  href="{{ url('/Blog') }}">Blog</a>
@@ -310,6 +386,50 @@
             // $(this).parent().addClass('active').siblings().removeClass('active');
             $(this).addClass('active').siblings().removeClass('active');
         });
+
+        if ($(window).width() > 992) {
+            $(window).scroll(function(){  
+                if ($(this).scrollTop() > 40) {
+                    $('#navbar_top').addClass("fixed-top");
+                    $('#navbar_top').css('background-color: transparent!important');
+                    // add padding top to show content behind navbar
+                    $('body').css('padding-top', $('.navbar').outerHeight() + 'px');
+                }else{
+                    $('#navbar_top').removeClass("fixed-top");
+                    $('#navbar_top').removeClass("bg-white");
+                    $('#navbar_top').css('background-color: #fff!important');
+                    // remove padding top from body
+                    $('body').css('padding-top', '0');
+                }   
+            });
+        }
+
+        $(document).on('click', '.dropdown-menu', function (e) {
+            e.stopPropagation();
+        });
+        $('#recipeCarousel').carousel({
+            interval: 10000
+            })
+
+            $('.carousel .carousel-item').each(function(){
+                var minPerSlide = 3;
+                var next = $(this).next();
+                if (!next.length) {
+                next = $(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
+                
+                for (var i=0;i<minPerSlide;i++) {
+                    next=next.next();
+                    if (!next.length) {
+                        next = $(this).siblings(':first');
+                    }
+                    
+                    next.children(':first-child').clone().appendTo($(this));
+                }
+        });
+
+
     });
 </script>
 
