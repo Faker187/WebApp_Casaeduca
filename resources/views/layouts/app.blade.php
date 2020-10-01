@@ -173,84 +173,73 @@
                 <li class="nav-item {{ 'Casaeduca' == request()->path() ? 'active'  :  ''}}">
                     <a class="nav-link color-ce4"  href="{{ url('/Casaeduca') }}">Nosotros</a>
                 </li>
-                <li class="nav-item {{ 'Cursos' == request()->path() ? 'active'  :  ''}}">
-                    <a class="nav-link  color-ce4 dropdown-toggle" href="#" data-toggle="dropdown"> Cursos  </a>
-                    <div class="dropdown-menu megamenu fade-up">
-                        <div class="container text-center my-2">
-                            <div class="row mx-auto my-auto">
-                                <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-                                    <div class="carousel-inner w-100" role="listbox">
-                                        <div class="carousel-item active">
-                                            <div class="col-md-4">
-                                                <div class="card card-body">
-                                                    <img class="img-fluid" src="http://placehold.it/380?text=1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="col-md-4">
-                                                <div class="card card-body">
-                                                    <img class="img-fluid" src="http://placehold.it/380?text=2">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="col-md-4">
-                                                <div class="card card-body">
-                                                    <img class="img-fluid" src="http://placehold.it/380?text=3">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="col-md-4">
-                                                <div class="card card-body">
-                                                    <img class="img-fluid" src="http://placehold.it/380?text=4">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="col-md-4">
-                                                <div class="card card-body">
-                                                    <img class="img-fluid" src="http://placehold.it/380?text=5">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="col-md-4">
-                                                <div class="card card-body">
-                                                    <img class="img-fluid" src="http://placehold.it/380?text=6">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="col-md-4">
-                                                <div class="card card-body">
-                                                    <img class="img-fluid" src="http://placehold.it/380?text=7">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="col-md-4">
-                                                <div class="card card-body">
-                                                    <img class="img-fluid" src="http://placehold.it/380?text=8">
-                                                    <p class="card-text">Textoooo</p>
-                                                </div>
+               <!--  <li class="nav-item {{ 'Cursos' == request()->path() ? 'active'  :  ''}}">
+                    <a class="nav-link color-ce-4 dropdown-toggle" href="#" data-toggle="dropdown"> Cursos  </a>
+                    <a class="nav-link color-ce4"  href="{{ url('/Cursos') }}">Cursos</a>
+                </li> -->
+                <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Cursos  </a>
+                    <div class="dropdown-menu megamenu">
+                    <div class="container text-center my-3">
+                        <div class="row mx-auto my-auto">
+                            <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel2">
+                                <div class="carousel-inner w-100" role="listbox">
+                                    <div class="carousel-item active">
+                                        <div class="col-md-4">
+                                            <div class="card card-body">
+                                                <img class="img-fluid" src="http://placehold.it/380?text=1">
                                             </div>
                                         </div>
                                     </div>
-                                    <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
+                                    <div class="carousel-item">
+                                        <div class="col-md-4">
+                                            <div class="card card-body">
+                                                <img class="img-fluid" src="http://placehold.it/380?text=2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="col-md-4">
+                                            <div class="card card-body">
+                                                <img class="img-fluid" src="http://placehold.it/380?text=3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="col-md-4">
+                                            <div class="card card-body">
+                                                <img class="img-fluid" src="http://placehold.it/380?text=4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="col-md-4">
+                                            <div class="card card-body">
+                                                <img class="img-fluid" src="http://placehold.it/380?text=5">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="col-md-4">
+                                            <div class="card card-body">
+                                                <img class="img-fluid" src="http://placehold.it/380?text=6">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <!-- <a class="nav-link color-ce4"  href="{{ url('/Cursos') }}">Cursos</a> -->
+                                                
+                    </div> <!-- dropdown-mega-menu.// -->
                 </li>
                 <li class="nav-item {{ 'Blog' == request()->path() ? 'active'  :  ''}}">
                     <a class="nav-link color-ce4"  href="{{ url('/Blog') }}">Blog</a>
@@ -407,28 +396,39 @@
         $(document).on('click', '.dropdown-menu', function (e) {
             e.stopPropagation();
         });
+        
+        // clickable on mobile view
+        if ($(window).width() < 992) {
+            $('.has-submenu a').click(function(e){
+                e.preventDefault();
+                $(this).next('.megasubmenu').toggle();
+
+                $('.dropdown').on('hide.bs.dropdown', function () {
+                    $(this).find('.megasubmenu').hide();
+                })
+            });
+        }
         $('#recipeCarousel').carousel({
             interval: 10000
-            })
+        })
 
-            $('.carousel .carousel-item').each(function(){
-                var minPerSlide = 3;
-                var next = $(this).next();
+        $('#recipeCarousel.carousel .carousel-item').each(function(){
+            var minPerSlide = 3;
+            var next = $(this).next();
+            if (!next.length) {
+            next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+            
+            for (var i=0;i<minPerSlide;i++) {
+                next=next.next();
                 if (!next.length) {
-                next = $(this).siblings(':first');
+                    next = $(this).siblings(':first');
                 }
-                next.children(':first-child').clone().appendTo($(this));
                 
-                for (var i=0;i<minPerSlide;i++) {
-                    next=next.next();
-                    if (!next.length) {
-                        next = $(this).siblings(':first');
-                    }
-                    
-                    next.children(':first-child').clone().appendTo($(this));
-                }
+                next.children(':first-child').clone().appendTo($(this));
+            }
         });
-
 
     });
 </script>
