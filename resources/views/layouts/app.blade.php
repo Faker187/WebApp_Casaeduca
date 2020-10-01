@@ -105,6 +105,7 @@
     <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/cards.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 

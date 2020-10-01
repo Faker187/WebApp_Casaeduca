@@ -3,34 +3,35 @@
 @section('content')
 <style>
     body {
-        background-color: #f9e085 !important;
+        background-color: #fff !important;
     }
 </style>
 <div class="container">
 <!-- ====== blog ====== -->
-<div class="row mt-5">
+<div class="row mt-3">
     <div class="col-md-12">
-        <h1 class="h1-responsive text-center text-white">
-        <img class="card-img" src="{{ asset('img/CAMARA.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="camara">
-        Blog
-        </h1>
+        <div class="sub-header">
+            <div class="sub-header-overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h1 class="sub-header-title">Blog Casa Educa</h1>
+                        </div>
+                    </div>
+                </div>
+        </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-6 my-3">
-        <img class="img-fluid" src="{{ asset('img/FOTO1.png') }}" alt="primero blog">
-    </div>
-    <div class="col-md-6 my-3">
-        <img class="img-fluid" src="{{ asset('img/FOTO2.png') }}" alt="segundo blog">
-    </div>
-    <div class="col-md-6 my-3">
-        <img class="img-fluid" src="{{ asset('img/FOTO3.png') }}" alt="tercer blog">
-    </div>
-    <div class="col-md-6 my-3">
-        <img class="img-fluid" src="{{ asset('img/FOTO4.png') }}" alt="cuarto blog">
-    </div>
-    <div class="col-md-6 my-3">
-        <img class="img-fluid" src="{{ asset('img/FOTO5.png') }}" alt="cuarto blog">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="card mb-3">
+            <img src="{{ asset('img/ninaestudiando.jpg') }}" class="card-img-top" alt="primero blog">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            </div>
     </div>
 </div>
 <!-- ====== /blog ====== -->
