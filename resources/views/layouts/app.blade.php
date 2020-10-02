@@ -102,11 +102,11 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/hover.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/fondo.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/banner.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/blog.css') }}" rel="stylesheet">
 
 
     {{-- datatable --}}
