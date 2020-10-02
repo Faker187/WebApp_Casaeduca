@@ -40,6 +40,9 @@ Route::get('/Casaeduca', function () {
 Route::get('/Blog', function () {
     return view('blog');
 });
+Route::get('/Noticias', function () {
+    return view('blogv');
+});
 Route::get('/Planacademico', function () {
     return view('planacademico');
 });

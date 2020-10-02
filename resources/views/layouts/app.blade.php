@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <!--  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
@@ -105,8 +106,9 @@
     <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/cards.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
     <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+
+
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
@@ -378,6 +380,7 @@
 <!-- HOME -->
 
 <script src="{{ asset('js/funciones.js')}}"></script>
+<script src="{{ asset('js/skycons.js') }}"></script>
 
 
 <script>
@@ -460,6 +463,23 @@
                 next.children(':first-child').clone().appendTo($(this));
             }
         });
+        //iconos de nubes
+        var icons = new Skycons({"color": "yellow"});
+
+            icons.set("wind", Skycons.WIND);
+            icons.play();
+        
+            // vista blog
+            $(window).scroll(function(){
+        if ($(window).scrollTop() >= 300) {
+            $('nav').addClass('fixed-header');
+            $('nav div').addClass('visible-title');
+        }
+        else {
+            $('nav').removeClass('fixed-header');
+            $('nav div').removeClass('visible-title');
+        }
+    });
 
     });
 </script>

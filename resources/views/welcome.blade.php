@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">
+	body {
+		background: transparent!important;
+	}
+
+	figure {
+		margin: 5em auto!important;
+		width: 350px!important;
+		height: 150px!important;
+	}
+
+</style>
     <div class="container-fluid px-0">
     <!-- ====== slide ====== -->
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -36,31 +48,20 @@
     </div>
 
 
-    <div class="container my-5 ">
+    <div class="container my-5 sol">
     <!-- ====== plan academico ====== -->
-
-    <!-- ====== /plan academico ====== -->
-    </div>
-
-    <div class="container my-5 sol" > 
-        <div class="container ">
-            <div class="row ">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-                  <div class="card mt-5">
-                    <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-3.jpg" alt="Bologna">
-                    <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-                        <h4 class="card-title">Bologna</h4>
-                        <h6 class="card-subtitle mb-2">Emilia-Romagna Region, Italy</h6>
-                        <p class="card-text">It is the seventh most populous city in Italy, at the heart of a metropolitan area of about one million people. </p>
-                        <div class="link d-flex">
-                            <a href="#" class="card-link text-warning">Read More</a>
-                            <a href="#" class="card-link text-warning">Book a Trip</a>
-                        </div>
-                    </div>
-                  </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <h3 style="margin-left: 5%; margin-top: 5%;text-align: center">Plan Académico:</h3>
+                    <p style="margin-left: 5%; margin-top: 2%; font-size: 150%; text-align: center">
+                    Nuestro Proyecto Educativo esta orientado hacia los alumnos de enseñanza básica, con una clara orientación a la preparación de exámenes libres, si quieres saber más....</p>
+                    <button type="button" class="btn btn-outline-secondary" style="margin-left: 48%; margin-bottom: 10%; font-size: 50%; align: center ">Ver más</button>
                 </div>
             </div>
         </div>
+
+    <!-- ====== /plan academico ====== -->
     </div>
    
     <div class="container my-5 ">
@@ -121,7 +122,7 @@
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
                     </div>
 
@@ -157,7 +158,7 @@
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
 
                     </div>
@@ -195,7 +196,7 @@
 
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
 
                     </div>
@@ -242,7 +243,7 @@
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
                     </div>
 
@@ -278,7 +279,7 @@
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
                     </div>
 
@@ -314,7 +315,7 @@
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
                     </div>
 
@@ -360,7 +361,7 @@
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
                     </div>
 
@@ -396,7 +397,7 @@
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
                     </div>
 
@@ -413,4 +414,5 @@
         </div>
     <!-- ====== Cursos ====== -->
     </div>
+
 @endsection
