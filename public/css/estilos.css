@@ -291,6 +291,10 @@ ul.social-media li a.dribbble:before {
     content: "\f17d";
 }
 
+.bg-ce0 {
+    background-color: #4269B0 !important;
+}
+
 .bg-ce1 {
     background-color: #dbd7ec !important;
 }
@@ -314,6 +318,10 @@ ul.social-media li a.dribbble:before {
 .bg-ce6 {
     /* background: linear-gradient(90deg, #f76a99 0%, #4a57a6 50%, #11b9f3 100%)!important; */
     background-color: #002147 !important;
+}
+
+.color-ce0 {
+    color: #4269B0 !important;
 }
 
 .color-ce1 {
@@ -429,15 +437,19 @@ a.nav-link:hover {
 .carousel-inner .carousel-item-left {
     transform: translateX(0);
 }
+
 .fa-cog1 {
     color: black;
 }
+
 .fa-cog2 {
     color: red;
 }
+
 .fa-cog3 {
     color: yellow;
 }
+
 .fa-cog4 {
     color: green;
 }

@@ -34,6 +34,9 @@ Route::get('/', function () {
 Route::get('/Cursos', function () {
     return view('cursos');
 });
+Route::get('/Curso', function () {
+    return view('curso');
+});
 Route::get('/Casaeduca', function () {
     return view('casaeduca');
 });

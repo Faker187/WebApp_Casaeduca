@@ -1,6 +1,73 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .card:hover .header-img{
+    transform: scale(1.25) rotate(2deg);
+}
+.card-header{
+    height: 50%;
+    width: 100%;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.header-img{
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+    border-radius: inherit;
+    transition: all ease-in-out .4s;
+}
+.card:hover {
+
+    -webkit-box-shadow: none; 
+    box-shadow: none; 
+}
+.card:hover::before {
+    top: -10px!important;
+    left: -10px!important;
+    right: -10px!important;
+    bottom: -10px!important;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3)!important;
+}
+.card::before {
+    position: absolute!important;
+    top: 0!important;
+    left: 0!important;
+    bottom: 0!important;
+    right: 0!important;
+    content: ""!important;
+    transition: all 0.5s ease-out 0s!important;
+    -webkit-transition: all 0.5s ease-out 0s!important;
+}
+.card-deck{
+    padding: 1rem!important;
+}
+.card-header .contenedor-precio .price{
+    background-color: #673ab7!important;
+}
+.price {
+    position: absolute!important;
+    bottom: 10px!important;
+    right: 10px!important;
+    margin: 0!important;
+    padding: 14px 15px!important;
+    z-index: 11!important;
+    transition: all 0.5s ease-out 0s!important;
+    -webkit-transition: all 0.5s ease-out 0s!important;
+    color: #fff!important;
+    font-weight: bold!important;
+    font-size: large!important;
+}
+
+body{
+    padding: 2rem 0rem;
+}
+.card-img-overlay {
+    background-color: rgba(#000, 0.4);
+}
+</style>
     <div class="container-fluid px-0">
     <!-- ====== slide ====== -->
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
