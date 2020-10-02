@@ -8,32 +8,25 @@
 </style>
 <div class="container">
 <!-- ====== blog ====== -->
-<div class="row mt-3">
-    <div class="col-md-12">
-        <div class="sub-header">
-            <div class="sub-header-overlay"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <h1 class="sub-header-title">Blog Casa Educa</h1>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
-</div>
-    <div class="container">
-        <div class="row mt-5">
-            <div class="card mb-3">
-            <img src="{{ asset('img/ninaestudiando.jpg') }}" class="card-img-top" alt="primero blog">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-            </div>
-    </div>
-</div>
+<div class="blog-card spring-fever">
+  <div class="title-content">
+    <h3>SPRING FEVER</h3>
+    <hr />
+    <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+  </div><!-- /.title-content -->
+  <div class="card-info">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+  </div><!-- /.card-info -->
+  <div class="utility-info">
+    <ul class="utility-list">
+      <li class="comments">12</li>
+      <li class="date">03.12.2015</li>
+    </ul>
+  </div><!-- /.utility-info -->
+  <!-- overlays -->
+  <div class="gradient-overlay"></div>
+  <div class="color-overlay"></div>
+</div><!-- /.blog-card -->
 <!-- ====== /blog ====== -->
 </div>
 @endsection

@@ -429,3 +429,15 @@ a.nav-link:hover {
 .carousel-inner .carousel-item-left {
     transform: translateX(0);
 }
+.fa-cog1 {
+    color: black;
+}
+.fa-cog2 {
+    color: red;
+}
+.fa-cog3 {
+    color: yellow;
+}
+.fa-cog4 {
+    color: green;
+}

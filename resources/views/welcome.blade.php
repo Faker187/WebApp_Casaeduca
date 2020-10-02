@@ -36,36 +36,31 @@
     </div>
 
 
-    <div class="container my-5">
+    <div class="container my-5 ">
     <!-- ====== plan academico ====== -->
-      <div class="card cardplan">
-        <div class="card-body mt-5 pt-5">
-            <h1 class="display-4 color-ce5">Plan <br>Académico</h1>
-            <a class="btn btn-outline-warning rounded-lg color-ce5" href="{{ url('/Planacademico') }}" role="button">Leer más</a>
-        </div>
-      </div>
+
     <!-- ====== /plan academico ====== -->
 
 
     <div class="container my-5 sol" > 
-    <!-- ====== metodos ====== -->
-      <div class="card mt-5 bg-ce5" >
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-3 text-center">
-                    <h2 class="h2 text-white">Métodos <img src="{{ asset('img/casaeducaMetodos.png') }}" width="30" alt="img05"/></h2>
-                    <p class="text-justify text-white">Lorem ipsum dolor sit amet consectetur velit habitant enim tempus proin potenti sollicitudin.</p>
+        <div class="container ">
+            <div class="row ">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="card mt-5">
+                    <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-3.jpg" alt="Bologna">
+                    <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+                    <h4 class="card-title">Bologna</h4>
+                    <h6 class="card-subtitle mb-2">Emilia-Romagna Region, Italy</h6>
+                    <p class="card-text">It is the seventh most populous city in Italy, at the heart of a metropolitan area of about one million people. </p>
+                    <div class="link d-flex">
+                        <a href="#" class="card-link text-warning">Read More</a>
+                        <a href="#" class="card-link text-warning">Book a Trip</a>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-md-9 my-auto">
-                  <div class="pl-5">
-                    <img class="card-img" src="{{ asset('img/ICONOS.png') }}" alt="primero blog">
-                  </div>
                 </div>
-            </div>
-            
+                </div>
         </div>
-      </div>
-    <!-- ====== metodos ====== -->
     </div>
    
         <!-- ====== Cursos ====== -->
@@ -119,14 +114,14 @@
                         <h4 class="card-title">1° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                       
-                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
-                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
-                            Si quieres saber más <a class="text-dark bg-ce5"><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
-
+                        <p class="card-text">
+                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
                     </div>
 
                     </div>
@@ -155,12 +150,13 @@
                         <h4 class="card-title">2° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                       
-                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
-                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
-                            Si quieres saber más <a class="text-dark bg-ce5"><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
+                        </p>
+                        <p class="card-text">
+                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
                         </p>
 
                     </div>
@@ -191,14 +187,13 @@
                         <h4 class="card-title">3° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                        
-                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
-                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
 
                         </p>
-                        <p class="card-text temblor animate__animated animate__bounce">
+                        <p class="card-text">
                             Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
                         </p>
 
@@ -240,14 +235,14 @@
                         <h4 class="card-title">4° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                       
-                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
-                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
-                            Si quieres saber más <a class="text-dark"><ins>Subscríbete<i class="far fa-bell color-ce5 pl-2"></i></ins></a>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
-
+                        <p class="card-text">
+                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
                     </div>
 
                     </div>
@@ -276,14 +271,14 @@
                         <h4 class="card-title">5° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                       
-                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
-                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
-                            Si quieres saber más <a class="text-dark"><ins>Subscríbete<i class="far fa-bell color-ce5 pl-2"></i></ins></a>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
-
+                        <p class="card-text">
+                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
                     </div>
 
                     </div>
@@ -312,14 +307,14 @@
                         <h4 class="card-title">6° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                       
-                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
-                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
-                            Si quieres saber más <a class="text-dark"><ins>Subscríbete<i class="far fa-bell color-ce5 pl-2"></i></ins></a>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
-
+                        <p class="card-text">
+                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
                     </div>
 
                     </div>
@@ -358,14 +353,14 @@
                         <h4 class="card-title">7° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                       
-                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
-                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
-                            Si quieres saber más <a class="text-dark"><ins>Subscríbete<i class="far fa-bell color-ce5 pl-2"></i></ins></a>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
-
+                        <p class="card-text">
+                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
                     </div>
 
                     </div>
@@ -394,14 +389,14 @@
                         <h4 class="card-title">8° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                       
-                            <li><i class="fas fa-user-graduate color-ce4 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube color-ce4 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
-                            <li><i class="fas fa-crown color-ce4 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history color-ce4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li><br>
-                            Si quieres saber más <a class="text-dark bg-ce5"><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
+                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
-
+                        <p class="card-text">
+                            Si quieres saber más <a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a>
+                        </p>
                     </div>
 
                     </div>

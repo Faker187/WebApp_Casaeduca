@@ -106,6 +106,7 @@
     <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/cards.css') }}" rel="stylesheet">
     <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
@@ -187,42 +188,72 @@
                                     <div class="carousel-item active">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="http://placehold.it/380?text=1">
+                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando.jpg') }}">
+                                                <h4 class="card-title mt-2">1° Básico</h4>
+                                                <p class="card-text">Ver plan académico</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="http://placehold.it/380?text=2">
+                                                <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
+                                                <h4 class="card-title mt-2">2° Básico</h4>
+                                                <p class="card-text">Ver plan académico</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="http://placehold.it/380?text=3">
+                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando1.jpg') }}">
+                                                <h4 class="card-title mt-2">3° Básico</h4>
+                                                <p class="card-text">Ver plan académico</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="http://placehold.it/380?text=4">
+                                                <img class="img-fluid" src="{{ asset('img/ninasestudiando.jpg') }}">
+                                                <h4 class="card-title mt-2">4° Básico</h4>
+                                                <p class="card-text">Ver plan académico</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="http://placehold.it/380?text=5">
+                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
+                                                <h4 class="card-title mt-2">5° Básico</h4>
+                                                <p class="card-text">Ver plan académico</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="http://placehold.it/380?text=6">
+                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando2.jpg') }}">
+                                                <h4 class="card-title mt-2">6° Básico</h4>
+                                                <p class="card-text">Ver plan académico</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="col-md-4">
+                                            <div class="card card-body">
+                                                <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
+                                                <h4 class="card-title mt-2">7° Básico</h4>
+                                                <p class="card-text">Ver plan académico</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="col-md-4">
+                                            <div class="card card-body">
+                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
+                                                <h4 class="card-title mt-2">8° Básico</h4>
+                                                <p class="card-text">Ver plan académico</p>
                                             </div>
                                         </div>
                                     </div>
