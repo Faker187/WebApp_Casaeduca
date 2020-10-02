@@ -78,16 +78,16 @@ body{
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ asset('img/1.png') }}" alt="First slide">
+                <img class="d-block w-100" src="{{ asset('public/img/1.png') }}" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/2.png') }}" alt="Second slide">
+                <img class="d-block w-100" src="{{ asset('public/img/2.png') }}" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/3.png') }}" alt="Third slide">
+                <img class="d-block w-100" src="{{ asset('public/img/3.png') }}" alt="Third slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/4.png') }}" alt="Third slide">
+                <img class="d-block w-100" src="{{ asset('public/img/4.png') }}" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -123,7 +123,7 @@ body{
     <!-- ====== Cursos ====== -->
         <div id="multi-item-cursos" class="carousel slide carousel-multi-item pb-5 pt-2" data-ride="carousel">
             <h2 class="h1-responsive text-center my-4">
-            <img class="card-img" src="{{ asset('img/SOMBRERO.png') }}" style="width: 100px;margin-bottom: 1rem;" alt="sombrero">
+            <img class="card-img" src="{{ asset('public/img/SOMBRERO.png') }}" style="width: 100px;margin-bottom: 1rem;" alt="sombrero">
             Nuestros cursos
             </h2>
             <!--Controles-->
@@ -153,7 +153,7 @@ body{
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/primerobasico.png') }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/primerobasico.png') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -189,7 +189,7 @@ body{
 
                     <!--Card image-->
                     <div class=" card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/segundobasico.png') }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/segundobasico.png') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -226,7 +226,7 @@ body{
 
                     <!--Card image-->
                     <div class=" card-header view overlay">
-                        <img class=" header-img card-img-top" src="{{ asset('img/tercerobasico.png') }}"
+                        <img class=" header-img card-img-top" src="{{ asset('public/img/tercerobasico.png') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -274,7 +274,7 @@ body{
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/cuartobasico.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -310,7 +310,7 @@ body{
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/cuartobasico.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -346,7 +346,7 @@ body{
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/cuartobasico.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -392,7 +392,7 @@ body{
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/cuartobasico.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -428,7 +428,7 @@ body{
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/cuartobasico.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">

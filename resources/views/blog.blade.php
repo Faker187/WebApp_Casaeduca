@@ -11,7 +11,7 @@
     <div class="container1">
     <div class="card1">
         <div class="card1-header">
-        <img src="{{ asset('img/tercerobasico.png') }}" alt="card">
+        <img src="{{ asset('public/tercerobasico.png') }}" alt="card">
         </div>
         <div class="card1-body">
         <span class="tag1 tag1-teal">
@@ -29,7 +29,7 @@
     </div>
     <div class="card1">
         <div class="card1-header">
-        <img src="{{ asset('img/ninaestudiando.jpg') }}" alt="card">
+        <img src="{{ asset('public/img/ninaestudiando.jpg') }}" alt="card">
         </div>
         <div class="card1-body">
         <span class="tag1 tag1-purple">
@@ -47,7 +47,7 @@
     </div>
     <div class="card1">
         <div class="card1-header">
-        <img src="{{ asset('img/ninaestudiando1.jpg') }}" alt="card">
+        <img src="{{ asset('public/img/ninaestudiando1.jpg') }}" alt="card">
         </div>
         <div class="card1-body">
         <span class="tag1 tag1-pink">
@@ -65,7 +65,7 @@
     </div>
     <div class="card1">
         <div class="card1-header">
-        <img src="{{ asset('img/ninaestudiando3.jpg') }}" alt="card">
+        <img src="{{ asset('public/img/ninaestudiando3.jpg') }}" alt="card">
         </div>
         <div class="card1-body">
         <span class="tag1 tag1-teal">
@@ -83,7 +83,7 @@
     </div>
     <div class="card1">
         <div class="card1-header">
-        <img src="{{ asset('img/ninoestudiando3.jpg') }}" alt="card">
+        <img src="{{ asset('public/img/ninoestudiando3.jpg') }}" alt="card">
         </div>
         <div class="card1-body">
         <span class="tag1 tag1-purple">
@@ -101,7 +101,7 @@
     </div>
     <div class="card1">
         <div class="card1-header">
-        <img src="{{ asset('img/ninoestudiando.jpg') }}" alt="card">
+        <img src="{{ asset('public/img/ninoestudiando.jpg') }}" alt="card">
         </div>
         <div class="card1-body">
         <span class="tag1 tag1-pink">
