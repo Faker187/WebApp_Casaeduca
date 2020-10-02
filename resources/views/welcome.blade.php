@@ -40,30 +40,31 @@
     <!-- ====== plan academico ====== -->
 
     <!-- ====== /plan academico ====== -->
-
+    </div>
 
     <div class="container my-5 sol" > 
         <div class="container ">
             <div class="row ">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-                <div class="card mt-5">
+                  <div class="card mt-5">
                     <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-3.jpg" alt="Bologna">
                     <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-                    <h4 class="card-title">Bologna</h4>
-                    <h6 class="card-subtitle mb-2">Emilia-Romagna Region, Italy</h6>
-                    <p class="card-text">It is the seventh most populous city in Italy, at the heart of a metropolitan area of about one million people. </p>
-                    <div class="link d-flex">
-                        <a href="#" class="card-link text-warning">Read More</a>
-                        <a href="#" class="card-link text-warning">Book a Trip</a>
+                        <h4 class="card-title">Bologna</h4>
+                        <h6 class="card-subtitle mb-2">Emilia-Romagna Region, Italy</h6>
+                        <p class="card-text">It is the seventh most populous city in Italy, at the heart of a metropolitan area of about one million people. </p>
+                        <div class="link d-flex">
+                            <a href="#" class="card-link text-warning">Read More</a>
+                            <a href="#" class="card-link text-warning">Book a Trip</a>
+                        </div>
                     </div>
-                    </div>
+                  </div>
                 </div>
-                </div>
-                </div>
+            </div>
         </div>
     </div>
    
-        <!-- ====== Cursos ====== -->
+    <div class="container my-5 ">
+    <!-- ====== Cursos ====== -->
         <div id="multi-item-cursos" class="carousel slide carousel-multi-item pb-5 pt-2" data-ride="carousel">
             <h2 class="h1-responsive text-center my-4">
             <img class="card-img" src="{{ asset('img/SOMBRERO.png') }}" style="width: 100px;margin-bottom: 1rem;" alt="sombrero">
@@ -410,7 +411,6 @@
             <!--/.Slides-->
 
         </div>
-        <!-- ====== Cursos ====== -->
-
+    <!-- ====== Cursos ====== -->
     </div>
 @endsection
