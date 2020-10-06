@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
+  .sidenav {padding-top: 15px;position: absolute;}
   .sidenav a {font-size: 18px;}
 }
 @media screen and (width: 1980px) {

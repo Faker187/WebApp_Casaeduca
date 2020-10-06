@@ -107,7 +107,8 @@
 
 body {
     background-color: #fff !important;
-    font-family: 'Dancing Script', cursive!important;
+    font-family: 'Merriweather', serif !important;
+    /* font-family: 'Dancing Script', cursive!important; */
 }
 
 .footer-wrapper {
