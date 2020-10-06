@@ -3,70 +3,84 @@
 @section('content')
 <style>
     .card:hover .header-img{
-    transform: scale(1.25) rotate(2deg);
-}
-.card-header{
-    height: 50%;
-    width: 100%;
-    padding: 0px;
-    overflow: hidden;
-}
+        transform: scale(1.25) rotate(2deg);
+    }
+    .card-header{
+        height: 50%;
+        width: 100%;
+        padding: 0px;
+        overflow: hidden;
+    }
 
-.header-img{
-    height: 100%;
-    width: 100%;
-    background-size: 100%;
-    border-radius: inherit;
-    transition: all ease-in-out .4s;
-}
-.card:hover {
+    .header-img{
+        height: 100%;
+        width: 100%;
+        background-size: 100%;
+        border-radius: inherit;
+        transition: all ease-in-out .4s;
+    }
+    .card:hover {
 
-    -webkit-box-shadow: none; 
-    box-shadow: none; 
-}
-.card:hover::before {
-    top: -10px!important;
-    left: -10px!important;
-    right: -10px!important;
-    bottom: -10px!important;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3)!important;
-}
-.card::before {
-    position: absolute!important;
-    top: 0!important;
-    left: 0!important;
-    bottom: 0!important;
-    right: 0!important;
-    content: ""!important;
-    transition: all 0.5s ease-out 0s!important;
-    -webkit-transition: all 0.5s ease-out 0s!important;
-}
-.card-deck{
-    padding: 1rem!important;
-}
-.card-header .contenedor-precio .price{
-    background-color: #673ab7!important;
-}
-.price {
-    position: absolute!important;
-    bottom: 10px!important;
-    right: 10px!important;
-    margin: 0!important;
-    padding: 14px 15px!important;
-    z-index: 11!important;
-    transition: all 0.5s ease-out 0s!important;
-    -webkit-transition: all 0.5s ease-out 0s!important;
-    color: #fff!important;
-    font-weight: bold!important;
-    font-size: large!important;
-}
+        -webkit-box-shadow: none; 
+        box-shadow: none; 
+    }
+    .card:hover::before {
+        top: -10px!important;
+        left: -10px!important;
+        right: -10px!important;
+        bottom: -10px!important;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3)!important;
+    }
+    .card::before {
+        position: absolute!important;
+        top: 0!important;
+        left: 0!important;
+        bottom: 0!important;
+        right: 0!important;
+        content: ""!important;
+        transition: all 0.5s ease-out 0s!important;
+        -webkit-transition: all 0.5s ease-out 0s!important;
+    }
+    .card-deck{
+        padding: 1rem!important;
+    }
+    .card-header .contenedor-precio .price{
+        background-color: #673ab7!important;
+    }
+    .price {
+        position: absolute!important;
+        bottom: 10px!important;
+        right: 10px!important;
+        margin: 0!important;
+        padding: 14px 15px!important;
+        z-index: 11!important;
+        transition: all 0.5s ease-out 0s!important;
+        -webkit-transition: all 0.5s ease-out 0s!important;
+        color: #fff!important;
+        font-weight: bold!important;
+        font-size: large!important;
+    }
 
-body{
-    padding: 2rem 0rem;
-}
-.card-img-overlay {
-    background-color: rgba(#000, 0.4);
-}
+    body{
+        padding: 2rem 0rem;
+    }
+    .card-img-overlay {
+        background-color: rgba(#000, 0.4);
+    }
+    .slash-1 {
+    height: 10px;
+    color: #bd9cd8;
+    background-image: linear-gradient(-45deg,
+        transparent,
+        transparent 25%,
+        currentColor 25%,
+        currentColor 50%,
+        transparent 50%,
+        transparent 75%,
+        currentColor 75%);
+        background-size: 10px 10px;
+        width: 100%;
+    }
 </style>
     <div class="container-fluid px-0">
     <!-- ====== slide ====== -->
@@ -102,29 +116,45 @@ body{
     <!-- ====== /slide ====== -->
     </div>
 
+    <div class="container my-5">
+    <!-- ====== Características ====== -->
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                <th scope="col" style="text-align: center;"><img src="{{ asset('img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                <th scope="col" style="text-align: center;"><img src="{{ asset('img/leer.svg') }}" style="width: 60%;"></br>Interacción Web</th>
+                <th scope="col" style="text-align: center;"><img src="{{ asset('img/alfabeto.svg') }}" style="width: 60%;"></br>Clases Online 24/7</th>
+                <th scope="col" style="text-align: center;"><img src="{{ asset('img/hablar.svg') }}" style="width: 60%;"></br>Comunicación fluida</th>
+                <th scope="col" style="text-align: center;"><img src="{{ asset('img/creatividad.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                </tr>
+            </thead>
+        </table>
+    <!-- ====== Características ====== -->
+    </div>
+    <hr class="slash-1">
 
     <div class="container my-5 sol">
     <!-- ====== plan academico ====== -->
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    <h3 style="margin-left: 5%; margin-top: 5%;text-align: center">Plan Académico:</h3>
+                    <h3 style="margin-left: 5%; margin-top: 5%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
                     <p style="margin-left: 5%; margin-top: 2%; font-size: 150%; text-align: center">
                     Nuestro Proyecto Educativo esta orientado hacia los alumnos de enseñanza básica, con una clara orientación a la preparación de exámenes libres, si quieres saber más....</p>
                     <button type="button" class="btn btn-outline-secondary" style="margin-left: 48%; margin-bottom: 10%; font-size: 50%; align: center ">Ver más</button>
                 </div>
             </div>
         </div>
-
     <!-- ====== /plan academico ====== -->
     </div>
-   
+    <hr class="slash-1">
+
     <div class="container my-5 ">
     <!-- ====== Cursos ====== -->
         <div id="multi-item-cursos" class="carousel slide carousel-multi-item pb-5 pt-2" data-ride="carousel">
             <h2 class="h1-responsive text-center my-4">
-            <img class="card-img" src="{{ asset('img/SOMBRERO.png') }}" style="width: 100px;margin-bottom: 1rem;" alt="sombrero">
             Nuestros cursos
+            <img class="card-img" src="{{ asset('img/deberes.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 1rem;" alt="sombrero">
             </h2>
             <!--Controles-->
             <div class="d-flex justify-content-center pb-3">
