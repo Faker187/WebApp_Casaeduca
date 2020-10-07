@@ -19,7 +19,7 @@
                         <!--heading-->
                         <h2 class="h1-responsive font-weight-bold text-center my-4">Contáctanos</h2>
                         <!--descripcion-->
-                        <p class="text-center w-responsive mx-auto mb-5">¿Quieres obtener información acerca de nuestros planes? Contáctenos, nos en contacto contigo en cuestión de horas para ayudarte.</p>
+                        <p class="text-center w-responsive mx-auto mb-5">¿Quieres obtener información acerca de nuestros planes? Contáctenos, nos pondremos en contacto contigo en cuestión de horas para ayudarte.</p>
 
                         <div class="row">
                             <div class="col-md-9 mb-md-0 mb-5">

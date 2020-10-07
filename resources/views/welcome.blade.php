@@ -92,16 +92,16 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ asset('img/1.png') }}" alt="First slide">
+                <img class="d-block w-100" src="{{ asset('img/ninos-computadora.jpg') }}" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/2.png') }}" alt="Second slide">
+                <img class="d-block w-100" src="{{ asset('img/nino-jugando.jpg') }}" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/3.png') }}" alt="Third slide">
+            <img class="d-block w-100" src="{{ asset('img/nino-pintando.jpg') }}" alt="Third slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/4.png') }}" alt="Third slide">
+                <img class="d-block w-100" src="{{ asset('img/dibujo-sol.jpg') }}" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -135,16 +135,14 @@
 
     <div class="container my-5 sol">
     <!-- ====== plan academico ====== -->
-        <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    <h3 style="margin-left: 5%; margin-top: 5%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
-                    <p style="margin-left: 5%; margin-top: 2%; font-size: 150%; text-align: center">
+                    <h3 style="margin-left: 5%; margin-top: 15%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
+                    <p style="margin-left: 5%;margin-right:5%; margin-top: 2%; font-size: 150%; text-align: center">
                     Nuestro Proyecto Educativo esta orientado hacia los alumnos de enseñanza básica, con una clara orientación a la preparación de exámenes libres, si quieres saber más....</p>
-                    <button type="button" class="btn btn-outline-secondary" style="margin-left: 48%; margin-bottom: 10%; font-size: 50%; align: center ">Ver más</button>
+                    <button type="button" class="btn btn-outline-secondary" style="margin-left: 48%; margin-bottom: 10%; font-size: 50%; text-align: center ">Ver más</button>
                 </div>
             </div>
-        </div>
     <!-- ====== /plan academico ====== -->
     </div>
     <hr class="slash-1">
