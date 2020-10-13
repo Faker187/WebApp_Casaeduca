@@ -11,7 +11,7 @@
 |
 */
 
-/* Route::get('/', function () {
+Route::get('/', function () {
     if (Auth::user() == null) {
         return view('welcome');
     }else{
@@ -25,11 +25,11 @@
 
     }
     
-}); */
-
-Route::get('/', function () {
-    return view('sitiocontruccion');    
 });
+
+/* Route::get('/', function () {
+    return view('sitiocontruccion');    
+}); */
 
 Route::get('/Cursos', function () {
     return view('cursos');
@@ -38,7 +38,7 @@ Route::get('/Curso', function () {
     return view('curso');
 });
 Route::get('/Casaeduca', function () {
-    return view('casaeduca');
+    return view('nosotros');
 });
 Route::get('/Blog', function () {
     return view('blog');
