@@ -10,6 +10,20 @@
     right: 20%;
     opacity: 0.6;
 }
+.slash-1 {
+    height: 10px;
+    color: #bd9cd8;
+    background-image: linear-gradient(-45deg,
+        transparent,
+        transparent 25%,
+        currentColor 25%,
+        currentColor 50%,
+        transparent 50%,
+        transparent 75%,
+        currentColor 75%);
+        background-size: 10px 10px;
+        width: 100%;
+    }
 </style>
 <div class="container-fluid px-0 bg-ce7 mb-5">
     <div class="row justify-content-center">
@@ -41,6 +55,35 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+</div>
+<hr class="slash-1">
+<div class="container mb-5 pb-5">
+    <div class="row align-self-start">
+        <div class="col-md-6 ">
+            <div class="card w-100 border-0">
+                <div class="card-body">
+                    <h3 class="card-title pr-2 color-ce3 text-center py-2">Nuestra Misión<img class="card-img"src="{{asset('img/002-marker.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3> 
+                    <p class="card-text text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card w-100 border-0">
+                <div class="card-body">
+                    <h3 class="card-title pr-2 color-ce3 text-center py-2">Nuestra Visión<img class="card-img"src="{{asset('img/004-pen.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
+                    <p class="card-text text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container">
+    <div class="row align-self-end">
+
     </div>
     
 </div>
