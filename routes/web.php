@@ -38,7 +38,7 @@ Route::get('/Curso', function () {
     return view('curso');
 });
 Route::get('/Casaeduca', function () {
-    return view('casaeduca');
+    return view('nosotros');
 });
 Route::get('/Blog', function () {
     return view('blog');
