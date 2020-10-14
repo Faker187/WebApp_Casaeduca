@@ -109,7 +109,6 @@
     <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
     <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
 
-
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
@@ -375,6 +374,8 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
+
+
 {{-- datatable --}}
 <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 {{-- <script src="{{asset('js/slideCursos.js')}}"></script>  --}}
@@ -382,6 +383,7 @@
 
 <script src="{{ asset('js/funciones.js')}}"></script>
 <script src="{{ asset('js/skycons.js') }}"></script>
+
 
 
 <script>

@@ -1,5 +1,6 @@
 
 
+
 $(document).ready( function () {
     $('#dataTableEsp').DataTable(
         {
@@ -63,6 +64,8 @@ $('#formAgregarProfesor').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarProfesor" idProfesor="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -119,6 +122,7 @@ $('#formEditarProfesor').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarProfesor').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -162,19 +166,39 @@ $('.eliminarProfesor').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
-    $.ajax({
-        type:'GET',
-        url: 'eliminarProfesor',
-        data:{idProfesor, indexTr},
-        success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-            
-        },
-        error: function (error) {
-            console.log(error);
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: 'eliminarProfesor',
+                data:{idProfesor, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                    
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
         }
-    });
+      });
+
 });
 
 
@@ -220,6 +244,8 @@ $('#formAgregarAsignatura').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -315,6 +341,7 @@ $('#formEditarAsignatura').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarAsignatura').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -332,18 +359,40 @@ $('.eliminarAsignatura').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
-    $.ajax({
-        type:'GET',
-        url: '/eliminarAsignatura',
-        data:{idAsignatura, indexTr},
-        success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-        },
-        error: function (error) {
-            console.log(error);
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarAsignatura',
+                data:{idAsignatura, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
         }
-    });
+      });
+
+
+    
 });
 
 //Guardar nueva unidad
@@ -368,6 +417,8 @@ $('#formAgregarUnidad').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarUnidad" idUnidad="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -427,6 +478,7 @@ $('#formEditarUnidad').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarUnidad').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -444,18 +496,40 @@ $('.eliminarUnidad').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
-    $.ajax({
-        type:'GET',
-        url: '/eliminarUnidad',
-        data:{idUnidad, indexTr},
-        success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-        },
-        error: function (error) {
-            console.log(error);
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarUnidad',
+                data:{idUnidad, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
         }
-    });
+      });
+
+
+   
 });
 
 
@@ -482,6 +556,8 @@ $('#formAgregarClase').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarClase" idClase="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -544,6 +620,7 @@ $('#formEditarClase').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarClase').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -561,18 +638,40 @@ $('.eliminarClase').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
-    $.ajax({
-        type:'GET',
-        url: '/eliminarClase',
-        data:{idClase, indexTr},
-        success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-        },
-        error: function (error) {
-            console.log(error);
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarClase',
+                data:{idClase, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
         }
-    });
+      });
+
+
+    
 });
 
 
@@ -610,6 +709,8 @@ $('#formAgregarDocumento').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarDocumento" idDocumento="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -680,6 +781,7 @@ $('#formEditarDocumento').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarDocumento').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -697,18 +799,40 @@ $('.eliminarDocumento').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
-    $.ajax({
-        type:'GET',
-        url: '/eliminarDocumento',
-        data:{idDocumento, indexTr},
-        success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-        },
-        error: function (error) {
-            console.log(error);
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarDocumento',
+                data:{idDocumento, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
         }
-    });
+      });
+
+
+    
 });
 
 

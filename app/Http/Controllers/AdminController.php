@@ -9,6 +9,7 @@ use \App\Asignatura;
 use \App\Unidad;
 use \App\Clase;
 use \App\Documento;
+use DB;
 
 class AdminController extends Controller
 {
@@ -92,7 +93,8 @@ class AdminController extends Controller
     public function adminAsignaturas($idCurso)
     {
         $asignaturas = \App\Asignatura::all()->where('idcurso' , $idCurso);
-        return view('Administrador.asignaturasAdmin',compact('asignaturas'));
+        $nombreCurso = DB::table('curso')->where('idcurso' , $idCurso)->first()->nombre;
+        return view('Administrador.asignaturasAdmin',compact('asignaturas','nombreCurso'));
     }
 
     public function agregarAsignatura(Request $request)
@@ -150,9 +152,10 @@ class AdminController extends Controller
         foreach ($unidades as $unidad) {
             $unidad->nombreAsignatura = \App\Asignatura::where('idasignatura', $unidad->idasignatura)->first()->nombre;
         }
-     
 
-        return view('Administrador.unidadesAdmin',compact('unidades','asignaturas'));
+        $nombreCurso = DB::table('curso')->where('idcurso' , $idCurso)->first()->nombre;
+
+        return view('Administrador.unidadesAdmin',compact('unidades','asignaturas','nombreCurso'));
     }
 
     public function agregarUnidad(Request $request)
@@ -227,7 +230,9 @@ class AdminController extends Controller
             $clase->nombreAsignatura = \App\Asignatura::where('idasignatura' , $unidad->idasignatura)->first()->nombre;
         }
 
-        return view('Administrador.clasesAdmin',compact('clases', 'idCurso','unidades','asignaturas'));
+        $nombreCurso = DB::table('curso')->where('idcurso' , $idCurso)->first()->nombre;
+
+        return view('Administrador.clasesAdmin',compact('clases', 'idCurso','unidades','asignaturas','nombreCurso'));
     }
 
     public function agregarClase(Request $request)
@@ -317,7 +322,10 @@ class AdminController extends Controller
             $documento->nombreUnidad = Unidad::find($documento->idUnidad)->nombre;
             $documento->nombreClase = Clase::find($documento->idClase)->nombre;
         }
-        return view('Administrador.documentosAdmin', compact('documentos', 'asignaturas', 'idCurso'));
+
+        $nombreCurso = DB::table('curso')->where('idcurso' , $idCurso)->first()->nombre;
+
+        return view('Administrador.documentosAdmin', compact('documentos', 'asignaturas', 'idCurso','nombreCurso'));
     }
 
     public function agregarDocumento(Request $request)

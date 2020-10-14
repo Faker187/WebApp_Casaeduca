@@ -1,7 +1,7 @@
 @extends('Administrador.admin')
 
 @section('content')
-<h1 class="mt-4">Asignaturas</h1>
+<h1 class="mt-4">Asignaturas - {{$nombreCurso}}</h1>
 <br>
 
 <div class="table-responsive">
