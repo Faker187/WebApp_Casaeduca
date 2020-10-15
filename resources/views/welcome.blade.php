@@ -85,7 +85,7 @@
 </style>
     <div class="container-fluid px-0">
     <!-- ====== slide ====== -->
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -113,9 +113,54 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-      </div>
+      </div> -->
     <!-- ====== /slide ====== -->
+        <div class="window">
+            <svg width="100%" height="auto" viewBox="215 150 550 400">
+                <path class="path" id="motionPath" fill="none" stroke="none" stroke-miterlimit="10" d="M123.439979,455.027941 C258.118806,333.120816 407.729726,319.327337 572.27274,413.647502 C681.38061,476.190858 775.57925,479.840426 852.066625,457.4401 C934.367866,202.627896 472.201404,95.7232289 297.97168,106.048512 C161.922859,357.168466 865.542744,265.223102 670.108865,640.800048 C690.668168,689.128505 751.41763,692.972877 852.357248,652.333163 C858.074857,564.28197 856.244541,480.184941 846.8663,400.042076 C826.9142,229.539059 293.459629,87.9883707 89,342.020187 C234.397117,462.572183 432.187301,541.294348 594.143681,480.888963 C756.100062,420.483578 818.730878,289.99204 858.31253,97.6616162 C573.356512,423.524545 239.661415,188.754379 223.009559,646.551671 C90.870914,709.04 57.6810541,645.198757 123.439979,455.027941 Z"/>
+
+                <g id="airplane" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="animate" transform="scale(-1, -1) translate(0.000000, -1.000000)">
+                    <polygon id="Path-11" fill="#557D83" points="112 12 27.3042402 46.8861178 16.4369855 28.6655877"></polygon>
+                    <polygon id="Path-12" fill="#557D83" points="0.00577998946 1 112 12 6.62198227 12.0555389 0 1.00387715 104.940748 1.31670683"></polygon>
+                    <polygon id="Path-13" fill="#31444B" points="0 41 6.59365455 12 112.008728 11.9997559 16.4543796 28.6623324"></polygon>
+                    <polygon id="Path-14" fill="#0D1A1E" points="0 41 16.4533438 28.6610665 20.6267012 35.675215"></polygon>
+                </g>
+                </g>
+
+                <animateMotion 
+                    xlink:href="#airplane"
+                    dur="13s"
+                    begin="0s"
+                    fill="freeze"
+                    repeatCount="indefinite"
+                    rotate="auto-reverse"
+                    >
+                <mpath xlink:href="#motionPath" />
+                </animateMotion>
+            </svg>
+        </div>
+        <div id="titulo">
+            <div class="row mx-auto">            
+                <div class="col-xs-12">
+                    <h1 class="display-1 text-center animated lightSpeedIn slower color-ce0 font-weight-bold">Casa educa</h1>
+                    <p class="lead text-center animated lightSpeedIn slower delay-3s color-ce0">Lorem ipsum dolor sit amet consectetur adipiscing elit habitant tincidunt eleifend molestie.</p>
+                </div>
+            </div>
+        </div>
+        <div id="clouds">
+            <div class="cloud one"><img src="{{ asset('img/cloud1.svg') }}"/></div>
+            <div class="cloud two"><img src="{{ asset('img/cloud2.svg') }}"/></div>
+            <div class="cloud three"><img src="{{ asset('img/cloud3.svg') }}"/></div>
+            <div class="cloud three"><img src="{{ asset('img/cloud2.svg') }}"/></div>
+            <div class="cloud three"><img src="{{ asset('img/cloud1.svg') }}"/></div>
+        </div>
+
     </div>
+
+
+
+
 
     <div class="container my-5">
     <!-- ====== Características ====== -->

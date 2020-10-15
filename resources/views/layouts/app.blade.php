@@ -307,7 +307,6 @@
                                     <li><a class="facebook" href="#">Facebook</a></li>
                                     <li><a class="twitter" href="#">Twitter</a></li>
                                     <li><a class="instagram" href="#">Instagram</a></li>
-                                    <li><a class="pinterest" href="#">Pinterest</a></li>
                                 </ul>
                             </div>
                         </aside>
@@ -466,22 +465,17 @@
                 next.children(':first-child').clone().appendTo($(this));
             }
         });
-        //iconos de nubes
-        var icons = new Skycons({"color": "yellow"});
-
-            icons.set("wind", Skycons.WIND);
-            icons.play();
         
             // vista blog
-            $(window).scroll(function(){
-        if ($(window).scrollTop() >= 300) {
-            $('nav').addClass('fixed-header');
-            $('nav div').addClass('visible-title');
-        }
-        else {
-            $('nav').removeClass('fixed-header');
-            $('nav div').removeClass('visible-title');
-        }
+        $(window).scroll(function(){
+            if ($(window).scrollTop() >= 300) {
+                $('nav').addClass('fixed-header');
+                $('nav div').addClass('visible-title');
+            }else {
+                $('nav').removeClass('fixed-header');
+                $('nav div').removeClass('visible-title');
+            }
+        });
 
 
     });

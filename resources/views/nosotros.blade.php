@@ -69,14 +69,4 @@
         </div>
     </div>
 </div>
-
-<div class="container">
-      
-</div>
-<script>
-$( document ).ready(function() {
-  new WOW().init();
-});
-
-</script>
 @endsection
