@@ -121,9 +121,9 @@
 
                 <g id="airplane" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="animate" transform="scale(-1, -1) translate(0.000000, -1.000000)">
-                    <polygon id="Path-11" fill="#557D83" points="112 12 27.3042402 46.8861178 16.4369855 28.6655877"></polygon>
-                    <polygon id="Path-12" fill="#557D83" points="0.00577998946 1 112 12 6.62198227 12.0555389 0 1.00387715 104.940748 1.31670683"></polygon>
-                    <polygon id="Path-13" fill="#31444B" points="0 41 6.59365455 12 112.008728 11.9997559 16.4543796 28.6623324"></polygon>
+                    <polygon id="Path-11" fill="#eec102" points="112 12 27.3042402 46.8861178 16.4369855 28.6655877"></polygon>
+                    <polygon id="Path-12" fill="#d5ab01" points="0.00577998946 1 112 12 6.62198227 12.0555389 0 1.00387715 104.940748 1.31670683"></polygon>
+                    <polygon id="Path-13" fill="#bd9600" points="0 41 6.59365455 12 112.008728 11.9997559 16.4543796 28.6623324"></polygon>
                     <polygon id="Path-14" fill="#0D1A1E" points="0 41 16.4533438 28.6610665 20.6267012 35.675215"></polygon>
                 </g>
                 </g>
