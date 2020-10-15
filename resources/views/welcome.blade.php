@@ -81,6 +81,7 @@
         background-size: 10px 10px;
         width: 100%;
     }
+    
 </style>
     <div class="container-fluid px-0">
     <!-- ====== slide ====== -->

@@ -386,6 +386,8 @@
 
 <script>
     $(document).ready(function(){
+        new WOW().init();
+        
         $('.cargarClase').click(function(e){
             e.preventDefault();
             let idClase = $(this).attr('href');
@@ -480,9 +482,10 @@
             $('nav').removeClass('fixed-header');
             $('nav div').removeClass('visible-title');
         }
-    });
+
 
     });
+
 </script>
 
 
