@@ -103,11 +103,11 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/hover.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/fondo.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/banner.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/blog.css') }}" rel="stylesheet">
 
 
     {{-- datatable --}}
@@ -168,7 +168,7 @@
         </button>
         <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
             <a class="navbar-brand mx-4 pl-5" href="{{ url('/') }}">
-                <img style="width:200px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO">
+                <img style="width:200px;" src="{{ asset('public/img/LOGO.png') }}" alt="LOGO">
             </a>
             <ul class="navbar-nav w-100 justify-content-center">
                 <li class="nav-item {{ '/' == request()->path() ? 'active'  :  ''}}">
@@ -191,7 +191,7 @@
                                     <div class="carousel-item active py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninaestudiando.jpg') }}">
                                                 <h4 class="card-title mt-2">1° Básico</h4>
                                                 <p class="card-text">Ver plan académico</p>
                                             </div>
@@ -200,7 +200,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninoestudiando.jpg') }}">
                                                 <h4 class="card-title mt-2">2° Básico</h4>
                                                 <p class="card-text">Ver plan académico</p>
                                             </div>
@@ -209,7 +209,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando1.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninaestudiando1.jpg') }}">
                                                 <h4 class="card-title mt-2">3° Básico</h4>
                                                 <p class="card-text">Ver plan académico</p>
                                             </div>
@@ -218,7 +218,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninasestudiando.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninasestudiando.jpg') }}">
                                                 <h4 class="card-title mt-2">4° Básico</h4>
                                                 <p class="card-text">Ver plan académico</p>
                                             </div>
@@ -227,7 +227,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninaestudiando3.jpg') }}">
                                                 <h4 class="card-title mt-2">5° Básico</h4>
                                                 <p class="card-text">Ver plan académico</p>
                                             </div>
@@ -236,7 +236,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando2.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninaestudiando2.jpg') }}">
                                                 <h4 class="card-title mt-2">6° Básico</h4>
                                                 <p class="card-text">Ver plan académico</p>
                                             </div>
@@ -245,7 +245,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninoestudiando.jpg') }}">
                                                 <h4 class="card-title mt-2">7° Básico</h4>
                                                 <p class="card-text">Ver plan académico</p>
                                             </div>
@@ -254,7 +254,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninaestudiando3.jpg') }}">
                                                 <h4 class="card-title mt-2">8° Básico</h4>
                                                 <p class="card-text">Ver plan académico</p>
                                             </div>
@@ -376,11 +376,11 @@
 
 {{-- datatable --}}
 <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-{{-- <script src="{{asset('js/slideCursos.js')}}"></script>  --}}
+{{-- <script src="{{asset('public/js/slideCursos.js')}}"></script>  --}}
 <!-- HOME -->
 
-<script src="{{ asset('js/funciones.js')}}"></script>
-<script src="{{ asset('js/skycons.js') }}"></script>
+<script src="{{ asset('public/js/funciones.js')}}"></script>
+<script src="{{ asset('public/js/skycons.js') }}"></script>
 
 
 <script>
