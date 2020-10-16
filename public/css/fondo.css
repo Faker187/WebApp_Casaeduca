@@ -2,7 +2,7 @@
 .sol {
     background-image: url("../img/fondosol.jpg")!important;
     background-attachment: fixed;
-    height: 300px!important; 
-    width: 1500px!important;
+    height: 72vh!important; 
+    width: 100%!important;
     padding: 0;
   }
