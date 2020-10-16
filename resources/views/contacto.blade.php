@@ -3,12 +3,30 @@
 @section('content')
 <style>
     body {
-        background-image: url("../img/fondocielo.png")!important;
+        background-image: url("../img/fondocielo.jpg")!important;
         height: auto !important; 
         width: 200hv!important;
         padding: 0px;
     }
 </style>
+<div class="container-fluid px-0 bg-ce0 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-white mx-auto pl-5">
+            <div class="text-white text-left py-5 px-4 my-5">
+              <div class="cursodatacard">
+                <h2 class="card-title h1-responsive pt-3 mb-2 font-bold color-ce1 text-center">
+                    <img class="card-img" src="{{ asset('img/correo.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="pagina web">
+                    <strong>Contacto Casa Educa</strong>
+                </h2>
+                <p class="mb-2 color-ce1 text-center">¿Quieres obtener información acerca de nuestros planes? Contáctenos, nos comunicaremos contigo en cuestión de horas para ayudarte.</p>
+                <br>
+                <br>
+                <br>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="container">
     <!-- ====== Contactanos ====== -->
@@ -19,7 +37,7 @@
                         <!--heading-->
                         <h2 class="h1-responsive font-weight-bold text-center my-4">Contáctanos</h2>
                         <!--descripcion-->
-                        <p class="text-center w-responsive mx-auto mb-5">¿Quieres obtener información acerca de nuestros planes? Contáctenos, nos pondremos en contacto contigo en cuestión de horas para ayudarte.</p>
+                        <p class="text-center w-responsive mx-auto mb-5"></p>
 
                         <div class="row">
                             <div class="col-md-9 mb-md-0 mb-5">
@@ -65,15 +83,15 @@
 
                             <div class="col-md-3 text-center">
                                 <ul class="list-unstyled mb-0">
-                                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                    <li><img src="{{ asset('img/pin-ubicacion.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
                                         <p>Dirección, Santiago, Chile</p>
                                     </li>
 
-                                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                                    <li><img src="{{ asset('img/llamada-telefonica.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
                                         <p>+ 562 234 567 89</p>
                                     </li>
 
-                                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                    <li><img src="{{ asset('img/correo-electronico.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
                                         <p>contacto@casaeduca.cl</p>
                                     </li>
                                 </ul>

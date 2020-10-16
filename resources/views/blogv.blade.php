@@ -151,19 +151,22 @@
             <img class="card-img" src="{{ asset('img/avion-de-papel.png') }}" style="width: 70px;margin-bottom: 1rem; margin-left: 5rem;" alt="avion papel">
         </div>
     </div>
-    <!-- Desarrollo Blog -->
-    <section class="content">
-        <article>
-            <h1 class="mt-5">What is Lorem Ipsum?</h1>
-            <p><img src="{{ asset('img/casaeduca1.jpg') }}"></p>
-            <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <p><img src="{{ asset('img/casaeduca3.jpg') }}"></p>
-            <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </article>
-            
-    </section> 
-  
-    <!-- Desarrollo Blog -->
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card w-100 border-0">
+                <div class="card-body">
+                    <!-- Desarrollo Blog -->
+                    <h1 class="card-title text-center">What is Lorem Ipsum?</h1>
+                    <p><img src="{{ asset('img/nina-estudiando-1.jpg') }}" style="float: left; width: 180rem;"></p>
+                    <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <!-- Desarrollo Blog -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
