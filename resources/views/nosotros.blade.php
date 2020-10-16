@@ -10,22 +10,11 @@
     right: 20%;
     opacity: 0.6;
 }
-.slash-1 {
-    height: 10px;
-    color: #bd9cd8;
-    background-image: linear-gradient(-45deg,
-        transparent,
-        transparent 25%,
-        currentColor 25%,
-        currentColor 50%,
-        transparent 50%,
-        transparent 75%,
-        currentColor 75%);
-        background-size: 10px 10px;
-        width: 100%;
-    }
+.border-right {
+    border-color: #bd9cd8 !important;
+}
 </style>
-<div class="container-fluid px-0 bg-ce7 mb-5">
+<div class="container-fluid px-0 bg-ce3 mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8 text-white mx-auto pl-5">
             <div class="text-white text-left py-5 px-4 my-5">
@@ -49,42 +38,41 @@
         <div class="col-md-10">
             <div class="card w-100 border-0">
                 <div class="card-body">
-                    <h3 class="card-title pr-2 color-ce3 text-center py-2">¿Quiénes Somos?</h3>
-                    <p class="card-text text-justify">Somos un matrimonio de profesionales del área de finanzas, economía, recursos humano y gestión de procesos productivos, con más de 20 años de experiencia profesional, a su vez de haber dado clases en universidades e institutos profesionales en dichas áreas.Que hace varios años hemos disfrutado la experiencia del educar a nuestros hijos bajo la modalidad de Homescholer, decidiéndonos a crear CasaEduca con el objetivo de permitir un desarrollo de esta actividad de educación a través de soluciones integrales a quienes la practican, otorgando un verdadero soporte personalizado para alumnos y apoderados.</p>                    
-                    <p class="card-text text-justify">Durante estos años que hemos educado a nuestros hijos bajo la modalidad de exámenes libres, hemos adquirido una experiencia y conocimiento de las distintas etapas, tanto reglamentarias como académicas, que nos han servido para apoyar a otros padres, que en más de alguna ocasión nos impulsaron a desarrollar un plataforma educacional enfocada a padres y alumnos y alumnas Homescholer.</p>
+                    <h3 class="card-title pr-2 color-ce3 text-center py-2 animated wow fadeInUp">¿Quiénes Somos?</h3>
+                    <p class="card-text text-justify animated wow fadeInUp">Somos un matrimonio de profesionales del área de finanzas, economía, recursos humano y gestión de procesos productivos, con más de 20 años de experiencia profesional, a su vez de haber dado clases en universidades e institutos profesionales en dichas áreas.Que hace varios años hemos disfrutado la experiencia del educar a nuestros hijos bajo la modalidad de Homescholer, decidiéndonos a crear CasaEduca con el objetivo de permitir un desarrollo de esta actividad de educación a través de soluciones integrales a quienes la practican, otorgando un verdadero soporte personalizado para alumnos y apoderados.</p>                    
+                    <p class="card-text text-justify animated wow fadeInUp">Durante estos años que hemos educado a nuestros hijos bajo la modalidad de exámenes libres, hemos adquirido una experiencia y conocimiento de las distintas etapas, tanto reglamentarias como académicas, que nos han servido para apoyar a otros padres, que en más de alguna ocasión nos impulsaron a desarrollar un plataforma educacional enfocada a padres y alumnos y alumnas Homescholer.</p>
                 </div>
             </div>
         </div>
     </div>
     
 </div>
-<hr class="slash-1">
-<div class="container mb-5 pb-5">
+
+
+<div class="container mb-5 pb-5 pt-5">
     <div class="row align-self-start">
         <div class="col-md-6 ">
-            <div class="card w-100 border-0">
+            <div class="card w-100 border-right">
                 <div class="card-body">
-                    <h3 class="card-title pr-2 color-ce3 text-center py-2">Nuestra Misión<img class="card-img"src="{{asset('img/002-marker.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3> 
-                    <p class="card-text text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>                    
+                    <h3 class="card-title pr-2 color-ce3 text-center py-2 animated wow fadeInUp">Nuestra Misión<img class="card-img"src="{{asset('img/002-marker.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3> 
+                    <p class="card-text text-justify animated wow fadeInUp"><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i></p>                    
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card w-100 border-0">
-                <div class="card-body">
-                    <h3 class="card-title pr-2 color-ce3 text-center py-2">Nuestra Visión<img class="card-img"src="{{asset('img/004-pen.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
-                    <p class="card-text text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>                    
+            <div class="card w-100 border-right">
+                <div class="card-body ">
+                    <h3 class="card-title pr-2 color-ce3 text-center py-2 animated wow fadeInUp">Nuestra Visión<img class="card-img"src="{{asset('img/004-pen.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
+                    <p class="card-text text-justify animated wow fadeInUp"><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i></p>                    
                 </div>
             </div>
         </div>
-    </div>
-    
-</div>
 
-<div class="container">
-    <div class="row align-self-end">
-
+        <div class="col-md-12 my-4">
+            <div class="d-flex justify-content-center">
+                <img class="img-fluid animated wow fadeInUp" src="{{ asset('img/MANO_B.png') }}" style="width: 150px;" alt="">
+            </div>
+        </div>
     </div>
-    
 </div>
 @endsection

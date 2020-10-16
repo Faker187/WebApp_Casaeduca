@@ -81,10 +81,11 @@
         background-size: 10px 10px;
         width: 100%;
     }
+    
 </style>
     <div class="container-fluid px-0">
     <!-- ====== slide ====== -->
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -112,20 +113,65 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-      </div>
+      </div> -->
     <!-- ====== /slide ====== -->
+        <div class="window">
+            <svg width="100%" height="auto" viewBox="215 150 550 400">
+                <path class="path" id="motionPath" fill="none" stroke="none" stroke-miterlimit="10" d="M123.439979,455.027941 C258.118806,333.120816 407.729726,319.327337 572.27274,413.647502 C681.38061,476.190858 775.57925,479.840426 852.066625,457.4401 C934.367866,202.627896 472.201404,95.7232289 297.97168,106.048512 C161.922859,357.168466 865.542744,265.223102 670.108865,640.800048 C690.668168,689.128505 751.41763,692.972877 852.357248,652.333163 C858.074857,564.28197 856.244541,480.184941 846.8663,400.042076 C826.9142,229.539059 293.459629,87.9883707 89,342.020187 C234.397117,462.572183 432.187301,541.294348 594.143681,480.888963 C756.100062,420.483578 818.730878,289.99204 858.31253,97.6616162 C573.356512,423.524545 239.661415,188.754379 223.009559,646.551671 C90.870914,709.04 57.6810541,645.198757 123.439979,455.027941 Z"/>
+
+                <g id="airplane" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="animate" transform="scale(-1, -1) translate(0.000000, -1.000000)">
+                    <polygon id="Path-11" fill="#eec102" points="112 12 27.3042402 46.8861178 16.4369855 28.6655877"></polygon>
+                    <polygon id="Path-12" fill="#d5ab01" points="0.00577998946 1 112 12 6.62198227 12.0555389 0 1.00387715 104.940748 1.31670683"></polygon>
+                    <polygon id="Path-13" fill="#bd9600" points="0 41 6.59365455 12 112.008728 11.9997559 16.4543796 28.6623324"></polygon>
+                    <polygon id="Path-14" fill="#0D1A1E" points="0 41 16.4533438 28.6610665 20.6267012 35.675215"></polygon>
+                </g>
+                </g>
+
+                <animateMotion 
+                    xlink:href="#airplane"
+                    dur="13s"
+                    begin="0s"
+                    fill="freeze"
+                    repeatCount="indefinite"
+                    rotate="auto-reverse"
+                    >
+                <mpath xlink:href="#motionPath" />
+                </animateMotion>
+            </svg>
+        </div>
+        <div id="titulo">
+            <div class="row mx-auto">            
+                <div class="col-xs-12">
+                    <h1 class="display-1 text-center animated lightSpeedIn slower color-ce0 font-weight-bold">Casa educa</h1>
+                    <p class="lead text-center animated lightSpeedIn slower delay-3s color-ce0">Lorem ipsum dolor sit amet consectetur adipiscing elit habitant tincidunt eleifend molestie.</p>
+                </div>
+            </div>
+        </div>
+        <div id="clouds">
+            <div class="cloud one"><img src="{{ asset('img/cloud1.svg') }}"/></div>
+            <div class="cloud two"><img src="{{ asset('img/cloud2.svg') }}"/></div>
+            <div class="cloud three"><img src="{{ asset('img/cloud3.svg') }}"/></div>
+            <div class="cloud three"><img src="{{ asset('img/cloud2.svg') }}"/></div>
+            <div class="cloud three"><img src="{{ asset('img/cloud1.svg') }}"/></div>
+        </div>
+
     </div>
+
+
+
+
 
     <div class="container my-5">
     <!-- ====== Características ====== -->
         <table class="table table-borderless">
             <thead>
                 <tr>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/leer.svg') }}" style="width: 60%;"></br>Interacción Web</th>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/alfabeto.svg') }}" style="width: 60%;"></br>Clases Online 24/7</th>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/hablar.svg') }}" style="width: 60%;"></br>Comunicación fluida</th>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/creatividad.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/leer.svg') }}" style="width: 60%;"></br>Interacción Web</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/alfabeto.svg') }}" style="width: 60%;"></br>Clases Online 24/7</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/hablar.svg') }}" style="width: 60%;"></br>Comunicación fluida</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/creatividad.svg') }}" style="width: 60%;"></br>Profesores Online</th>
                 </tr>
             </thead>
         </table>
@@ -140,7 +186,7 @@
                     <h3 style="margin-left: 5%; margin-top: 15%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
                     <p style="margin-left: 5%;margin-right:5%; margin-top: 2%; font-size: 150%; text-align: center">
                     Nuestro Proyecto Educativo esta orientado hacia los alumnos de enseñanza básica, con una clara orientación a la preparación de exámenes libres, si quieres saber más....</p>
-                    <button type="button" class="btn btn-outline-secondary" style="margin-left: 48%; margin-bottom: 10%; font-size: 50%; text-align: center ">Ver más</button>
+                    <a class="btn bg-ce8 text-white rounded" href="{{ url('/Planacademico') }}" style="margin-left: 48%; margin-bottom: 10%;  ">Ver más</a>
                 </div>
             </div>
     <!-- ====== /plan academico ====== -->
@@ -156,8 +202,8 @@
             </h2>
             <!--Controles-->
             <div class="d-flex justify-content-center pb-3">
-                <a class="btn btn-sm rounded bg-ce4 text-white" href="#multi-item-cursos" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                <a class="btn btn-sm rounded bg-ce4 text-white" href="#multi-item-cursos" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+                <a class="btn btn-sm rounded bg-ce8 text-white" href="#multi-item-cursos" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                <a class="btn btn-sm rounded bg-ce8 text-white" href="#multi-item-cursos" data-slide="next"><i class="fas fa-chevron-right"></i></a>
             </div>
             <!--/.Controles-->
 
@@ -199,8 +245,7 @@
                         <h4 class="card-title">1° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -235,8 +280,7 @@
                         <h4 class="card-title">2° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -272,8 +316,7 @@
                         <h4 class="card-title">3° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
 
@@ -302,7 +345,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/nino-leyendo.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -320,8 +363,7 @@
                         <h4 class="card-title">4° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -338,7 +380,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/ninos-flores.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -356,8 +398,7 @@
                         <h4 class="card-title">5° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -374,7 +415,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/ninos-leyendo-aire.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -392,8 +433,7 @@
                         <h4 class="card-title">6° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -413,14 +453,14 @@
                 <!--Tercer slide-->
                 <div class="carousel-item">
                     <!-- Card deck -->
-                    <div class="card-deck">
+                    <div class="card-deck" style="width: 48rem; margin-left: 10rem;">
 
                     <!-- Card -->
                     <div class="card mb-4">
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/nino-y-perro.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -438,8 +478,7 @@
                         <h4 class="card-title">7° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -452,11 +491,11 @@
                     <!-- Card -->
 
                     <!-- Card -->
-                    <div class="card mb-4">
+                    <div class="card mb-4 ml-15">
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/ninos-leyendo.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -474,8 +513,7 @@
                         <h4 class="card-title">8° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
