@@ -27,7 +27,7 @@
 <div class="container my-5 ">
 <!-- ====== blog ====== -->
     <div class="container1 mb-5">
-        <div class="card1">
+        <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
             <img src="{{ asset('img/tercerobasico.png') }}" alt="card">
             </div>
@@ -37,6 +37,9 @@
             </span>
             <h4>Actualización de CasaEduca</h4>
             <p>Nuevas herramientas para las clases interactivas</p>
+            <br>
+            <a class="color-ce0" href="{{ url('/Noticias') }}">Ver</a>
+            <br>
             <div class="user1">
                 <div class="user1-info">
                 <h5>Consuelo Díaz</h5>
@@ -45,7 +48,7 @@
             </div>
             </div>
         </div>
-        <div class="card1">
+        <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
             <img src="{{ asset('img/ninaestudiando.jpg') }}" alt="card">
             </div>
@@ -63,7 +66,7 @@
             </div>
             </div>
         </div>
-        <div class="card1">
+        <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
             <img src="{{ asset('img/ninaestudiando1.jpg') }}" alt="card">
             </div>
@@ -81,7 +84,7 @@
             </div>
             </div>
         </div>
-        <div class="card1">
+        <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
             <img src="{{ asset('img/ninaestudiando3.jpg') }}" alt="card">
             </div>
@@ -99,7 +102,7 @@
             </div>
             </div>
         </div>
-        <div class="card1">
+        <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
             <img src="{{ asset('img/ninoestudiando3.jpg') }}" alt="card">
             </div>
@@ -117,7 +120,7 @@
             </div>
             </div>
         </div>
-        <div class="card1">
+        <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
             <img src="{{ asset('img/ninoestudiando.jpg') }}" alt="card">
             </div>
@@ -137,5 +140,12 @@
         </div>
     </div>
 <!-- ====== /blog ====== -->
+    <div class="row">
+    <div class="col-md-12 my-4">
+            <div class="d-flex justify-content-center">
+                <img class="img-fluid animated wow fadeInUp" src="{{ asset('img/MANO_B.png') }}" style="width: 150px;" alt="">
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

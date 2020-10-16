@@ -317,12 +317,15 @@ ul.social-media li a.dribbble:before {
 }
 
 .bg-ce6 {
-    /* background: linear-gradient(90deg, #f76a99 0%, #4a57a6 50%, #11b9f3 100%)!important; */
     background-color: #002147 !important;
 }
 
 .bg-ce7 {
     background-color: #F4A6B8 !important;
+}
+
+.bg-ce8 {
+    background: linear-gradient(90deg, #4269B0 0%, #bd9cd8 50%, #4269B0 100%)!important;
 }
 
 .color-ce0 {

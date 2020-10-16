@@ -188,7 +188,7 @@
                         <div class="row mx-auto my-auto">
                             <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel2">
                                 <div class="carousel-inner w-100" role="listbox">
-                                    <div class="carousel-item active">
+                                    <div class="carousel-item active py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
                                                 <img class="img-fluid" src="{{ asset('img/ninaestudiando.jpg') }}">
@@ -197,7 +197,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
+                                    <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
                                                 <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
@@ -206,7 +206,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
+                                    <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
                                                 <img class="img-fluid" src="{{ asset('img/ninaestudiando1.jpg') }}">
@@ -215,7 +215,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
+                                    <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
                                                 <img class="img-fluid" src="{{ asset('img/ninasestudiando.jpg') }}">
@@ -224,7 +224,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
+                                    <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
                                                 <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
@@ -233,7 +233,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
+                                    <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
                                                 <img class="img-fluid" src="{{ asset('img/ninaestudiando2.jpg') }}">
@@ -242,7 +242,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
+                                    <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
                                                 <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
@@ -251,7 +251,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
+                                    <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
                                                 <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">

@@ -84,7 +84,12 @@
                     </div>   
                 </div>
             </div>
-            <img class="card-img mt-0 mb-5" src="{{ asset('img/MANO_B.png') }}" style="width: 150px;" alt="">
+        </div>
+
+        <div class="col-md-12 mb-5">
+            <div class="d-flex justify-content-center">
+                <img class="img-fluid animated wow fadeInUp" src="{{ asset('img/MANO_B.png') }}" style="width: 150px;" alt="">
+            </div>
         </div>
     </div>
 </div>

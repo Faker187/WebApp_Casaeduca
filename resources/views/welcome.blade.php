@@ -167,11 +167,11 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/leer.svg') }}" style="width: 60%;"></br>Interacción Web</th>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/alfabeto.svg') }}" style="width: 60%;"></br>Clases Online 24/7</th>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/hablar.svg') }}" style="width: 60%;"></br>Comunicación fluida</th>
-                <th scope="col" style="text-align: center;"><img src="{{ asset('img/creatividad.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/leer.svg') }}" style="width: 60%;"></br>Interacción Web</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/alfabeto.svg') }}" style="width: 60%;"></br>Clases Online 24/7</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/hablar.svg') }}" style="width: 60%;"></br>Comunicación fluida</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/creatividad.svg') }}" style="width: 60%;"></br>Profesores Online</th>
                 </tr>
             </thead>
         </table>
@@ -186,7 +186,7 @@
                     <h3 style="margin-left: 5%; margin-top: 15%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
                     <p style="margin-left: 5%;margin-right:5%; margin-top: 2%; font-size: 150%; text-align: center">
                     Nuestro Proyecto Educativo esta orientado hacia los alumnos de enseñanza básica, con una clara orientación a la preparación de exámenes libres, si quieres saber más....</p>
-                    <button type="button" class="btn btn-outline-secondary" style="margin-left: 48%; margin-bottom: 10%; font-size: 50%; text-align: center ">Ver más</button>
+                    <a class="btn bg-ce8 text-white rounded" href="{{ url('/Planacademico') }}" style="margin-left: 48%; margin-bottom: 10%;  ">Ver más</a>
                 </div>
             </div>
     <!-- ====== /plan academico ====== -->
@@ -202,8 +202,8 @@
             </h2>
             <!--Controles-->
             <div class="d-flex justify-content-center pb-3">
-                <a class="btn btn-sm rounded bg-ce4 text-white" href="#multi-item-cursos" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                <a class="btn btn-sm rounded bg-ce4 text-white" href="#multi-item-cursos" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+                <a class="btn btn-sm rounded bg-ce8 text-white" href="#multi-item-cursos" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                <a class="btn btn-sm rounded bg-ce8 text-white" href="#multi-item-cursos" data-slide="next"><i class="fas fa-chevron-right"></i></a>
             </div>
             <!--/.Controles-->
 
@@ -245,8 +245,7 @@
                         <h4 class="card-title">1° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -281,8 +280,7 @@
                         <h4 class="card-title">2° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -318,8 +316,7 @@
                         <h4 class="card-title">3° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
 
@@ -366,8 +363,7 @@
                         <h4 class="card-title">4° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -402,8 +398,7 @@
                         <h4 class="card-title">5° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -438,8 +433,7 @@
                         <h4 class="card-title">6° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -484,8 +478,7 @@
                         <h4 class="card-title">7° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
@@ -520,8 +513,7 @@
                         <h4 class="card-title">8° Básico</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">3 Preguntas al profesor al mes</span></li>
-                            <li><i class="fab fa-youtube fa-cog2 pr-3"></i><span class="text-left">1 Video clase al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
