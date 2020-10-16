@@ -348,7 +348,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/nino-leyendo.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -384,7 +384,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/ninos-flores.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -420,7 +420,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/ninos-leyendo-aire.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -459,14 +459,14 @@
                 <!--Tercer slide-->
                 <div class="carousel-item">
                     <!-- Card deck -->
-                    <div class="card-deck">
+                    <div class="card-deck" style="width: 48rem; margin-left: 10rem;">
 
                     <!-- Card -->
                     <div class="card mb-4">
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/nino-y-perro.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
@@ -498,11 +498,11 @@
                     <!-- Card -->
 
                     <!-- Card -->
-                    <div class="card mb-4">
+                    <div class="card mb-4 ml-15">
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/cuartobasico.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/ninos-leyendo.jpg') }}"
                         alt="Card image cap">
                         <a href="{{ url('/Cursos') }}">
                         <div class="contenedor-precio">
