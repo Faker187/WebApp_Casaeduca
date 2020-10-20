@@ -114,7 +114,7 @@ class SuscripcionController extends Controller
         if ($output->responseCode == 0) {
             // Transaccion exitosa, puedes procesar el resultado con el contenido de
             // las variables result y output.
-            $idUsuario = Auth::user()->id;
+            $idUsuario = Auth::id();
 
             $pago = new Pago;
             $pago->buyOrder = $result->buyOrder;
