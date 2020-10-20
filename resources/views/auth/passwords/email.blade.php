@@ -1,10 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/login.css') }}" rel="stylesheet">
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-8 my-4">
+            <div class="wrapper  py-5 fadeInDown">
+                <div id="formContent">
+                    
+                    <h2 class="active">Restaurar contraseña </h2>
+
+                    <form  method="POST" action="{{ route('password.email') }}">
+                        @csrf
+                        <input id="email" type="email" class="fadeIn first @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="E-mail">
+
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <input type="submit" class="fadeIn second" value="Enviar enlace">
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
@@ -40,7 +61,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

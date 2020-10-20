@@ -11,11 +11,11 @@
         <div class="col-md-8 text-white mx-auto pl-5">
             <div class="text-white text-left py-5 px-4 my-5">
               <div class="cursodatacard">
-                <h2 class="card-title h1-responsive pt-3 mb-2 font-bold color-ce2 text-center">
+                <h2 class="card-title h1-responsive pt-3 mb-2 animated lightSpeedIn slower color-ce2 font-weight-bold text-center">
                     <img class="card-img" src="{{ asset('img/blog.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
                     <strong>Blog Casa Educa</strong>
                 </h2>
-                <p class="mb-2 color-ce2 text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
+                <p class="mb-2 animated lightSpeedIn slower delay-3s color-ce2 text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
                 <br>
                 <br>
                 <br>
