@@ -355,7 +355,7 @@
 				<div class="container">
                     <div class="copyright-block">
 						<div class="copyright">
-                            Copyright 2020 <a href="#">Casaeduca</a>. Desarrollado por Aliados estratégicos.
+                            Copyright 2020 <a href="#">Casaeduca</a>. Desarrollado por Aliados SPA.
                         </div>
 					</div>
                 </div>

@@ -13,7 +13,7 @@
     }
     .header-banner {
         background-color: #bd9cd8;
-        background-image: url('../../public/img/ninosestudiando.jpg');
+        background-image: url('../../img/ninosestudiando.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -128,7 +128,7 @@
             <div class="text-white text-left py-5 px-4 my-5">
               <div class="cursodatacard">
                 <h2 class="card-title h1-responsive pt-3 mb-2 font-bold color-ce4 text-center">
-                    <img class="card-img" src="{{ asset('public/img/noticias.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="pagina web">
+                    <img class="card-img" src="{{ asset('img/noticias.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="pagina web">
                     <strong>Noticias Casa Educa</strong>
                 </h2>
                 <p class="mb-2 color-ce4 text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
@@ -148,7 +148,7 @@
             <a href="/events" class="twitter pl-5">Twitter<i class="fab fa-twitter pl-2"></i></a>
             <a href="/events" class="instagram pl-5">Instagram<i class="fab fa-instagram pl-2"></i></a>
             <a href="/events" class="pinterest pl-5">Pinterest<i class="fab fa-pinterest pl-2"></i></a>
-            <img class="card-img" src="{{ asset('public/img/avion-de-papel.png') }}" style="width: 70px;margin-bottom: 1rem; margin-left: 5rem;" alt="avion papel">
+            <img class="card-img" src="{{ asset('img/avion-de-papel.png') }}" style="width: 70px;margin-bottom: 1rem; margin-left: 5rem;" alt="avion papel">
         </div>
     </div>
 </div>
@@ -159,7 +159,7 @@
                 <div class="card-body">
                     <!-- Desarrollo Blog -->
                     <h1 class="card-title text-center">What is Lorem Ipsum?</h1>
-                    <p><img src="{{ asset('public/img/nina-estudiando-1.jpg') }}" style="float: left; width: 180rem;"></p>
+                    <p><img src="{{ asset('img/nina-estudiando-1.jpg') }}" style="float: left; width: 180rem;"></p>
                     <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <!-- Desarrollo Blog -->

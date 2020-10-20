@@ -34,6 +34,9 @@ Route::get('/', function () {
 Route::get('/Cursos', function () {
     return view('cursos');
 });
+Route::get('/Test', function () {
+    return view('auth.register');
+});
 Route::get('/Curso', function () {
     return view('curso');
 });
