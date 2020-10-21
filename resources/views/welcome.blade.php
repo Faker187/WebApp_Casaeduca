@@ -60,10 +60,6 @@
         font-weight: bold!important;
         font-size: large!important;
     }
-
-    body{
-        padding: 2rem 0rem;
-    }
     .card-img-overlay {
         background-color: rgba(#000, 0.4);
     }
@@ -116,7 +112,7 @@
       </div> -->
     <!-- ====== /slide ====== -->
         <div class="window">
-            <svg width="100%" height="auto" viewBox="215 150 550 400">
+            <svg width="100%" height="auto" viewBox="215 150 750 400">
                 <path class="path" id="motionPath" fill="none" stroke="none" stroke-miterlimit="10" d="M123.439979,455.027941 C258.118806,333.120816 407.729726,319.327337 572.27274,413.647502 C681.38061,476.190858 775.57925,479.840426 852.066625,457.4401 C934.367866,202.627896 472.201404,95.7232289 297.97168,106.048512 C161.922859,357.168466 865.542744,265.223102 670.108865,640.800048 C690.668168,689.128505 751.41763,692.972877 852.357248,652.333163 C858.074857,564.28197 856.244541,480.184941 846.8663,400.042076 C826.9142,229.539059 293.459629,87.9883707 89,342.020187 C234.397117,462.572183 432.187301,541.294348 594.143681,480.888963 C756.100062,420.483578 818.730878,289.99204 858.31253,97.6616162 C573.356512,423.524545 239.661415,188.754379 223.009559,646.551671 C90.870914,709.04 57.6810541,645.198757 123.439979,455.027941 Z"/>
 
                 <g id="airplane" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -139,22 +135,23 @@
                 <mpath xlink:href="#motionPath" />
                 </animateMotion>
             </svg>
+            <div id="clouds">
+                <div class="cloud one"><img src="{{ asset('img/cloud1.svg') }}"/></div>
+                <div class="cloud two"><img src="{{ asset('img/cloud2.svg') }}"/></div>
+                <div class="cloud three"><img src="{{ asset('img/cloud3.svg') }}"/></div>
+                <div class="cloud four"><img src="{{ asset('img/cloud2.svg') }}"/></div>
+                <div class="cloud five"><img src="{{ asset('img/cloud1.svg') }}"/></div>
+            </div>
         </div>
         <div id="titulo">
             <div class="row mx-auto">            
-                <div class="col-xs-12">
+                <div class="col-xs-12 overflow-hidden">
                     <h1 class="display-1 text-center animated lightSpeedIn slower color-ce0 font-weight-bold">Casa educa</h1>
-                    <p class="lead text-center animated lightSpeedIn slower delay-3s color-ce0">Lorem ipsum dolor sit amet consectetur adipiscing elit habitant tincidunt eleifend molestie.</p>
+                    <h5 class="lead text-center animated lightSpeedIn slower delay-3s color-ce0">Lorem ipsum dolor sit amet consectetur adipiscing elit habitant tincidunt eleifend molestie.</h5>
                 </div>
             </div>
         </div>
-        <div id="clouds">
-            <div class="cloud one"><img src="{{ asset('img/cloud1.svg') }}"/></div>
-            <div class="cloud two"><img src="{{ asset('img/cloud2.svg') }}"/></div>
-            <div class="cloud three"><img src="{{ asset('img/cloud3.svg') }}"/></div>
-            <div class="cloud three"><img src="{{ asset('img/cloud2.svg') }}"/></div>
-            <div class="cloud three"><img src="{{ asset('img/cloud1.svg') }}"/></div>
-        </div>
+
 
     </div>
 
