@@ -3,26 +3,26 @@
 @section('content')
 <style>
     .card:hover .header-img{
-        transform: scale(1.25) rotate(2deg);
+        transform: scale(1.25) rotate(2deg)!important;
     }
     .card-header{
-        height: 50%;
-        width: 100%;
-        padding: 0px;
-        overflow: hidden;
+        height: 50%!important;
+        width: 100%!important;
+        padding: 0px!important;
+        overflow: hidden!important;
     }
 
     .header-img{
-        height: 100%;
-        width: 100%;
-        background-size: 100%;
-        border-radius: inherit;
-        transition: all ease-in-out .4s;
+        height: 100%!important;
+        width: 100%!important;
+        background-size: 100%!important;
+        border-radius: inherit!important;
+        transition: all ease-in-out .4s!important;
     }
     .card:hover {
 
-        -webkit-box-shadow: none; 
-        box-shadow: none; 
+        -webkit-box-shadow: none!important; 
+        box-shadow: none!important; 
     }
     .card:hover::before {
         top: -10px!important;
@@ -61,7 +61,7 @@
         font-size: large!important;
     }
     .card-img-overlay {
-        background-color: rgba(#000, 0.4);
+        background-color: rgba(#000, 0.4)!important;
     }
     .slash-1 {
     height: 10px;
@@ -75,44 +75,14 @@
         transparent 75%,
         currentColor 75%);
         background-size: 10px 10px;
-        width: 100%;
+        width: 100%!important;
     }
     
 </style>
     <div class="container-fluid px-0">
-    <!-- ====== slide ====== -->
-      <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ asset('img/ninos-computadora.jpg') }}" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/nino-jugando.jpg') }}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/nino-pintando.jpg') }}" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/dibujo-sol.jpg') }}" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-      </div> -->
-    <!-- ====== /slide ====== -->
+    <!-- ====== nave ====== -->
         <div class="window">
-            <svg width="100%" height="auto" viewBox="215 150 750 400">
+            <svg width="100%" height="100%" viewBox="215 150 750 400">
                 <path class="path" id="motionPath" fill="none" stroke="none" stroke-miterlimit="10" d="M123.439979,455.027941 C258.118806,333.120816 407.729726,319.327337 572.27274,413.647502 C681.38061,476.190858 775.57925,479.840426 852.066625,457.4401 C934.367866,202.627896 472.201404,95.7232289 297.97168,106.048512 C161.922859,357.168466 865.542744,265.223102 670.108865,640.800048 C690.668168,689.128505 751.41763,692.972877 852.357248,652.333163 C858.074857,564.28197 856.244541,480.184941 846.8663,400.042076 C826.9142,229.539059 293.459629,87.9883707 89,342.020187 C234.397117,462.572183 432.187301,541.294348 594.143681,480.888963 C756.100062,420.483578 818.730878,289.99204 858.31253,97.6616162 C573.356512,423.524545 239.661415,188.754379 223.009559,646.551671 C90.870914,709.04 57.6810541,645.198757 123.439979,455.027941 Z"/>
 
                 <g id="airplane" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -151,13 +121,8 @@
                 </div>
             </div>
         </div>
-
-
+    <!-- ====== /nave ====== -->
     </div>
-
-
-
-
 
     <div class="container my-5">
     <!-- ====== Características ====== -->
@@ -174,6 +139,7 @@
         </table>
     <!-- ====== Características ====== -->
     </div>
+
     <hr class="slash-1">
 
     <div class="container my-5 sol">
@@ -188,6 +154,7 @@
             </div>
     <!-- ====== /plan academico ====== -->
     </div>
+    
     <hr class="slash-1">
 
     <div class="container my-5 ">

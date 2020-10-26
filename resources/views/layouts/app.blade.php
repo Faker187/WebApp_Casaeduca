@@ -380,8 +380,8 @@
 <!-- HOME -->
 
 <script src="{{ asset('js/funciones.js')}}"></script>
-<script src="{{ asset('js/skycons.js') }}"></script>
 
+<script src="{{ asset('js/jqmeter.min.js') }}"></script>
 
 <script>
     $(document).ready(function(){
@@ -452,7 +452,7 @@
             var minPerSlide = 3;
             var next = $(this).next();
             if (!next.length) {
-            next = $(this).siblings(':first');
+                next = $(this).siblings(':first');
             }
             next.children(':first-child').clone().appendTo($(this));
             
@@ -477,6 +477,15 @@
             }
         });
 
+        $('.jqmeter-container').jQMeter({
+            goal:'$1,000',
+            raised:'$200',
+            meterOrientation:'horizontal',
+            width:'100%',
+            height:'50px',
+            barColor: '#4269B0'
+        });
+        
 
     });
 

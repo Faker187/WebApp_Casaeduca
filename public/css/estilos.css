@@ -40,6 +40,10 @@
     overflow: hidden;
 }
 
+.waves-ripple {
+    -webkit-transition-duration: 1ms!important;
+}
+
 
 /*:::::::::::::::::::::::::::::::::::
         Colores Casa educa
@@ -367,6 +371,10 @@ ul.social-media li a.dribbble:before {
 .nav-item>.nav-link.active {
     color: white;
     background-color: red;
+}
+
+.btnce-1:hover {
+    color: #f9e085 !important;
 }
 
 .cardplan {
