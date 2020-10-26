@@ -40,6 +40,10 @@
     overflow: hidden;
 }
 
+.waves-ripple {
+    -webkit-transition-duration: 1ms!important;
+}
+
 
 /*:::::::::::::::::::::::::::::::::::
         Colores Casa educa
@@ -369,6 +373,10 @@ ul.social-media li a.dribbble:before {
     background-color: red;
 }
 
+.btnce-1:hover {
+    color: #f9e085 !important;
+}
+
 .cardplan {
     background-image: url("../img/blog2.jpg")!important;
     background-position: center!important;
@@ -466,8 +474,8 @@ a.nav-link:hover {
     position: absolute;
     height: auto;
     width: 100%;
-    display: flex;
-    top: 50vh;
+    top: 17vh;
+    overflow: hidden;
 }
 
 #titulo {
@@ -517,12 +525,11 @@ a.nav-link:hover {
     -webkit-animation: moveclouds4 18s linear infinite;
     -moz-animation: moveclouds4 18s linear infinite;
     -o-animation: moveclouds4 18s linear infinite;
-    margin-top: 7%;
 }
 
 .five {
     opacity: 0.75;
-    top: -120px;
+    top: -220px;
     position: relative;
     -webkit-animation: moveclouds5 30s linear infinite;
     -moz-animation: moveclouds5 30s linear infinite;
@@ -531,7 +538,7 @@ a.nav-link:hover {
 
 @-webkit-keyframes moveclouds {
     0% {
-        margin-left: 450px;
+        margin-left: 650px;
     }
     100% {
         margin-left: -200px;
@@ -651,30 +658,30 @@ a.nav-link:hover {
 
 @-webkit-keyframes moveclouds5 {
     0% {
-        margin-left: 1800px;
+        margin-left: 1200px;
     }
     100% {
-        margin-left: -200;
+        margin-left: -900;
         opacity: 0;
     }
 }
 
 @-moz-keyframes moveclouds5 {
     0% {
-        margin-left: 1800px;
+        margin-left: 1200px;
     }
     100% {
-        margin-left: -200;
+        margin-left: -900;
         opacity: 0;
     }
 }
 
 @-o-keyframes moveclouds5 {
     0% {
-        margin-left: 1800px;
+        margin-left: 1200px;
     }
     100% {
-        margin-left: -200;
+        margin-left: -900;
         opacity: 0;
     }
 }
