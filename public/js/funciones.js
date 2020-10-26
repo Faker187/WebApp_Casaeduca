@@ -213,33 +213,12 @@ $('#formAgregarAsignatura').submit(function (e) {
         data:form.serialize(),
         success: function (data) {
             console.log(data);
-
-            var curso = data.idCurso;
-            console.log(curso)
-            //No se por que no funciona el switch aca, usare solo IF
-            if (curso == 1) {
-               var curso = "Primero Básico";
-            } else if(curso == 2) {
-                var curso = "Segundo Básico";
-            } else if(curso == 3) {
-                var curso = "Tercero Básico";
-            } else if(curso == 4) {
-                var curso = "Cuarto Básico";
-            } else if(curso == 5) {
-                var curso = "Quinto Básico";
-            } else if(curso == 6) {
-                var curso = "Sexto Básico";
-            } else if(curso == 7) {
-                var curso = "Séptimo Básico";
-            } else if(curso == 8) {
-                var curso = "Octavo Básico";
-            }
            
             let t = $('#dataTableEsp').DataTable();
 
             t.row.add( [
                 data.nombre,
-                curso,
+                data.idprofesor,
                 '<center><button class="btn btn-primary editarAsignatura" idAsignatura="'+data.idasignatura +'"><i class="fas fa-edit"></i></button></center>',
                 '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
@@ -295,52 +274,15 @@ $('#formEditarAsignatura').submit(function (e) {
             console.log(data);
             let t = $('#dataTableEsp').DataTable();
             let idIndex = data.indexTr;
-            let curso = '';
-
-            switch (data.idcurso) {
-                case 1:
-                    curso = "Primero Básico";
-                    break;
-                case 2:
-                    curso = "Segundo Básico";
-
-                    break;
-                case 3:
-                    curso = "Tercero Básico";
-
-                    break;
-                case 4:
-                    curso = "Cuarto Básico";
-
-                    break;
-                case 5:
-                    curso = "Quinto Básico";
-
-                    break;
-                case 6:
-                    curso = "Sexto Básico";
-
-                    break;
-                case 7:
-                    curso = "Séptimo Básico";
-
-                    break;
-                case 8:
-                    curso = "Octavo Básico";
-
-                    break;
-            
-                default:
-                    break;
-            }
-            newData = [ 
-                data.nombre,
-                curso, 
-                '<center><button class="btn btn-primary editarAsignatura" idAsignatura="'+data.idasignatura +'"><i class="fas fa-edit"></i></button></center>',
-                '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
-            ] //Array, data here must match structure of table data
-            t.row(idIndex).data( newData ).draw();
-            $('#modalEditarAsignatura').modal('hide');
+         
+            // newData = [ 
+            //     data.nombre,
+            //     data.idprofesor, 
+            //     '<center><button class="btn btn-primary editarAsignatura" idAsignatura="'+data.idasignatura +'"><i class="fas fa-edit"></i></button></center>',
+            //     '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
+            // ] //Array, data here must match structure of table data
+            // t.row(idIndex).data( newData ).draw();
+            // $('#modalEditarAsignatura').modal('hide');
             location.reload();
 
         },
@@ -875,6 +817,28 @@ $('.eliminarDocumento').click(function (e) {
                 console.log(error);
             }
         });
+    });
+
+    $('.contactarProfesor').click(function(e){
+        e.preventDefault();
+        let idProfesor = $(this).attr( "idProfesor" );
+        let idAsignatura = $(this).attr( "idAsignatura" );
+        
+        $.ajax({
+            type:'GET',
+            url: '/ContactarProfesor',
+            data:{idProfesor,idAsignatura},
+            success: function (data) {
+                $('#modalBodyContactarProfesor').empty().html(data);
+            
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+        $('#contactarProfesorModal').modal('show');
+        
     });
 
    

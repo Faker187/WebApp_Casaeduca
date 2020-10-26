@@ -43,37 +43,53 @@ $nombreApoderado = Auth::user()->name_apoderado;
 
         <hr class="my-4">
         <p>Tus asignaturas disponibles son:</p>
-      
-        <!-- Card group -->
-        <div class="card-group">
+
+
+        <ul class="list-group">
 
             @foreach ($asignaturas as $asignatura)
-
-            <!-- Card -->
-              <div class="card mb-4 m-2">
-
-                <div class="view overlay">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
-                        alt="Card image cap">
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
+           
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{$asignatura->nombre}} | {{$asignatura->nombreProfesor ? $asignatura->nombreProfesor : 'No asignado'}}
+           
+                <span>
+                    <a class="btn btn-primary btn btn-block mb-1" href="/Asignatura/{{$asignatura->idasignatura}}">Ir a la clase</a>
+                    @if ($asignatura->nombreProfesor != null)
+                    <a class="contactarProfesor btn btn-primary btn btn-block" 
+                     idProfesor="{{$asignatura->idprofesor}}"
+                     idAsignatura="{{$asignatura->idasignatura}}">
+                     Contactar Profesor
                     </a>
-                </div>
-
-                <div class="card-body">
-                    <h4 class="card-title">{{$asignatura->nombre}}</h4>
-                    <a class="btn btn-primary btn-lg btn-block" href="/Asignatura/{{$asignatura->idasignatura}}">Ir a la clase</a>
-                </div>
-
-            </div>
-            <!-- Card -->
-                
+                    @endif
+               
+                </span>
+                </li>
             @endforeach
-
-        </div>
-        <!-- Card group -->
+          </ul>
 
     </div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="contactarProfesorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Contactar Profesor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="modalBodyContactarProfesor" class="modal-body">
+          {{-- ... --}}
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
 
 </div>
 @endsection

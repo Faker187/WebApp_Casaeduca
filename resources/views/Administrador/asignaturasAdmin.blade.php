@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Curso</th>
+                <th>Profesor</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -17,7 +17,7 @@
         <tfoot>
             <tr>
                 <th>Nombre</th>
-                <th>Curso</th>
+                <th>Profesor</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -26,34 +26,10 @@
             @foreach ($asignaturas as $asignatura)
             <tr>
                 <td>{{$asignatura->nombre}}</td>
-                @switch($asignatura->idcurso)
-                @case(1)
-                <td>Primero Básico</td>
-                    @break
-                @case(2)
-                <td>Segundo Básico</td>
-                    @break
-                @case(3)
-                <td>Tercero Básico</td>
-                    @break
-                @case(4)
-                <td>Cuarto Básico</td>
-                    @break
-                @case(5)
-                <td>Quinto Básico</td>
-                    @break
-                @case(6)
-                <td>Sexto Básico</td>
-                    @break
-                @case(7)
-                <td>Séptimo Básico</td>
-                    @break
-                @case(8)
-                <td>Octavo Básico</td>
-                    @break
-                @default
-                    
-            @endswitch
+               
+                <td>{{$asignatura->idprofesor}}</td>
+            
+
             <td class="text-center">
                 <button class="btn btn-primary editarAsignatura" idAsignatura="{{$asignatura->idasignatura}}"><i class="fas fa-edit"></i></button>
               </td>
@@ -90,11 +66,23 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <form id="formAgregarAsignatura" action="/agregarAsignatura" method="POST">
             @csrf
             <div class="modal-body">
-                <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre" required>
+                <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre Asignatura" required>
+                
+                <select class="custom-select" name="idprofesor">
+                  <option value="0" selected>No Asignado</option>
+                  @foreach ($profesores as $profesor)
+                  <option value="{{$profesor->id}}">{{$profesor->name}}</option>
+                  @endforeach
+                </select>
+                
                 <input type="hidden" name="idCurso" value="{{$idCurso}}">
+
+
+
             </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

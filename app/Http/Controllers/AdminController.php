@@ -94,19 +94,41 @@ class AdminController extends Controller
     {
         $asignaturas = \App\Asignatura::all()->where('idcurso' , $idCurso);
         $nombreCurso = DB::table('curso')->where('idcurso' , $idCurso)->first()->nombre;
-        return view('Administrador.asignaturasAdmin',compact('asignaturas','nombreCurso'));
+
+        foreach ($asignaturas as $asignatura) {
+            if($asignatura->idprofesor != null){
+                $asignatura->idprofesor = User::find($asignatura->idprofesor)->name;
+            }else{
+                $asignatura->idprofesor = 'No asignado';
+            }
+           
+        }
+        $profesores = User::all()->where('tipo' , 2);
+      
+    
+        return view('Administrador.asignaturasAdmin',compact('asignaturas','nombreCurso','profesores'));
     }
 
     public function agregarAsignatura(Request $request)
     {
+        
         $asignatura = new Asignatura;
         $asignatura->nombre = $request->nombre;
         $asignatura->idcurso = $request->idCurso;
+        $asignatura->idprofesor = $request->idprofesor;
         $asignatura->save();
+
+     
 
         $data = Array();
         $data['nombre'] = $request->nombre;
-        $data['idCurso'] = $request->idCurso;
+
+        if ($request->idprofesor != 0) {
+            $data['idprofesor'] = User::find($asignatura->idprofesor)->name;
+        }else{
+            $data['idprofesor'] = 'No asignado';
+        }
+
         return $data;
     }
 
@@ -114,19 +136,27 @@ class AdminController extends Controller
     {
         $indexTr = $request->indexTr;
         $asignatura = Asignatura::where('idasignatura',$request->idAsignatura)->first();
-        return view('Administrador.editarAsignatura',compact('asignatura','indexTr'));
+        $profesores = User::all()->where('tipo' , 2);
+        // dd($asignatura);
+        return view('Administrador.editarAsignatura',compact('asignatura','profesores','indexTr'));
     }
 
     public function editarAsignatura(Request $request)
     {
-
         $asignatura = Asignatura::where('idasignatura',$request->idAsignatura)->first();
         $asignatura->nombre = $request->nombre;
-        $asignatura->idcurso = 1;
+        $asignatura->idprofesor = $request->idprofesor;
+        // $asignatura->idcurso = 1;
         $asignatura->save();
+        
+        if ($request->idprofesor != 0) {
+            $asignatura->idprofesor = User::find($asignatura->idprofesor)->name;
+        }else{
+            $asignatura->idprofesor = 'No asignado';
+        }
+        
+
         return $asignatura;
-        //retorno el request por que viene con todos los datos y ademas el indice de la row
-        return $request;
     }
 
     public function eliminarAsignatura(Request $request)

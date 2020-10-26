@@ -152,3 +152,5 @@ Route::get('/CargarClase/{idClase}', 'ClaseController@clase');
 
 //Alumno
 Route::get('/Alumno', 'AlumnoController@alumno')->name('alumno');
+Route::get('/ContactarProfesor', 'AlumnoController@contactarProfesor')->name('contactarProfesor');
+Route::post('/EnviarCorreo', 'AlumnoController@enviarCorreo')->name('enviarCorreo');
