@@ -202,15 +202,83 @@ $('.eliminarProfesor').click(function (e) {
 });
 
 
-//Guardar nueva Asignatura
-$('#formAgregarAsignatura').submit(function (e) {
+//Obtener datos del Parametro a editar
+$('.editarParametro').click(function (e) {
+    e.preventDefault();
+    let idParametro = $(this).attr( "idParametro" );
+
+    //Obteniendo el index de la row para cuando se actualice
+    let t = $('#dataTableEsp').DataTable();
+    let x = $(this).parents('tr');
+    let indexTr = t.row( x ).index();
+
+    $.ajax({
+        type:'GET',
+        url: '/buscarParametro',
+        data:{idParametro, indexTr},
+        success: function (data) {
+            $('#divEditarParametro').empty().html(data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+    
+     $('#modalEditarParametro').modal('show');
+
+});
+
+//Guardar Parametro editado
+$('#formEditarParametro').submit(function (e) {
     e.preventDefault();
     let form = $(this);
     let url = form.attr('action');
+
     $.ajax({
         type:'POST',
         url: url,
         data:form.serialize(),
+        success: function (data) {
+            console.log(data);
+            let t = $('#dataTableEsp').DataTable();
+            let idIndex = data.indexTr ;
+            // newData = [ 
+            //     data.valor,
+            //     data.email, 
+            //     '<center><button class="btn btn-primary editarParametro" idParametro="'+data.id +'"><i class="fas fa-edit"></i></button></center>',
+            //     '<center><button class="btn btn-primary eliminarParametro" idParametro="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
+            // ] //Array, data here must match structure of table data
+            // t.row(idIndex).data( newData ).draw();
+            $('#modalEditarParametro').modal('hide');
+            location.reload();
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+          
+});
+
+
+
+//Guardar nueva Asignatura
+$('#formAgregarAsignatura').submit(function (e) {
+
+    e.preventDefault();
+    let form = $(this);
+    let url = form.attr('action');
+
+    var formData = new FormData(this);
+    formData.append('_token', $('input[name=_token]').val());
+
+    $.ajax({
+        type:'POST',
+        url: url,
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
         success: function (data) {
             console.log(data);
            
@@ -219,6 +287,8 @@ $('#formAgregarAsignatura').submit(function (e) {
             t.row.add( [
                 data.nombre,
                 data.idprofesor,
+                data.color,
+                data.imagen,
                 '<center><button class="btn btn-primary editarAsignatura" idAsignatura="'+data.idasignatura +'"><i class="fas fa-edit"></i></button></center>',
                 '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
@@ -263,13 +333,20 @@ $('.editarAsignatura').click(function (e) {
 //Guardar Asignatura editado
 $('#formEditarAsignatura').submit(function (e) {
     e.preventDefault();
-    let form = $(this);
-    let url = form.attr('action');
+
+
+    var formData = new FormData(this);
+    formData.append('_token', $('input[name=_token]').val());
+    // let url = formData.attr('action');
+    
 
     $.ajax({
         type:'POST',
-        url: url,
-        data:form.serialize(),
+        url: '/editarAsignatura',
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
         success: function (data) {
             console.log(data);
             let t = $('#dataTableEsp').DataTable();
@@ -778,8 +855,162 @@ $('.eliminarDocumento').click(function (e) {
 });
 
 
+//Guardar nuevo Plan
+$('#formAgregarPlan').submit(function (e) {
+    e.preventDefault();
+    let form = $(this);
+    let url = form.attr('action');
+
+    $.ajax({
+        type:'POST',
+        url: url,
+        data:form.serialize(),
+        success: function (data) {
+            console.log(data);
+
+            let t = $('#dataTableEsp').DataTable();
+
+            t.row.add( [
+                data.cantidad_meses,
+                data.precio,
+                '<center><button class="btn btn-primary editarPlan" idPlan="'+data.id +'"><i class="fas fa-edit"></i></button></center>',
+                '<center><button class="btn btn-primary eliminarPlan" idPlan="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
+            ] ).draw( false );
+            $('#basicExampleModal').modal('hide');
+            location.reload();
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+          
+});
+
+//Obtener datos del profesor a editar
+$('.editarPlan').click(function (e) {
+    e.preventDefault();
+    let idPlan = $(this).attr( "idPlan" );
+
+    //Obteniendo el index de la row para cuando se actualice
+    let t = $('#dataTableEsp').DataTable();
+    let x = $(this).parents('tr');
+    let indexTr = t.row( x ).index();
+
+    $.ajax({
+        type:'GET',
+        url: '/buscarPlan',
+        data:{idPlan, indexTr},
+        success: function (data) {
+            $('#divEditarPlan').empty().html(data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+    
+     $('#modalEditarPlan').modal('show');
+
+});
+
+//Guardar Plan editado
+$('#formEditarPlan').submit(function (e) {
+    e.preventDefault();
+    let form = $(this);
+    let url = form.attr('action');
+
+    $.ajax({
+        type:'POST',
+        url: url,
+        data:form.serialize(),
+        success: function (data) {
+            console.log(data);
+            let t = $('#dataTableEsp').DataTable();
+            let idIndex = data.indexTr ;
+            newData = [ 
+                data.cantidadMeses, 
+                data.precio, 
+                '<center><button class="btn btn-primary editarPlan" idPlan="'+data.idPlan +'"><i class="fas fa-edit"></i></button></center>',
+                '<center><button class="btn btn-primary eliminarPlan" idPlan="'+data.idPlan+'"><i class="fas fa-trash-alt"></i></button></center>',
+            ] //Array, data here must match structure of table data
+            t.row(idIndex).data( newData ).draw();
+            $('#modalEditarPlan').modal('hide');
+            location.reload();
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+          
+});
+
+$('.eliminarPlan').click(function (e) {
+    e.preventDefault();
+    let idPlan = $(this).attr( "idPlan" );
+
+    //Obteniendo el index de la row para cuando se actualice
+    let t = $('#dataTableEsp').DataTable();
+    let x = $(this).parents('tr');
+    let indexTr = t.row( x ).index();
+
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          
+            $.ajax({
+                type:'GET',
+                url: '/eliminarPlan',
+                data:{idPlan, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                    
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
+        }
+      });
+
+});
+
 
 // -------------------------------------------------------------------------------------
+
+
+    $('.cursoPago').click(function(e){
+        e.preventDefault();
+        let url = $(this).attr('href');
+
+        $.ajax({
+            type:'GET',
+            url: url,
+            success: function (data) {
+                // console.log(data);
+                $('#seccionPago').empty().html(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    
 
 
 
@@ -823,13 +1054,19 @@ $('.eliminarDocumento').click(function (e) {
         e.preventDefault();
         let idProfesor = $(this).attr( "idProfesor" );
         let idAsignatura = $(this).attr( "idAsignatura" );
+        let idAlumno = $(this).attr( "idAlumno" );
         
         $.ajax({
             type:'GET',
             url: '/ContactarProfesor',
-            data:{idProfesor,idAsignatura},
+            data:{idProfesor,idAsignatura,idAlumno},
             success: function (data) {
-                $('#modalBodyContactarProfesor').empty().html(data);
+                if (data == 'sin intentos') {
+                    swal("Se acabaron los correos este mes!");
+                }else{
+                    $('#modalBodyContactarProfesor').empty().html(data);
+                    $('#contactarProfesorModal').modal('show');
+                }
             
             },
             error: function (error) {
@@ -837,8 +1074,13 @@ $('.eliminarDocumento').click(function (e) {
             }
         });
 
-        $('#contactarProfesorModal').modal('show');
+       
         
     });
 
-   
+   $('.cambiarNombreAlumno').click(function (e) {
+       e.preventDefault();
+       var idAlumno = $(this).attr('idAlumno');
+      
+       $('#modalNombreAlumno'+idAlumno).modal('show');
+   });

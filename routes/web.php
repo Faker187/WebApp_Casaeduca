@@ -10,22 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'InicioController@inicio');
+Route::get('/Curso/{id}', 'InicioController@detalleCurso');
+Route::get('/Casaeduca', 'InicioController@caseduca');
+Route::get('/Contacto', 'InicioController@contacto');
+Route::get('/Revista', 'InicioController@revista');
+Route::get('/Planacademico', 'InicioController@planacademico');
 
- Route::get('/', function () {
-    if (Auth::user() == null) {
-        return view('welcome');
-    }else{
 
-        if (Auth::user()->tipo == 0) {
-            return redirect()->route('admin');
-        }else{
-            return redirect()->route('alumno');
-        }
+
+
+//  Route::get('/', function () {
+//     if (Auth::user() == null) {
+//         return view('welcome');
+//     }else{
+
+//         if (Auth::user()->tipo == 0) {
+//             return redirect()->route('admin');
+//         }else{
+//             // return redirect()->route('alumno');
+//             return redirect()->route('apoderado');
+//         }
       
 
-    }
+//     }
     
-}); 
+// }); 
 
 // Route::get('/', function () {
 //     return view('sitiocontruccion');    
@@ -37,24 +47,16 @@ Route::get('/Cursos', function () {
 Route::get('/Test', function () {
     return view('alumno2');
 });
-Route::get('/Curso', function () {
-    return view('curso');
-});
-Route::get('/Casaeduca', function () {
-    return view('nosotros');
-});
-Route::get('/Blog', function () {
-    return view('blog');
-});
-Route::get('/Noticias', function () {
-    return view('blogv');
-});
-Route::get('/Planacademico', function () {
-    return view('planacademico');
-});
-Route::get('/Contacto', function () {
-    return view('contacto');
-});
+// Route::get('/Curso', function () {
+//     return view('curso');
+// });
+
+
+// Route::get('/Noticias', function () {
+//     return view('blogv');
+// });
+
+
 
 
 Auth::routes();
@@ -103,6 +105,13 @@ Route::get('/eliminarDocumento', 'AdminController@eliminarDocumento')->name('eli
 
 
 
+Route::get('/planes/{idCurso}', 'AdminController@adminPlanes')->name('adminPlanes');
+Route::post('/agregarPlan', 'AdminController@agregarPlan')->name('agregarPlan');
+Route::get('/buscarPlan', 'AdminController@buscarPlan')->name('buscarPlan');
+Route::post('/editarPlan', 'AdminController@editarPlan')->name('editarPlan');
+Route::get('/eliminarPlan', 'AdminController@eliminarPlan')->name('eliminarPlan');
+
+
 
 
 
@@ -128,12 +137,17 @@ Route::get('/selectClasesAjax', 'AdminController@selectClases');
 
 //Suscripcion
 Route::get('/suscribete', 'SuscripcionController@suscribirse')->name('suscribete'); //Pantalla Suscripción
-Route::post('/renovarSuscripcion' , 'SuscripcionController@renovarSuscripción');
-Route::post('/crearSuscipcion' , 'SuscripcionController@crearSuscipcion'); //Crea cuenta inactiva
+Route::get('/AgregarAlumno', 'SuscripcionController@agregarAlumno')->name('agregarAlumno');
+Route::get('/obtenerPlanes/{idCurso}', 'SuscripcionController@obtenerPlanes')->name('obtenerPlanes');
+// Route::post('/renovarSuscripcion' , 'SuscripcionController@renovarSuscripción');
+
+Route::post('/crearSuscripcion' , 'SuscripcionController@crearSuscripcion'); //Crea cuenta inactiva
 Route::get('/pagarPlan', 'SuscripcionController@pagarPlan')->name('pagarPlan'); //Pantalla comenzar pago
 Route::post('/procesarPago', 'SuscripcionController@procesarPago')->name('procesarPago');
 Route::post('/finalizarPago', 'SuscripcionController@finalizarPago')->name('finalizarPago');
 Route::post('/activarCuenta', 'SuscripcionController@activarCuenta')->name('activarCuenta');
+Route::post('/volver', 'SuscripcionController@volver')->name('volver');
+
 
 //Asignatura
 Route::get('/Asignatura/{id}', 'AsignaturaController@asignatura');
@@ -151,6 +165,16 @@ Route::get('/CargarClase/{idClase}', 'ClaseController@clase');
 
 
 //Alumno
-Route::get('/Alumno', 'AlumnoController@alumno')->name('alumno');
+Route::get('/Apoderado', 'AlumnoController@apoderado')->name('apoderado');
+// Route::get('/Alumno', 'AlumnoController@alumno')->name('alumno');
+Route::get('/Alumno/{id}', 'AlumnoController@portalAlumno');
 Route::get('/ContactarProfesor', 'AlumnoController@contactarProfesor')->name('contactarProfesor');
+Route::post('/CambiarNombreAlumno', 'AlumnoController@cambiarNombreAlumno')->name('cambiarNombreAlumno');
 Route::post('/EnviarCorreo', 'AlumnoController@enviarCorreo')->name('enviarCorreo');
+
+//Modificar Sitio web
+Route::get('/ModificarSitioWeb', 'AdminController@modificarSitioWeb')->name('modificarSitioWeb');
+Route::get('/buscarParametro', 'AdminController@buscarParametro')->name('buscarParametro');
+Route::post('/editarParametro', 'AdminController@editarParametro')->name('editarParametro');
+
+

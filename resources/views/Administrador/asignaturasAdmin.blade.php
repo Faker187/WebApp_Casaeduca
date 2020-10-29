@@ -10,6 +10,8 @@
             <tr>
                 <th>Nombre</th>
                 <th>Profesor</th>
+                <th>Color</th>
+                <th>Imagen</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -18,6 +20,8 @@
             <tr>
                 <th>Nombre</th>
                 <th>Profesor</th>
+                <th>Color</th>
+                <th>Imagen</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -28,6 +32,8 @@
                 <td>{{$asignatura->nombre}}</td>
                
                 <td>{{$asignatura->idprofesor}}</td>
+                <td>{{$asignatura->color}}</td>
+                <td>{{$asignatura->imagen}}</td>
             
 
             <td class="text-center">
@@ -72,14 +78,32 @@
             <div class="modal-body">
                 <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre Asignatura" required>
                 
-                <select class="custom-select" name="idprofesor">
+                <select class="custom-select mb-3" name="idprofesor">
                   <option value="0" selected>No Asignado</option>
                   @foreach ($profesores as $profesor)
                   <option value="{{$profesor->id}}">{{$profesor->name}}</option>
                   @endforeach
                 </select>
+
+            
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" name="imagen" class="custom-file-input" 
+                      aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label">Buscar</label>
+                  </div>
+                </div>
+
+                <label for="color">Seleccione un color:</label>
+                <input type="color" name="color" value="#ff0000">
                 
                 <input type="hidden" name="idCurso" value="{{$idCurso}}">
+
+                
 
 
 

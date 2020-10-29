@@ -34,7 +34,8 @@ class HomeController extends Controller
             return redirect()->route('admin');
         }else{
             //si no es admin es alumno, esto puede cambiar si es que agregamos un tipo Profesor
-            return redirect()->route('alumno');
+            // return redirect()->route('alumno');
+            return redirect()->route('apoderado');
         }
     }
 

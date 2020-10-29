@@ -5,39 +5,39 @@
 <div class="container">
 
 <div class="row justify-content-center">
-    <div class="wrapper fadeInDown">
+    <div class="wrapper fadeIn">
         <div id="formContent" >
             
             <div class="fadeIn first pt-5">
                 <img src="{{ asset('img/LOGO.png') }}" id="icon" alt="LOGO">
             </div>
 
-            <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+            {{-- <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <h2 class="active" id="pills-crearcuenta-tab" data-toggle="pill" href="#pills-crearcuenta" role="tab" aria-controls="pills-crearcuenta" aria-selected="true">Crear cuenta </h2>
                 </li>
                 <li class="nav-item">
                     <h2 class="inactive underlineHover" id="pills-Renovar-tab" data-toggle="pill" href="#pills-Renovar" role="tab" aria-controls="pills-Renovar" aria-selected="false">Renovar supcripción </h2>
                 </li>
-            </ul>
+            </ul> --}}
             
             
             
             <div class="tab-content pt-2 pl-1" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-crearcuenta" role="tabpanel" aria-labelledby="pills-crearcuenta-tab">
 
-                  <form  action="/crearSuscipcion" method="POST">
+                  <form  action="/crearSuscripcion" method="POST">
                     @csrf
-                        <input type="text" id="nombreCompletoApoderado" name="nombreCompletoApoderado" class="fadeIn second mb-4" placeholder="Nombre Completo Apoderado">
+                        <input type="text" id="nombreCompletoApoderado" name="nombreCompletoApoderado" class="fadeIn second " placeholder="Nombre Completo Apoderado">
         
-                        <input type="text" id="nombreCompletoAlumno" name="nombreCompletoAlumno" class="fadeIn second mb-4" placeholder="Nombre Completo Alumno">
+                        {{-- <input type="text" id="nombreCompletoAlumno" name="nombreCompletoAlumno" class="fadeIn second mb-4" placeholder="Nombre Completo Alumno"> --}}
 
-                        <select name="genero" name="genero" class="fadeIn third browser-default mb-4">
+                        {{-- <select name="genero" name="genero" class="fadeIn third browser-default mb-4">
                             <option value="" selected>Selecciona tu género</option>
                             <option value="0">Otro / No Aplica</option>
                             <option value="1">Niño</option>
                             <option value="2">Niña</option>
-                        </select>
+                        </select> --}}
 
                         <input id="email" type="email" class="fadeIn third" name="email" autocomplete="email" placeholder="Correo Electrónico" required>
 
@@ -49,7 +49,8 @@
                   </form>
 
                 </div>
-                <div class="tab-pane fade" id="pills-Renovar" role="tabpanel" aria-labelledby="pills-Renovar-tab">
+
+                {{-- <div class="tab-pane fade" id="pills-Renovar" role="tabpanel" aria-labelledby="pills-Renovar-tab">
                     <form  action="/renovarSuscripcion" method="POST">
                       @csrf
                         <input id="email" type="email" class="fadeIn second @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Correo Electrónico">
@@ -75,7 +76,7 @@
 
                         <input type="submit" class="fadeIn fourth" value="Renovar">
                     </form>
-                </div>
+                </div> --}}
             </div>
 
 

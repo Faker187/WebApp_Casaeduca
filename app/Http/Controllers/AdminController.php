@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\User;
+use \App\Plan;
 use \App\Pago;
+use \App\Sitio;
 use \App\Asignatura;
 use \App\Unidad;
 use \App\Clase;
@@ -37,6 +39,28 @@ class AdminController extends Controller
     {
         $profesores = User::all()->where('tipo' , 2);
         return view('Administrador.profesoresAdmin',compact('profesores'));
+    }
+
+    public function modificarSitioWeb()
+    {
+        $parametros = DB::table('sitio')->get();
+        return view('Administrador.modificarSitioWeb', compact('parametros'));
+    }
+
+    public function buscarParametro(Request $request)
+    {
+        $indexTr = $request->indexTr;
+        $parametro = DB::table('sitio')->where('id', $request->idParametro)->first();
+        return view('Administrador.editarParametro',compact('parametro','indexTr'));
+    }
+
+    public function editarParametro(Request $request)
+    {
+        $parametro = Sitio::find($request->idParametro);
+        $parametro->valor = $request->valor;
+        $parametro->save();
+        //retorno el request por que viene con todos los datos y ademas el indice de la row
+        return $request;
     }
 
     public function agregarProfesor(Request $request)
@@ -111,17 +135,35 @@ class AdminController extends Controller
 
     public function agregarAsignatura(Request $request)
     {
-        
+        //obtenemos el campo file definido en el formulario
+        $file = $request->file('imagen');
+        $nombre = '';
+        if ($file != null) {
+            //obtenemos el nombre del archivo
+            $nombre = $file->getClientOriginalName();
+
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            \Storage::disk('public')->put($nombre,  \File::get($file));
+        }
+     
+
         $asignatura = new Asignatura;
         $asignatura->nombre = $request->nombre;
         $asignatura->idcurso = $request->idCurso;
         $asignatura->idprofesor = $request->idprofesor;
+        $asignatura->color = $request->color;
+        if ($file != null) {
+            $asignatura->imagen = $nombre;
+        }
+        
         $asignatura->save();
 
      
 
         $data = Array();
         $data['nombre'] = $request->nombre;
+        $data['color'] = $request->color;
+        $data['imagen'] = $nombre;
 
         if ($request->idprofesor != 0) {
             $data['idprofesor'] = User::find($asignatura->idprofesor)->name;
@@ -143,10 +185,24 @@ class AdminController extends Controller
 
     public function editarAsignatura(Request $request)
     {
+    
+         //obtenemos el campo file definido en el formulario
+         $file = $request->file('imagen');
+         
+         if ($file != null) {
+            //obtenemos el nombre del archivo
+            $nombre = $file->getClientOriginalName();
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            \Storage::disk('public')->put($nombre,  \File::get($file));
+         }
+
         $asignatura = Asignatura::where('idasignatura',$request->idAsignatura)->first();
         $asignatura->nombre = $request->nombre;
         $asignatura->idprofesor = $request->idprofesor;
-        // $asignatura->idcurso = 1;
+        $asignatura->color = $request->color;
+        if ($file != null) {
+            $asignatura->imagen = $nombre;
+        }
         $asignatura->save();
         
         if ($request->idprofesor != 0) {
@@ -367,7 +423,7 @@ class AdminController extends Controller
         $nombre = $file->getClientOriginalName();
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
-        \Storage::disk('local')->put($nombre,  \File::get($file));
+        \Storage::disk('public')->put($nombre,  \File::get($file));
 
         // Agregar Nuevo Documento
         $documento = new Documento;
@@ -416,7 +472,7 @@ class AdminController extends Controller
             //obtenemos el nombre del archivo
             $nombre = $file->getClientOriginalName();
             //indicamos que queremos guardar un nuevo archivo en el disco local
-            \Storage::disk('local')->put($nombre,  \File::get($file));
+            \Storage::disk('public')->put($nombre,  \File::get($file));
         }
 
         $documento = Documento::find($request->idDocumento);
@@ -451,6 +507,76 @@ class AdminController extends Controller
     {
         $documento = Documento::find($request->idDocumento);
         $documento->delete();
+        //retorno el request por que viene con todos los datos y ademas el indice de la row
+        return $request;
+    }
+
+
+    public function adminPlanes($idCurso)
+    {
+     
+        $planes = DB::table('plan')
+        ->where('id_curso', $idCurso)
+        ->get();
+
+        $nombreCurso = DB::table('curso')->where('idcurso' , $idCurso)->first()->nombre;
+        
+
+        foreach ($planes as $plan) {
+            $plan->nombreCurso = $nombreCurso;
+        }
+   
+        return view('Administrador.planesAdmin', compact('planes' , 'nombreCurso','idCurso'));
+
+    }
+
+    public function agregarPlan(Request $request)
+    {
+        $plan = new Plan;
+
+        $plan->cantidad_meses = $request->cantidadMeses;
+        $plan->precio = $request->precio;
+        $plan->id_curso = $request->idCurso;
+        $plan->save();
+
+        $data = Array();
+        $data['cantidad_meses'] = $request->cantidadMeses;
+        $data['precio'] = $request->precio;
+        $data['id'] = $plan->idplan;
+        return $data;
+
+     
+    }
+
+
+    public function buscarPlan(Request $request)
+    {
+      
+        $indexTr = $request->indexTr;
+        $idPlan = $request->idPlan;
+
+        $plan = DB::table('plan')->where('idplan', $idPlan)->first();
+        
+
+        return view('Administrador.editarPlan',compact('plan','indexTr'));
+    }
+
+    public function editarPlan(Request $request)
+    {
+        $plan = Plan::find($request->idPlan);
+        $plan->cantidad_meses = $request->cantidadMeses;
+        $plan->precio = $request->precio;
+        $plan->save();
+
+        //retorno el request por que viene con todos los datos y ademas el indice de la row
+        return $request;
+    }
+
+    public function eliminarPlan(Request $request)
+    {
+      
+        $plan = Plan::find($request->idPlan);
+        $plan->delete();
         //retorno el request por que viene con todos los datos y ademas el indice de la row
         return $request;
     }

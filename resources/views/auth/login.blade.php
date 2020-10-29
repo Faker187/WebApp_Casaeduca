@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-        <div class="wrapper fadeInDown">
+        <div class="wrapper fadeIn">
             <div id="formContent">
                 
                 <h2 class="active">Inicio de sesión </h2>

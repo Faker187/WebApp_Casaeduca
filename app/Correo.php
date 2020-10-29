@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Plan extends Model
+class Correo extends Model
 {
-    protected $table = 'plan';
+    protected $table = 'correo';
     public $timestamps = false;
-    public $primaryKey  = 'idplan';
-
 }

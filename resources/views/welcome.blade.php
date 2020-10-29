@@ -79,6 +79,7 @@
     }
     
 </style>
+{{-- {{dd($cursos)}} --}}
     <div class="container-fluid px-0">
     <!-- ====== nave ====== -->
         <div class="window">
@@ -117,7 +118,7 @@
             <div class="row mx-auto">            
                 <div class="col-xs-12 overflow-hidden">
                     <h1 class="display-1 text-center animated lightSpeedIn slower color-ce0 font-weight-bold">Casa educa</h1>
-                    <h5 class="lead text-center animated lightSpeedIn slower delay-3s color-ce0">Lorem ipsum dolor sit amet consectetur adipiscing elit habitant tincidunt eleifend molestie.</h5>
+                    <h5 class="lead text-center animated lightSpeedIn slower delay-3s color-ce0">{{$eslogan}}</h5>
                 </div>
             </div>
         </div>
@@ -148,7 +149,8 @@
                 <div class="col-sm">
                     <h3 style="margin-left: 5%; margin-top: 15%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
                     <p style="margin-left: 5%;margin-right:5%; margin-top: 2%; font-size: 150%; text-align: center">
-                    Nuestro Proyecto Educativo esta orientado hacia los alumnos de enseñanza básica, con una clara orientación a la preparación de exámenes libres, si quieres saber más....</p>
+                    {{$invitacionPlanAcademico}}
+                    </p>
                     <a class="btn bg-ce8 text-white rounded" href="{{ url('/Planacademico') }}" style="margin-left: 48%; margin-bottom: 10%;  ">Ver más</a>
                 </div>
             </div>
@@ -179,6 +181,7 @@
             </ol>
             <!--/.Indicadores-->
 
+            {{-- {{dd($cursos[0])}} --}}
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
                 <!-- Primer slide-->
@@ -191,12 +194,17 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/primerobasico.png') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[0]->imagen) }}"
                         alt="Card image cap">
-                        <a href="{{ url('/Cursos') }}">
+                        {{-- <a href="{{ url('/Cursos') }}"> --}}
                         <div class="contenedor-precio">
                             <div class="price">
-                                <label>$ 19.990</label>
+                                @if ($cursos[0]->precioPlan == null)
+                                    <label>Buscando el mejor precio</label> 
+                                @else
+                                    <label>Desde ${{$cursos[0]->precioPlan}}!</label>
+                                @endif
+                                
                             </div>
                         </div>
                         </a>
@@ -206,15 +214,15 @@
                     <div class="card-body">
 
                         <!--Title-->
-                        <h4 class="card-title">1° Básico</h4>
+                        <h4 class="card-title">{{$cursos[0]->nombre}}</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">8 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 " href="/Curso/{{$cursos[0]->idcurso}}"><ins>Ver más<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
                     </div>
 
@@ -224,14 +232,59 @@
                     <!-- Card -->
                     <div class="card mb-4">
 
+                        <!--Card image-->
+                        <div class="card-header view overlay">
+                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[1]->imagen) }}"
+                            alt="Card image cap">
+                            {{-- <a href="{{ url('/Cursos') }}"> --}}
+                            <div class="contenedor-precio">
+                                <div class="price">
+                                    @if ($cursos[1]->precioPlan == null)
+                                        <label>Buscando el mejor precio</label> 
+                                    @else
+                                        <label>Desde ${{$cursos[1]->precioPlan}}!</label>
+                                    @endif
+                                    
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+    
+                        <!--Card content-->
+                        <div class="card-body">
+    
+                            <!--Title-->
+                            <h4 class="card-title">{{$cursos[1]->nombre}}</h4>
+                            <!--Text-->
+                            <p class="card-text">Nuestras actividades académicas constan de: <br>
+                                <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">8 Preguntas al profesor al mes</span></li>
+                                <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                                <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
+                            </p>
+                            <p class="card-text">
+                                Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 " href="/Curso/{{$cursos[1]->idcurso}}"><ins>Ver más<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
+                            </p>
+                        </div>
+    
+                        </div>
+                        <!-- Card -->
+
+                   <!-- Card -->
+                   <div class="card mb-4">
+
                     <!--Card image-->
-                    <div class=" card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/segundobasico.png') }}"
+                    <div class="card-header view overlay">
+                        <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[2]->imagen) }}"
                         alt="Card image cap">
-                        <a href="{{ url('/Cursos') }}">
+                        {{-- <a href="{{ url('/Cursos') }}"> --}}
                         <div class="contenedor-precio">
                             <div class="price">
-                                    <label>$ 19.990</label>
+                                @if ($cursos[2]->precioPlan == null)
+                                    <label>Buscando el mejor precio</label> 
+                                @else
+                                    <label>Desde ${{$cursos[2]->precioPlan}}!</label>
+                                @endif
+                                
                             </div>
                         </div>
                         </a>
@@ -241,54 +294,16 @@
                     <div class="card-body">
 
                         <!--Title-->
-                        <h4 class="card-title">2° Básico</h4>
+                        <h4 class="card-title">{{$cursos[2]->nombre}}</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">8 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 " href="/Curso/{{$cursos[2]->idcurso}}"><ins>Ver más<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
-
-                    </div>
-
-                    </div>
-                    <!-- Card -->
-
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                    <!--Card image-->
-                    <div class=" card-header view overlay">
-                        <img class=" header-img card-img-top" src="{{ asset('img/tercerobasico.png') }}"
-                        alt="Card image cap">
-                        <a href="{{ url('/Cursos') }}">
-                        <div class="contenedor-precio">
-                            <div class="price">
-                                    <label>$ 19.990</label>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body">
-
-                        <!--Title-->
-                        <h4 class="card-title">3° Básico</h4>
-                        <!--Text-->
-                        <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
-                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
-
-                        </p>
-                        <p class="card-text">
-                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
-                        </p>
-
                     </div>
 
                     </div>
@@ -307,107 +322,122 @@
                     <!-- Card -->
                     <div class="card mb-4">
 
-                    <!--Card image-->
-                    <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/nino-leyendo.jpg') }}"
-                        alt="Card image cap">
-                        <a href="{{ url('/Cursos') }}">
-                        <div class="contenedor-precio">
-                            <div class="price">
-                                <label>$ 19.990</label>
+                        <!--Card image-->
+                        <div class="card-header view overlay">
+                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[3]->imagen) }}"
+                            alt="Card image cap">
+                            {{-- <a href="{{ url('/Cursos') }}"> --}}
+                            <div class="contenedor-precio">
+                                <div class="price">
+                                    @if ($cursos[3]->precioPlan == null)
+                                        <label>Buscando el mejor precio</label> 
+                                    @else
+                                        <label>Desde ${{$cursos[3]->precioPlan}}!</label>
+                                    @endif
+                                    
+                                </div>
                             </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body">
-
-                        <!--Title-->
-                        <h4 class="card-title">4° Básico</h4>
-                        <!--Text-->
-                        <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
-                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
-                        </p>
-                        <p class="card-text">
-                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
-                        </p>
-                    </div>
-
-                    </div>
-                    <!-- Card -->
+    
+                        <!--Card content-->
+                        <div class="card-body">
+    
+                            <!--Title-->
+                            <h4 class="card-title">{{$cursos[3]->nombre}}</h4>
+                            <!--Text-->
+                            <p class="card-text">Nuestras actividades académicas constan de: <br>
+                                <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">8 Preguntas al profesor al mes</span></li>
+                                <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                                <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
+                            </p>
+                            <p class="card-text">
+                                Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 " href="/Curso/{{$cursos[3]->idcurso}}"><ins>Ver más<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
+                            </p>
+                        </div>
+    
+                        </div>
+                        <!-- Card -->
 
                     <!-- Card -->
                     <div class="card mb-4">
 
-                    <!--Card image-->
-                    <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/ninos-flores.jpg') }}"
-                        alt="Card image cap">
-                        <a href="{{ url('/Cursos') }}">
-                        <div class="contenedor-precio">
-                            <div class="price">
-                                <label>$ 19.990</label>
+                        <!--Card image-->
+                        <div class="card-header view overlay">
+                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[4]->imagen) }}"
+                            alt="Card image cap">
+                            {{-- <a href="{{ url('/Cursos') }}"> --}}
+                            <div class="contenedor-precio">
+                                <div class="price">
+                                    @if ($cursos[4]->precioPlan == null)
+                                        <label>Buscando el mejor precio</label> 
+                                    @else
+                                        <label>Desde ${{$cursos[4]->precioPlan}}!</label>
+                                    @endif
+                                    
+                                </div>
                             </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body">
-
-                        <!--Title-->
-                        <h4 class="card-title">5° Básico</h4>
-                        <!--Text-->
-                        <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
-                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
-                        </p>
-                        <p class="card-text">
-                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
-                        </p>
-                    </div>
-
-                    </div>
-                    <!-- Card -->
+    
+                        <!--Card content-->
+                        <div class="card-body">
+    
+                            <!--Title-->
+                            <h4 class="card-title">{{$cursos[4]->nombre}}</h4>
+                            <!--Text-->
+                            <p class="card-text">Nuestras actividades académicas constan de: <br>
+                                <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">8 Preguntas al profesor al mes</span></li>
+                                <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                                <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
+                            </p>
+                            <p class="card-text">
+                                Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 " href="/Curso/{{$cursos[4]->idcurso}}"><ins>Ver más<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
+                            </p>
+                        </div>
+    
+                        </div>
+                        <!-- Card -->
 
                     <!-- Card -->
                     <div class="card mb-4">
 
-                    <!--Card image-->
-                    <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/ninos-leyendo-aire.jpg') }}"
-                        alt="Card image cap">
-                        <a href="{{ url('/Cursos') }}">
-                        <div class="contenedor-precio">
-                            <div class="price">
-                                <label>$ 19.990</label>
+                        <!--Card image-->
+                        <div class="card-header view overlay">
+                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[5]->imagen) }}"
+                            alt="Card image cap">
+                            {{-- <a href="{{ url('/Cursos') }}"> --}}
+                            <div class="contenedor-precio">
+                                <div class="price">
+                                    @if ($cursos[5]->precioPlan == null)
+                                        <label>Buscando el mejor precio</label> 
+                                    @else
+                                        <label>Desde ${{$cursos[5]->precioPlan}}!</label>
+                                    @endif
+                                    
+                                </div>
                             </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body">
-
-                        <!--Title-->
-                        <h4 class="card-title">6° Básico</h4>
-                        <!--Text-->
-                        <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
-                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
-                        </p>
-                        <p class="card-text">
-                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
-                        </p>
-                    </div>
-
-                    </div>
-                    <!-- Card -->
+    
+                        <!--Card content-->
+                        <div class="card-body">
+    
+                            <!--Title-->
+                            <h4 class="card-title">{{$cursos[5]->nombre}}</h4>
+                            <!--Text-->
+                            <p class="card-text">Nuestras actividades académicas constan de: <br>
+                                <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">8 Preguntas al profesor al mes</span></li>
+                                <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                                <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
+                            </p>
+                            <p class="card-text">
+                                Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 " href="/Curso/{{$cursos[5]->idcurso}}"><ins>Ver más<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
+                            </p>
+                        </div>
+    
+                        </div>
+                        <!-- Card -->
 
                     </div>
                     <!-- Card deck -->
@@ -422,14 +452,59 @@
                     <!-- Card -->
                     <div class="card mb-4">
 
+                        <!--Card image-->
+                        <div class="card-header view overlay">
+                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[6]->imagen) }}"
+                            alt="Card image cap">
+                            {{-- <a href="{{ url('/Cursos') }}"> --}}
+                            <div class="contenedor-precio">
+                                <div class="price">
+                                    @if ($cursos[6]->precioPlan == null)
+                                        <label>Buscando el mejor precio</label> 
+                                    @else
+                                        <label>Desde ${{$cursos[6]->precioPlan}}!</label>
+                                    @endif
+                                    
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+    
+                        <!--Card content-->
+                        <div class="card-body">
+    
+                            <!--Title-->
+                            <h4 class="card-title">{{$cursos[6]->nombre}}</h4>
+                            <!--Text-->
+                            <p class="card-text">Nuestras actividades académicas constan de: <br>
+                                <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">8 Preguntas al profesor al mes</span></li>
+                                <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
+                                <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
+                            </p>
+                            <p class="card-text">
+                                Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 " href="/Curso/{{$cursos[6]->idcurso}}"><ins>Ver más<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
+                            </p>
+                        </div>
+    
+                        </div>
+                        <!-- Card -->
+
+                   <!-- Card -->
+                   <div class="card mb-4">
+
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/nino-y-perro.jpg') }}"
+                        <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[7]->imagen) }}"
                         alt="Card image cap">
-                        <a href="{{ url('/Cursos') }}">
+                        {{-- <a href="{{ url('/Cursos') }}"> --}}
                         <div class="contenedor-precio">
                             <div class="price">
-                                <label>$ 19.990</label>
+                                @if ($cursos[7]->precioPlan == null)
+                                    <label>Buscando el mejor precio</label> 
+                                @else
+                                    <label>Desde ${{$cursos[7]->precioPlan}}!</label>
+                                @endif
+                                
                             </div>
                         </div>
                         </a>
@@ -439,50 +514,15 @@
                     <div class="card-body">
 
                         <!--Title-->
-                        <h4 class="card-title">7° Básico</h4>
+                        <h4 class="card-title">{{$cursos[7]->nombre}}</h4>
                         <!--Text-->
                         <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
+                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">8 Preguntas al profesor al mes</span></li>
                             <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
                             <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
                         </p>
                         <p class="card-text">
-                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
-                        </p>
-                    </div>
-
-                    </div>
-                    <!-- Card -->
-
-                    <!-- Card -->
-                    <div class="card mb-4 ml-15">
-
-                    <!--Card image-->
-                    <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/ninos-leyendo.jpg') }}"
-                        alt="Card image cap">
-                        <a href="{{ url('/Cursos') }}">
-                        <div class="contenedor-precio">
-                            <div class="price">
-                                <label>$ 19.990</label>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body">
-
-                        <!--Title-->
-                        <h4 class="card-title">8° Básico</h4>
-                        <!--Text-->
-                        <p class="card-text">Nuestras actividades académicas constan de: <br>
-                            <li><i class="fas fa-user-graduate fa-cog1 pr-3"></i><span class="text-left">4 Preguntas al profesor al mes</span></li>
-                            <li><i class="fas fa-crown fa-cog3 pr-3"></i><span class="text-left">Contenido del curso ilimitado</span></li>
-                            <li><i class="fas fa-history fa-cog4 pr-3"></i></i><span class="text-left">Seguimiento en avance de curso</span></li>
-                        </p>
-                        <p class="card-text">
-                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 "><ins>Subscríbete<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
+                            Si quieres saber más <button type="button" class="btn bg-ce5 btn-sm"><a class="text-dark bg-ce5 " href="/Curso/{{$cursos[7]->idcurso}}"><ins>Ver más<i class="far fa-bell bg-ce5 pl-2"></i></ins></a></button>
                         </p>
                     </div>
 

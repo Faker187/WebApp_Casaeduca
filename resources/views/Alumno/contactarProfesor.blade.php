@@ -12,7 +12,7 @@ $fecha = date("Y-m-d G:i:s");
 <form id="formCorreoProfesor" action="/EnviarCorreo" method="POST">
 
    @csrf
-   <input type="hidden" name="idalumno" value="{{Auth::user()->name}}">
+   <input type="hidden" name="idalumno" value="{{$idAlumno}}">
    <input type="hidden" name="nombreAlumno" value="{{$nombreAlumno}}">
    <input type="hidden" name="nombreCurso" value="{{$nombreCurso}}">
    <input type="hidden" name="nombreAsignatura" value="{{$asignatura->nombre}}">
@@ -35,20 +35,34 @@ $fecha = date("Y-m-d G:i:s");
 
 
  <!-- Message -->
- 
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+   
+
+
 $('#formCorreoProfesor').submit(function(e){
    e.preventDefault();
    
    let form = $(this);
    let url = form.attr('action');
-
+   
    $.ajax({
       type:'POST',
       url: url,
       data:form.serialize(),
+      beforeSend : function(){
+         swal({
+        title: "",
+        text: "Enviando.",
+        showConfirmButton: false
+    });
+       },
       success: function (data) {
+         swal.close();
+         swal("Listo!", "Correo Enviado!", "success");
          console.log(data);
+   
+         $('#contactarProfesorModal').modal('hide');
       },
       error: function (error) {
             console.log(error);
