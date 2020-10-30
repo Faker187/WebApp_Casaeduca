@@ -35,7 +35,7 @@ Route::get('/Cursos', function () {
     return view('cursos');
 });
 Route::get('/Test', function () {
-    return view('alumno2');
+    return view('asignatura2');
 });
 Route::get('/Curso', function () {
     return view('curso');

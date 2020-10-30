@@ -296,6 +296,14 @@ ul.social-media li a.dribbble:before {
     content: "\f17d";
 }
 
+.slash-1 {
+    height: 10px;
+    color: #bd9cd8;
+    background-image: linear-gradient(-45deg, transparent, transparent 25%, currentColor 25%, currentColor 50%, transparent 50%, transparent 75%, currentColor 75%);
+    background-size: 10px 10px;
+    width: 100%!important;
+}
+
 .bg-ce0 {
     background-color: #4269B0 !important;
 }
