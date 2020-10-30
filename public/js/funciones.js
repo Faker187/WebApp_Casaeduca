@@ -1,5 +1,6 @@
 
 
+
 $(document).ready( function () {
     $('#dataTableEsp').DataTable(
         {
@@ -63,6 +64,8 @@ $('#formAgregarProfesor').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarProfesor" idProfesor="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -119,6 +122,7 @@ $('#formEditarProfesor').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarProfesor').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -162,64 +166,135 @@ $('.eliminarProfesor').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: 'eliminarProfesor',
+                data:{idProfesor, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                    
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
+        }
+      });
+
+});
+
+
+//Obtener datos del Parametro a editar
+$('.editarParametro').click(function (e) {
+    e.preventDefault();
+    let idParametro = $(this).attr( "idParametro" );
+
+    //Obteniendo el index de la row para cuando se actualice
+    let t = $('#dataTableEsp').DataTable();
+    let x = $(this).parents('tr');
+    let indexTr = t.row( x ).index();
+
     $.ajax({
         type:'GET',
-        url: 'eliminarProfesor',
-        data:{idProfesor, indexTr},
+        url: '/buscarParametro',
+        data:{idParametro, indexTr},
         success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-            
+            $('#divEditarParametro').empty().html(data);
         },
         error: function (error) {
             console.log(error);
         }
     });
+    
+     $('#modalEditarParametro').modal('show');
+
 });
 
-
-//Guardar nueva Asignatura
-$('#formAgregarAsignatura').submit(function (e) {
+//Guardar Parametro editado
+$('#formEditarParametro').submit(function (e) {
     e.preventDefault();
     let form = $(this);
     let url = form.attr('action');
+
     $.ajax({
         type:'POST',
         url: url,
         data:form.serialize(),
         success: function (data) {
             console.log(data);
+            let t = $('#dataTableEsp').DataTable();
+            let idIndex = data.indexTr ;
+            // newData = [ 
+            //     data.valor,
+            //     data.email, 
+            //     '<center><button class="btn btn-primary editarParametro" idParametro="'+data.id +'"><i class="fas fa-edit"></i></button></center>',
+            //     '<center><button class="btn btn-primary eliminarParametro" idParametro="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
+            // ] //Array, data here must match structure of table data
+            // t.row(idIndex).data( newData ).draw();
+            $('#modalEditarParametro').modal('hide');
+            location.reload();
 
-            var curso = data.idCurso;
-            console.log(curso)
-            //No se por que no funciona el switch aca, usare solo IF
-            if (curso == 1) {
-               var curso = "Primero Básico";
-            } else if(curso == 2) {
-                var curso = "Segundo Básico";
-            } else if(curso == 3) {
-                var curso = "Tercero Básico";
-            } else if(curso == 4) {
-                var curso = "Cuarto Básico";
-            } else if(curso == 5) {
-                var curso = "Quinto Básico";
-            } else if(curso == 6) {
-                var curso = "Sexto Básico";
-            } else if(curso == 7) {
-                var curso = "Séptimo Básico";
-            } else if(curso == 8) {
-                var curso = "Octavo Básico";
-            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+          
+});
+
+
+
+//Guardar nueva Asignatura
+$('#formAgregarAsignatura').submit(function (e) {
+
+    e.preventDefault();
+    let form = $(this);
+    let url = form.attr('action');
+
+    var formData = new FormData(this);
+    formData.append('_token', $('input[name=_token]').val());
+
+    $.ajax({
+        type:'POST',
+        url: url,
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            console.log(data);
            
             let t = $('#dataTableEsp').DataTable();
 
             t.row.add( [
                 data.nombre,
-                curso,
+                data.idprofesor,
+                data.color,
+                data.imagen,
                 '<center><button class="btn btn-primary editarAsignatura" idAsignatura="'+data.idasignatura +'"><i class="fas fa-edit"></i></button></center>',
                 '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -258,63 +333,34 @@ $('.editarAsignatura').click(function (e) {
 //Guardar Asignatura editado
 $('#formEditarAsignatura').submit(function (e) {
     e.preventDefault();
-    let form = $(this);
-    let url = form.attr('action');
+
+
+    var formData = new FormData(this);
+    formData.append('_token', $('input[name=_token]').val());
+    // let url = formData.attr('action');
+    
 
     $.ajax({
         type:'POST',
-        url: url,
-        data:form.serialize(),
+        url: '/editarAsignatura',
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
         success: function (data) {
             console.log(data);
             let t = $('#dataTableEsp').DataTable();
             let idIndex = data.indexTr;
-            let curso = '';
-
-            switch (data.idcurso) {
-                case 1:
-                    curso = "Primero Básico";
-                    break;
-                case 2:
-                    curso = "Segundo Básico";
-
-                    break;
-                case 3:
-                    curso = "Tercero Básico";
-
-                    break;
-                case 4:
-                    curso = "Cuarto Básico";
-
-                    break;
-                case 5:
-                    curso = "Quinto Básico";
-
-                    break;
-                case 6:
-                    curso = "Sexto Básico";
-
-                    break;
-                case 7:
-                    curso = "Séptimo Básico";
-
-                    break;
-                case 8:
-                    curso = "Octavo Básico";
-
-                    break;
-            
-                default:
-                    break;
-            }
-            newData = [ 
-                data.nombre,
-                curso, 
-                '<center><button class="btn btn-primary editarAsignatura" idAsignatura="'+data.idasignatura +'"><i class="fas fa-edit"></i></button></center>',
-                '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
-            ] //Array, data here must match structure of table data
-            t.row(idIndex).data( newData ).draw();
-            $('#modalEditarAsignatura').modal('hide');
+         
+            // newData = [ 
+            //     data.nombre,
+            //     data.idprofesor, 
+            //     '<center><button class="btn btn-primary editarAsignatura" idAsignatura="'+data.idasignatura +'"><i class="fas fa-edit"></i></button></center>',
+            //     '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
+            // ] //Array, data here must match structure of table data
+            // t.row(idIndex).data( newData ).draw();
+            // $('#modalEditarAsignatura').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -332,18 +378,40 @@ $('.eliminarAsignatura').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
-    $.ajax({
-        type:'GET',
-        url: '/eliminarAsignatura',
-        data:{idAsignatura, indexTr},
-        success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-        },
-        error: function (error) {
-            console.log(error);
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarAsignatura',
+                data:{idAsignatura, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
         }
-    });
+      });
+
+
+    
 });
 
 //Guardar nueva unidad
@@ -368,6 +436,8 @@ $('#formAgregarUnidad').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarUnidad" idUnidad="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -427,6 +497,7 @@ $('#formEditarUnidad').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarUnidad').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -444,18 +515,40 @@ $('.eliminarUnidad').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
-    $.ajax({
-        type:'GET',
-        url: '/eliminarUnidad',
-        data:{idUnidad, indexTr},
-        success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-        },
-        error: function (error) {
-            console.log(error);
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarUnidad',
+                data:{idUnidad, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
         }
-    });
+      });
+
+
+   
 });
 
 
@@ -482,6 +575,8 @@ $('#formAgregarClase').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarClase" idClase="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -544,6 +639,7 @@ $('#formEditarClase').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarClase').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -561,18 +657,40 @@ $('.eliminarClase').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
-    $.ajax({
-        type:'GET',
-        url: '/eliminarClase',
-        data:{idClase, indexTr},
-        success: function (data) {
-            console.log(data);
-            t.row(indexTr).remove().draw();
-        },
-        error: function (error) {
-            console.log(error);
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarClase',
+                data:{idClase, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
         }
-    });
+      });
+
+
+    
 });
 
 
@@ -610,6 +728,8 @@ $('#formAgregarDocumento').submit(function (e) {
                 '<center><button class="btn btn-primary eliminarDocumento" idDocumento="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
             $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
@@ -680,6 +800,7 @@ $('#formEditarDocumento').submit(function (e) {
             ] //Array, data here must match structure of table data
             t.row(idIndex).data( newData ).draw();
             $('#modalEditarDocumento').modal('hide');
+            location.reload();
 
         },
         error: function (error) {
@@ -697,23 +818,199 @@ $('.eliminarDocumento').click(function (e) {
     let x = $(this).parents('tr');
     let indexTr = t.row( x ).index();
 
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarDocumento',
+                data:{idDocumento, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
+        }
+      });
+
+
+    
+});
+
+
+//Guardar nuevo Plan
+$('#formAgregarPlan').submit(function (e) {
+    e.preventDefault();
+    let form = $(this);
+    let url = form.attr('action');
+
     $.ajax({
-        type:'GET',
-        url: '/eliminarDocumento',
-        data:{idDocumento, indexTr},
+        type:'POST',
+        url: url,
+        data:form.serialize(),
         success: function (data) {
             console.log(data);
-            t.row(indexTr).remove().draw();
+
+            let t = $('#dataTableEsp').DataTable();
+
+            t.row.add( [
+                data.cantidad_meses,
+                data.precio,
+                '<center><button class="btn btn-primary editarPlan" idPlan="'+data.id +'"><i class="fas fa-edit"></i></button></center>',
+                '<center><button class="btn btn-primary eliminarPlan" idPlan="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
+            ] ).draw( false );
+            $('#basicExampleModal').modal('hide');
+            location.reload();
+
         },
         error: function (error) {
             console.log(error);
         }
     });
+          
+});
+
+//Obtener datos del profesor a editar
+$('.editarPlan').click(function (e) {
+    e.preventDefault();
+    let idPlan = $(this).attr( "idPlan" );
+
+    //Obteniendo el index de la row para cuando se actualice
+    let t = $('#dataTableEsp').DataTable();
+    let x = $(this).parents('tr');
+    let indexTr = t.row( x ).index();
+
+    $.ajax({
+        type:'GET',
+        url: '/buscarPlan',
+        data:{idPlan, indexTr},
+        success: function (data) {
+            $('#divEditarPlan').empty().html(data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+    
+     $('#modalEditarPlan').modal('show');
+
+});
+
+//Guardar Plan editado
+$('#formEditarPlan').submit(function (e) {
+    e.preventDefault();
+    let form = $(this);
+    let url = form.attr('action');
+
+    $.ajax({
+        type:'POST',
+        url: url,
+        data:form.serialize(),
+        success: function (data) {
+            console.log(data);
+            let t = $('#dataTableEsp').DataTable();
+            let idIndex = data.indexTr ;
+            newData = [ 
+                data.cantidadMeses, 
+                data.precio, 
+                '<center><button class="btn btn-primary editarPlan" idPlan="'+data.idPlan +'"><i class="fas fa-edit"></i></button></center>',
+                '<center><button class="btn btn-primary eliminarPlan" idPlan="'+data.idPlan+'"><i class="fas fa-trash-alt"></i></button></center>',
+            ] //Array, data here must match structure of table data
+            t.row(idIndex).data( newData ).draw();
+            $('#modalEditarPlan').modal('hide');
+            location.reload();
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+          
+});
+
+$('.eliminarPlan').click(function (e) {
+    e.preventDefault();
+    let idPlan = $(this).attr( "idPlan" );
+
+    //Obteniendo el index de la row para cuando se actualice
+    let t = $('#dataTableEsp').DataTable();
+    let x = $(this).parents('tr');
+    let indexTr = t.row( x ).index();
+
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          
+            $.ajax({
+                type:'GET',
+                url: '/eliminarPlan',
+                data:{idPlan, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                    
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
+        }
+      });
+
 });
 
 
-
 // -------------------------------------------------------------------------------------
+
+
+    $('.cursoPago').click(function(e){
+        e.preventDefault();
+        let url = $(this).attr('href');
+
+        $.ajax({
+            type:'GET',
+            url: url,
+            success: function (data) {
+                // console.log(data);
+                $('#seccionPago').empty().html(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    
 
 
 
@@ -753,4 +1050,37 @@ $('.eliminarDocumento').click(function (e) {
         });
     });
 
-   
+    $('.contactarProfesor').click(function(e){
+        e.preventDefault();
+        let idProfesor = $(this).attr( "idProfesor" );
+        let idAsignatura = $(this).attr( "idAsignatura" );
+        let idAlumno = $(this).attr( "idAlumno" );
+        
+        $.ajax({
+            type:'GET',
+            url: '/ContactarProfesor',
+            data:{idProfesor,idAsignatura,idAlumno},
+            success: function (data) {
+                if (data == 'sin intentos') {
+                    swal("Se acabaron los correos este mes!");
+                }else{
+                    $('#modalBodyContactarProfesor').empty().html(data);
+                    $('#contactarProfesorModal').modal('show');
+                }
+            
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+       
+        
+    });
+
+   $('.cambiarNombreAlumno').click(function (e) {
+       e.preventDefault();
+       var idAlumno = $(this).attr('idAlumno');
+      
+       $('#modalNombreAlumno'+idAlumno).modal('show');
+   });

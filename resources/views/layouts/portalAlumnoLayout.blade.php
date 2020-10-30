@@ -113,7 +113,7 @@
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
 
- 
+    
     <title>Casa educa</title>
 </head>
 <body>
@@ -123,167 +123,6 @@
     @endphp
 
  <div id="app">
-    <nav id="navbar_top" class="navbar navbar-light navbar-expand-sm justify-content-center bg-ce4 py-1">
-        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-            <!-- Authentication Links -->
-            @guest
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('login') }}"><i class="fas fa-home text-white"></i> Ingresa</a>
-                </li>
-                {{-- @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif --}}
-
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/suscribete"><i class="fas fa-user text-white"></i> Crea tu cuenta</a>
-                </li>
-            @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-            @endguest
-        </ul>
-    </nav>
-    @guest
-    <nav  class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center bg-white">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-            <a class="navbar-brand mx-4 pl-5" href="{{ url('/') }}">
-                <img style="width:200px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO">
-            </a>
-            <ul class="navbar-nav w-100 justify-content-center">
-                <li class="nav-item {{ '/' == request()->path() ? 'active'  :  ''}}">
-                    <a class="nav-link color-ce4"  href="{{ url('/') }}">Casaeduca</a>
-                </li>
-                <li class="nav-item {{ 'Casaeduca' == request()->path() ? 'active'  :  ''}}">
-                    <a class="nav-link color-ce4"  href="{{ url('/Casaeduca') }}">Nosotros</a>
-                </li>
-               <!--  <li class="nav-item {{ 'Cursos' == request()->path() ? 'active'  :  ''}}">
-                    <a class="nav-link color-ce-4 dropdown-toggle" href="#" data-toggle="dropdown"> Cursos  </a>
-                    <a class="nav-link color-ce4"  href="{{ url('/Cursos') }}">Cursos</a>
-                </li> -->
-                <li class="nav-item dropdown has-megamenu">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Cursos  </a>
-                    <div class="dropdown-menu megamenu">
-                    <div class="container text-center my-3">
-                        <div class="row mx-auto my-auto">
-                            <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel2">
-                                <div class="carousel-inner w-100" role="listbox">
-                                    <div class="carousel-item active py-2">
-                                        <div class="col-md-4">
-                                            <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando.jpg') }}">
-                                                <h4 class="card-title mt-2">1° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item py-2">
-                                        <div class="col-md-4">
-                                            <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
-                                                <h4 class="card-title mt-2">2° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item py-2">
-                                        <div class="col-md-4">
-                                            <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando1.jpg') }}">
-                                                <h4 class="card-title mt-2">3° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item py-2">
-                                        <div class="col-md-4">
-                                            <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninasestudiando.jpg') }}">
-                                                <h4 class="card-title mt-2">4° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item py-2">
-                                        <div class="col-md-4">
-                                            <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
-                                                <h4 class="card-title mt-2">5° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item py-2">
-                                        <div class="col-md-4">
-                                            <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando2.jpg') }}">
-                                                <h4 class="card-title mt-2">6° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item py-2">
-                                        <div class="col-md-4">
-                                            <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
-                                                <h4 class="card-title mt-2">7° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item py-2">
-                                        <div class="col-md-4">
-                                            <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
-                                                <h4 class="card-title mt-2">8° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                                                
-                    </div> <!-- dropdown-mega-menu.// -->
-                </li>
-                <li class="nav-item {{ 'Revista' == request()->path() ? 'active'  :  ''}}">
-                    <a class="nav-link color-ce4"  href="{{ url('/Revista') }}">Revista</a>
-                </li>
-                <li class="nav-item {{ 'Contacto' == request()->path() ? 'active'  :  ''}}">
-                    <a class="nav-link color-ce4"  href="{{ url('/Contacto') }}">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    @endguest
 
     <!-- MAIN CONTENT -->
     <main class="">
@@ -300,13 +139,12 @@
                             <div class="footer-static-title"><h4><span>Sobre nosotros</span><span class="mobile-button visible-xs active"></span></h4></div>
                             <div class="textwidget">
                                 <p class="mg4">
-                                {{$sobreNosotros}}
+                                CasaEduca fue creado con el objetivo de permitir un desarrollo de esta actividad de educación a través de soluciones integrales a quienes la practican, otorgando un verdadero soporte personalizado para alumnos y apoderados.
                                 </p>
                                 <ul class="social-media">
-                                    <li><a class="facebook" href="{{$facebook}}">Facebook</a></li>
-                                    <li><a class="twitter" href="{{$twitter}}">Twitter</a></li>
-                                    <li><a class="instagram" href="{{$instagram}}">Instagram</a></li>
-                                    <li><a class="whatsapp" href="{{$whatsapp}}">Whatsapp</a></li>
+                                    <li><a class="facebook" href="#">Facebook</a></li>
+                                    <li><a class="twitter" href="#">Twitter</a></li>
+                                    <li><a class="instagram" href="#">Instagram</a></li>
                                 </ul>
                             </div>
                         </aside>
@@ -318,7 +156,7 @@
                                 <ul id="menu-my-account" class="menu">
                                     <li id="menu-item-4970" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4970"><a href="{{ url('/Cursos') }}">Cursos</a></li>
                                     <li id="menu-item-4971" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4971"><a href="{{ url('/Casaeduca') }}">Nosotros</a></li>
-                                    <li id="menu-item-4972" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4972"><a href="{{ url('/Revista') }}">Revista</a></li>
+                                    <li id="menu-item-4972" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4972"><a href="{{ url('/Blog') }}">Blog</a></li>
                                 </ul>
                             </div>
                         </aside>						
@@ -338,9 +176,9 @@
                             <div class="textwidget">
                                 <div class="about-des">
                                     <div class="address">
-                                        <p><i class="icon-location-pin icons color"></i> Dirección: {{$direccion}}</p>
-                                        <p><i class="icon-phone icons color"></i> Telefono: {{$telefono}}</p>
-                                        <p><i class="icon-envelope icons color"></i> E-mail: {{$email}}</p>
+                                        <p><i class="icon-location-pin icons color"></i> Dirección: Casa educa, Santiago</p>
+                                        <p><i class="icon-phone icons color"></i> Telefono: +569 123 456 78</p>
+                                        <p><i class="icon-envelope icons color"></i> E-mail: contacto@casaeduca.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +218,9 @@
 <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 {{-- <script src="{{asset('js/slideCursos.js')}}"></script>  --}}
 <!-- HOME -->
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 
 <script src="{{ asset('js/funciones.js')}}"></script>

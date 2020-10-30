@@ -1,7 +1,7 @@
 @extends('Administrador.admin')
 
 @section('content')
-<h1 class="mt-4">Asignaturas</h1>
+<h1 class="mt-4">Asignaturas - {{$nombreCurso}}</h1>
 <br>
 
 <div class="table-responsive">
@@ -9,7 +9,9 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Curso</th>
+                <th>Profesor</th>
+                <th>Color</th>
+                <th>Imagen</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -17,7 +19,9 @@
         <tfoot>
             <tr>
                 <th>Nombre</th>
-                <th>Curso</th>
+                <th>Profesor</th>
+                <th>Color</th>
+                <th>Imagen</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -26,34 +30,12 @@
             @foreach ($asignaturas as $asignatura)
             <tr>
                 <td>{{$asignatura->nombre}}</td>
-                @switch($asignatura->idcurso)
-                @case(1)
-                <td>Primero Básico</td>
-                    @break
-                @case(2)
-                <td>Segundo Básico</td>
-                    @break
-                @case(3)
-                <td>Tercero Básico</td>
-                    @break
-                @case(4)
-                <td>Cuarto Básico</td>
-                    @break
-                @case(5)
-                <td>Quinto Básico</td>
-                    @break
-                @case(6)
-                <td>Sexto Básico</td>
-                    @break
-                @case(7)
-                <td>Séptimo Básico</td>
-                    @break
-                @case(8)
-                <td>Octavo Básico</td>
-                    @break
-                @default
-                    
-            @endswitch
+               
+                <td>{{$asignatura->idprofesor}}</td>
+                <td>{{$asignatura->color}}</td>
+                <td>{{$asignatura->imagen}}</td>
+            
+
             <td class="text-center">
                 <button class="btn btn-primary editarAsignatura" idAsignatura="{{$asignatura->idasignatura}}"><i class="fas fa-edit"></i></button>
               </td>
@@ -90,11 +72,41 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <form id="formAgregarAsignatura" action="/agregarAsignatura" method="POST">
             @csrf
             <div class="modal-body">
-                <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre" required>
+                <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre Asignatura" required>
+                
+                <select class="custom-select mb-3" name="idprofesor">
+                  <option value="0" selected>No Asignado</option>
+                  @foreach ($profesores as $profesor)
+                  <option value="{{$profesor->id}}">{{$profesor->name}}</option>
+                  @endforeach
+                </select>
+
+            
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" name="imagen" class="custom-file-input" 
+                      aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label">Buscar</label>
+                  </div>
+                </div>
+
+                <label for="color">Seleccione un color:</label>
+                <input type="color" name="color" value="#ff0000">
+                
                 <input type="hidden" name="idCurso" value="{{$idCurso}}">
+
+                
+
+
+
             </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

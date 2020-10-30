@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Alumno;
 use App\Plan;
 use App\Pago;
+use App\Sitio;
 use Auth;
 use DB;
 use Session;
@@ -18,7 +20,19 @@ class SuscripcionController extends Controller
 {
     public function suscribirse()
     {
-        return view('Suscripcion.suscribete');
+        $eslogan = Sitio::where('id' ,1)->first()->valor;
+        $invitacionPlanAcademico = Sitio::where('id' ,2)->first()->valor;
+        $sobreNosotros = Sitio::where('id' ,3)->first()->valor;
+        $direccion = Sitio::where('id' ,4)->first()->valor;
+        $telefono = Sitio::where('id' ,5)->first()->valor;
+        $email = Sitio::where('id' ,6)->first()->valor;
+        $facebook = Sitio::where('id' ,7)->first()->valor;
+        $twitter = Sitio::where('id' ,8)->first()->valor;
+        $instagram = Sitio::where('id' ,9)->first()->valor;
+        $whatsapp = Sitio::where('id' ,10)->first()->valor;
+
+        return view('Suscripcion.suscribete', compact('eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
+        'telefono','email','facebook','twitter','instagram','whatsapp'));
     }
 
     public function renovarSuscripción(Request $request)
@@ -34,17 +48,51 @@ class SuscripcionController extends Controller
 
     }
 
-    public function crearSuscipcion(Request $request)
+    public function agregarAlumno (Request $request)
+    {
+        $eslogan = Sitio::where('id' ,1)->first()->valor;
+        $invitacionPlanAcademico = Sitio::where('id' ,2)->first()->valor;
+        $sobreNosotros = Sitio::where('id' ,3)->first()->valor;
+        $direccion = Sitio::where('id' ,4)->first()->valor;
+        $telefono = Sitio::where('id' ,5)->first()->valor;
+        $email = Sitio::where('id' ,6)->first()->valor;
+        $facebook = Sitio::where('id' ,7)->first()->valor;
+        $twitter = Sitio::where('id' ,8)->first()->valor;
+        $instagram = Sitio::where('id' ,9)->first()->valor;
+        $whatsapp = Sitio::where('id' ,10)->first()->valor;
+
+        return view('Suscripcion.agregarAlumno',compact('eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
+        'telefono','email','facebook','twitter','instagram','whatsapp'));
+    }
+
+    public function obtenerPlanes($idCurso)
+    {
+        $planes = DB::table('plan')->where('id_curso' , $idCurso)->get();
+        return view('Suscripcion.planes' , compact('planes'));
+    }
+
+    public function crearSuscripcion(Request $request)
     {
         $user = User::all()->where('email', $request->email)->first();
 
         if (!$user) {
 
+            $eslogan = Sitio::where('id' ,1)->first()->valor;
+            $invitacionPlanAcademico = Sitio::where('id' ,2)->first()->valor;
+            $sobreNosotros = Sitio::where('id' ,3)->first()->valor;
+            $direccion = Sitio::where('id' ,4)->first()->valor;
+            $telefono = Sitio::where('id' ,5)->first()->valor;
+            $email = Sitio::where('id' ,6)->first()->valor;
+            $facebook = Sitio::where('id' ,7)->first()->valor;
+            $twitter = Sitio::where('id' ,8)->first()->valor;
+            $instagram = Sitio::where('id' ,9)->first()->valor;
+            $whatsapp = Sitio::where('id' ,10)->first()->valor;
+
                 //Se crea el nuevo Usuario
                 User::create([
-                    'name' => $request->nombreCompletoAlumno,
-                    'name_apoderado' => $request->nombreCompletoApoderado,
-                    'genero' => $request->genero,
+                    'name' => $request->nombreCompletoApoderado,
+                    // 'name_apoderado' => $request->nombreCompletoApoderado,
+                    // 'genero' => $request->genero,
                     // 'id_curso' => $request->curso,
                     // 'id_plan' => $request->plan,
                     'email' => $request->email,
@@ -55,7 +103,8 @@ class SuscripcionController extends Controller
                     'estado' => 0
                 ]);
     
-                 return view('Suscripcion.suscripcionRealizada'); //invitar a loguear junto con el mensaje de felicitaciones
+                 return view('Suscripcion.suscripcionRealizada',compact('eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
+                 'telefono','email','facebook','twitter','instagram','whatsapp')); //invitar a loguear junto con el mensaje de felicitaciones
         
         }else{
             dd('Ya existe un usuario con ese correo');
@@ -76,23 +125,26 @@ class SuscripcionController extends Controller
 
     public function procesarPago(Request $request)
     {
+     
         $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
         ->getNormalTransaction();
 
-        $precio = DB::table('plan')->where('id_curso' , $request->curso)->first()->precio;
-        $monto = $precio * $request->plan;
+        $monto = DB::table('plan')->where('idplan' , $request->idPlan)->first()->precio;
 
-        //Subir a sesión que curso y plan eligió, una vez procesado el pago se le asignará curso y plan en bd
+        // //Subir a sesión que curso y plan eligió, una vez procesado el pago se le asignará curso y plan en bd
+        $idPlan = $request->idPlan;
+        $idCurso = DB::table('plan')->where('idplan' , $idPlan)->first()->id_curso;
+ 
         Session::forget('idCurso');
         Session::forget('idPlan');
-        Session::put('idCurso', $request->curso);
-        Session::put('idPlan', $request->plan);
+        Session::put('idCurso', $idCurso);
+        Session::put('idPlan', $idPlan);
 
         $sessionId = Session::getId();
 
         $buyOrder = strval(rand(100000, 999999999));
         $returnUrl = 'http://localhost:8000/finalizarPago';
-        $finalUrl = 'http://localhost:8000/activarCuenta';
+        $finalUrl = 'http://localhost:8000/volver';
         $initResult = $transaction->initTransaction(
                 $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
 
@@ -112,13 +164,14 @@ class SuscripcionController extends Controller
         $output = $result->detailOutput;
 
         if ($output->responseCode == 0) {
+            
             // Transaccion exitosa, puedes procesar el resultado con el contenido de
             // las variables result y output.
-            $idUsuario = Auth::user()->id;
+            $idApoderado = Auth::id();
 
             $pago = new Pago;
             $pago->buyOrder = $result->buyOrder;
-            $pago->idAlumno = $idUsuario;
+            $pago->idApoderado = $idApoderado;
             $pago->amount = $output->amount;
             $pago->cardNumber = $result->cardDetail->cardNumber;
             $pago->transactionDate = $result->transactionDate;
@@ -127,21 +180,42 @@ class SuscripcionController extends Controller
 
             $idCurso = Session::get('idCurso');
             $idPlan = Session::get('idPlan');
+         
+            $query = DB::table('plan')->where('idplan' , $idPlan)->first();
+          
+            $meses = $query->cantidad_meses;
+         
+          
+            // se realiza el pago y parte desde hoy
+            $fechaActual = date("Y-m-d");
+            // y termina en la cantidad de meses seleccionada
+            $fin_plan = date('Y-m-d', strtotime("+".$meses." months", strtotime($fechaActual)));
+      
             
-            $usuario = DB::table('users')
-            ->where('id', $idUsuario)
-            ->update(['id_curso' => $idCurso,'id_plan' => $idPlan]);
-
+            $alumno = new Alumno;
+            $alumno->nombre = 'Estudiante';
+            $alumno->id_curso = $idCurso;
+            $alumno->id_apoderado = $idApoderado;
+            $alumno->estado = 1;
+            $alumno->fecha_pago = $fechaActual;
+            $alumno->fin_plan = $fin_plan;
+            $alumno->id_plan = $idPlan;
+            $alumno->save();
 
             return view('Suscripcion.terminarPago', compact('result','tokenWs'));
 
         }else{
             // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
-           return redirect()->route('alumno');
+           return redirect()->route('apoderado');
         }
 
     }
 
+    public function volver(Request $request)
+    {
+        return redirect()->route('apoderado');
+    }
+    
     public function activarCuenta(Request $request)
     {
         $idUsuario = Auth::user()->id;

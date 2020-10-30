@@ -254,6 +254,10 @@ ul.social-media li a:hover.rss {
     background: #ffa500;
 }
 
+ul.social-media li a:hover.whatsapp {
+    background: #08c111;
+}
+
 ul.social-media li a:hover.instagram {
     background: #c10895;
 }
@@ -284,6 +288,10 @@ ul.social-media li a.rss:before {
 ul.social-media li a.instagram:before {
     font-family: "Font Awesome 5 Brands"!important;
     content: "\f16d";
+}
+ul.social-media li a.whatsapp:before {
+    font-family: "Font Awesome 5 Brands"!important;
+    content: "\f232";
 }
 
 ul.social-media li a.pinterest:before {
@@ -376,14 +384,16 @@ ul.social-media li a.dribbble:before {
     color: #000 !important;
 }
 
-.nav-item>.nav-link.active {
+/* .nav-item>.nav-link.active {
     color: white;
     background-color: red;
-}
+} */
 
 .btnce-1:hover {
     color: #f9e085 !important;
 }
+
+
 
 .cardplan {
     background-image: url("../img/blog2.jpg")!important;

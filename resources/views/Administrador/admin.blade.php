@@ -55,6 +55,11 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Dashboard
                             </a>
+                            <div class="sb-sidenav-menu-heading">Sitio Web</div>
+                            <a class="nav-link " href="/ModificarSitioWeb">
+                                <div class="sb-nav-link-icon"><i class="fas fa-desktop"></i></div>
+                                Modificar Sitio Web
+                            </a>
                             <div class="sb-sidenav-menu-heading">Usuarios</div>
                             <a class="nav-link " href="/Alumnos">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
@@ -77,6 +82,7 @@
                                     <a class="nav-link" href="/adminUnidades/1"><i class="fas fa-swatchbook mr-2"></i>Unidades</a>
                                     <a class="nav-link" href="/adminClases/1"> <i class="fas fa-book-open mr-2"></i> Clases</a>
                                     <a class="nav-link" href="/adminDocumentos/1"> <i class="fas fa-book-open mr-2"></i> Documentos</a>
+                                    <a class="nav-link" href="/planes/1"> <i class="fas fa-user-clock mr-2"></i> Planes</a>
                                 </nav>
                             </div>
 
@@ -91,6 +97,7 @@
                                     <a class="nav-link" href="/adminUnidades/2"><i class="fas fa-swatchbook mr-2"></i>Unidades</a>
                                     <a class="nav-link" href="/adminClases/2"> <i class="fas fa-book-open mr-2"></i> Clases</a>
                                     <a class="nav-link" href="/adminDocumentos/2"> <i class="fas fa-book-open mr-2"></i> Documentos</a>
+                                    <a class="nav-link" href="/planes/2"> <i class="fas fa-user-clock mr-2"></i> Planes</a>
                                 </nav>
                             </div>
                           
@@ -105,6 +112,7 @@
                                     <a class="nav-link" href="/adminUnidades/3"><i class="fas fa-swatchbook mr-2"></i>Unidades</a>
                                     <a class="nav-link" href="/adminClases/3"> <i class="fas fa-book-open mr-2"></i> Clases</a>
                                     <a class="nav-link" href="/adminDocumentos/3"> <i class="fas fa-book-open mr-2"></i> Documentos</a>
+                                    <a class="nav-link" href="/planes/3"> <i class="fas fa-user-clock mr-2"></i> Planes</a>
                                 </nav>
                             </div>
                           
@@ -119,6 +127,7 @@
                                     <a class="nav-link" href="/adminUnidades/4"><i class="fas fa-swatchbook mr-2"></i>Unidades</a>
                                     <a class="nav-link" href="/adminClases/4"> <i class="fas fa-book-open mr-2"></i> Clases</a>
                                     <a class="nav-link" href="/adminDocumentos/4"> <i class="fas fa-book-open mr-2"></i> Documentos</a>
+                                    <a class="nav-link" href="/planes/4"> <i class="fas fa-user-clock mr-2"></i> Planes</a>
                                 </nav>
                             </div>
                           
@@ -133,6 +142,7 @@
                                     <a class="nav-link" href="/adminUnidades/5"><i class="fas fa-swatchbook mr-2"></i>Unidades</a>
                                     <a class="nav-link" href="/adminClases/5"> <i class="fas fa-book-open mr-2"></i> Clases</a>
                                     <a class="nav-link" href="/adminDocumentos/5"> <i class="fas fa-book-open mr-2"></i> Documentos</a>
+                                    <a class="nav-link" href="/planes/5"> <i class="fas fa-user-clock mr-2"></i> Planes</a>
                                 </nav>
                             </div>
                           
@@ -147,6 +157,7 @@
                                     <a class="nav-link" href="/adminUnidades/6"><i class="fas fa-swatchbook mr-2"></i>Unidades</a>
                                     <a class="nav-link" href="/adminClases/6"> <i class="fas fa-book-open mr-2"></i> Clases</a>
                                     <a class="nav-link" href="/adminDocumentos/6"> <i class="fas fa-book-open mr-2"></i> Documentos</a>
+                                    <a class="nav-link" href="/planes/6"> <i class="fas fa-user-clock mr-2"></i> Planes</a>
                                 </nav>
                             </div>
                           
@@ -161,6 +172,7 @@
                                   <a class="nav-link" href="/adminUnidades/7"><i class="fas fa-swatchbook mr-2"></i>Unidades</a>
                                   <a class="nav-link" href="/adminClases/7"> <i class="fas fa-book-open mr-2"></i> Clases</a>
                                   <a class="nav-link" href="/adminDocumentos/7"> <i class="fas fa-book-open mr-2"></i> Documentos</a>
+                                  <a class="nav-link" href="/planes/7"> <i class="fas fa-user-clock mr-2"></i> Planes</a>
                                 </nav>
                             </div>
                           
@@ -175,6 +187,8 @@
                                     <a class="nav-link" href="/adminUnidades/8"><i class="fas fa-swatchbook mr-2"></i>Unidades</a>
                                     <a class="nav-link" href="/adminClases/8"> <i class="fas fa-book-open mr-2"></i> Clases</a>
                                     <a class="nav-link" href="/adminDocumentos/8"> <i class="fas fa-book-open mr-2"></i> Documentos</a>
+                                    <a class="nav-link" href="/planes/8"> <i class="fas fa-user-clock mr-2"></i> Planes</a>
+                                    
                                 </nav>
                             </div>
                           
@@ -225,7 +239,11 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="/dist/assets/demo/datatables-demo.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset("/js/funciones.js")}}"></script> 
+
+
+
 
     </body>
 </html>

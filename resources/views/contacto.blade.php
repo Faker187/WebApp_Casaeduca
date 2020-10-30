@@ -82,15 +82,15 @@
                             <div class="col-md-3 text-center">
                                 <ul class="list-unstyled mb-0">
                                     <li><img src="{{ asset('img/pin-ubicacion.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
-                                        <p>Dirección, Santiago, Chile</p>
+                                        <p>{{$direccion}}</p>
                                     </li>
 
                                     <li><img src="{{ asset('img/llamada-telefonica.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
-                                        <p>+ 562 234 567 89</p>
+                                        <p>{{$telefono}}</p>
                                     </li>
 
                                     <li><img src="{{ asset('img/correo-electronico.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
-                                        <p>contacto@casaeduca.cl</p>
+                                        <p>{{$email}}</p>
                                     </li>
                                 </ul>
                             </div>

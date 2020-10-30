@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Plan extends Model
+class Sitio extends Model
 {
-    protected $table = 'plan';
+    protected $table = 'sitio';
     public $timestamps = false;
-    public $primaryKey  = 'idplan';
-
 }

@@ -8,7 +8,7 @@
     $idCurso = intval(end($idCurso));
 @endphp
 
-<h1 class="mt-4">Documentos</h1>
+<h1 class="mt-4">Documentos - {{$nombreCurso}}</h1>
 <br>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTableEsp" width="100%" cellspacing="0">
