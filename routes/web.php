@@ -44,7 +44,7 @@ Route::get('/Planacademico', 'InicioController@planacademico');
 Route::get('/Cursos', function () {
     return view('cursos');
 });
-Route::get('/Test', function () {
+Route::get('/Test2', function () {
     return view('asignatura2');
 });
 // Route::get('/Curso', function () {
@@ -151,7 +151,7 @@ Route::post('/volver', 'SuscripcionController@volver')->name('volver');
 
 //Asignatura
 Route::get('/Asignatura/{id}', 'AsignaturaController@asignatura');
-
+Route::get('/Test/{id}', 'AsignaturaController@asignatura2');
 //Clase
 Route::get('/CargarClase/{idClase}', 'ClaseController@clase');
 

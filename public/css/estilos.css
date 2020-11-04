@@ -289,6 +289,7 @@ ul.social-media li a.instagram:before {
     font-family: "Font Awesome 5 Brands"!important;
     content: "\f16d";
 }
+
 ul.social-media li a.whatsapp:before {
     font-family: "Font Awesome 5 Brands"!important;
     content: "\f232";
@@ -344,8 +345,10 @@ ul.social-media li a.dribbble:before {
     background-color: #F4A6B8 !important;
 }
 
-.bg-ce8 {
-    background: linear-gradient(90deg, #4269B0 0%, #bd9cd8 50%, #4269B0 100%)!important;
+h1.color-ce00 {
+    background: -webkit-linear-gradient(#4269B0, #bd9cd8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .color-ce0 {
@@ -384,6 +387,7 @@ ul.social-media li a.dribbble:before {
     color: #000 !important;
 }
 
+
 /* .nav-item>.nav-link.active {
     color: white;
     background-color: red;
@@ -392,8 +396,6 @@ ul.social-media li a.dribbble:before {
 .btnce-1:hover {
     color: #f9e085 !important;
 }
-
-
 
 .cardplan {
     background-image: url("../img/blog2.jpg")!important;

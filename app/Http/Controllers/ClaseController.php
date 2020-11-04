@@ -19,8 +19,6 @@ class ClaseController extends Controller
         $clase =  DB::table("clase")->where('idclase', $idClase)->first();
         $documentos = Documento::where('idClase', $clase->idclase)->get();
         return view('Clase.plantillaClase', compact('clase','documentos'));
-        // dd($clase, $documentos);
-        // // dd($clase);
         // //contenidoClase
         // $contenido = $clase->contenido;
         // return $contenido;
