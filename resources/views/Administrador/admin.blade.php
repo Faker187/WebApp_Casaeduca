@@ -191,6 +191,20 @@
                                     
                                 </nav>
                             </div>
+
+                            <div class="sb-sidenav-menu-heading">Correos</div>
+                            <a class="nav-link" href="/adminCorreos">
+                                <div class="sb-nav-link-icon"><i class="fas fa-question"></i></div>
+                                Preguntas
+                            </a>
+
+
+                            <div class="sb-sidenav-menu-heading">Anuncios</div>
+                            <a class="nav-link" href="/adminRevista">
+                                <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                                Revista
+                            </a>
+
                           
                             <div class="sb-sidenav-menu-heading">Pagos</div>
                             <a class="nav-link" href="/Pagos">

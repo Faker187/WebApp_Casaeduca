@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use Mail;
+use Str;
+use Session;
 use App\Sitio;
+use App\Revista;
+use App\Correo;
 
 class InicioController extends Controller
 {
@@ -27,6 +32,10 @@ class InicioController extends Controller
         $twitter = Sitio::where('id' ,8)->first()->valor;
         $instagram = Sitio::where('id' ,9)->first()->valor;
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
+
+
+
+        
     
  
         if (Auth::user() == null) {
@@ -83,6 +92,38 @@ class InicioController extends Controller
         ));
     }
 
+    public function formularioContacto(Request $request)
+    {
+        
+        $data = [
+            "email" => $request->email,
+            "mensaje" => $request->message,
+            "name" => $request->name,
+            "subject" => $request->subject,
+         ];
+
+    
+
+        // $subject = $request->subject;
+        // $for = $request->email;
+
+        // Mail::send('emailFormContacto',$request->all(), function($msj) use($subject,$for){
+        //     $msj->from("contact@casaeduca.cl","Casa Educa, Nuevo Contacto");
+        //     $msj->subject($subject);
+        //     $msj->to($for);
+        // });
+
+        $subject = "test";
+        $for = "casaeduca@yopmail.com";
+        Mail::send('emailFormContacto',$data, function($msj) use($subject,$for){
+            $msj->from("tucorreo@gmail.com","NombreQueApareceráComoEmisor");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+
+        return 'true';
+    }
+
     public function revista()
     {
         $eslogan = Sitio::where('id' ,1)->first()->valor;
@@ -96,9 +137,31 @@ class InicioController extends Controller
         $instagram = Sitio::where('id' ,9)->first()->valor;
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
 
-        return view('blog',compact('cursos','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
+        $revistas =  Revista::all();
+
+        return view('blog',compact('revistas','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
             'telefono','email','facebook','twitter','instagram','whatsapp'
         ));
+    }
+
+    public function detalleRevista($id)
+    {
+        $eslogan = Sitio::where('id' ,1)->first()->valor;
+        $invitacionPlanAcademico = Sitio::where('id' ,2)->first()->valor;
+        $sobreNosotros = Sitio::where('id' ,3)->first()->valor;
+        $direccion = Sitio::where('id' ,4)->first()->valor;
+        $telefono = Sitio::where('id' ,5)->first()->valor;
+        $email = Sitio::where('id' ,6)->first()->valor;
+        $facebook = Sitio::where('id' ,7)->first()->valor;
+        $twitter = Sitio::where('id' ,8)->first()->valor;
+        $instagram = Sitio::where('id' ,9)->first()->valor;
+        $whatsapp = Sitio::where('id' ,10)->first()->valor;
+
+        $revista = Revista::find($id);
+
+
+        return view('blogv', compact('revista','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
+        'telefono','email','facebook','twitter','instagram','whatsapp'));
     }
 
     public function planacademico()
@@ -143,5 +206,73 @@ class InicioController extends Controller
         
         return view('detalleCurso', compact('curso','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
         'telefono','email','facebook','twitter','instagram','whatsapp'));
+    }
+
+    public function responderCorreo($id, $token)
+    {
+        //Verificar Respuesta Existente
+        $correo = DB::table('correo')->where('token', $token)->where('tipo', 2)->count();
+
+        $respondido = false;
+        if ($correo != 0) {
+            $respondido = true;
+        }
+
+        $idAlumno =  DB::table('correo')->where('id', $id)->where('token', $token)->where('tipo', 1)->first()->idalumno;
+        $idCursoAlumno = DB::table('alumno')->where('id', $idAlumno)->first()->id_curso;
+        $nombreCursoAlumno = DB::table('curso')->where('idcurso', $idCursoAlumno)->first()->nombre;
+      
+
+        $datos = DB::table('correo')->where('id', $id)->where('token', $token)->where('tipo', 1)->first();
+        $datos->nombreAsignatura = DB::table('asignatura')->where('idasignatura', $datos->idasignatura)->first()->nombre;
+        $datos->nombreAlumno = DB::table('alumno')->where('id', $datos->idalumno)->first()->nombre;
+        $datos->nombreCurso = $nombreCursoAlumno;
+        // dd($datos);
+        return view('Alumno.responderCorreo', compact('datos','respondido'));
+    }
+    
+    public function enviarRespuestaProfesor(Request $request)
+    {
+        $correo = new Correo;
+        $correo->idalumno = $request->idalumno;
+        $correo->idprofesor = $request->idprofesor;
+        $correo->idasignatura = $request->idasignatura;
+        $correo->correo = $request->correo;
+        $correo->asunto = $request->asunto;
+        $correo->mensaje = $request->respuestaProfesor;
+        $correo->fecha = date("Y-m-d h:i:s");
+        $correo->token = $request->token;
+        $correo->tipo = 2;
+        $correo->visto = 0;
+        $correo->save();
+
+        return 'true';
+    }
+
+    public function buscarCorreos(Request $request)
+    {
+        $mesActual = date('m');
+
+        $correos = DB::table('correo')
+        ->where('idalumno', $request->idAlumno)
+        ->where('idprofesor', $request->idProfesor)
+        ->where('idasignatura', $request->idAsignatura)
+        ->whereRaw("date_format(fecha, '%c') = $mesActual")
+        ->where('tipo', 1)
+        ->get();
+
+      
+        foreach ($correos as $correo) {
+
+            $correoRespuesta = Correo::where('token', $correo->token)->where('tipo', 2)->first();
+            if ($correoRespuesta != null) {
+                $correoRespuesta->update(['visto' => 1]);
+            }
+
+            $correo->respuesta = DB::table('correo')->where('tipo', 2)->where('token',$correo->token)->first();
+            
+        }
+        
+        return view('Alumno.listaCorreos', compact('correos'));
     }
 }

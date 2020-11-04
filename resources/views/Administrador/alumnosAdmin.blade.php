@@ -7,11 +7,12 @@
     <table class="table table-bordered" id="dataTableEsp" width="100%" cellspacing="0">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Alumno</th>
                 <th>Apoderado</th>
                 <th>Curso</th>
                 <th>Plan</th>
-                <th>Email</th>
+                <th>Email Apoderado</th>
                 <th>Estado</th>
                 <th>Comienzo Plan</th>
                 <th>Fin Plan</th>
@@ -21,11 +22,12 @@
         </thead>
         <tfoot>
             <tr>
+                <th>ID</th>
                 <th>Alumno</th>
                 <th>Apoderado</th>
                 <th>Curso</th>
                 <th>Plan</th>
-                <th>Email</th>
+                <th>Email Apoderado</th>
                 <th>Estado</th>
                 <th>Comienzo Plan</th>
                 <th>Fin Plan</th>
@@ -36,50 +38,16 @@
         <tbody>
             @foreach ($alumnos as $alumno)
             <tr>
-                <td>{{$alumno->name}}</td>
+                <td>{{$alumno->id}}</td>
+                <td>{{$alumno->nombre}}</td>
                 <td>{{$alumno->name_apoderado}}</td>
-                @switch($alumno->id_curso)
-                    @case(1)
-                    <td>Primero Básico</td>
-                        @break
-                    @case(2)
-                    <td>Segundo Básico</td>
-                        @break
-                    @case(3)
-                    <td>Tercero Básico</td>
-                        @break
-                    @case(4)
-                    <td>Cuarto Básico</td>
-                        @break
-                    @case(5)
-                    <td>Quinto Básico</td>
-                        @break
-                    @case(6)
-                    <td>Sexto Básico</td>
-                        @break
-                    @case(7)
-                    <td>Séptimo Básico</td>
-                        @break
-                    @case(8)
-                    <td>Octavo Básico</td>
-                        @break
-                    @default
-                        
-                @endswitch
+                <td>{{$alumno->nombreCurso}}</td>
 
-                @switch($alumno->id_plan)
-                    @case(1)
-                    <td>1 Mes</td>
-                        @break
-                    @case(2)
-                    <td>2 Meses</td>
-                        @break
-                    @case(3)
-                    <td>3 Meses</td>
-                        @break
-                    @default
-                        
-                @endswitch
+                @if ($alumno->cantidadMeses == 1)
+                    <td>{{$alumno->cantidadMeses}} Mes</td>
+                @else
+                    <td>{{$alumno->cantidadMeses}} Meses</td>
+                @endif
                 <td>{{$alumno->email}}</td>
 
                 @if ($alumno->estado == 1)

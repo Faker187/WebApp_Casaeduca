@@ -77,13 +77,19 @@
                         <div class="mr-auto p-2">
                             <a class="btnce-1 text-white font-weight-bold">Estado:</a>
                         </div>
-                        <div class="p-2"><a class="btnce-1 text-white font-weight-bold">{{$alumno->estado}}</a></div>
+                        @if ($alumno->estado == 1)
+                        <div class="p-2"><a class="btnce-1 text-white font-weight-bold">Activo</a></div>
+                        @else
+                        <div class="p-2"><a class="btnce-1 text-white font-weight-bold">Inactivo</a></div>
+
+                        @endif
                       </div>
 
-                      @if ($alumno->estado == 'Activo')
+                      @if ($alumno->estado == 1)
                       <a href="/Alumno/{{$alumno->id}}" class="btn btn-block purple-gradient">Comenzar a estudiar</a>
                       @else
-                      <button class="btn btn-block purple-gradient">Renovar</button>
+                      {{-- <a href="/Renovar/{{$alumno->id}}" class="btn btn-block purple-gradient">Renovar</a> --}}
+                      <a href="/planesRenovar/{{$alumno->id}}" class="btn btn-block purple-gradient">Renovar</a>
                       @endif
 
       

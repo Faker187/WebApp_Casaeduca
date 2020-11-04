@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sitio;
+use App\Documento;
+use DB;
 
 class AsignaturaController extends Controller
 {
@@ -28,8 +30,16 @@ class AsignaturaController extends Controller
         $unidades = \App\Unidad::where('idasignatura', $id)->get();
         foreach ($unidades as $unidad) {
             $unidad->clases = \App\Clase::where('idunidad', $unidad->idunidad)->get();
+
+            foreach ($unidad->clases as $clase) {
+                $doc = DB::table('documento')->where('idClase', $clase->idclase)->first()->documento;
+                $clase->tipo_documento =  explode('.', $doc)[1];
+            }
+
+            
         }
 
+    
         return view('Asignatura.asignatura',compact('unidades','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
         'telefono','email','facebook','twitter','instagram','whatsapp'));
     }

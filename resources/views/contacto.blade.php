@@ -39,17 +39,18 @@
 
                         <div class="row">
                             <div class="col-md-9 mb-md-0 mb-5">
-                                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                                <form id="contact-form" name="contact-form" action="/formularioContacto" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="name" name="name" class="form-control">
+                                                <input type="text" id="formname" name="name" class="form-control" required>
                                                 <label for="name" class="">Nombre<i class="fas fa-user pl-1"></i></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="email" name="email" class="form-control">
+                                                <input type="email" id="formemail" name="email" class="form-control" required>
                                                 <label for="email" class="">Email<i class="fas fa-at pl-1"></i></label>
                                             </div>
                                         </div>
@@ -57,7 +58,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="md-form mb-0">
-                                                <input type="text" id="subject" name="subject" class="form-control">
+                                                <input type="text" id="formsubject" name="subject" class="form-control" required>
                                                 <label for="subject" class="">Asunto<i class="fas fa-envelope-open-text pl-1"></i></label>
                                             </div>
                                         </div>
@@ -65,17 +66,20 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="md-form">
-                                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                                <textarea type="text" id="formmessage" required name="message" rows="2" class="form-control md-textarea"></textarea>
                                                 <label for="message">Mensaje<i class="far fa-comment-dots pl-1"></i></label>
                                             </div>
 
                                         </div>
                                     </div>
+
+                                    <div class="text-center text-md-left">
+                                        <button type="submit" class="btn rounded bg-ce4 text-white">Enviar</button>
+                                    </div>
+
                                 </form>
 
-                                <div class="text-center text-md-left">
-                                    <a class="btn rounded bg-ce4 text-white" onclick="document.getElementById('contact-form').submit();">Enviar</a>
-                                </div>
+                                
                                 <div class="status"></div>
                             </div>
 

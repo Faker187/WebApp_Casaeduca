@@ -23,5 +23,6 @@ class VerifyCsrfToken extends Middleware
         'http://localhost:8000/activarCuenta',
         'http://localhost:8000/procesarPago',
         'http://localhost:8000/volver',
+        'http://localhost:8000/renovarPlanPago',
     ];
 }

@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 my-4">
-            <div class="wrapper  py-5 fadeInDown">
+            <div class="wrapper  py-5 fadeIn">
                 <div id="formContent">
                     
                     <h2 class="active">Restaurar contraseña </h2>
