@@ -13,51 +13,33 @@
   @foreach ($planes as $plan)
 
   <div class="col-md-4">
-    <div class="card mb-4 m-1">
-            <div class="view overlay">
-                {{-- <img class="card-img-top" src="{{ asset('img/lenguaje.png') }}"
-                    alt="Card image cap">
-                <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                </a> --}}
-            </div>
-            <div class="card-body danger-color">
-                <div class="d-flex">
-                
-                </div>
-                <div class="d-flex mb-3">
-                    <div class="mr-auto p-2">
-                        <a class="btnce-1 text-white font-weight-bold" href="#">Cantidad de meses</a>
-                    </div>
-                    <div class="p-2"><a class="btnce-1 text-white font-weight-bold" href="#">{{$plan->cantidad_meses}} {{$plan->cantidad_meses > 1 ? 'Meses' : 'Mes'}}</a></div>
-                </div>
-
-                <div class="d-flex mb-3">
-                <div class="mr-auto p-2">
-                    <a class="btnce-1 text-white font-weight-bold" href="#">Precio:</a>
-                </div>
-                <div class="p-2"><a class="btnce-1 text-white font-weight-bold" href="#">${{$plan->precio}}</a></div>
-            </div>
-
-                <br>
-                    <form action="/procesarPago" method="POST">
-                        @csrf  
-                        <input type="hidden" name="idPlan" value="{{$plan->idplan}}">
-                        <button type="submit" class="btn btn-block btn-primary pagarPlan">Pagar</button>
-                    </form>
-
-            
-
-            </div>
-        </div>
+    <div class="card bg-ce1 mb-3" style="max-width: 20rem;">
+      <div class="card-body mt-3">
+        <h5 class="card-title color-ce4 font-weight-bold">Plan</h5>
+        <hr class="border-light">
+        <p class="card-text">
+          <ul class="color-ce4 font-weight-bold pt-2 pl-3">
+            <li>Cantidad de meses: {{$plan->cantidad_meses}} {{$plan->cantidad_meses > 1 ? 'Meses' : 'Mes'}}</li>
+            <li>Precio: ${{$plan->precio}} </li>
+          </ul>
+        </p>
+        <br>
+        <form action="/procesarPago" method="POST">
+            @csrf  
+            <input type="hidden" name="idPlan" value="{{$plan->idplan}}">
+            <button type="submit" class="ml-5 btn rounded-pill btn-lg font-weight-bold border-0 bg-ce0 pagarPlan">Pagar</button>
+        </form>
+        
+      </div>
     </div>
+  </div>
 
 
   @endforeach
   
   
   
-  </div>
+</div>
   <!-- Card group -->
 
   {{-- <script>

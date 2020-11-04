@@ -52,8 +52,8 @@ Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
 Route::get('/Cursos', function () {
     return view('cursos');
 });
-Route::get('/Test', function () {
-    return view('alumno2');
+Route::get('/Test2', function () {
+    return view('asignatura2');
 });
 // Route::get('/Curso', function () {
 //     return view('curso');
@@ -176,8 +176,8 @@ Route::post('/volver', 'SuscripcionController@volver')->name('volver');
 
 
 //Asignatura
-Route::get('/Asignatura/{id}', 'AsignaturaController@asignatura');
-
+Route::get('/Asignatura/{id}', 'AsignaturaController@asignatura2');
+// Route::get('/Test/{id}', 'AsignaturaController@asignatura2');
 //Clase
 Route::get('/CargarClase/{idClase}', 'ClaseController@clase');
 

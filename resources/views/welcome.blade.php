@@ -62,22 +62,7 @@
     }
     .card-img-overlay {
         background-color: rgba(#000, 0.4)!important;
-    }
-    .slash-1 {
-    height: 10px;
-    color: #bd9cd8;
-    background-image: linear-gradient(-45deg,
-        transparent,
-        transparent 25%,
-        currentColor 25%,
-        currentColor 50%,
-        transparent 50%,
-        transparent 75%,
-        currentColor 75%);
-        background-size: 10px 10px;
-        width: 100%!important;
-    }
-    
+    }    
 </style>
 {{-- {{dd($cursos)}} --}}
     <div class="container-fluid px-0">
@@ -156,7 +141,7 @@
             </div>
     <!-- ====== /plan academico ====== -->
     </div>
-    
+
     <hr class="slash-1">
 
     <div class="container my-5 ">

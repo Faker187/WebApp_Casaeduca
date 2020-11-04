@@ -491,7 +491,6 @@
             height:'50px',
             barColor: '#4269B0'
         });
-        
 
     });
 
