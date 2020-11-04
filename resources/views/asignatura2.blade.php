@@ -128,70 +128,7 @@ a:hover,a:focus{
                     <div class="panel-body">
 
                         @foreach ($unidad->clases as $clase)
-                            @php
-                            $ext = explode('.', $clase->tipo_documento);
-                            $extension = '';
-                            var_dump($clase->tipo_documento);
-                            if(isset($ext[1])){
-                                $extension = $ext[1];
-                            }
-                            @endphp
-                            @switch($extension)
-                                @case('txt')
-                                    <li class="p-2 ml-3">
-                                        <i class="fas fa-file fa-2x pr-2 secondary-color"></i>
-                                        <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
-                                    </li>
-                                    @break
 
-                                @case('docx')
-                                    <li class="p-2 ml-3">
-                                        <i class="fas fa-file-word fa-2x pr-2 primary-color"></i>
-                                        <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
-                                    </li>
-                                    @break
-
-                                @case('pptx')
-                                    <li class="p-2 ml-3">
-                                        <i class="fas fa-file-powerpoint fa-2x pr-2 orange"></i>
-                                        <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
-                                    </li>
-                                    @break
-
-                                @case('xlsx')
-                                    <li class="p-2 ml-3">
-                                        <i class="fas fa-file-excel fa-2x pr-2 success-color"></i>
-                                        <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
-                                    </li>
-                                    @break
-
-                                @case('pdf')
-                                    <li class="p-2 ml-3">
-                                        <i class="fas fa-file-pdf fa-2x pr-2 danger-color"></i>
-                                        <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
-                                    </li>
-                                    @break
-
-                                @case('png')
-                                    <li class="p-2 ml-3">
-                                        <i class="fas fa-file-image fa-2x pr-2 info-color"></i>
-                                        <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
-                                    </li>
-                                    @break
-
-                                @case('jpg')
-                                    <li class="p-2 ml-3">
-                                        <i class="fas fa-file-image fa-2x pr-2 info-color"></i>
-                                        <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
-                                    </li>
-                                    @break
-
-                                @default
-                                    <li class="p-2 ml-3">
-                                        <i class="fas fa-file fa-2x pr-2 color-ce4 "></i>
-                                        <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
-                                    </li>
-                            @endswitch 
                         @endforeach
                     </div>
                 </div>
