@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'InicioController@inicio');
+/* Route::get('/', 'InicioController@inicio'); */
 Route::get('/Curso/{id}', 'InicioController@detalleCurso');
 Route::get('/Casaeduca', 'InicioController@caseduca');
 Route::get('/Contacto', 'InicioController@contacto');
@@ -45,9 +45,9 @@ Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
     
 // }); 
 
-// Route::get('/', function () {
-//     return view('sitiocontruccion');    
-// });
+ Route::get('/', function () {
+     return view('sitiocontruccion');    
+ });
 
 Route::get('/Cursos', function () {
     return view('cursos');
