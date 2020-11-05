@@ -136,7 +136,7 @@
                     <p style="margin-left: 5%;margin-right:5%; margin-top: 2%; font-size: 150%; text-align: center">
                     {{$invitacionPlanAcademico}}
                     </p>
-                    <a class="btn bg-ce8 text-white rounded" href="{{ url('/Planacademico') }}" style="margin-left: 48%; margin-bottom: 10%;  ">Ver más</a>
+                    <a class="btn btn-lg bg-ce0 text-white font-weight-bold rounded-lg" href="{{ url('/Planacademico') }}" style="margin-left: 48%; margin-bottom: 10%;  ">Ver más</a>
                 </div>
             </div>
     <!-- ====== /plan academico ====== -->
@@ -153,8 +153,8 @@
             </h2>
             <!--Controles-->
             <div class="d-flex justify-content-center pb-3">
-                <a class="btn btn-sm rounded bg-ce8 text-white" href="#multi-item-cursos" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                <a class="btn btn-sm rounded bg-ce8 text-white" href="#multi-item-cursos" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+                <a class="btn btn-lg bg-ce0 text-white font-weight-bold rounded-lg" href="#multi-item-cursos" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                <a class="btn btn-lg bg-ce0 text-white font-weight-bold rounded-lg" href="#multi-item-cursos" data-slide="next"><i class="fas fa-chevron-right"></i></a>
             </div>
             <!--/.Controles-->
 
