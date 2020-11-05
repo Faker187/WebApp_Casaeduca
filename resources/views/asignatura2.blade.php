@@ -115,7 +115,7 @@ a:hover,a:focus{
                 </div>
             </div>
         </div>
-        
+        {{-- {{dd($unidades)}} --}}
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             @foreach ($unidades as $unidad)
               <div class="panel panel-default">
@@ -133,7 +133,6 @@ a:hover,a:focus{
                         <ul>
                             <li><a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a></li>
                         </ul>
-                         
                         @endforeach
                     </div>
                 </div>

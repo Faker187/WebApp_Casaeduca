@@ -1289,3 +1289,25 @@ $('.eliminarPlan').click(function (e) {
             }
          });
    });
+
+
+  
+
+   $('.cargarClase').click(function (e) {
+       e.preventDefault();
+        var entrada = 0;
+        entrada++;
+        console.log(entrada);
+  
+    //    var n = 0;
+
+    //    var miIntervalo = setInterval(function(){
+    //     n++;
+    //     console.log(n);
+    //   },1000);
+    
+
+   });
+
+
+
