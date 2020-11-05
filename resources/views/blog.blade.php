@@ -8,12 +8,12 @@
 </style>
 <div class="container-fluid px-0 bg-ce0 mb-5">
     <div class="row justify-content-center">
-        <div class="col-md-8 text-white mx-auto pl-5">
+        <div class="col-md-8 text-white mx-auto pl-5 overflow-hidden">
             <div class="text-white text-left py-5 px-4 my-5">
               <div class="cursodatacard">
                 <h2 class="card-title h1-responsive pt-3 mb-2 animated lightSpeedIn slower color-ce2 font-weight-bold text-center">
                     <img class="card-img" src="{{ asset('img/blog.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
-                    <strong>Blog Casa Educa</strong>
+                    <strong>Revista</strong>
                 </h2>
                 <p class="mb-2 animated lightSpeedIn slower delay-3s color-ce2 text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
                 <br>
@@ -25,6 +25,40 @@
     </div>
 </div>
 <div class="container my-5 ">
+    {{-- {{dd($revistas)}} --}}
+
+    <div class="container1 mb-5">
+        
+       @foreach ($revistas as $revista)
+
+       <div class="card1 animated wow fadeInUp">
+        <div class="card1-header">
+        <img src="{{ asset('storage/'.$revista->imagen) }}" alt="card">
+        </div>
+        <div class="card1-body">
+        <span class="tag1 tag1-teal" style="background-color: {{$revista->color}}">
+            {{$revista->tema}}
+        </span>
+        <h4>{{$revista->titulo}}</h4>
+        <div class="user1">
+            <div class="user1-info">
+                <div>{{$revista->autor}}</div>
+                <small>{{$revista->fecha}}</small>
+            </div>
+        </div>
+        {{-- <p>Nuevas herramientas para las clases interactivas</p> --}}
+        <br>
+        {{-- <a class="color-ce0" href="{{ url('/Noticias') }}">Ver</a> --}}
+        <a href="/DetalleRevista/{{$revista->id}}" class="btn btn-block" style="background-color: {{$revista->color}}; color: white;">Ver más</a>
+
+        <br>
+       
+        </div>
+    </div>
+
+       @endforeach
+        
+    </div>
 <!-- ====== blog ====== -->
     <div class="container1 mb-5">
         <div class="card1 animated wow fadeInUp">

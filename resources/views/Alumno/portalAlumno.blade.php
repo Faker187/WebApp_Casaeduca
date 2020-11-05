@@ -13,7 +13,7 @@
 .card {
   margin: 30px auto;
   width: 300px;
-  height: 330px;
+  height: 400px;
   border-radius: 40px;
 box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
@@ -89,12 +89,16 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
     </h2>
 
     <div class="row justify-content-lg-start py-3">
+      {{-- {{dd($asignaturas)}} --}}
         @foreach ($asignaturas as $asignatura)
         <div class="col-md-4">
             <div class="card mb-4 m-1">
                 <div class="view overlay">
-                    <img class="card-img-top" src="{{ asset('storage/'.$asignatura->imagen) }}"
-                        alt="Card image cap">
+                  @if ($asignatura->imagen != null)
+                  <img class="card-img-top" src="{{ asset('storage/'.$asignatura->imagen) }}" alt="Card image cap">
+                  @else
+                  <img class="card-img-top" src="{{ asset('storage/sinimagen.jpg') }}" alt="Card image cap">
+                  @endif
                     <a href="#!">
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -110,8 +114,29 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                         <div class="p-2"><a class="btnce-1 text-white font-weight-bold contactarProfesor" 
                           idProfesor="{{$asignatura->idprofesor}}" 
                           idAsignatura="{{$asignatura->idasignatura}}"
-                          idAlumno="{{$idAlumno}}"><i class="fas fa-comment color-ce5 px-1"></i>Mensaje</a></div>
+                          idAlumno="{{$idAlumno}}"><i class="fas fa-comment color-ce5 px-1"></i>Mensaje</a>
+                        </div>
+                        
                     </div>
+
+                    <div class="d-flex mb-3">
+                      <div class="mr-auto p-2">
+                          <a class="verMisPreguntas btnce-1 text-white font-weight-bold" 
+                          idProfesor="{{$asignatura->idprofesor}}" 
+                          idAsignatura="{{$asignatura->idasignatura}}"
+                          idAlumno="{{$idAlumno}}"
+                          >
+                            <i class="fas fa-envelope-square color-ce5 px-1"></i>
+                          Ver mis preguntas</a> 
+                          @if ($asignatura->respuestasNuevas > 0)
+                            <span id="badge{{$asignatura->idasignatura}}" class="badge badge-danger">{{$asignatura->respuestasNuevas}}</span>
+                          @endif
+                      </div>
+                     
+                      
+                  </div>
+                    {{-- <a class="btnce-1 text-white font-weight-bold" href="/Asignatura/{{$asignatura->idasignatura}}"><i class="fas fa-share color-ce5 px-1"></i>Ir a la clase</a>
+                    <span class="badge badge-danger">4</span> --}}
                     <div class="jqmeter-container" title="Progreso de asignatura"></div>
                 </div>
             </div>
@@ -145,5 +170,30 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
       </div>
     </div>
   </div>
+
+
+
+
+<!-- Modal ver mis preguntas y respuestas-->
+<div class="modal fade" id="modalVerMisPreguntas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mis preguntas y respuestas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="bodyModalVerMisPreguntas" class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection

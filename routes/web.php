@@ -14,8 +14,16 @@ Route::get('/', 'InicioController@inicio');
 Route::get('/Curso/{id}', 'InicioController@detalleCurso');
 Route::get('/Casaeduca', 'InicioController@caseduca');
 Route::get('/Contacto', 'InicioController@contacto');
+Route::post('/formularioContacto', 'InicioController@formularioContacto');
 Route::get('/Revista', 'InicioController@revista');
+Route::get('/DetalleRevista/{id}', 'InicioController@detalleRevista');
 Route::get('/Planacademico', 'InicioController@planacademico');
+
+
+
+Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
+
+
 
 
 
@@ -44,8 +52,8 @@ Route::get('/Planacademico', 'InicioController@planacademico');
 Route::get('/Cursos', function () {
     return view('cursos');
 });
-Route::get('/Test2', function () {
-    return view('asignatura2');
+Route::get('/Test', function () {
+    return view('alumno2');
 });
 // Route::get('/Curso', function () {
 //     return view('curso');
@@ -61,7 +69,7 @@ Route::get('/Test2', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 //Cuenta
 Route::get('/verificarCuenta', 'HomeController@verificarCuenta')->name('verificarCuenta');
@@ -102,6 +110,22 @@ Route::post('/agregarDocumento', 'AdminController@agregarDocumento')->name('agre
 Route::get('/buscarDocumento', 'AdminController@buscarDocumento')->name('buscarDocumento');
 Route::post('/editarDocumento', 'AdminController@editarDocumento')->name('editarDocumento');
 Route::get('/eliminarDocumento', 'AdminController@eliminarDocumento')->name('eliminarDocumento');
+
+Route::get('/adminRevista', 'AdminController@adminRevista')->name('adminRevista');
+Route::post('/agregarRevista', 'AdminController@agregarRevista')->name('agregarRevista');
+Route::get('/buscarRevista', 'AdminController@buscarRevista')->name('buscarRevista');
+Route::post('/editarRevista', 'AdminController@editarRevista')->name('editarRevista');
+Route::get('/eliminarRevista', 'AdminController@eliminarRevista')->name('eliminarRevista');
+
+
+
+Route::get('/adminCorreos', 'AdminController@adminCorreos')->name('adminCorreos');
+
+
+
+
+
+
 
 
 
@@ -144,13 +168,15 @@ Route::get('/obtenerPlanes/{idCurso}', 'SuscripcionController@obtenerPlanes')->n
 Route::post('/crearSuscripcion' , 'SuscripcionController@crearSuscripcion'); //Crea cuenta inactiva
 Route::get('/pagarPlan', 'SuscripcionController@pagarPlan')->name('pagarPlan'); //Pantalla comenzar pago
 Route::post('/procesarPago', 'SuscripcionController@procesarPago')->name('procesarPago');
+Route::post('/procesarRenovacion', 'SuscripcionController@procesarRenovacion')->name('procesarRenovacion');
 Route::post('/finalizarPago', 'SuscripcionController@finalizarPago')->name('finalizarPago');
+Route::post('/renovarPlanPago', 'SuscripcionController@renovarPlanPago')->name('renovarPlanPago');
 Route::post('/activarCuenta', 'SuscripcionController@activarCuenta')->name('activarCuenta');
 Route::post('/volver', 'SuscripcionController@volver')->name('volver');
 
 
 //Asignatura
-Route::get('/Asignatura/{id}', 'AsignaturaController@asignatura');
+Route::get('/Asignatura/{id}', 'AsignaturaController@asignatura2');
 Route::get('/Test/{id}', 'AsignaturaController@asignatura2');
 //Clase
 Route::get('/CargarClase/{idClase}', 'ClaseController@clase');
@@ -169,6 +195,13 @@ Route::get('/Apoderado', 'AlumnoController@apoderado')->name('apoderado');
 // Route::get('/Alumno', 'AlumnoController@alumno')->name('alumno');
 Route::get('/Alumno/{id}', 'AlumnoController@portalAlumno');
 Route::get('/ContactarProfesor', 'AlumnoController@contactarProfesor')->name('contactarProfesor');
+Route::get('/responderCorreo/{id}/{token}', 'inicioController@responderCorreo')->name('responderCorreo');
+Route::post('/ResponderCorreo', 'inicioController@enviarRespuestaProfesor')->name('enviarRespuestaProfesor');
+
+Route::get('/BuscarCorreos','InicioController@buscarCorreos')->name('buscarCorreos');
+
+Route::get('/planesRenovar/{id}','AlumnoController@renovarPlan');
+
 Route::post('/CambiarNombreAlumno', 'AlumnoController@cambiarNombreAlumno')->name('cambiarNombreAlumno');
 Route::post('/EnviarCorreo', 'AlumnoController@enviarCorreo')->name('enviarCorreo');
 

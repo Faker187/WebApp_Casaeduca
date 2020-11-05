@@ -221,10 +221,13 @@ $('.editarParametro').click(function (e) {
         },
         error: function (error) {
             console.log(error);
+        },
+        complete: function (data) {
+            $('#modalEditarParametro').modal('show');
         }
     });
     
-     $('#modalEditarParametro').modal('show');
+     
 
 });
 
@@ -233,30 +236,37 @@ $('#formEditarParametro').submit(function (e) {
     e.preventDefault();
     let form = $(this);
     let url = form.attr('action');
+    let cantidad_letras = $('#valor').val().length;
 
-    $.ajax({
-        type:'POST',
-        url: url,
-        data:form.serialize(),
-        success: function (data) {
-            console.log(data);
-            let t = $('#dataTableEsp').DataTable();
-            let idIndex = data.indexTr ;
-            // newData = [ 
-            //     data.valor,
-            //     data.email, 
-            //     '<center><button class="btn btn-primary editarParametro" idParametro="'+data.id +'"><i class="fas fa-edit"></i></button></center>',
-            //     '<center><button class="btn btn-primary eliminarParametro" idParametro="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
-            // ] //Array, data here must match structure of table data
-            // t.row(idIndex).data( newData ).draw();
-            $('#modalEditarParametro').modal('hide');
-            location.reload();
+    if (cantidad_letras > 2000) {
+        swal("No puede tener mas de 2000 letras");
+    }else{
+        $.ajax({
+            type:'POST',
+            url: url,
+            data:form.serialize(),
+            success: function (data) {
+                // console.log(data);
+                let t = $('#dataTableEsp').DataTable();
+                let idIndex = data.indexTr ;
+                // newData = [ 
+                //     data.valor,
+                //     data.email, 
+                //     '<center><button class="btn btn-primary editarParametro" idParametro="'+data.id +'"><i class="fas fa-edit"></i></button></center>',
+                //     '<center><button class="btn btn-primary eliminarParametro" idParametro="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
+                // ] //Array, data here must match structure of table data
+                // t.row(idIndex).data( newData ).draw();
+                $('#modalEditarParametro').modal('hide');
+                // location.reload();
+    
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
 
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
+    
           
 });
 
@@ -289,6 +299,8 @@ $('#formAgregarAsignatura').submit(function (e) {
                 data.idprofesor,
                 data.color,
                 data.imagen,
+                data.examen,
+                data.descripcion,
                 '<center><button class="btn btn-primary editarAsignatura" idAsignatura="'+data.idasignatura +'"><i class="fas fa-edit"></i></button></center>',
                 '<center><button class="btn btn-primary eliminarAsignatura" idAsignatura="'+data.idasignatura+'"><i class="fas fa-trash-alt"></i></button></center>',
             ] ).draw( false );
@@ -413,6 +425,139 @@ $('.eliminarAsignatura').click(function (e) {
 
     
 });
+
+
+
+//Guardar nueva Revista
+$('#formAgregarRevista').submit(function (e) {
+
+    e.preventDefault();
+    let form = $(this);
+    let url = form.attr('action');
+
+    var formData = new FormData(this);
+    formData.append('_token', $('input[name=_token]').val());
+
+    $.ajax({
+        type:'POST',
+        url: url,
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+           
+            $('#basicExampleModal').modal('hide');
+            location.reload();
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+          
+});
+
+//Obtener datos de la Revista a editar
+$('.editarRevista').click(function (e) {
+    e.preventDefault();
+    let idRevista = $(this).attr( "idRevista" );
+
+    //Obteniendo el index de la row para cuando se actualice
+    let t = $('#dataTableEsp').DataTable();
+    let x = $(this).parents('tr');
+    let indexTr = t.row( x ).index();
+
+    $.ajax({
+        type:'GET',
+        url: '/buscarRevista',
+        data:{idRevista, indexTr},
+        success: function (data) {
+            $('#divEditarRevista').empty().html(data);
+        },
+        error: function (error) {
+            console.log(error);
+        },
+        complete: function(data){
+            $('#modalEditarRevista').modal('show');
+        }
+    });
+    
+});
+
+//Guardar Revista editado
+$('#formEditarRevista').submit(function (e) {
+    e.preventDefault();
+
+    var formData = new FormData(this);
+    formData.append('_token', $('input[name=_token]').val());
+    // let url = formData.attr('action');
+
+    $.ajax({
+        type:'POST',
+        url: '/editarRevista',
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            console.log(data);
+            location.reload();
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+          
+});
+
+$('.eliminarRevista').click(function (e) {
+    e.preventDefault();
+    let idRevista = $(this).attr( "idRevista" );
+    //Obteniendo el index de la row para cuando se actualice
+    let t = $('#dataTableEsp').DataTable();
+    let x = $(this).parents('tr');
+    let indexTr = t.row( x ).index();
+
+    swal({
+        title: "Atención!",
+        text: "Estas seguro que quieres eliminar el registro?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["Cancelar", "Eliminar"],
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            $.ajax({
+                type:'GET',
+                url: '/eliminarRevista',
+                data:{idRevista, indexTr},
+                success: function (data) {
+                    console.log(data);
+                    t.row(indexTr).remove().draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+          swal("Registro Eliminado!", {
+            icon: "success",
+          });
+        } else {
+        //   swal("Your imaginary file is safe!");
+        }
+      });
+
+
+    
+});
+
+
+
 
 //Guardar nueva unidad
 $('#formAgregarUnidad').submit(function (e) {
@@ -1074,7 +1219,33 @@ $('.eliminarPlan').click(function (e) {
             }
         });
 
-       
+    });
+
+    $('.verMisPreguntas').click(function(){
+        var idAsignatura = $(this).attr('idAsignatura');
+        var idProfesor = $(this).attr('idProfesor');
+        var idAlumno = $(this).attr('idAlumno');
+        
+
+        $.ajax({
+            type:'GET',
+            url: '/BuscarCorreos',
+            data:{idProfesor,idAsignatura,idAlumno},
+            success: function (data) {
+                // console.log(data);
+                $('#bodyModalVerMisPreguntas').empty().html(data);
+            },
+            error: function (error) {
+                console.log(error);
+            },
+            complete: function(data){
+                $('#badge'+idAsignatura).remove();
+                $('#modalVerMisPreguntas').modal('show');
+            }
+        });
+
+
+
         
     });
 
@@ -1083,4 +1254,38 @@ $('.eliminarPlan').click(function (e) {
        var idAlumno = $(this).attr('idAlumno');
       
        $('#modalNombreAlumno'+idAlumno).modal('show');
+   });
+
+   $('#contact-form').submit(function (e) {
+       e.preventDefault();
+
+        let form = $(this);
+        let url = form.attr('action');
+
+        $.ajax({
+            type:'POST',
+            url: url,
+            data:form.serialize(),
+            beforeSend : function(){
+               swal({
+              title: "",
+              text: "Enviando.",
+              showConfirmButton: false
+          });
+             },
+            success: function (data) {
+              
+               swal.close();
+               swal("Listo!", "Correo Enviado!", "success");
+               console.log(data);
+         
+            //    $('#contactarProfesorModal').modal('hide');
+            },
+            error: function (error) {
+                  console.log(error);
+              },
+            complete: function (data) {
+                location.reload();
+            }
+         });
    });

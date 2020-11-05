@@ -7,7 +7,9 @@ use \App\User;
 use \App\Plan;
 use \App\Pago;
 use \App\Sitio;
+use \App\Alumno;
 use \App\Asignatura;
+use \App\Revista;
 use \App\Unidad;
 use \App\Clase;
 use \App\Documento;
@@ -31,7 +33,17 @@ class AdminController extends Controller
     //Listar Alumnos pantalla ADMIN
     public function alumnos()
     {
-        $alumnos = User::all()->where('tipo' , 1);
+        // $alumnos = User::all()->where('tipo' , 1);
+        $alumnos = Alumno::all();
+        
+        foreach ($alumnos as $alumno) {
+            $alumno->name_apoderado = User::find($alumno->id_apoderado)->name;
+            $alumno->email = User::find($alumno->id_apoderado)->email;
+            $alumno->nombreCurso = DB::table('curso')->where('idcurso', $alumno->id_curso)->first()->nombre;
+            $alumno->cantidadMeses = DB::table('plan')->where('idplan', $alumno->id_plan)->first()->cantidad_meses;
+        }
+        // dd($alumnos);
+        
         return view('Administrador.alumnosAdmin',compact('alumnos'));
     }
 
@@ -40,6 +52,26 @@ class AdminController extends Controller
         $profesores = User::all()->where('tipo' , 2);
         return view('Administrador.profesoresAdmin',compact('profesores'));
     }
+
+    public function adminRevista()
+    {
+        $revistas = DB::table('revista')->get();
+        return view('Administrador.revistaAdmin',compact('revistas'));
+    }
+
+    public function adminCorreos()
+    {
+        $correos = DB::table('correo')->get();
+        foreach ($correos as $correo) {
+            $correo->nombreAsignatura = Asignatura::find($correo->idasignatura)->nombre;
+            $correo->nombreProfesor = User::find($correo->idprofesor)->name;
+            $correo->nombreAlumno = Alumno::find($correo->idalumno)->nombre;
+        }
+ 
+        return view('Administrador.correosAdmin',compact('correos'));
+    }
+
+   
 
     public function modificarSitioWeb()
     {
@@ -80,6 +112,8 @@ class AdminController extends Controller
         $data['id'] = $profesor->id;
         return $data;
     }
+
+   
 
     public function buscarProfesor(Request $request)
     {
@@ -152,18 +186,20 @@ class AdminController extends Controller
         $asignatura->idcurso = $request->idCurso;
         $asignatura->idprofesor = $request->idprofesor;
         $asignatura->color = $request->color;
+        $asignatura->examen = $request->examen;
+        $asignatura->descripcion = $request->descripcion;
         if ($file != null) {
             $asignatura->imagen = $nombre;
         }
         
         $asignatura->save();
 
-     
-
         $data = Array();
         $data['nombre'] = $request->nombre;
         $data['color'] = $request->color;
         $data['imagen'] = $nombre;
+        $data['examen'] = $request->examen;
+        $data['descripcion'] = $request->descripcion;
 
         if ($request->idprofesor != 0) {
             $data['idprofesor'] = User::find($asignatura->idprofesor)->name;
@@ -173,6 +209,46 @@ class AdminController extends Controller
 
         return $data;
     }
+
+    public function agregarRevista(Request $request)
+    {
+         //obtenemos el campo file definido en el formulario
+         $file = $request->file('imagen');
+         $nombre = '';
+         if ($file != null) {
+             //obtenemos el nombre del archivo
+             $nombre = $file->getClientOriginalName();
+ 
+             //indicamos que queremos guardar un nuevo archivo en el disco local
+             \Storage::disk('public')->put($nombre,  \File::get($file));
+         }
+
+         $fechaHoyAux = date('Y-m-d h:i:s' );
+         $fechaHoy = strtotime ( '-3 hour' , strtotime ($fechaHoyAux) ) ; 
+         $fechaHoraHoy = date ( 'Y-m-d H:i:s' , $fechaHoy);
+      
+         $revista = new Revista;
+         $revista->autor = $request->autor;
+         $revista->titulo = $request->titulo; 
+         $revista->tema = $request->tema; 
+         $revista->contenido = $request->contenido; 
+         $revista->color = $request->color; 
+         $revista->imagen = $nombre; 
+         $revista->fecha = $fechaHoraHoy;
+         $revista->save();
+ 
+         return 'true';
+    }
+
+    public function buscarRevista(Request $request)
+    {
+        $indexTr = $request->indexTr;
+        $revista = Revista::find($request->idRevista);
+        return view('Administrador.editarRevista',compact('revista','indexTr'));
+    }
+
+    
+
 
     public function buscarAsignatura(Request $request)
     {
@@ -200,6 +276,8 @@ class AdminController extends Controller
         $asignatura->nombre = $request->nombre;
         $asignatura->idprofesor = $request->idprofesor;
         $asignatura->color = $request->color;
+        $asignatura->examen = $request->examen;
+        $asignatura->descripcion = $request->descripcion;
         if ($file != null) {
             $asignatura->imagen = $nombre;
         }
@@ -214,6 +292,44 @@ class AdminController extends Controller
 
         return $asignatura;
     }
+
+    public function editarRevista(Request $request)
+    {
+        //obtenemos el campo file definido en el formulario
+        $file = $request->file('imagen');
+         
+        if ($file != null) {
+           //obtenemos el nombre del archivo
+           $nombre = $file->getClientOriginalName();
+           //indicamos que queremos guardar un nuevo archivo en el disco local
+           \Storage::disk('public')->put($nombre,  \File::get($file));
+        }
+
+        $revista = Revista::find($request->idRevista);
+        $revista->autor = $request->autor;
+        $revista->titulo = $request->titulo;
+        $revista->tema = $request->tema;
+        $revista->contenido = $request->contenido;
+        $revista->fecha = $request->fecha;
+        $revista->color = $request->color;
+
+        if ($file != null) {
+            $revista->imagen = $nombre;
+        }
+        $revista->save();
+
+        return 'true';
+    }
+
+    public function eliminarRevista(Request $request)
+    {
+        $revista = Revista::find($request->idRevista);
+        $revista->delete();
+        //retorno el request por que viene con todos los datos y ademas el indice de la row
+        return $request;
+    }
+
+    
 
     public function eliminarAsignatura(Request $request)
     {

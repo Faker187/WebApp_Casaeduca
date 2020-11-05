@@ -8,4 +8,5 @@ class Alumno extends Model
 {
     protected $table = 'alumno';
     public $timestamps = false;
+    protected $fillable = ['estado'];
 }

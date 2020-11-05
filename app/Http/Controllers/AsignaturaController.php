@@ -30,8 +30,13 @@ class AsignaturaController extends Controller
         $unidades = \App\Unidad::where('idasignatura', $id)->get();
         foreach ($unidades as $unidad) {
             $unidad->clases = \App\Clase::where('idunidad', $unidad->idunidad)->get();
+
+         
+
+            
         }
 
+    
         return view('Asignatura.asignatura',compact('unidades','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
         'telefono','email','facebook','twitter','instagram','whatsapp'));
     }
@@ -49,6 +54,8 @@ class AsignaturaController extends Controller
         $instagram = Sitio::where('id' ,9)->first()->valor;
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
 
+        $asignatura = DB::table('asignatura')->where('idasignatura', $id)->first();
+
         $unidades = \App\Unidad::where('idasignatura', $id)->get();
         foreach ($unidades as $unidad) {
             $unidad->clases = \App\Clase::where('idunidad', $unidad->idunidad)->get();
@@ -57,8 +64,7 @@ class AsignaturaController extends Controller
             $doc = DB::table('documento')->where('idClase', $clase->idclase)->value('documento');
             $clase->tipo_documento =  $doc;
         }
-
-        return view('asignatura2',compact('unidades','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
+        return view('asignatura2',compact('unidades','asignatura','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
         'telefono','email','facebook','twitter','instagram','whatsapp'));
     }
 }

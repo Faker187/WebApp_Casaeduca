@@ -119,7 +119,7 @@
     <link rel="stylesheet" href="{{ asset('officetohtml/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css') }}">
     <!--officeToHtml-->
     <link rel="stylesheet" href="{{ asset('officetohtml/officeToHtml.css') }}">
-
+    <link href="{{ asset('css/simple_sidenav.css') }}" rel="stylesheet">
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
@@ -224,6 +224,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
@@ -255,6 +256,10 @@
     $(document).ready(function(){
         $(document).bind("contextmenu",function(e){
             return false;
+        });
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
         });
 
         new WOW().init();
@@ -325,29 +330,15 @@
         }).on('hide.bs.collapse', function(a) {
             $(a.target).prev('.panel-heading').removeClass('active');
         });
-
-        var file_path = "{{ asset('docs/demodoc.pdf') }}"; 
-        $("#resolte-contaniner").officeToHtml({
-            url: file_path,
-            imageSetting: {
-                frame: ['100%', '100%',false],
-                maxZoom: '900%',
-                zoomFactor: '10%',
-                mouse: true,
-                keyboard: true,
-                toolbar: true,
-                rotateToolbar: false
-            },
-            pdfSetting: {
-                openFileBtn: false,
-                printBtn: false,
-                downloadBtn: false,
-                bookmarkBtn: false, 
+        $('#menu-toggle').click(function(){
+            if($(this).children().hasClass('fa-arrow-circle-left')){
+                $(this).children().removeClass('fa-arrow-circle-left');
+                $(this).children().addClass('fa-arrow-circle-right');
+            }else{
+                $(this).children().addClass('fa-arrow-circle-left');
+                $(this).children().removeClass('fa-arrow-circle-right');
             }
-        });            
-     
-        
-
+        });
     });
 
 </script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use Str;
 use Mail;
 use \App\User;
 use \App\Correo;
@@ -24,7 +25,7 @@ class AlumnoController extends Controller
 
     public function apoderado()
     {   
-
+       
         $eslogan = Sitio::where('id' ,1)->first()->valor;
         $invitacionPlanAcademico = Sitio::where('id' ,2)->first()->valor;
         $sobreNosotros = Sitio::where('id' ,3)->first()->valor;
@@ -36,10 +37,14 @@ class AlumnoController extends Controller
         $instagram = Sitio::where('id' ,9)->first()->valor;
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
 
+    
+
 
         $idApoderado = Auth::user()->id;
         $alumnos = DB::table('alumno')->where('id_apoderado' , $idApoderado)->get();
+
         foreach ($alumnos as $alumno) {
+
             $alumno->nombreCurso = DB::table('curso')->where('idcurso',$alumno->id_curso)->first()->nombre;
             $meses = DB::table('plan')->where('idplan', $alumno->id_plan)->first()->cantidad_meses;
             if ($meses == 1) {
@@ -48,14 +53,40 @@ class AlumnoController extends Controller
                 $alumno->meses = $meses.' Meses';
             }
 
-            if ($alumno->estado == 1) {
-                $alumno->estado = 'Activo';
-            }else{
-                $alumno->estado = 'Inactivo';
-            }
         }
+
+        // dd($alumnos);
         return view('Alumno.apoderado', compact('alumnos','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
         'telefono','email','facebook','twitter','instagram','whatsapp'));
+    }
+
+    public function verificarAlumnos ()
+    {
+       
+        $idApoderado = Auth::user()->id;
+      
+        $alumnos = DB::table('alumno')->where('id_apoderado' , $idApoderado)->get();
+
+        $fechaHoyAux = date('Y-m-d h:i:s' );
+        $fechaHoy = strtotime ( '-3 hour' , strtotime ($fechaHoyAux) ) ; 
+        // $fechaHoraHoy = date ( 'Y-m-d H:i:s' , $fechaHoy);
+
+
+        foreach ($alumnos as $alumno) {
+             //Revisa los alumnos y verifica si hoy vencio su plan, de ser asi, los desactiva
+             $fecha_expiracion = strtotime($alumno->fin_plan);
+             // dd($fecha_expiracion);
+ 
+             if (1611705900 > $fecha_expiracion) {
+                 //Desactiva Alumno
+                 $alumnodesactivado = Alumno::find($alumno->id);
+                 $alumnodesactivado->estado = 0;
+                 $alumnodesactivado->save();
+             }
+             //FIN Revisa los alumnos y verifica si hoy vencio su plan, de ser asi, los desactiva
+        }
+
+        return redirect()->route('apoderado');
     }
     
     public function alumno()
@@ -93,6 +124,16 @@ class AlumnoController extends Controller
         $nombreCurso = Curso::where('idcurso',$curso)->first()->nombre;
 
         foreach ($asignaturas as $asignatura) {
+            
+
+            $respuestasNuevas = DB::table('correo')
+            ->where('idalumno',$idAlumno)
+            ->where('idasignatura',$asignatura->idasignatura)
+            ->where('tipo', 2)
+            ->where('visto', 0)
+            ->count();
+
+            $asignatura->respuestasNuevas = $respuestasNuevas;
        
             if ($asignatura->idprofesor != 0) {
 
@@ -118,7 +159,7 @@ class AlumnoController extends Controller
 
         $idAlumno = $request->idAlumno;
         $idCurso = DB::table('alumno')->where('id', $idAlumno)->first()->id_curso;
-        $cantidadIntentos = 8;
+        $cantidadIntentos = 99;
 
         $correosEsteMes = DB::table('correo')
         ->where('idalumno' , $idAlumno)
@@ -140,16 +181,7 @@ class AlumnoController extends Controller
 
     public function enviarCorreo(Request $request)
     {
-      
-        $subject = $request->asunto;
-        $for = $request->correo;
-
-        Mail::send('email',$request->all(), function($msj) use($subject,$for){
-            $msj->from("correoprueba@gmail.com","Casa Educa, Mensaje Alumno");
-            $msj->subject($subject);
-            $msj->to($for);
-        });
-
+     
         $correo = new Correo;
         $correo->idalumno = $request->idalumno;
         $correo->idprofesor = $request->idprofesor;
@@ -158,10 +190,57 @@ class AlumnoController extends Controller
         $correo->asunto = $request->asunto;
         $correo->mensaje = $request->mensaje;
         $correo->fecha = $fechaActual = date("Y-m-d h:i:s");
+        $correo->token = Str::random(20);
+        $correo->tipo= 1;
         $correo->save();
+
+   
+        $data = [
+            "nombreAlumno" => $request->nombreAlumno,
+            "nombreAsignatura" => $request->nombreAsignatura,
+            "nombreCurso" => $request->nombreCurso,
+            "mensaje" => $request->mensaje,
+            "idCorreo" => $correo->id,
+            "token" => $correo->token
+         ];
+
+        $subject = $request->asunto;
+        $for = $request->correo;
+
+        Mail::send('email',$data, function($msj) use($subject,$for){
+            $msj->from("correoprueba@gmail.com","Casa Educa, Mensaje Alumno");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+
+        
        
         return $request;
     }
+
+    public function renovarPlan($id)
+    {
+        $eslogan = Sitio::where('id' ,1)->first()->valor;
+        $invitacionPlanAcademico = Sitio::where('id' ,2)->first()->valor;
+        $sobreNosotros = Sitio::where('id' ,3)->first()->valor;
+        $direccion = Sitio::where('id' ,4)->first()->valor;
+        $telefono = Sitio::where('id' ,5)->first()->valor;
+        $email = Sitio::where('id' ,6)->first()->valor;
+        $facebook = Sitio::where('id' ,7)->first()->valor;
+        $twitter = Sitio::where('id' ,8)->first()->valor;
+        $instagram = Sitio::where('id' ,9)->first()->valor;
+        $whatsapp = Sitio::where('id' ,10)->first()->valor;
+
+        $alumno = Alumno::find($id);
+        $planes = DB::table('plan')->where('id_curso', $alumno->id_curso)->get();
+
+        $idAlumno = $id;
+
+        return view('Alumno.renovarPlan', compact('planes','idAlumno','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
+        'telefono','email','facebook','twitter','instagram','whatsapp'));
+    }
+
+   
 
     public function cambiarNombreAlumno(Request $request)
     {

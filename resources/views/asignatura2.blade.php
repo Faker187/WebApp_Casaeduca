@@ -100,95 +100,73 @@ a:hover,a:focus{
     letter-spacing: 1px;
     border-radius: 0 0 5px 5px;
 }
+#menu-toggle:hover{
+    background-color: #bd9cd8;
+}
+
+.bg-light2{
+    background-color: #f8f9fa!important;
+}
 </style>
-<div class="container-fluid">
-  <div class="row justify-content-center" >
-    <div class="col-md-4 px-0 border-bottom">
-        <div class="card border rounded-top" style="box-shadow: none!important">
-            <div class="card-body">
-                <div class="row justify-content-start">
-                    <div class="col-md-12">
-                        <h1 class="color-ce00 display-4 my-4 wow fadeInUp">Lenguaje y Comunicaciones</h1>
-                    </div>
+
+{{-- {{dd($unidades)}} --}}
+  <div class="d-flex border-bottom" id="wrapper">
+
+
+    <div class="bg-light2 border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><h1 class="color-ce0 display-4 my-4 wow fadeInUp">{{$asignatura->nombre}}</h1></div>
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        @foreach ($unidades as $unidad)
+            <div class="panel panel-default mb-0">
+            <div class="panel-heading" role="tab" id="heading{{$unidad->idunidad}}">
+                <h4 class="panel-title mb-0">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{$unidad->idunidad}}" aria-expanded="true" class="collapsed" aria-controls="collapse_{{$unidad->idunidad}}">
+                        {{$unidad->nombre}}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse_{{$unidad->idunidad}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{$unidad->idunidad}}">
+                <div class="panel-body">
+
+                    @foreach ($unidad->clases as $clase)
+                        <ul>
+                        <li>
+                            <i class="fas fa-folder-open fa-lg mt-2"></i>
+                            <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
+                        </li>
+                        </ul>
+                    @endforeach
                 </div>
             </div>
-        </div>
-        
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            @foreach ($unidades as $unidad)
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                    <h4 class="panel-title mb-0">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{$unidad->idunidad}}" aria-expanded="true" aria-controls="collapse_{{$unidad->idunidad}}">
-                            {{$unidad->nombre}}
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse_{{$unidad->idunidad}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body">
+            </div>
+        @endforeach
 
-                        @foreach ($unidad->clases as $clase)
-
-                        @endforeach
-                    </div>
-                </div>
-              </div>
-            @endforeach
-
-        </div> 
+      </div> 
     </div>
 
-    <!-- IFRAME -->
-    <div class="col-md-8 ml-auto elegant-color" id="contenidoClase"></div>
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-ce4 border-bottom">
+        <a href="#" id="menu-toggle"><i class="fas fa-arrow-circle-left fa-2x text-white p-2"></i></a>
+        <div class="ml-auto">
+            <a href="#" class="badge bg-ce0" id="menu-toggle">Volver a mis asignaturas</a>
+        </div>
+      </nav>
 
-    <br>
-    <div class="row justify-content-center mt-5">
+      <div class="text-dark" id="contenidoClase"></div>
+    </div>
+
+
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
-                    <p class="card-text  pl-3 text-justify animated wow fadeInUp">Identificar los sonidos que componen las palabras, reconociendo,
-                    separando y combinando sus fonemas y sílabas. Leer palabras aisladas y en
-                    contexto, aplicando su conocimiento de la correspondencia letra-sonido en
-                    diferentes combinaciones. Demostrar compresión de narraciones que
-                    aborden temas que les sean familiares.</p>                    
-                    <p class="card-text pl-3 text-justify animated wow fadeInUp">Leer independientemente y
-                    comprender textos no literarios escritos con oraciones simples, para
-                    entretenerse y ampliar su conocimiento del mundo. Escribir oraciones
-                    complejas para transmitir mensajes. Escribir con letra clara, separando las
-                    palabras con un espacio para que puedan ser leídas por otros con facilidad.</p>
+                    <p class="card-text  pl-3 text-justify animated wow fadeInUp">
+                        
+                    </p>                    
                 </div>
-            </div>
-        </div>
-        <div class="col-md-12 my-4">
-            <div class="d-flex justify-content-center">
-                <img class="img-fluid animated wow fadeInUp" src="{{ asset('img/MANO_B.png') }}" style="width: 150px;" alt="">
-            </div>
-        </div>
-        <hr class="slash-1">
-        <div class="col-md-10 my-4">
-            <div class="card w-100 border-0">
-                <div class="card-body">
-                    <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Docente a cargo</h5>
-
-                    <div class="list-group-flush">
-                      <div class="list-group-item">
-                        <p class="mb-0 color-ce1"><i class="far fa-image fa-2x mr-4 bg-ce2 p-3 white-text rounded-circle" aria-hidden="true"></i>Nombre del profe</p>
-                      </div>
-                      <div class="list-group-item">
-                        <p class="mb-0 color-ce1"> <i class="fas fa-briefcase fa-2x mr-4 mr-4 bg-ce0 white-text p-3 rounded-circle" aria-hidden="true"></i>Algún otro dato</p>
-                      </div>
-                      <div class="list-group-item">
-                        <p class="mb-0"><i class="far fa-paper-plane fa-2x mr-4 mr-4 bg-ce5 p-3 rounded-circle" aria-hidden="true"></i><a class="color-ce0 preguntar" href="#">Hacer pregunta</a></p>
-                      </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 my-4">
-            <div class="d-flex justify-content-center">
-                <img class="img-fluid animated wow fadeInUp" src="{{ asset('img/MANO_A.png') }}" style="width: 150px;" alt="">
             </div>
         </div>
         <hr class="slash-1">
@@ -197,14 +175,11 @@ a:hover,a:focus{
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Mi avance</h5>
                     <div class="wow fadeInUp jqmeter-container2" title="Progreso de asignatura"></div>
-                    <p class="card-text pl-3 text-center animated wow fadeInUp mb-5">El gráfico muestra solo el avance de la asignatura: </p>
+                    <p class="card-text pl-3 text-center animated wow fadeInUp mb-5">El gráfico muestra solo el avance de la asignatura actual</p>
                 </div>
             </div>
         </div>
     </div>
   </div>
-</div>
 
-
-   
 @endsection

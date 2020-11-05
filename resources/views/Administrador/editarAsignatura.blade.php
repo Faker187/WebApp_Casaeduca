@@ -27,6 +27,9 @@
 
   <label for="color">Seleccione un color:</label>
   <input type="color" name="color" value="{{$asignatura->color}}">
+  <input type="text" name="examen" class="form-control mb-4" placeholder="Link Examen">
+  <textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción asignatura">{{$asignatura->descripcion}}</textarea>
+
 
 <input type="hidden" name="idAsignatura" value="{{$asignatura->idasignatura}}">
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
