@@ -52,9 +52,9 @@ Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
 Route::get('/Cursos', function () {
     return view('cursos');
 });
-Route::get('/Test', function () {
+/* Route::get('/Test', function () {
     return view('alumno2');
-});
+}); */
 // Route::get('/Curso', function () {
 //     return view('curso');
 // });

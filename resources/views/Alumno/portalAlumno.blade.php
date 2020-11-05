@@ -68,15 +68,6 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                         <strong>{{$nombreCurso}}</strong>
                     </h3>
                 </div>
-                <div class="p-2 pt-3 mb-2">
-                    <a class="h4-responsive text-white dropdown-toggle  mr-4"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="color-ce5 fas fa-cog"></i> Ajustes</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Editar Cuenta</a>
-                        <a class="dropdown-item" href="#">Editar Plan</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Cerrar Sesión</a>
-                    </div>
-                </div>
             </div>
 
         </div>

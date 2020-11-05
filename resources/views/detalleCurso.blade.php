@@ -6,7 +6,7 @@
     width: 40vh;
     position: fixed;
     z-index: 1;
-    top: 14%;
+    top: 16%;
     overflow-x: hidden;
     margin: 1rem;
 }
@@ -53,7 +53,7 @@
 <div class="container mb-5">
     <div class="row justify-content-center">
         <div class="col-md-7 mr-auto">
-            <div class="card w-100 text-dark bg-ce5 mb-5">
+            <!-- <div class="card w-100 text-dark bg-ce5 mb-5">
                 <div class="card-body">
                     <h5 class="card-title pr-2 color-ce3">Lo que aprenderás</h5>
                     <div class="row">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pr-2 color-ce3">Descripción</h5>
@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="col-md-5">
-            <div class="sidenav z-depth-1 border rounded-top">
+            <div id="divcurso" class="sidenav z-depth-1 border rounded-top">
                 <div class="sideimg">
                     <img class="w-100" src="{{ asset('img/'.$curso->imagen) }}" alt="niña estudiando">
                 </div>

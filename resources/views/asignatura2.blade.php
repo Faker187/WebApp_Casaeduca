@@ -164,7 +164,6 @@ a:hover,a:focus{
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
                     <p class="card-text  pl-3 text-justify animated wow fadeInUp">
-                        
                     </p>                    
                 </div>
             </div>

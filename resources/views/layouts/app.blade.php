@@ -191,72 +191,72 @@
                                     <div class="carousel-item active py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('img/primerobasico.png') }}">
                                                 <h4 class="card-title mt-2">1° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
+                                                <p class="card-text"><a href="{{ url('/Curso/1') }}">Ver curso</a></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('img/segundobasico.png') }}">
                                                 <h4 class="card-title mt-2">2° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
+                                                <p class="card-text"><a href="{{ url('/Curso/2') }}">Ver curso</a></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando1.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('img/tercerobasico.png') }}">
                                                 <h4 class="card-title mt-2">3° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
+                                                <p class="card-text"><a href="{{ url('/Curso/3') }}">Ver curso</a></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninasestudiando.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('img/nino-leyendo.jpg') }}">
                                                 <h4 class="card-title mt-2">4° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
+                                                <p class="card-text"><a href="{{ url('/Curso/4') }}">Ver curso</a></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('img/ninos-flores.jpg') }}">
                                                 <h4 class="card-title mt-2">5° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
+                                                <p class="card-text"><a href="{{ url('/Curso/5') }}">Ver curso</a></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando2.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('img/ninos-leyendo-aire.jpg') }}">
                                                 <h4 class="card-title mt-2">6° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
+                                                <p class="card-text"><a href="{{ url('/Curso/6') }}">Ver curso</a></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninoestudiando.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('img/nino-y-perro.jpg') }}">
                                                 <h4 class="card-title mt-2">7° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
+                                                <p class="card-text"><a href="{{ url('/Curso/7') }}">Ver curso</a></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninaestudiando3.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('img/ninos-leyendo.jpg') }}">
                                                 <h4 class="card-title mt-2">8° Básico</h4>
-                                                <p class="card-text">Ver plan académico</p>
+                                                <p class="card-text"><a href="{{ url('/Curso/8') }}">Ver curso</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -424,6 +424,7 @@
                     $('#navbar_top').addClass("fixed-top");
                     $('#navbar_top').css('background-color: transparent!important');
                     // add padding top to show content behind navbar
+                    $('#divcurso').css('position', 'initial');
                     $('body').css('padding-top', $('.navbar').outerHeight() + 'px');
                 }else{
                     $('#navbar_top').removeClass("fixed-top");
@@ -431,6 +432,15 @@
                     $('#navbar_top').css('background-color: #fff!important');
                     // remove padding top from body
                     $('body').css('padding-top', '0');
+                    $('#divcurso').css('position', 'fixed');
+                }   
+            });
+
+            $(window).scroll(function(){  
+                if ($(this).scrollTop() > 320) {
+                    $('#divcurso').css('position', 'initial');
+                }else{
+                    $('#divcurso').css('position', 'fixed');
                 }   
             });
         }
