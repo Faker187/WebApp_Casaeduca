@@ -13,7 +13,7 @@
                 <!-- <h2 class="inactive underlineHover">Registrarse </h2> -->
 
                 <div class="fadeIn first py-4">
-                    <img src="{{ asset('img/LOGO.png') }}" id="icon" alt="LOGO">
+                    <img src="{{ asset('public/img/LOGO.png') }}" id="icon" alt="LOGO">
                 </div>
 
                 <form  method="POST" action="{{ route('login') }}">
