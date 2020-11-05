@@ -56,7 +56,7 @@ switch ($curso) {
         <div class="col-md-4">
           <div class="card mb-4 m-1">
               <div class="view overlay">
-                  {{-- <img class="card-img-top" src="{{ asset('img/lenguaje.png') }}"
+                  {{-- <img class="card-img-top" src="{{ asset('public/img/lenguaje.png') }}"
                       alt="Card image cap">
                   <a href="#!">
                       <div class="mask rgba-white-slight"></div>

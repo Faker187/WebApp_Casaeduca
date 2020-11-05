@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
 
 
     <!-- Fonts -->
@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">|
@@ -103,11 +103,11 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/hover.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/fondo.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/banner.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/blog.css') }}" rel="stylesheet">
 
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
@@ -223,9 +223,9 @@
 
 
 
-<script src="{{ asset('js/funciones.js')}}"></script>
+<script src="{{ asset('public/js/funciones.js')}}"></script>
 
-<script src="{{ asset('js/jqmeter.min.js') }}"></script>
+<script src="{{ asset('public/js/jqmeter.min.js') }}"></script>
 
 
 <script>

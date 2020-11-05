@@ -92,11 +92,11 @@
                 </animateMotion>
             </svg>
             <div id="clouds">
-                <div class="cloud one"><img src="{{ asset('img/cloud1.svg') }}"/></div>
-                <div class="cloud two"><img src="{{ asset('img/cloud2.svg') }}"/></div>
-                <div class="cloud three"><img src="{{ asset('img/cloud3.svg') }}"/></div>
-                <div class="cloud four"><img src="{{ asset('img/cloud2.svg') }}"/></div>
-                <div class="cloud five"><img src="{{ asset('img/cloud1.svg') }}"/></div>
+                <div class="cloud one"><img src="{{ asset('public/img/cloud1.svg') }}"/></div>
+                <div class="cloud two"><img src="{{ asset('public/img/cloud2.svg') }}"/></div>
+                <div class="cloud three"><img src="{{ asset('public/img/cloud3.svg') }}"/></div>
+                <div class="cloud four"><img src="{{ asset('public/img/cloud2.svg') }}"/></div>
+                <div class="cloud five"><img src="{{ asset('public/img/cloud1.svg') }}"/></div>
             </div>
         </div>
         <div id="titulo">
@@ -115,11 +115,11 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/leer.svg') }}" style="width: 60%;"></br>Interacción Web</th>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/alfabeto.svg') }}" style="width: 60%;"></br>Clases Online 24/7</th>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/hablar.svg') }}" style="width: 60%;"></br>Comunicación fluida</th>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('img/creatividad.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/leer.svg') }}" style="width: 60%;"></br>Interacción Web</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/alfabeto.svg') }}" style="width: 60%;"></br>Clases Online 24/7</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/hablar.svg') }}" style="width: 60%;"></br>Comunicación fluida</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/creatividad.svg') }}" style="width: 60%;"></br>Profesores Online</th>
                 </tr>
             </thead>
         </table>
@@ -132,7 +132,7 @@
     <!-- ====== plan academico ====== -->
             <div class="row">
                 <div class="col-sm">
-                    <h3 style="margin-left: 5%; margin-top: 15%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
+                    <h3 style="margin-left: 5%; margin-top: 15%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('public/img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
                     <p style="margin-left: 5%;margin-right:5%; margin-top: 2%; font-size: 150%; text-align: center">
                     {{$invitacionPlanAcademico}}
                     </p>
@@ -149,7 +149,7 @@
         <div id="multi-item-cursos" class="carousel slide carousel-multi-item pb-5 pt-2" data-ride="carousel">
             <h2 class="h1-responsive text-center my-4">
             Nuestros cursos
-            <img class="card-img" src="{{ asset('img/deberes.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 1rem;" alt="sombrero">
+            <img class="card-img" src="{{ asset('public/img/deberes.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 1rem;" alt="sombrero">
             </h2>
             <!--Controles-->
             <div class="d-flex justify-content-center pb-3">
@@ -179,7 +179,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[0]->imagen) }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/'.$cursos[0]->imagen) }}"
                         alt="Card image cap">
                         {{-- <a href="{{ url('/Cursos') }}"> --}}
                         <div class="contenedor-precio">
@@ -219,7 +219,7 @@
 
                         <!--Card image-->
                         <div class="card-header view overlay">
-                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[1]->imagen) }}"
+                            <img class="header-img card-img-top" src="{{ asset('public/img/'.$cursos[1]->imagen) }}"
                             alt="Card image cap">
                             {{-- <a href="{{ url('/Cursos') }}"> --}}
                             <div class="contenedor-precio">
@@ -259,7 +259,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[2]->imagen) }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/'.$cursos[2]->imagen) }}"
                         alt="Card image cap">
                         {{-- <a href="{{ url('/Cursos') }}"> --}}
                         <div class="contenedor-precio">
@@ -309,7 +309,7 @@
 
                         <!--Card image-->
                         <div class="card-header view overlay">
-                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[3]->imagen) }}"
+                            <img class="header-img card-img-top" src="{{ asset('public/img/'.$cursos[3]->imagen) }}"
                             alt="Card image cap">
                             {{-- <a href="{{ url('/Cursos') }}"> --}}
                             <div class="contenedor-precio">
@@ -349,7 +349,7 @@
 
                         <!--Card image-->
                         <div class="card-header view overlay">
-                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[4]->imagen) }}"
+                            <img class="header-img card-img-top" src="{{ asset('public/img/'.$cursos[4]->imagen) }}"
                             alt="Card image cap">
                             {{-- <a href="{{ url('/Cursos') }}"> --}}
                             <div class="contenedor-precio">
@@ -389,7 +389,7 @@
 
                         <!--Card image-->
                         <div class="card-header view overlay">
-                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[5]->imagen) }}"
+                            <img class="header-img card-img-top" src="{{ asset('public/img/'.$cursos[5]->imagen) }}"
                             alt="Card image cap">
                             {{-- <a href="{{ url('/Cursos') }}"> --}}
                             <div class="contenedor-precio">
@@ -439,7 +439,7 @@
 
                         <!--Card image-->
                         <div class="card-header view overlay">
-                            <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[6]->imagen) }}"
+                            <img class="header-img card-img-top" src="{{ asset('public/img/'.$cursos[6]->imagen) }}"
                             alt="Card image cap">
                             {{-- <a href="{{ url('/Cursos') }}"> --}}
                             <div class="contenedor-precio">
@@ -479,7 +479,7 @@
 
                     <!--Card image-->
                     <div class="card-header view overlay">
-                        <img class="header-img card-img-top" src="{{ asset('img/'.$cursos[7]->imagen) }}"
+                        <img class="header-img card-img-top" src="{{ asset('public/img/'.$cursos[7]->imagen) }}"
                         alt="Card image cap">
                         {{-- <a href="{{ url('/Cursos') }}"> --}}
                         <div class="contenedor-precio">

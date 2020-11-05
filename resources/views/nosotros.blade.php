@@ -20,7 +20,7 @@
             <div class="text-white text-left py-5 px-4 my-5">
               <div class="cursodatacard">
                 <h2 class="card-title h1-responsive pt-3 mb-2 animated lightSpeedIn slower color-ce0 font-weight-bold text-center">
-                    <img class="card-img" src="{{ asset('img/REGLA_CORAZON.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
+                    <img class="card-img" src="{{ asset('public/img/REGLA_CORAZON.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
                     <strong>Casa educa</strong>
                 </h2>
                 <p class="mb-2 color-ce0 animated lightSpeedIn slower delay-3s text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
@@ -69,7 +69,7 @@
 
         <div class="col-md-12 my-4">
             <div class="d-flex justify-content-center">
-                <img class="img-fluid animated wow fadeInUp" src="{{ asset('img/MANO_B.png') }}" style="width: 150px;" alt="">
+                <img class="img-fluid animated wow fadeInUp" src="{{ asset('public/img/MANO_B.png') }}" style="width: 150px;" alt="">
             </div>
         </div>
     </div>

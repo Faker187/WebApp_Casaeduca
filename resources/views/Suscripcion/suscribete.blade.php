@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="{{ asset('css/login.css') }}" rel="stylesheet">
+<link href="{{ asset('public/css/login.css') }}" rel="stylesheet">
 <div class="container">
 
 <div class="row justify-content-center">
@@ -9,7 +9,7 @@
         <div id="formContent" >
             
             <div class="fadeIn first pt-5">
-                <img src="{{ asset('img/LOGO.png') }}" id="icon" alt="LOGO">
+                <img src="{{ asset('public/img/LOGO.png') }}" id="icon" alt="LOGO">
             </div>
 
             {{-- <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">

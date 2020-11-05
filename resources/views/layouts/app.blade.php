@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
 
 
     <!-- Fonts -->
@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">|
@@ -103,11 +103,11 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/hover.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/fondo.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/banner.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/blog.css') }}" rel="stylesheet">
 
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
@@ -168,7 +168,7 @@
         </button>
         <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
             <a class="navbar-brand mx-4 pl-5" href="{{ url('/') }}">
-                <img style="width:200px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO">
+                <img style="width:200px;" src="{{ asset('public/img/LOGO.png') }}" alt="LOGO">
             </a>
             <ul class="navbar-nav w-100 justify-content-center">
                 <li class="nav-item {{ '/' == request()->path() ? 'active'  :  ''}}">
@@ -191,7 +191,7 @@
                                     <div class="carousel-item active py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/primerobasico.png') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/primerobasico.png') }}">
                                                 <h4 class="card-title mt-2">1° Básico</h4>
                                                 <p class="card-text"><a href="{{ url('/Curso/1') }}">Ver curso</a></p>
                                             </div>
@@ -200,7 +200,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/segundobasico.png') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/segundobasico.png') }}">
                                                 <h4 class="card-title mt-2">2° Básico</h4>
                                                 <p class="card-text"><a href="{{ url('/Curso/2') }}">Ver curso</a></p>
                                             </div>
@@ -209,7 +209,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/tercerobasico.png') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/tercerobasico.png') }}">
                                                 <h4 class="card-title mt-2">3° Básico</h4>
                                                 <p class="card-text"><a href="{{ url('/Curso/3') }}">Ver curso</a></p>
                                             </div>
@@ -218,7 +218,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/nino-leyendo.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/nino-leyendo.jpg') }}">
                                                 <h4 class="card-title mt-2">4° Básico</h4>
                                                 <p class="card-text"><a href="{{ url('/Curso/4') }}">Ver curso</a></p>
                                             </div>
@@ -227,7 +227,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninos-flores.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninos-flores.jpg') }}">
                                                 <h4 class="card-title mt-2">5° Básico</h4>
                                                 <p class="card-text"><a href="{{ url('/Curso/5') }}">Ver curso</a></p>
                                             </div>
@@ -236,7 +236,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninos-leyendo-aire.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninos-leyendo-aire.jpg') }}">
                                                 <h4 class="card-title mt-2">6° Básico</h4>
                                                 <p class="card-text"><a href="{{ url('/Curso/6') }}">Ver curso</a></p>
                                             </div>
@@ -245,7 +245,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/nino-y-perro.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/nino-y-perro.jpg') }}">
                                                 <h4 class="card-title mt-2">7° Básico</h4>
                                                 <p class="card-text"><a href="{{ url('/Curso/7') }}">Ver curso</a></p>
                                             </div>
@@ -254,7 +254,7 @@
                                     <div class="carousel-item py-2">
                                         <div class="col-md-4">
                                             <div class="card card-body">
-                                                <img class="img-fluid" src="{{ asset('img/ninos-leyendo.jpg') }}">
+                                                <img class="img-fluid" src="{{ asset('public/img/ninos-leyendo.jpg') }}">
                                                 <h4 class="card-title mt-2">8° Básico</h4>
                                                 <p class="card-text"><a href="{{ url('/Curso/8') }}">Ver curso</a></p>
                                             </div>
@@ -384,9 +384,9 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
-<script src="{{ asset('js/funciones.js')}}"></script>
+<script src="{{ asset('public/js/funciones.js')}}"></script>
 
-<script src="{{ asset('js/jqmeter.min.js') }}"></script>
+<script src="{{ asset('public/js/jqmeter.min.js') }}"></script>
 
 
 <script>

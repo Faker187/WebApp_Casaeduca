@@ -32,7 +32,7 @@
             <div class="text-white text-left py-5 px-4 my-5">
               <div class="cursodatacard">
                 <h2 class="card-title h1-responsive pt-3 mb-2 font-bold color-ce0">
-                    <img class="card-img" src="{{ asset('img/SOMBRERO.png') }}" style="width: 120px;margin-bottom: 1rem;" alt="sombrero">
+                    <img class="card-img" src="{{ asset('public/img/SOMBRERO.png') }}" style="width: 120px;margin-bottom: 1rem;" alt="sombrero">
                     <strong>Primero Básico</strong>
                 </h2>
                 <p class="mb-2 color-ce0">En este encontraremos las asignaturas de:</p>
@@ -72,13 +72,13 @@
                 </div>
             </div>
             <div class="card border-0 align-items-center my-2">
-                <img class="img-fluid " src="{{ asset('img/MANO_A.png') }}" style="width: 180px;margin-bottom: 1rem;" alt="camara">
+                <img class="img-fluid " src="{{ asset('public/img/MANO_A.png') }}" style="width: 180px;margin-bottom: 1rem;" alt="camara">
             </div>
         </div>
         <div class="col-md-5">
             <div class="sidenav z-depth-1 border rounded-top">
                 <div class="sideimg">
-                    <img class="w-100" src="{{ asset('img/ninaestudiando.jpg') }}" alt="niña estudiando">
+                    <img class="w-100" src="{{ asset('public/img/ninaestudiando.jpg') }}" alt="niña estudiando">
                 </div>
                 <div class="side-body">
                     <h4 class="h4-responsive mb-3">$ 19.990<strong class="text-muted"> CLP</strong></h4>

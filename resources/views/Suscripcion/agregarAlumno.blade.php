@@ -12,7 +12,7 @@
 
     <div id="seccionPago">
         <br>
-        <img width="300" src="{{ asset('img/LOGO.png') }}"/>
+        <img width="300" src="{{ asset('public/img/LOGO.png') }}"/>
         <h1 class="text-center display-3 mt-5 h5 orange-text"> Cual es tu Curso?</h1>
         <br>
         <hr class="slash-1">

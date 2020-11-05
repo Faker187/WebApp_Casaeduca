@@ -12,7 +12,7 @@
             <div class="text-white text-left py-5 px-4 my-5">
               <div class="cursodatacard">
                 <h2 class="card-title h1-responsive pt-3 mb-2 animated lightSpeedIn slower color-ce2 font-weight-bold text-center">
-                    <img class="card-img" src="{{ asset('img/blog.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
+                    <img class="card-img" src="{{ asset('public/img/blog.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
                     <strong>Revista</strong>
                 </h2>
                 <p class="mb-2 animated lightSpeedIn slower delay-3s color-ce2 text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
@@ -33,7 +33,7 @@
 
        <div class="card1 animated wow fadeInUp">
         <div class="card1-header">
-        <img src="{{ asset('storage/'.$revista->imagen) }}" alt="card">
+        <img src="{{ asset('public/storage/'.$revista->imagen) }}" alt="card">
         </div>
         <div class="card1-body">
         <span class="tag1 tag1-teal" style="background-color: {{$revista->color}}">
@@ -63,7 +63,7 @@
     <div class="container1 mb-5">
         <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
-            <img src="{{ asset('img/tercerobasico.png') }}" alt="card">
+            <img src="{{ asset('public/img/tercerobasico.png') }}" alt="card">
             </div>
             <div class="card1-body">
             <span class="tag1 tag1-teal">
@@ -84,7 +84,7 @@
         </div>
         <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
-            <img src="{{ asset('img/ninaestudiando.jpg') }}" alt="card">
+            <img src="{{ asset('public/img/ninaestudiando.jpg') }}" alt="card">
             </div>
             <div class="card1-body">
             <span class="tag1 tag1-purple">
@@ -102,7 +102,7 @@
         </div>
         <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
-            <img src="{{ asset('img/ninaestudiando1.jpg') }}" alt="card">
+            <img src="{{ asset('public/img/ninaestudiando1.jpg') }}" alt="card">
             </div>
             <div class="card1-body">
             <span class="tag1 tag1-pink">
@@ -120,7 +120,7 @@
         </div>
         <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
-            <img src="{{ asset('img/ninaestudiando3.jpg') }}" alt="card">
+            <img src="{{ asset('public/img/ninaestudiando3.jpg') }}" alt="card">
             </div>
             <div class="card1-body">
             <span class="tag1 tag1-teal">
@@ -138,7 +138,7 @@
         </div>
         <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
-            <img src="{{ asset('img/ninoestudiando3.jpg') }}" alt="card">
+            <img src="{{ asset('public/img/ninoestudiando3.jpg') }}" alt="card">
             </div>
             <div class="card1-body">
             <span class="tag1 tag1-purple">
@@ -156,7 +156,7 @@
         </div>
         <div class="card1 animated wow fadeInUp">
             <div class="card1-header">
-            <img src="{{ asset('img/ninoestudiando.jpg') }}" alt="card">
+            <img src="{{ asset('public/img/ninoestudiando.jpg') }}" alt="card">
             </div>
             <div class="card1-body">
             <span class="tag1 tag1-pink">
@@ -177,7 +177,7 @@
     <div class="row">
     <div class="col-md-12 my-4">
             <div class="d-flex justify-content-center">
-                <img class="img-fluid animated wow fadeInUp" src="{{ asset('img/MANO_B.png') }}" style="width: 150px;" alt="">
+                <img class="img-fluid animated wow fadeInUp" src="{{ asset('public/img/MANO_B.png') }}" style="width: 150px;" alt="">
             </div>
         </div>
     </div>

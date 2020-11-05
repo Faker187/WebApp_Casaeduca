@@ -73,7 +73,7 @@
         let ruta = $(this).attr('rutaDocumento');
         // alert(ruta);
 
-        // var file_path = "{{ asset('docs/'.$documento->documento.'') }}"; 
+        // var file_path = "{{ asset('publicdocs/'.$documento->documento.'') }}"; 
         $("#resolte-contaniner").officeToHtml({
             url: '/docs/'+ruta,
             imageSetting: {
@@ -135,7 +135,7 @@
 {{-- @foreach ($documentos as $documento)
     <div id="resolte-contaniner"></div>
     <script>
-        var file_path = " {{ asset('docs/'.$documento->documento.'') }}"; 
+        var file_path = " {{ asset('public/docs/'.$documento->documento.'') }}"; 
         $("#resolte-contaniner").officeToHtml({
             url: file_path,
             imageSetting: {

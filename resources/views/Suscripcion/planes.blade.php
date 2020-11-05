@@ -6,7 +6,7 @@
 <br>
 
 <br>
-<img width="300" src="{{ asset('img/LOGO.png') }}"/>
+<img width="300" src="{{ asset('public/img/LOGO.png') }}"/>
 <br>
 
 <h2 class="display-3 text-center mt-5 orange-text">Planes Disponibles</h2>

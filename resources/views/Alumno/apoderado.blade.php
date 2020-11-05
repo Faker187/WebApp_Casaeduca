@@ -6,7 +6,7 @@
     <div class="col-md-12">
       <div class="card border-0 mx-5 my-5 p-5 color-ce0 text-center">
         <div class="card-body">
-          <img width="300" src="{{ asset('img/LOGO.png') }}"/>
+          <img width="300" src="{{ asset('public/img/LOGO.png') }}"/>
           <h1 class="display-3 mt-3 h5 orange-text"> Hola {{Auth::user()->name}}</h1>
           <p class="lead mb-4 pb-2 px-md-5 mx-md-5">Soy Apoderado/a de: </p>
           <div class="row">
@@ -30,7 +30,7 @@
                     <div class="col-md-4">
                         <div class="card mb-4 m-1">
                           <div class="card-body color-ce0">
-                            <img width="200" src="{{ asset('img/user.png') }}"/>
+                            <img width="200" src="{{ asset('public/img/user.png') }}"/>
                             <div class="d-flex mb-1">
                                 <div class="mr-auto p-2">
                                     <a id="nombreAlumno{{$alumno->id}}" class="btnce-1  font-weight-bold" >{{$alumno->nombre}}</a>

@@ -15,7 +15,7 @@
             <div class="text-white text-left py-5 px-4 my-5">
               <div class="cursodatacard">
                 <h2 class="card-title h1-responsive pt-3 mb-2 animated lightSpeedIn slower color-ce1 font-weight-bold text-center">
-                    <img class="card-img" src="{{ asset('img/correo.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="pagina web">
+                    <img class="card-img" src="{{ asset('public/img/correo.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="pagina web">
                     <strong>Contacto Casa Educa</strong>
                 </h2>
                 <p class="mb-2 color-ce1 animated lightSpeedIn slower delay-3s text-center">¿Quieres obtener información acerca de nuestros planes? Contáctenos, nos comunicaremos contigo en cuestión de horas para ayudarte.</p>
@@ -85,15 +85,15 @@
 
                             <div class="col-md-3 text-center">
                                 <ul class="list-unstyled mb-0">
-                                    <li><img src="{{ asset('img/pin-ubicacion.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
+                                    <li><img src="{{ asset('public/img/pin-ubicacion.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
                                         <p>{{$direccion}}</p>
                                     </li>
 
-                                    <li><img src="{{ asset('img/llamada-telefonica.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
+                                    <li><img src="{{ asset('public/img/llamada-telefonica.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
                                         <p>{{$telefono}}</p>
                                     </li>
 
-                                    <li><img src="{{ asset('img/correo-electronico.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
+                                    <li><img src="{{ asset('public/img/correo-electronico.svg') }}" alt="correo electronico" class="" style="width: 40px;"></i>
                                         <p>{{$email}}</p>
                                     </li>
                                 </ul>

@@ -7,7 +7,7 @@
     <div class="col-md-12">
       <div class="card border-0 mx-5 my-5 p-5 color-ce0 text-center">
         <div class="card-body">
-          <img width="300" src="{{ asset('img/LOGO.png') }}"/>
+          <img width="300" src="{{ asset('public/img/LOGO.png') }}"/>
           <h2 class="display-4 mt-4 h5 orange-text"> Planes Disponibles</h2>
           <div class="row mt-5">
             <div class="col-md-10">
@@ -16,7 +16,7 @@
                     <div class="col-md-4">
                         <div class="card mb-4 m-1">
                           <div class="card-body color-ce0">
-                            <img width="100" src="{{ asset('img/shopping-list.png') }}"/>
+                            <img width="100" src="{{ asset('public/img/shopping-list.png') }}"/>
     
                             <div class="d-flex mb-1">
                                 <div class="mr-auto p-2">

@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
 
 
     <!-- Fonts -->
@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">|
@@ -104,27 +104,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <link href="{{ asset('officetohtml/layout/styles/layout.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ asset('officetohtml/include/jquery_ui/themes/start/jquery-ui.min.css') }}"> 
+    <link href="{{ asset('public/officetohtml/layout/styles/layout.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('public/officetohtml/include/jquery_ui/themes/start/jquery-ui.min.css') }}"> 
     <!-- ################################ For files reder ###############################-->
     <!--PDF-->
-    <link rel="stylesheet" href="{{ asset('officetohtml/include/pdf/pdf.viewer.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/officetohtml/include/pdf/pdf.viewer.css') }}">
     <!--Docs-->
     <!--PPTX-->
-    <link rel="stylesheet" href="{{ asset('officetohtml/include/PPTXjs/css/pptxjs.css') }}">
-    <link rel="stylesheet" href="{{ asset('officetohtml/include/PPTXjs/css/nv.d3.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/officetohtml/include/PPTXjs/css/pptxjs.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/officetohtml/include/PPTXjs/css/nv.d3.min.css') }}">
     <!--All Spreadsheet -->
-    <link rel="stylesheet" href="{{ asset('officetohtml/include/SheetJS/handsontable.full.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/officetohtml/include/SheetJS/handsontable.full.min.css') }}">
     <!--Image viewer-->
-    <link rel="stylesheet" href="{{ asset('officetohtml/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/officetohtml/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css') }}">
     <!--officeToHtml-->
-    <link rel="stylesheet" href="{{ asset('officetohtml/officeToHtml.css') }}">
-    <link href="{{ asset('css/simple_sidenav.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('public/officetohtml/officeToHtml.css') }}">
+    <link href="{{ asset('public/css/simple_sidenav.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/hover.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/fondo.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/banner.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/blog.css') }}" rel="stylesheet">
 
 
     
@@ -218,8 +218,8 @@
   
     <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- <script src="{{ asset('officetohtml/jquery-1.12.4.min.js') }}"></script> -->
-<script src="{{ asset('officetohtml/include/jquery_ui/jquery-ui.min.js') }}"></script>
+<!-- <script src="{{ asset('public/officetohtml/jquery-1.12.4.min.js') }}"></script> -->
+<script src="{{ asset('public/officetohtml/include/jquery_ui/jquery-ui.min.js') }}"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
@@ -228,28 +228,28 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
-<script type="text/javascript" src="{{ asset('officetohtml/include/pdf/pdf.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/docx/jszip-utils.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/docx/mammoth.browser.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/PPTXjs/js/filereader.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/PPTXjs/js/d3.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/PPTXjs/js/nv.d3.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/PPTXjs/js/pptxjs.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/PPTXjs/js/divs2slides.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/SheetJS/handsontable.full.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/SheetJS/shim.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/SheetJS/xlsx.full.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/include/verySimpleImageViewer/js/jquery.verySimpleImageViewer.js') }}"></script>
-<script type="text/javascript" src="{{ asset('officetohtml/officeToHtml.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/pdf/pdf.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/docx/jszip-utils.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/docx/mammoth.browser.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/filereader.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/d3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/nv.d3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/pptxjs.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/divs2slides.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/SheetJS/handsontable.full.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/SheetJS/shim.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/SheetJS/xlsx.full.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/verySimpleImageViewer/js/jquery.verySimpleImageViewer.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/officeToHtml.js') }}"></script>
 
 <!-- HOME -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- BIBLIOTECA JS -->
 
-<script src="{{ asset('js/funciones.js')}}"></script>
+<script src="{{ asset('public/js/funciones.js')}}"></script>
 
-<script src="{{ asset('js/jqmeter.min.js') }}"></script>
+<script src="{{ asset('public/js/jqmeter.min.js') }}"></script>
 
 
 <script>

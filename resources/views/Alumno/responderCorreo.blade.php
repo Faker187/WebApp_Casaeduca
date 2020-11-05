@@ -20,11 +20,11 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fondo.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/hover.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/fondo.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/banner.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/blog.css') }}" rel="stylesheet">
 
     {{-- datatable --}}
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
@@ -45,7 +45,7 @@
 
         @if ($respondido == true)
             <div class="jumbotron">
-                <center><img style="width:200px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO"></center>
+                <center><img style="width:200px;" src="{{ asset('public/img/LOGO.png') }}" alt="LOGO"></center>
                 <br>
                 <h1 class="display-4">¡Este correo fue respondido!</h1>
                 <p class="lead">¡Muchas gracias!</p>
@@ -53,7 +53,7 @@
         @else
 
         <div class="jumbotron">
-            <center><img style="width:200px;" src="{{ asset('img/LOGO.png') }}" alt="LOGO"></center>
+            <center><img style="width:200px;" src="{{ asset('public/img/LOGO.png') }}" alt="LOGO"></center>
             <br>
             <h1 class="display-4">¡Profe tengo una pregunta!</h1>
             <p>Alumno: {{$datos->nombreAlumno}}</p>
@@ -109,7 +109,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
-<script src="{{ asset('js/funciones.js')}}"></script>
+<script src="{{ asset('public/js/funciones.js')}}"></script>
 
 
 

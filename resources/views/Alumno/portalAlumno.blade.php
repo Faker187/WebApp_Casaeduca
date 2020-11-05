@@ -64,7 +64,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             <div class="d-flex mb-3">
                 <div class="mr-auto p-2">
                     <h3 class="card-title h3-responsive pt-3 mb-2 font-weight-bold text-white">
-                        <img class="card-img" src="{{ asset('img/LIBROS.png') }}" style="width: 80px;margin-bottom: 1rem;" alt="pagina web">
+                        <img class="card-img" src="{{ asset('public/img/LIBROS.png') }}" style="width: 80px;margin-bottom: 1rem;" alt="pagina web">
                         <strong>{{$nombreCurso}}</strong>
                     </h3>
                 </div>
