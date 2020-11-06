@@ -32,7 +32,7 @@
 
       <div class="card m-2 animated wow fadeInUp">
         <div class="card1-header">
-            <img src="{{ asset('storage/'.$revista->imagen) }}" alt="card">
+            <img src="{{ asset('public/storage/'.$revista->imagen) }}" alt="card">
         </div>
         <div class="card1-body">
             <span class="tag1 tag1-teal" style="background-color: {{$revista->color}}">
