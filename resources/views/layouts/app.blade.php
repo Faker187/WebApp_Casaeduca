@@ -502,6 +502,15 @@
             barColor: '#4269B0'
         });
 
+        $(window).resize(function(){
+
+            if ($(window).width() <= 575) {  
+                alert('llegue');
+
+            }     
+
+        });
+
     });
 
 </script>
