@@ -112,9 +112,9 @@ a:hover,a:focus{
         margin-left: -9rem;
     }
 }
-@media only screen and (min-width: 550px) {
+@media only screen and (max-width: 400px) {
     #wrapper{
-        margin-left: -11rem;
+        margin-left: -9rem;
     }
 } 
 
