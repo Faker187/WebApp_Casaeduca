@@ -109,7 +109,7 @@ a:hover,a:focus{
 }
 @media only screen and (max-width: 575px) {
   #wrapper {
-    margin-left: -9rem;
+    margin-left: -10rem;
   }
 }
 
