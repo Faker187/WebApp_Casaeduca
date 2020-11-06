@@ -505,9 +505,13 @@
         $(window).resize(function(){
 
             if ($(window).width() <= 575) {  
-               if($('#collapsingNavbar3').hasClass('collapse show')){
-                alert('llegue');
-               }
+                $('#collapsingNavbar3').click(function(){
+                    if($(this).hasClass('collapse show')){
+                        $('#titulo').css('margin-top','10rem')
+                    }else{
+                        $('#titulo').css('margin-top','0rem')
+                    }
+                })
             }     
 
         });
