@@ -1,4 +1,4 @@
-@extends('Administrador.admin2')
+@extends('Administrador.admin')
 
 @section('content')
 <h1 class="mt-4">Asignaturas - {{$nombreCurso}}</h1>
