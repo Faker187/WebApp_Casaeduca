@@ -111,7 +111,7 @@ a:hover,a:focus{
 
 @media (min-width: 575px){
     #wrapper {
-        margin-left: -14rem;
+        margin-left: -9rem;
     }
 }
 </style>
