@@ -506,10 +506,10 @@
 
             if ($(window).width() <= 575) {  
                 if($(this).hasClass('collapse show')){
-                    alert('show');
+                    console.log('show');
                     /* $('#titulo').css('margin-top','10rem') */
                 }else{
-                    alert('noshow');
+                    console.log('noshow');
                     /* $('#titulo').css('margin-top','0rem') */
                 }
             }     
