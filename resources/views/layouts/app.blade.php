@@ -505,8 +505,9 @@
         $(window).resize(function(){
 
             if ($(window).width() <= 575) {  
+               if($('#collapsingNavbar3').hasClass('show')){
                 alert('llegue');
-
+               }
             }     
 
         });
