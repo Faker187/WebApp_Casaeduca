@@ -357,9 +357,11 @@
                 $(this).children().removeClass('fa-arrow-circle-right');
             }
         });
-        if($('#wrapper').hasClass('toggled')){
-            alert('llegue');
-        }
+        $('#menu-toggle').on('click', function(){
+            if($('#wrapper').hasClass('toggled')){
+                alert('llegue');
+            }
+        });
     });
 
 </script>
