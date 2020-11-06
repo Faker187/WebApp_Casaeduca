@@ -361,7 +361,11 @@
             if($('#wrapper').hasClass('toggled')){
                 $('.toggled').css('margin-left','0rem');
             }else{
-                $('.toggled').css('margin-left','-6rem');
+                if ($(window).width() <= 575) {  
+                    $('.toggled').css('margin-left','-9rem');
+                }elseif($(window).width() <= 500){
+                    $('.toggled').css('margin-left','-6rem');
+                }   
             }
         });
     });
