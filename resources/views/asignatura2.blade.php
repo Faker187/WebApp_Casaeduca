@@ -109,10 +109,15 @@ a:hover,a:focus{
 }
 @media only screen and (max-width: 575px) {
   #wrapper {
-    margin-left: -10rem;
+    margin-left: -9rem;
   }
 }
 
+@media only screen and (max-width: 500px) {
+  #wrapper {
+    margin-left: 1rem;
+  }
+}
 </style>
 
 {{-- {{dd($unidades)}} --}}
