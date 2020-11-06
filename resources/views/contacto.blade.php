@@ -3,7 +3,7 @@
 @section('content')
 <style>
     body {
-        background-image: url("../img/fondocielo.jpg")!important;
+        background-image: url("../public/img/fondocielo.jpg")!important;
         height: auto !important; 
         width: 200hv!important;
         padding: 0px;
@@ -107,22 +107,3 @@
 </div>
 <!-- ====== Contactanos ====== -->
 @endsection
-<script type="text/javascript">
-
-var icons = new Skycons({"color": "white"});
-
-icons.set("clear-day", Skycons.CLEAR_DAY);
-icons.set("clear-night", Skycons.CLEAR_NIGHT);
-icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-icons.set("partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
-icons.set("cloudy", Skycons.CLOUDY);
-icons.set("rain", Skycons.RAIN);
-icons.set("sleet", Skycons.SLEET);
-icons.set("snow", Skycons.SNOW);
-icons.set("wind", Skycons.WIND);
-icons.set("fog", Skycons.FOG);
-
-icons.play();
-
-</script>
-<script src="static/js/skycons.js"></script>

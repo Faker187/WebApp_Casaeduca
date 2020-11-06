@@ -53,7 +53,7 @@
         <div class="col-md-6 ">
             <div class="card w-100 border-right">
                 <div class="card-body">
-                    <h3 class="card-title pr-2 color-ce3 text-center py-2 animated wow fadeInUp">Nuestra Misión<img class="card-img"src="{{asset('img/002-marker.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3> 
+                    <h3 class="card-title pr-2 color-ce3 text-center py-2 animated wow fadeInUp">Nuestra Misión<img class="card-img"src="{{asset('public/img/002-marker.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3> 
                     <p class="card-text text-justify animated wow fadeInUp"><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i></p>                    
                 </div>
             </div>
@@ -61,7 +61,7 @@
         <div class="col-md-6">
             <div class="card w-100 border-right">
                 <div class="card-body ">
-                    <h3 class="card-title pr-2 color-ce3 text-center py-2 animated wow fadeInUp">Nuestra Visión<img class="card-img"src="{{asset('img/004-pen.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
+                    <h3 class="card-title pr-2 color-ce3 text-center py-2 animated wow fadeInUp">Nuestra Visión<img class="card-img"src="{{asset('public/img/004-pen.svg')}}" style="width: 40px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
                     <p class="card-text text-justify animated wow fadeInUp"><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i></p>                    
                 </div>
             </div>
