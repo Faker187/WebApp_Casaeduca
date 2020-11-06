@@ -124,7 +124,7 @@
 </style>
 <div class="container-fluid px-0 bg-ce2 mb-5">
     <div class="row justify-content-center">
-        <div class="col-md-8 text-white mx-auto pl-5">
+        <div class="col-md-8 text-white mx-auto pl-5 overflow-hidden">
             <div class="text-white text-left py-5 px-4 my-5">
               <div class="cursodatacard">
                 <h2 class="card-title h1-responsive pt-3 mb-2 font-bold color-ce4 text-center">

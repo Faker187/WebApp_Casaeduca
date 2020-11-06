@@ -330,6 +330,7 @@
             height:'50px',
             barColor: '#4269B0'
         });
+        
         $('.jqmeter-container2').jQMeter({
             goal:'$1,000',
             raised:'$200',

@@ -52,8 +52,8 @@ Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
 Route::get('/Cursos', function () {
     return view('cursos');
 });
-Route::get('/Test2', function () {
-    return view('asignatura2');
+Route::get('/Test', function () {
+    return view('alumno2');
 });
 // Route::get('/Curso', function () {
 //     return view('curso');
@@ -177,7 +177,7 @@ Route::post('/volver', 'SuscripcionController@volver')->name('volver');
 
 //Asignatura
 Route::get('/Asignatura/{id}', 'AsignaturaController@asignatura2');
-// Route::get('/Test/{id}', 'AsignaturaController@asignatura2');
+Route::get('/Test/{id}', 'AsignaturaController@asignatura2');
 //Clase
 Route::get('/CargarClase/{idClase}', 'ClaseController@clase');
 
@@ -204,6 +204,8 @@ Route::get('/planesRenovar/{id}','AlumnoController@renovarPlan');
 
 Route::post('/CambiarNombreAlumno', 'AlumnoController@cambiarNombreAlumno')->name('cambiarNombreAlumno');
 Route::post('/EnviarCorreo', 'AlumnoController@enviarCorreo')->name('enviarCorreo');
+
+Route::get('/RegistrarClaseSesion','AsignaturaController@registrarClaseSesion');
 
 //Modificar Sitio web
 Route::get('/ModificarSitioWeb', 'AdminController@modificarSitioWeb')->name('modificarSitioWeb');
