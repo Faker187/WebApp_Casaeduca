@@ -115,7 +115,7 @@ a:hover,a:focus{
 
 @media only screen and (max-width: 500px) {
   #wrapper {
-    margin-left:6rem;
+    margin-left:-6rem;
   }
 }
 </style>
