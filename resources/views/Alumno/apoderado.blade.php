@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+.main.animation svg{
+  width: 75%!important;
+}
+</style>
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-md-12">
