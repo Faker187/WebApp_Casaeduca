@@ -25,6 +25,11 @@
     margin-right: auto!important;
   }
 }
+@media only screen and (max-width: 575px) {
+    #divcurso{
+        position:initial;
+    }
+} 
 </style>
 {{-- {{dd($curso)}} --}}
 <div class="container-fluid px-0 bg-ce1 mb-5">
