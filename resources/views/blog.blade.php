@@ -30,7 +30,7 @@
       <div class="card-group">
        @foreach ($revistas as $revista)
 
-      <div class="card1 animated wow fadeInUp">
+      <div class="card m-2 animated wow fadeInUp">
         <div class="card1-header">
             <img src="{{ asset('public/storage/'.$revista->imagen) }}" alt="card">
         </div>
