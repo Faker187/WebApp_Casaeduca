@@ -1,5 +1,7 @@
 <div class="list-group bg-ce1 color-ce1">
-    @foreach ($documentos as $documento)
+    {{-- {{dd(count($documentos))}} --}}
+   @if (count($documentos) != 0)
+        @foreach ($documentos as $documento)
         @php
         $ext = explode('.', $documento->documento);
         $extension = '';
@@ -63,9 +65,15 @@
                     {{$documento->documento}}
                 </a>
         @endswitch 
-    @endforeach
-</div>
+        @endforeach
+    @else
 
+    <p  class="list-group-item list-group-item-action color-ce2 font-weight-bold">
+        No hay documentos en esta clase!
+    </p>
+
+   @endif
+</div>
 
 <script>
     $('.documentoJS').click(function (e) {
@@ -73,7 +81,6 @@
         let ruta = $(this).attr('rutaDocumento');
         // alert(ruta);
 
-        // var file_path = "{{ asset('publicdocs/'.$documento->documento.'') }}"; 
         $("#resolte-contaniner").officeToHtml({
             url: '/docs/'+ruta,
             imageSetting: {

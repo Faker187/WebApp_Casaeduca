@@ -1,6 +1,19 @@
 @extends('layouts.portalAlumnoLayout')
 
 @section('content')
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+    <script src="{{ asset('js/jqmeter.min.js') }}"></script>
+
+    
 <style>
 .cards-list {
   z-index: 0;
@@ -80,7 +93,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
     </h2>
 
     <div class="row justify-content-lg-start py-3">
-      {{-- {{dd($asignaturas)}} --}}
+     
         @foreach ($asignaturas as $asignatura)
         <div class="col-md-4">
             <div class="card mb-4 m-1">
@@ -98,7 +111,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                     <div class="d-flex">
                         <h4 class="card-title text-white">{{$asignatura->nombre}}</h4>
                     </div>
-                    <div class="d-flex mb-3">
+                    <div class="d-flex mb-1">
                         <div class="mr-auto p-2">
                             <a class="btnce-1 text-white font-weight-bold" href="/Asignatura/{{$asignatura->idasignatura}}"><i class="fas fa-share color-ce5 px-1"></i>Ir a la clase</a>
                         </div>
@@ -110,7 +123,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                         
                     </div>
 
-                    <div class="d-flex mb-3">
+                    <div class="d-flex mb-1">
                       <div class="mr-auto p-2">
                           <a class="verMisPreguntas btnce-1 text-white font-weight-bold" 
                           idProfesor="{{$asignatura->idprofesor}}" 
@@ -122,16 +135,47 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                           @if ($asignatura->respuestasNuevas > 0)
                             <span id="badge{{$asignatura->idasignatura}}" class="badge badge-danger">{{$asignatura->respuestasNuevas}}</span>
                           @endif
-                      </div>
-                     
-                      
-                  </div>
+                      </div> 
+                    </div>
+
+                    @if ($asignatura->examen != null)
+
+                    <div class="d-flex mb-1">
+                      <div class="mr-auto p-2">
+                          <a href="{{$asignatura->examen}}" target="_blank" class="btnce-1 text-white font-weight-bold" >
+                         
+                            <i class="far fa-file-alt color-ce5 px-1"></i>
+                            Tomar Examen</a> 
+                      </div> 
+                    </div>
+                        
+                    @endif
+                    
                     {{-- <a class="btnce-1 text-white font-weight-bold" href="/Asignatura/{{$asignatura->idasignatura}}"><i class="fas fa-share color-ce5 px-1"></i>Ir a la clase</a>
                     <span class="badge badge-danger">4</span> --}}
-                    <div class="jqmeter-container" title="Progreso de asignatura"></div>
+                    <div class="jqmeter-containerClase{{$asignatura->idasignatura}}" title="Progreso de asignatura"></div>
                 </div>
             </div>
         </div>
+
+        <script>
+            var idAsignatura = {!! json_encode($asignatura->idasignatura) !!}
+            var totalClasesAsignatura = {!! json_encode($asignatura->totalClasesAsignatura) !!}
+            var cantidadClasesCompletadas = {!! json_encode($asignatura->cantidadClasesCompletadas) !!}
+   
+
+          $('.jqmeter-containerClase'+idAsignatura).jQMeter({
+                      goal:'$'+totalClasesAsignatura,
+                      raised:'$'+cantidadClasesCompletadas,
+                      meterOrientation:'horizontal',
+                      width:'100%',
+                      height:'50px',
+                      barColor: '#4269B0'
+          });
+          
+          </script>
+
+        
         @endforeach
     </div>
 
@@ -186,5 +230,9 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
     </div>
   </div>
 </div>
+
+
+
+
 
 @endsection

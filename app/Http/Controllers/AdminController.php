@@ -12,6 +12,7 @@ use \App\Asignatura;
 use \App\Revista;
 use \App\Unidad;
 use \App\Clase;
+use \App\Seguimiento;
 use \App\Documento;
 use DB;
 
@@ -333,7 +334,9 @@ class AdminController extends Controller
 
     public function eliminarAsignatura(Request $request)
     {
+        //borra la asignatura
         $asignatura = Asignatura::find($request->idAsignatura);
+
         $asignatura->delete();
         //retorno el request por que viene con todos los datos y ademas el indice de la row
         return $request;

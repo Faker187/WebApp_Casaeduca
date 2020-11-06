@@ -267,13 +267,31 @@
         $('.cargarClase').click(function(e){
             e.preventDefault();
             let idClase = $(this).attr('href');
-            // alert(idClase);
+            let idAlumno = $(this).attr('idAlumno');
+
+
+            $.ajax({
+                url: '/RegistrarClaseSesion',
+                type:'GET',
+                data:{idAlumno, idClase},
+                success: function(data){
+                    console.log(data);
+                    // let contenido = json_decode
+           
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+
+            });
+      
+
             $.ajax({
                 url: '/CargarClase/'+idClase,
                 type:'GET',
                 // data:{idClase},
                 success: function(data){
-                    console.log(data);
+                    // console.log(data);
                     // let contenido = json_decode
                     $('#contenidoClase').empty().html(data);
                 },
@@ -281,7 +299,7 @@
                     console.log(error);
                 }
 
-            })
+            });
         });
 
         if ($(window).width() > 992) {

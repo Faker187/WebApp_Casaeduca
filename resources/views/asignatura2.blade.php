@@ -132,7 +132,7 @@ a:hover,a:focus{
                         <ul>
                         <li>
                             <i class="fas fa-folder-open fa-lg mt-2"></i>
-                            <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}">{{$clase->nombre}}</a>
+                            <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}" idAlumno={{$idAlumno}}>{{$clase->nombre}}</a>
                         </li>
                         </ul>
                     @endforeach

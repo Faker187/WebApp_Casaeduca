@@ -205,6 +205,8 @@ Route::get('/planesRenovar/{id}','AlumnoController@renovarPlan');
 Route::post('/CambiarNombreAlumno', 'AlumnoController@cambiarNombreAlumno')->name('cambiarNombreAlumno');
 Route::post('/EnviarCorreo', 'AlumnoController@enviarCorreo')->name('enviarCorreo');
 
+Route::get('/RegistrarClaseSesion','AsignaturaController@registrarClaseSesion');
+
 //Modificar Sitio web
 Route::get('/ModificarSitioWeb', 'AdminController@modificarSitioWeb')->name('modificarSitioWeb');
 Route::get('/buscarParametro', 'AdminController@buscarParametro')->name('buscarParametro');

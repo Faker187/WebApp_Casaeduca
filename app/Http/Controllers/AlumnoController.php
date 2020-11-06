@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use Session;
 use Str;
 use Mail;
 use \App\User;
@@ -116,6 +117,10 @@ class AlumnoController extends Controller
     public function portalAlumno($id)
     {
         $idAlumno = $id;
+
+        Session::forget('idAlumnoActual', $idAlumno);
+        Session::push('idAlumnoActual', $idAlumno);
+
         $curso = Alumno::find($id)->id_curso;
         $nombreAlumno = Alumno::find($id)->nombre;
         $diminutivo = explode(' ', $nombreAlumno);
@@ -125,6 +130,30 @@ class AlumnoController extends Controller
 
         foreach ($asignaturas as $asignatura) {
             
+
+            $unidades = DB::table('unidad')->select('idunidad')->where('idasignatura' , $asignatura->idasignatura)->get();
+            $idUnidades = Array();
+
+            foreach ($unidades as $unidad) {
+                $idUnidades[] = $unidad->idunidad;
+            }
+
+            $asignatura->totalClasesAsignatura = DB::table('clase')->whereIn('idunidad', $idUnidades)->count();
+
+            $clases = DB::table('clase')->whereIn('idunidad', $idUnidades)->get();
+            $idClases = Array();
+
+            foreach ($clases as $clase) {
+                $idClases[] = $clase->idclase;
+            }
+
+            $cantidadClasesCompletadas = DB::table('seguimiento')
+                                        ->whereIn('id_clase', $idClases)
+                                        ->where('id_alumno', $idAlumno)
+                                        ->where('estado', 1)
+                                        ->count();
+
+            $asignatura->cantidadClasesCompletadas = $cantidadClasesCompletadas;
 
             $respuestasNuevas = DB::table('correo')
             ->where('idalumno',$idAlumno)
@@ -145,7 +174,8 @@ class AlumnoController extends Controller
                 $asignatura->nombreProfesor = null;
                 $asignatura->correoProfesor = null;
             }
-           
+            
+
         }
         
         return view('Alumno.portalAlumno', compact('asignaturas','nombreCurso','diminutivo','idAlumno'));
