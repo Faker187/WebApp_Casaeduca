@@ -501,15 +501,6 @@
             height:'50px',
             barColor: '#4269B0'
         });
-
-        $('#collapsingNavbar3').click(function(){
-
-            if ($(window).width() <= 575) {  
-                $('#titulo').css('margin-top','10rem')
-            }     
-
-        });
-
     });
 
 </script>
