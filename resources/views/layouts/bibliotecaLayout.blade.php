@@ -360,6 +360,8 @@
         $('#menu-toggle').on('click', function(){
             if($('#wrapper').hasClass('toggled')){
                 $('.toggled').css('margin-left','0rem');
+            }else{
+                $('.toggled').css('margin-left','-6rem');
             }
         });
     });
