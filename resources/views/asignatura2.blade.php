@@ -108,13 +108,13 @@ a:hover,a:focus{
     background-color: #f8f9fa!important;
 }
 @media only screen and (max-width: 575px) {
-    #titulocontainer{
+    #wrapper{
         margin-left: -24rem;
     }
 } 
 
 @media (min-width: 575px){
-    #wrapper.toggled #sidebar-wrapper {
+    #wrapper {
         margin-left: -24rem;
     }
 }
