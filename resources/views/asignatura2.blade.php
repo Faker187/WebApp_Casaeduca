@@ -111,7 +111,7 @@ a:hover,a:focus{
   #wrapper {
     margin-left: -9rem;
   }
-  #wrapper .toggled{
+  .toggled #wrapper{
     margin-left:0rem;
   }
 }
@@ -120,7 +120,7 @@ a:hover,a:focus{
   #wrapper {
     margin-left:-6rem;
   }
-  #wrapper .toggled{
+  .toggled #wrapper{
     margin-left:0rem;
   }
 }
