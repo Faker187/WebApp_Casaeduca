@@ -1,4 +1,4 @@
-@extends('Administrador.admin')
+@extends('Administrador.admin2')
 
 @section('content')
 <h1 class="mt-4">Profesores</h1>
