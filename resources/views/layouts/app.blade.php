@@ -502,10 +502,10 @@
             barColor: '#4269B0'
         });
 
-        $(window).resize(function(){
+        $('#collapsingNavbar3').click(function(){
 
             if ($(window).width() <= 575) {  
-                if($('#collapsingNavbar3').hasClass('collapse show')){
+                if($(this).hasClass('collapse show')){
                     alert('show');
                     /* $('#titulo').css('margin-top','10rem') */
                 }else{
