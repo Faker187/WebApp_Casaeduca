@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-.main.animation svg{
+.main > .animation  > svg{
   width: 75%!important;
 }
 </style>
