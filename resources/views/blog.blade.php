@@ -26,8 +26,8 @@
 </div>
 <div class="container my-5 ">
   <div class="row justify-content-center">
-    <div class="col-xs-12 mb-5">
-        
+    <div class="col-sm-12 mb-5">
+      <div class="card-group">
        @foreach ($revistas as $revista)
 
       <div class="card1 animated wow fadeInUp">
@@ -53,7 +53,7 @@
       </div>
 
        @endforeach
-        
+      </div> 
     </div>
   </div>
   <div class="row">
