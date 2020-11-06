@@ -359,7 +359,7 @@
         });
         $('#menu-toggle').on('click', function(){
             if($('#wrapper').hasClass('toggled')){
-                $(this).addClass('ml-0');
+                $('.toggled').css('margin-left','0');
             }
         });
     });
