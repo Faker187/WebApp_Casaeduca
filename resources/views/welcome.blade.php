@@ -62,7 +62,12 @@
     }
     .card-img-overlay {
         background-color: rgba(#000, 0.4)!important;
-    }    
+    }   
+    @media only screen and (max-width: 600px) {
+        #collapsingNavbar3 .collapse .show #titulo{
+            margin-top: 10rem;
+        }
+    } 
 </style>
 {{-- {{dd($cursos)}} --}}
     <div class="container-fluid px-0">
@@ -432,7 +437,7 @@
                 <!--Tercer slide-->
                 <div class="carousel-item">
                     <!-- Card deck -->
-                    <div class="card-deck" style="width: 48rem; margin-left: 10rem;">
+                    <div class="card-deck mx-auto" style="width: 48rem;">
 
                     <!-- Card -->
                     <div class="card mb-4">

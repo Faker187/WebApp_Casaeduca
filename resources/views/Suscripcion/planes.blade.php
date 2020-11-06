@@ -14,7 +14,7 @@
 
 <br>
 <div class="col-xs-12">
-  <h2 class="display-3 text-center mt-5 orange-text">Planes Disponibles</h2>
+  <h2 class="display-4 text-center mt-5 orange-text">Planes Disponibles</h2>
   <br>
   <!-- Card group -->
   <div class="card-group mb-5">
