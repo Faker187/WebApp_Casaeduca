@@ -361,7 +361,7 @@
             $(window).resize(function(){
 
                 if ($(window).width() <= 575) {  
-
+                    alert('575');
                     if($('#wrapper').hasClass('toggled')){
                         $('.toggled').css('margin-left','0rem');
                     }else{
@@ -369,6 +369,7 @@
                     }
 
                 }else if($(window).width() <= 500){
+                    alert('575');
                     if($('#wrapper').hasClass('toggled')){
                         $('.toggled').css('margin-left','0rem');
                     }else{
