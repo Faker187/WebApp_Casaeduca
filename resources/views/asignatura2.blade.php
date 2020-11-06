@@ -111,6 +111,11 @@ a:hover,a:focus{
     #wrapper{
         margin-left: -9rem;
     }
+}
+@media only screen and (min-width: 550px) {
+    #wrapper{
+        margin-left: -11rem;
+    }
 } 
 
 </style>
