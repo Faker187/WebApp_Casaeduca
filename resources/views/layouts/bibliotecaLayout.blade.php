@@ -357,6 +357,9 @@
                 $(this).children().removeClass('fa-arrow-circle-right');
             }
         });
+        if($('#wrapper').hasClass('toggled')){
+            alert('llegue');
+        }
     });
 
 </script>
