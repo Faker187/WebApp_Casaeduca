@@ -62,11 +62,6 @@
     }
     .card-img-overlay {
         background-color: rgba(#000, 0.4)!important;
-    }   
-    @media only screen and (max-width: 600px) {
-        #collapsingNavbar3 .collapse .show #titulo{
-            margin-top: 10rem;
-        }
     } 
 </style>
 {{-- {{dd($cursos)}} --}}
