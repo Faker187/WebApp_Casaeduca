@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-.main > .animation  > svg{
-  width: 75%!important;
-}
-</style>
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-md-12">
@@ -17,10 +12,10 @@
           <div class="row">
             <div class="col-md-3">
                 <a href="/AgregarAlumno">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 17rem;">
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                         <lottie-player src="https://assets5.lottiefiles.com/temp/lf20_zi0rIM.json"  
-                            background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop  autoplay>
+                            background="transparent"  speed="1"  style="width: 280px; height: 300px;" loop  autoplay>
                         </lottie-player>
                     <div class="card-body">
                     
