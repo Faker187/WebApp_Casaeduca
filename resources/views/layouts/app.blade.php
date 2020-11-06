@@ -505,16 +505,13 @@
         $(window).resize(function(){
 
             if ($(window).width() <= 575) {  
-                $('#collapsingNavbar3').click(function(){
-                    alert('ñlegue');
-                    if($(this).hasClass('collapse show')){
-                        alert('show');
-                        /* $('#titulo').css('margin-top','10rem') */
-                    }else{
-                        alert('noshow');
-                        /* $('#titulo').css('margin-top','0rem') */
-                    }
-                })
+                if($('#collapsingNavbar3').hasClass('collapse show')){
+                    alert('show');
+                    /* $('#titulo').css('margin-top','10rem') */
+                }else{
+                    alert('noshow');
+                    /* $('#titulo').css('margin-top','0rem') */
+                }
             }     
 
         });
