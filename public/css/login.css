@@ -54,13 +54,13 @@ h2.inactive {
 
 h2.active {
     color: #0d0d0d;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #4269B0;
 }
 
 input[type=button],
 input[type=submit],
 input[type=reset] {
-    background-color: #56baed;
+    background-color: #b5dbf5;
     border: none;
     color: white;
     padding: 15px 80px;
@@ -120,7 +120,7 @@ input[type=email] {
 
 input[type=email]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #4269B0;
 }
 
 input[type=email]:placeholder {
@@ -150,7 +150,7 @@ input[type=password] {
 
 input[type=password]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #4269B0;
 }
 
 input[type=password]:placeholder {
@@ -180,7 +180,7 @@ input[type=text] {
 
 input[type=text]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #4269B0;
 }
 
 input[type=text]:placeholder {
@@ -210,7 +210,7 @@ select {
 
 select:focus {
     background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #4269B0;
 }
 
 select:placeholder {
@@ -322,7 +322,7 @@ select:placeholder {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #56baed;
+    background-color: #b5dbf5;
     content: "";
     transition: width 0.2s;
 }

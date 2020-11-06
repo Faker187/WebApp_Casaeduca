@@ -42,7 +42,7 @@
                         </label>
                     </div>
 
-                    <input type="submit" class="fadeIn fourth" value="Iniciar sesión ahora">
+                    <input type="submit" class="mx-auto fadeIn fourth" value="Iniciar sesión ahora">
                 </form>
 
                 <!-- Remind Passowrd -->
