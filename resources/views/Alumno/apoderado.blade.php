@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-md-3">
                 <a href="/AgregarAlumno">
-                <div class="card" style="width: 16rem;">
+                <div class="card mx-auto mb-4" style="width: 16rem;">
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                         <lottie-player src="https://assets5.lottiefiles.com/temp/lf20_zi0rIM.json"  
                             background="transparent"  speed="1"  style="width: 250px; height: 300px;" loop  autoplay>
