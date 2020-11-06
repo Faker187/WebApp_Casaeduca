@@ -505,7 +505,7 @@
         $('#collapsingNavbar3').click(function(){
 
             if ($(window).width() <= 575) {  
-                if($(this).hasClass('collapse show')){
+                if($(this).hasClass('show')){
                     console.log('show');
                     /* $('#titulo').css('margin-top','10rem') */
                 }else{
