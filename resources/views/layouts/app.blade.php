@@ -505,13 +505,7 @@
         $('#collapsingNavbar3').click(function(){
 
             if ($(window).width() <= 575) {  
-                if($(this).hasClass('show')){
-                    console.log('show');
-                    /* $('#titulo').css('margin-top','10rem') */
-                }else{
-                    console.log('noshow');
-                    /* $('#titulo').css('margin-top','0rem') */
-                }
+                $('#titulo').css('margin-top','10rem')
             }     
 
         });
