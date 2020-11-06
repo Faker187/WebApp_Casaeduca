@@ -111,11 +111,17 @@ a:hover,a:focus{
   #wrapper {
     margin-left: -9rem;
   }
+  #wrapper .toggled{
+    margin-left:0rem;
+  }
 }
 
 @media only screen and (max-width: 500px) {
   #wrapper {
     margin-left:-6rem;
+  }
+  #wrapper .toggled{
+    margin-left:0rem;
   }
 }
 </style>
