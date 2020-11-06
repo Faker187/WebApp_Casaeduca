@@ -16,7 +16,7 @@
 <br>
 <!-- Card group -->
 <div class="card-group mb-5">
-
+  <div class="col-xs-12">
   @foreach ($planes as $plan)
 
   <div class="col-md-4">
@@ -45,7 +45,7 @@
   @endforeach
   
   
-  
+  </div>
 </div>
   <!-- Card group -->
 
