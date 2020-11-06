@@ -107,13 +107,12 @@ a:hover,a:focus{
 .bg-light2{
     background-color: #f8f9fa!important;
 }
-
-
-@media (min-width: 575px){
-    #wrapper {
+@media only screen and (max-width: 575px) {
+    #wrapper{
         margin-left: -9rem;
     }
-}
+} 
+
 </style>
 
 {{-- {{dd($unidades)}} --}}
