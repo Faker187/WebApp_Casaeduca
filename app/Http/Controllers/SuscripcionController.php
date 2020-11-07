@@ -130,8 +130,8 @@ class SuscripcionController extends Controller
         $sessionId = Session::getId();
 
         $buyOrder = strval(rand(100000, 999999999));
-        $returnUrl = 'http://localhost:8000/finalizarPago';
-        $finalUrl = 'http://localhost:8000/volver';
+        $returnUrl = env("APP_URL").'/finalizarPago';
+        $finalUrl = env("APP_URL").'/volver';
         $initResult = $transaction->initTransaction(
                 $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
 
@@ -163,8 +163,8 @@ class SuscripcionController extends Controller
          $sessionId = Session::getId();
  
          $buyOrder = strval(rand(100000, 999999999));
-         $returnUrl = 'http://localhost:8000/renovarPlanPago';
-         $finalUrl = 'http://localhost:8000/volver';
+         $returnUrl = env("APP_URL").'/renovarPlanPago';
+         $finalUrl = env("APP_URL").'/volver';
          $initResult = $transaction->initTransaction(
                  $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
  
