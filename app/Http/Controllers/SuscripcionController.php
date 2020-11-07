@@ -130,8 +130,8 @@ class SuscripcionController extends Controller
         $sessionId = Session::getId();
 
         $buyOrder = strval(rand(100000, 999999999));
-        $returnUrl = 'casaeduca.cl/finalizarPago';
-        $finalUrl = 'casaeduca.cl/volver';
+        $returnUrl = 'http://casaeduca.cl/finalizarPago';
+        $finalUrl = 'http://casaeduca.cl/volver';
         $initResult = $transaction->initTransaction(
                 $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
 
@@ -163,8 +163,8 @@ class SuscripcionController extends Controller
          $sessionId = Session::getId();
  
          $buyOrder = strval(rand(100000, 999999999));
-         $returnUrl = 'casaeduca.cl/renovarPlanPago';
-         $finalUrl = 'casaeduca.cl/volver';
+         $returnUrl = 'http://casaeduca.cl/renovarPlanPago';
+         $finalUrl = 'http://casaeduca.cl/volver';
          $initResult = $transaction->initTransaction(
                  $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
  
