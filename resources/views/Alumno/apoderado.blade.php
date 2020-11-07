@@ -85,8 +85,10 @@
                           </div>
                         </div>
                     </div>
-                  @endforeach
-                </div>
+
+
+
+
                 <!-- Modal -->
                 <div class="modal fade" id="modalNombreAlumno{{$alumno->id}}" tabindex="-1" aria-labelledby="modalNombreAlumnoLabel" aria-hidden="true">
                   <div class="modal-dialog">
@@ -110,6 +112,8 @@
                     </form>
                     </div>
                   </div>
+                </div>
+                  @endforeach
                 </div>
             </div>
           </div>
