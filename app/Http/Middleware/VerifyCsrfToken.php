@@ -19,10 +19,10 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'http://localhost:8000/finalizarPago',
-        'http://localhost:8000/activarCuenta',
-        'http://localhost:8000/procesarPago',
-        'http://localhost:8000/volver',
-        'http://localhost:8000/renovarPlanPago',
+        'http://casaeduca.cl/finalizarPago',
+        'http://casaeduca.cl/activarCuenta',
+        'http://casaeduca.cl/procesarPago',
+        'http://casaeduca.cl/volver',
+        'http://casaeduca.cl/renovarPlanPago',
     ];
 }
