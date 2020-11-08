@@ -11,7 +11,7 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
-    <script src="{{ asset('js/jqmeter.min.js') }}"></script>
+    <script src="{{ asset('public/js/jqmeter.min.js') }}"></script>
 
     
 <style>
@@ -165,12 +165,12 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
    
 
           $('.jqmeter-containerClase'+idAsignatura).jQMeter({
-                      goal:'$'+totalClasesAsignatura,
-                      raised:'$'+cantidadClasesCompletadas,
-                      meterOrientation:'horizontal',
-                      width:'100%',
-                      height:'50px',
-                      barColor: '#4269B0'
+            goal:'$'+totalClasesAsignatura,
+            raised:'$'+cantidadClasesCompletadas,
+            meterOrientation:'horizontal',
+            width:'100%',
+            height:'50px',
+            barColor: '#4269B0'
           });
           
           </script>
