@@ -102,8 +102,6 @@ class InicioController extends Controller
             "subject" => $request->subject,
          ];
 
-    
-
         // $subject = $request->subject;
         // $for = $request->email;
 
@@ -117,7 +115,8 @@ class InicioController extends Controller
         // $for = "casaeduca@yopmail.com";
 
         $subject = $request->subject;
-        $for = $request->email;
+        // $for = $request->email;
+        $for = DB::table('sitio')->where('parametro', 'E-mail')->first()->valor;
 
         
         Mail::send('emailFormContacto',$data, function($msj) use($subject,$for){
