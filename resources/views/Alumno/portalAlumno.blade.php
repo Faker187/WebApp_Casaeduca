@@ -163,10 +163,10 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             var totalClasesAsignatura = {!! json_encode($asignatura->totalClasesAsignatura) !!}
             var cantidadClasesCompletadas = {!! json_encode($asignatura->cantidadClasesCompletadas) !!}
 
-          if (isNaN(totalClasesAsignatura) == 'true') {
+          if (isNaN(totalClasesAsignatura) == 'false') {
             totalClasesAsignatura = 0;
           }
-          if (isNaN(cantidadClasesCompletadas) == 'true') {
+          if (isNaN(cantidadClasesCompletadas) == 'false') {
             cantidadClasesCompletadas = 0;
           }
 
