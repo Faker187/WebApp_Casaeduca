@@ -175,11 +175,12 @@ a:hover,a:focus{
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
                     <p class="card-text  pl-3 text-justify animated wow fadeInUp">
+                        {{$asignatura->descripcion}}
                     </p>                    
                 </div>
             </div>
         </div>
-        <hr class="slash-1">
+        {{-- <hr class="slash-1">
         <div class="col-md-10 my-4">
             <div class="card w-100 border-0">
                 <div class="card-body">
@@ -188,7 +189,7 @@ a:hover,a:focus{
                     <p class="card-text pl-3 text-center animated wow fadeInUp mb-5">El gráfico muestra solo el avance de la asignatura actual</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
   </div>
 
