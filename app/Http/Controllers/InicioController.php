@@ -113,11 +113,16 @@ class InicioController extends Controller
         //     $msj->to($for);
         // });
 
-        $subject = "test";
-        $for = "casaeduca@yopmail.com";
+        // $subject = "test";
+        // $for = "casaeduca@yopmail.com";
+
+        $subject = $request->subject;
+        $for = $request->email;
+
+        
         Mail::send('emailFormContacto',$data, function($msj) use($subject,$for){
-            $msj->from("tucorreo@gmail.com","NombreQueApareceráComoEmisor");
-            $msj->subject($subject);
+        $msj->from("contact@casaeduca.cl","Casa Educa, Nuevo Contacto");
+        $msj->subject($subject);
             $msj->to($for);
         });
 
