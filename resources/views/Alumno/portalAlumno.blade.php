@@ -69,6 +69,9 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
     flex-direction: column;
   }
 }
+.inner-therm span{
+  font-size: smaller!important;
+}
 </style>
 
 <div class="container-fluid px-0 bg-ce0  mb-5">
