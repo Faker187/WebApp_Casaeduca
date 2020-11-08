@@ -121,7 +121,7 @@ class InicioController extends Controller
             $msj->to($for);
         }); */
 
-        return 'true';
+        /* return 'true'; */
     }
 
     public function revista()
