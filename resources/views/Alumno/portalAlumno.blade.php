@@ -165,7 +165,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
    
 
           $('.jqmeter-containerClase'+idAsignatura).jQMeter({
-            goal:'$'+totalClasesAsignatura,
+            goal:'$200_'+totalClasesAsignatura,
             raised:'$'+cantidadClasesCompletadas,
             meterOrientation:'horizontal',
             width:'75%',
@@ -174,10 +174,6 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             barColor: '#4269B0'
           });
           $('.outer-therm').addClass('mx-auto');
-          
-          if($('.outer-therm').find('span').text('NaN%')){
-            $(this).text('%');
-          }
           </script>
 
         
