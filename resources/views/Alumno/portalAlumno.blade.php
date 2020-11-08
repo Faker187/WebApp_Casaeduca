@@ -166,12 +166,6 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
           var status1 = (isNaN(totalClasesAsignatura));
           var status2 = (isNaN(cantidadClasesCompletadas));
 
-          if(status1 == false){
-            totalClasesAsignatura = {'0'};
-          }
-          if(status2 == false){
-            cantidadClasesCompletadas = {'0'};
-          }
           $('.jqmeter-containerClase'+idAsignatura).jQMeter({
             goal:'$'+totalClasesAsignatura,
             raised:'$'+cantidadClasesCompletadas,
