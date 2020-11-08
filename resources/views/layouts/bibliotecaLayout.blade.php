@@ -275,8 +275,9 @@
                     $('#wrapper').css('margin-left','-6rem');
                 }
             }else if($(window).width() <= 1380){
+                $('.toggled').css('margin-left','-29rem');
                 if($('#wrapper').hasClass('toggled')){
-                    $('.toggled').css('margin-left','-11rem');
+                    $('#wrapper').css('margin-left','0rem');
                 }else{
                     $('#wrapper').css('margin-left','0rem');
                 }
