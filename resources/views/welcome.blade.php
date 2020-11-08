@@ -135,10 +135,10 @@
 
     <div class="container my-5 sol">
     <!-- ====== plan academico ====== -->
-            <div class="row justify-content-around">
+            <div class="row justify-content-center mr-0">
                 <div class="col-sm-12 mx-auto p-5">
-                    <h3>Plan Académico<img class="card-img" src="{{ asset('public/img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem;" alt="sombrero"></h3>
-                    <p style="margin-top: 2%; font-size: 120%; text-align: center">
+                    <h3 class="h3-responsive mt-3 text-center orange-text">Plan Académico<img class="card-img" src="{{ asset('public/img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem;" alt="sombrero"></h3>
+                    <p class="color-ce0" style="margin-top: 2%; font-size: 120%; text-align: center">
                     {{$invitacionPlanAcademico}}
                     </p>
                     <a class="btn btn-lg bg-ce0 text-white font-weight-bold rounded-lg" href="{{ url('/Planacademico') }}">Ver más</a>
