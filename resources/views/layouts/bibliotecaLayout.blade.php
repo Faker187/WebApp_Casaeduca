@@ -268,13 +268,13 @@
                 }else{
                     $('#wrapper').css('margin-left','-6rem');
                 }
-            }elseif($(window).width() <= 500){
+            }else if($(window).width() <= 500){
                 if($('#wrapper').hasClass('toggled')){
                     $('.toggled').css('margin-left','0rem');
                 }else{
                     $('#wrapper').css('margin-left','-6rem');
                 }
-            }elseif($(window).width() <= 1380){
+            }else if($(window).width() <= 1380){
                 if($('#wrapper').hasClass('toggled')){
                     $('.toggled').css('margin-left','0rem');
                 }else{
