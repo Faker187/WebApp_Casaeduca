@@ -357,7 +357,8 @@
             goal:'$1,000',
             raised:'$200',
             meterOrientation:'horizontal',
-            width:'100%',
+            displayTotal: true,
+            width:'75%',
             height:'40px',
             barColor: '#5cb85c'
         });
