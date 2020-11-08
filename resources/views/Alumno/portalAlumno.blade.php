@@ -174,6 +174,9 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             barColor: '#4269B0'
           });
           $('.outer-therm').addClass('mx-auto');
+          if($('.outer-therm span').text('NaN%')){
+            $(this).text('0%');
+          }
           </script>
 
         
