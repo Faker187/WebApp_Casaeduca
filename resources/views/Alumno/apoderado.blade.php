@@ -5,11 +5,11 @@
   <div class="row justify-content-center">
     <div class="col-md-10">
       <img width="300" src="{{ asset('public/img/LOGO.png') }}"/>
-      <h1 class="display-3 mt-3 h5 orange-text"> Hola {{Auth::user()->name}}</h1>
-      <p class="lead mb-4 pb-2 px-md-5 mx-md-5">Soy Apoderado/a de: </p>
+      <h1 class="display-4 mt-3 h5 text-center orange-text"> Hola {{Auth::user()->name}}</h1>
+      <p class="lead mb-4 pb-2 px-md-5 mx-md-5 text-center">Soy Apoderado/a de: </p>
     </div>
     <div class="col-md-12" id="apoderado_div">
-      <div class="card border-0 mx-5 my-5 p-5 color-ce0 text-center">
+      <div class="card border-0 my-5 color-ce0 text-center">
         <div class="card-body">
           <div class="row">
             <div class="col-md-3">
