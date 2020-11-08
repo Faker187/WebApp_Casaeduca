@@ -278,7 +278,7 @@
                 if($('#wrapper').hasClass('toggled')){
                     $('.toggled').css('margin-left','-11rem');
                 }else{
-                    $('#wrapper').css('margin-left','0rem');
+                    $('#wrapper').css('margin-left','6rem');
                 }
             }
 
