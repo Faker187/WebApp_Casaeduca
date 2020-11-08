@@ -26,9 +26,13 @@ class AdminController extends Controller
 
     public function admin()
     {
-        $alumnosActivos   = User::where('estado',1)->count();
-        $alumnosInactivos = User::where('estado',0)->count();
-        return view('Administrador.dashboard', compact('alumnosActivos','alumnosInactivos'));
+        // $alumnosActivos   = User::where('estado',1)->count();
+        $alumnosActivos   = DB::table('alumno')->where('estado',1)->count();
+        $alumnosInactivos = DB::table('alumno')->where('estado',0)->count();
+        $correosEnviados = DB::table('correo')->where('tipo',1)->count();
+        $correosRespondidos = DB::table('correo')->where('tipo',2)->count();
+        
+        return view('Administrador.dashboard', compact('alumnosActivos','alumnosInactivos','correosEnviados','correosRespondidos'));
     }
 
     //Listar Alumnos pantalla ADMIN
