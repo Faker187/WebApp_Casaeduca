@@ -39,7 +39,7 @@
 
                         <div class="row">
                             <div class="col-md-9 mb-md-0 mb-5">
-                                <form id="contact-form" name="contact-form" action="/formularioContacto" method="POST">
+                                <form id="contact-form" name="contact-form" action="/formularioContacto" method="POST" onsubmit="nosubmit(event)">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-6">
