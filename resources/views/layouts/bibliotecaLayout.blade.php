@@ -279,7 +279,7 @@
                 if($('#wrapper').hasClass('toggled')){
                     $('#wrapper').css('margin-left','-10rem');
                 }else{
-                    $('#wrapper').css('margin-left','0rem');
+                    $('#wrapper').css('margin-left','-10rem');
                 }
             }    
 
