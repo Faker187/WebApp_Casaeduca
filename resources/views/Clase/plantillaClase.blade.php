@@ -82,7 +82,7 @@
         // alert(ruta);
 
         $("#resolte-contaniner").officeToHtml({
-            url: 'public/imgcard/'+ruta,
+            url: '/public/imgcard/'+ruta,
             imageSetting: {
                 frame: ['100%', '100%',false],
                 maxZoom: '900%',
