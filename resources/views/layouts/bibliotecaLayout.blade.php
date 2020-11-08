@@ -281,6 +281,8 @@
 
         if ($(window).width() <= 575) {  
             $('#wrapper').css('margin-left','0rem');
+        }else if ($(window).width() <= 1360) {  
+            $('#wrapper').css('margin-left','0rem');
         }
         new WOW().init();
         
