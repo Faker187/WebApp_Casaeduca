@@ -276,9 +276,9 @@
                 }
             }else if ($(window).width() <= 1360){
                 if($('#wrapper').hasClass('toggled')){
-                    $('.toggled').css('margin-left','-11rem');
+                    $('.toggled').css('margin-left','0rem');
                 }else{
-                    $('#wrapper').css('margin-left','6rem');
+                    $('#wrapper').css('margin-left','1rem');
                 }
             }
 
