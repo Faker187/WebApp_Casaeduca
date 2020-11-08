@@ -178,7 +178,7 @@ class AdminController extends Controller
             $nombre = $file->getClientOriginalName();
 
             //indicamos que queremos guardar un nuevo archivo en el disco local
-            \Storage::disk('public2')->put($nombre,  \File::get($file));
+            \Storage::disk('public')->put($nombre,  \File::get($file));
         }
      
 
