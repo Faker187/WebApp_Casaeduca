@@ -99,9 +99,9 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             <div class="card mb-4 m-1">
                 <div class="view overlay">
                   @if ($asignatura->imagen != null)
-                  <img class="card-img-top" src="{{ asset('imgcard/'.$asignatura->imagen) }}" alt="Card image cap">
+                  <img class="card-img-top" src="{{ asset('public/imgcard/'.$asignatura->imagen) }}" alt="Card image cap">
                   @else
-                  <img class="card-img-top" src="{{ asset('imgcard/sinimagen.jpg') }}" alt="Card image cap">
+                  <img class="card-img-top" src="{{ asset('public/imgcard/sinimagen.jpg') }}" alt="Card image cap">
                   @endif
                     <a href="#!">
                         <div class="mask rgba-white-slight"></div>
