@@ -112,12 +112,6 @@ a:hover,a:focus{
     margin-left: -9rem;
   }
 }
-
-@media only screen and (max-width: 500px) {
-  #wrapper.toggled #sidebar-wrapper {
-    margin-left:-6rem;
-  }
-}
 @media (min-width: 768px){
     #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
