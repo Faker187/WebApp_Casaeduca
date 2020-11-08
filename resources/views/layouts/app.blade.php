@@ -162,7 +162,7 @@
         </ul>
     </nav>
     @guest
-    <nav  class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center bg-white">
+    <nav  class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center bg-white" style="z-index: 1;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
             <span class="navbar-toggler-icon"></span>
         </button>
