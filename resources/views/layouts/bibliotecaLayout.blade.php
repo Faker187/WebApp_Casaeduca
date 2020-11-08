@@ -262,19 +262,7 @@
             $("#wrapper").toggleClass("toggled");
             
 
-            if ($(window).width() <= 575) {  
-                if($('#wrapper').hasClass('toggled')){
-                    $('#wrapper').css('margin-left','0rem');
-                }else{
-                    $('#wrapper').css('margin-left','-0rem');
-                }
-            }else if($(window).width() <= 500){
-                if($('#wrapper').hasClass('toggled')){
-                    $('#wrapper').css('margin-left','0rem');
-                }else{
-                    $('#wrapper').css('margin-left','-6rem');
-                }
-            }
+           
 
      
         });
