@@ -163,8 +163,15 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             var totalClasesAsignatura = {!! json_encode($asignatura->totalClasesAsignatura) !!}
             var cantidadClasesCompletadas = {!! json_encode($asignatura->cantidadClasesCompletadas) !!}
 
-          console.log(isNaN(totalClasesAsignatura));
+          var status1 = (isNaN(totalClasesAsignatura));
+          var status2 = (isNaN(cantidadClasesCompletadas));
 
+          if(status1 == 'false'){
+              console.log('soy false de totalClasesAsignatura');
+          }
+          if(status2 == 'false'){
+              console.log('soy false de cantidadClasesCompletadas');
+          }
           $('.jqmeter-containerClase'+idAsignatura).jQMeter({
             goal:'$'+totalClasesAsignatura,
             raised:'$'+cantidadClasesCompletadas,
