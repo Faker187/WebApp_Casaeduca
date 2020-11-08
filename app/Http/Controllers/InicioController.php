@@ -121,7 +121,7 @@ class InicioController extends Controller
 
         
         Mail::send('emailFormContacto',$data, function($msj) use($subject,$for){
-        $msj->from("contact@casaeduca.cl","Casa Educa, Nuevo Contacto");
+        $msj->from("contacto@casaeduca.cl","Casa Educa, Nuevo Contacto");
         $msj->subject($subject);
             $msj->to($for);
         });
