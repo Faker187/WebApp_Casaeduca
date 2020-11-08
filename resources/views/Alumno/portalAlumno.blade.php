@@ -168,8 +168,9 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             goal:'$'+totalClasesAsignatura,
             raised:'$'+cantidadClasesCompletadas,
             meterOrientation:'horizontal',
-            width:'100%',
+            width:'75%',
             height:'50px',
+            displayTotal: true,
             barColor: '#4269B0'
           });
           
