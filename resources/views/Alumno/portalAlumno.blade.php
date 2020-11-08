@@ -163,12 +163,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             var totalClasesAsignatura = {!! json_encode($asignatura->totalClasesAsignatura) !!}
             var cantidadClasesCompletadas = {!! json_encode($asignatura->cantidadClasesCompletadas) !!}
 
-          if (isNaN(totalClasesAsignatura)) {
-            totalClasesAsignatura = 0;
-          }
-          if (isNaN(cantidadClasesCompletadas)) {
-            cantidadClasesCompletadas = 0;
-          }
+          console.log(isNaN(totalClasesAsignatura));
 
           $('.jqmeter-containerClase'+idAsignatura).jQMeter({
             goal:'$'+totalClasesAsignatura,
