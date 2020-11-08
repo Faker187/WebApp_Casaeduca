@@ -118,7 +118,11 @@ a:hover,a:focus{
     margin-left:-6rem;
   }
 }
-
+@media (min-width: 768px){
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
 </style>
 
 {{-- {{dd($unidades)}} --}}
