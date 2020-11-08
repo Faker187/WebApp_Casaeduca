@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-xs-12">
+    <div class="col-md-12" id="apoderado_div">
       <div class="card border-0 mx-5 my-5 p-5 color-ce0 text-center">
         <div class="card-body">
           <img width="300" src="{{ asset('public/img/LOGO.png') }}"/>

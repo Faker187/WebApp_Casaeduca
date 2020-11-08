@@ -501,7 +501,11 @@
                 $('nav div').removeClass('visible-title');
             }
         });
-
+        
+        if ($(window).width() <= 575) {  
+            $('#apoderado_div').removeClass('col-md-12');
+            $('#apoderado_div').addClass('col-xs-12');
+        }
         $('.jqmeter-container').jQMeter({
             goal:'$1,000',
             raised:'$200',
