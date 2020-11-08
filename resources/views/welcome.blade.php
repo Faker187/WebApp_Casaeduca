@@ -136,7 +136,7 @@
     <div class="container my-5 sol">
     <!-- ====== plan academico ====== -->
             <div class="row justify-content-center mr-0">
-                <div class="col-sm-12 mx-auto p-5">
+                <div class="col-sm-12 mx-auto p-5 text-center">
                     <h2 class="h2-responsive mt-3 font-weight-bold text-center orange-text">Plan Académico<img class="card-img" src="{{ asset('public/img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem;" alt="sombrero"></h2>
                     <p class="color-ce0 font-weight-bold" style="margin-top: 2%; font-size: 120%; text-align: center">
                     {{$invitacionPlanAcademico}}
