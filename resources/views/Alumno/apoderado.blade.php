@@ -4,8 +4,8 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-md-10">
-      <img width="300" src="{{ asset('public/img/LOGO.png') }}"/>
-      <h1 class="display-4 mt-3 h5 text-center orange-text"> Hola {{Auth::user()->name}}</h1>
+      <img class="img-fluid border-0 mt-3 text-center" width="300" src="{{ asset('public/img/LOGO.png') }}"/>
+      <h1 class="h1-responsive display-4 mt-3 h5 text-center orange-text"> Hola {{Auth::user()->name}}</h1>
       <p class="lead mb-4 pb-2 px-md-5 mx-md-5 text-center">Soy Apoderado/a de: </p>
     </div>
     <div class="col-md-12" id="apoderado_div">
@@ -29,7 +29,7 @@
             <div class="col-md-9">
                 <div class="row">
                   @foreach ($alumnos as $alumno)
-                    <div class="col-md-4 cardxs">
+                    <div class="col-md-4 cardxs mx-auto">
                         <div class="card mb-4 m-1">
                           <div class="card-body color-ce0">
                             <img width="200" src="{{ asset('public/img/user.png') }}"/>
