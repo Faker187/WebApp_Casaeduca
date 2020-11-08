@@ -1280,7 +1280,7 @@ $('#contact-form').submit(function(e) {
             console.log(error);
         },
         complete: function(data) {
-            //location.reload();
+            location.reload();
         }
     });
 });
