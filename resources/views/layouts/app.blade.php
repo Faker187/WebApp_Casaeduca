@@ -505,6 +505,8 @@
         if ($(window).width() <= 575) {  
             $('#apoderado_div').removeClass('col-md-12');
             $('#apoderado_div').addClass('col-xs-12');
+            $('.cardxs').removeClass('col-md-4');
+            $('.cardxs').addClass('col-xs-4');
         }
         $('.jqmeter-container').jQMeter({
             goal:'$1,000',

@@ -29,7 +29,7 @@
             <div class="col-md-9">
                 <div class="row">
                   @foreach ($alumnos as $alumno)
-                    <div class="col-md-4">
+                    <div class="col-md-4 cardxs">
                         <div class="card mb-4 m-1">
                           <div class="card-body color-ce0">
                             <img width="200" src="{{ asset('public/img/user.png') }}"/>
