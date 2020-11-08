@@ -173,7 +173,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             displayTotal: true,
             barColor: '#4269B0'
           });
-          
+          $('.jqmeter-containerClase'+idAsignatura).addClass('mx-auto');
           </script>
 
         
