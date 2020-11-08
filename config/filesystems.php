@@ -52,7 +52,7 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => public_path('imgcard'),
+            'root' => public_path('public/imgcard'),
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
