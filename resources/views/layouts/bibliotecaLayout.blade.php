@@ -263,10 +263,11 @@
             
 
             if ($(window).width() <= 575) {  
+                $('#wrapper').css('margin-left','0rem');
                 if($('#wrapper').hasClass('toggled')){
                     $('.toggled').css('margin-left','0rem');
                 }else{
-                    $('#wrapper').css('margin-left','0rem');
+                    $('#wrapper').css('margin-left','-6rem');
                 }
             }else if($(window).width() <= 500){
                 if($('#wrapper').hasClass('toggled')){
@@ -285,6 +286,10 @@
 
      
         });
+
+        if ($(window).width() <= 575) {  
+            $('#wrapper').css('margin-left','0rem');
+        }
         new WOW().init();
         
         $('.cargarClase').click(function(e){
