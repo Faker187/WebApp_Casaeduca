@@ -117,7 +117,7 @@
 
     <div class="container my-5">
     <!-- ====== Características ====== -->
-        <table class="table table-borderless">
+        <table class="table table-borderless table-responsive-sm">
             <thead>
                 <tr>
                 <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
@@ -135,13 +135,13 @@
 
     <div class="container my-5 sol">
     <!-- ====== plan academico ====== -->
-            <div class="row">
-                <div class="col-sm">
-                    <h3 style="margin-left: 5%; margin-top: 15%;text-align: center">Plan Académico<img class="card-img" src="{{ asset('public/img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem; margin-left: 0.5rem;" alt="sombrero"></h3>
-                    <p style="margin-left: 5%;margin-right:5%; margin-top: 2%; font-size: 150%; text-align: center">
+            <div class="row justify-content-around">
+                <div class="col-sm-12 mx-auto p-5">
+                    <h3>Plan Académico<img class="card-img" src="{{ asset('public/img/academico.svg') }}" style="width: 50px;margin-bottom: 1rem;" alt="sombrero"></h3>
+                    <p style="margin-top: 2%; font-size: 120%; text-align: center">
                     {{$invitacionPlanAcademico}}
                     </p>
-                    <a class="btn btn-lg bg-ce0 text-white font-weight-bold rounded-lg" href="{{ url('/Planacademico') }}" style="margin-left: 48%; margin-bottom: 10%;  ">Ver más</a>
+                    <a class="btn btn-lg bg-ce0 text-white font-weight-bold rounded-lg" href="{{ url('/Planacademico') }}">Ver más</a>
                 </div>
             </div>
     <!-- ====== /plan academico ====== -->
