@@ -96,7 +96,7 @@ class AlumnoController extends Controller
         $asignaturas = Asignatura::where('idcurso',$curso)->get();
 
         foreach ($asignaturas as $asignatura) {
-       
+            
 
             if ($asignatura->idprofesor != 0) {
 
@@ -238,13 +238,13 @@ class AlumnoController extends Controller
         $for = $request->correo;
 
         Mail::send('email',$data, function($msj) use($subject,$for){
-            $msj->from("correoprueba@gmail.com","Casa Educa, Mensaje Alumno");
+            $msj->from("contacto@casaeduca.cl","Casa Educa, Mensaje Alumno");
             $msj->subject($subject);
             $msj->to($for);
         });
 
         
-       
+
         return $request;
     }
 
