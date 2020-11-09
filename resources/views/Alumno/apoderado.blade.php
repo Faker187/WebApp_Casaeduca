@@ -35,7 +35,7 @@
                                 <div class="mr-auto p-2">
                                     <a id="nombreAlumno{{$alumno->id}}" class="btnce-1  font-weight-bold" >{{$alumno->nombre}}</a>
                                 </div>
-                                <div class="p-2"><a class="btnce-1  font-weight-bold"><i class="fas fa-pencil-alt cambiarNombreAlumno" idAlumno="{{$alumno->id}}" style="color: white"></i></a></div>
+                                <div class="p-2"><a class="btnce-1  font-weight-bold"><i class="fas fa-pencil-alt cambiarNombreAlumno" idAlumno="{{$alumno->id}}" style="color: #4269B0"></i></a></div>
                             </div>
             
                             <div class="d-flex mb-1">
