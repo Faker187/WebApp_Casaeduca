@@ -109,7 +109,7 @@ a:hover,a:focus{
 }
 @media (min-width: 768px){
     #wrapper.toggled #sidebar-wrapper {
-        margin-left: -15rem;
+        margin-left: -37rem;
     }
 }
 </style>
@@ -152,9 +152,6 @@ a:hover,a:focus{
     <div id="page-content-wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-ce4 border-bottom">
         <a href="#" id="menu-toggle"><i class="fas fa-arrow-circle-left fa-2x text-white p-2"></i></a>
-        <div class="ml-auto">
-            <a href="#" class="badge bg-ce0" id="menu-toggle">Volver a mis asignaturas</a>
-        </div>
       </nav>
 
       <div class="text-dark" id="contenidoClase"></div>
