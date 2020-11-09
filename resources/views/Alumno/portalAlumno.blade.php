@@ -114,19 +114,21 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                     <div class="d-flex">
                         <h4 class="card-title text-white">{{$asignatura->nombre}}</h4>
                     </div>
-                   @if ($asignatura->idprofesor != 0)
+                   
                    <div class="d-flex mb-1">
                     <div class="mr-auto p-2">
                         <a class="btnce-1 text-white font-weight-bold" href="/Asignatura/{{$asignatura->idasignatura}}"><i class="fas fa-share color-ce5 px-1"></i>Ir a la clase</a>
                     </div>
+                    @if ($asignatura->idprofesor != 0)
                     <div class="p-2"><a class="btnce-1 text-white font-weight-bold contactarProfesor" 
                       idProfesor="{{$asignatura->idprofesor}}" 
                       idAsignatura="{{$asignatura->idasignatura}}"
                       idAlumno="{{$idAlumno}}"><i class="fas fa-comment color-ce5 px-1"></i>Mensaje</a>
                     </div>
+                    @endif
                     
                 </div>
-                   @endif
+                   
 
                     @if ($asignatura->idprofesor != 0)
                     <div class="d-flex mb-1">
