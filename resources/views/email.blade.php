@@ -7,4 +7,4 @@
 <p>Mensaje: {{$mensaje}}</p>
 <br>
 <p><strong>Para respoder el correo haga click en el siguiente Link</strong></p>
-<a href="{{env('APP_URL')."/responderCorreo/".$idCorreo."/".$token}}">Responder Correo</a>
+<a href={{"http://caseduca.cl/responderCorreo/".$idCorreo."/".$token}}">Responder Correo</a>
