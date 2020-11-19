@@ -460,6 +460,7 @@
         
         // clickable on mobile view
         if ($(window).width() < 992) {
+            $('#divcurso').css('position', 'initial');
             $('.has-submenu a').click(function(e){
                 e.preventDefault();
                 $(this).next('.megasubmenu').toggle();

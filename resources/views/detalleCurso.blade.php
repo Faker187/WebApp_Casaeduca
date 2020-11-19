@@ -6,7 +6,7 @@
     width: 40vh;
     position: fixed;
     z-index: 1;
-    top: 16%;
+    top: 18%;
     overflow-x: hidden;
     margin: 1rem;
 }
