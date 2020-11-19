@@ -460,7 +460,6 @@
         
         // clickable on mobile view
         if ($(window).width() < 992) {
-            $('#divcurso').css('position', 'initial');
             $('.has-submenu a').click(function(e){
                 e.preventDefault();
                 $(this).next('.megasubmenu').toggle();
@@ -508,6 +507,7 @@
             $('#apoderado_div').addClass('col-xs-12');
             $('.cardxs').removeClass('col-md-4');
             $('.cardxs').addClass('col-xs-4');
+            $('#divcurso').css('position', 'initial');
         }
         $('.jqmeter-container').jQMeter({
             goal:'$1,000',
