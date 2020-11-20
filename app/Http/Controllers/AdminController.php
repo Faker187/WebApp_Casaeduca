@@ -373,6 +373,7 @@ class AdminController extends Controller
         $unidad->nombre = $request->nombre;
         $unidad->idasignatura = $request->asignatura;
         $unidad->examen = $request->examen;
+        $unidad->password = $request->password;
         $unidad->save();
 
         $nombreAsignatura = Asignatura::find($request->asignatura)->nombre;
@@ -381,6 +382,7 @@ class AdminController extends Controller
         $data['nombre'] = $request->nombre;
         $data['asignatura'] = $nombreAsignatura;
         $data['examen'] = $request->examen;
+        $data['password'] = $request->password;
         return $data;
     }
 
@@ -399,6 +401,7 @@ class AdminController extends Controller
         $unidad = Unidad::find($request->idUnidad);
         $unidad->nombre = $request->nombre;
         $unidad->examen = $request->examen;
+        $unidad->password = $request->password;
         $unidad->idasignatura = $request->asignatura;
         $unidad->save();
 
@@ -407,6 +410,7 @@ class AdminController extends Controller
         $data = Array();
         $data['nombre'] = $request->nombre;
         $data['examen'] = $request->examen;
+        $data['password'] = $request->password;
         $data['asignatura'] = $nombreAsignatura;
         $data['indexTr'] = $request->indexTr;
         return $data;

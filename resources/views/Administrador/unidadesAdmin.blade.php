@@ -11,6 +11,7 @@
                 <th>Nombre</th>
                 <th>Asignatura</th>
                 <th>URL Examen</th>
+                <th>Password</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -20,6 +21,7 @@
                 <th>Nombre</th>
                 <th>Asignatura</th>
                 <th>URL Examen</th>
+                <th>Password</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -74,6 +76,7 @@
             <div class="modal-body">
                 <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre" required>
                 <input type="text" name="examen" class="form-control mb-4" placeholder="URL Examen">
+                <input type="text" name="password" class="form-control mb-4" placeholder="Contraseña Examen">
 
                 <select class="form-control" name="asignatura">
                     @foreach ($asignaturas as $asignatura)
