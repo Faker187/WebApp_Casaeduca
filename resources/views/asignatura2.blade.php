@@ -107,11 +107,6 @@ a:hover,a:focus{
 .bg-light2{
     background-color: #f8f9fa!important;
 }
-@media (min-width: 768px){
-    #wrapper.toggled #sidebar-wrapper {
-        margin-left: -37rem;
-    }
-}
 
 </style>
 
