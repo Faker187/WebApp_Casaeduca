@@ -13,6 +13,8 @@ use DB;
 use Session;
 use Transbank\Webpay\Configuration;
 use Transbank\Webpay\Webpay;
+use Transbank\Webpay\WebpayPlus\Transaction;
+
 
 
 
@@ -107,14 +109,14 @@ class SuscripcionController extends Controller
 
             $planes = Plan::all();
             return view('Suscripcion.seleccionarPlan',compact('planes'));
-  
 
     }
 
     public function procesarPago(Request $request)
     {
-        $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
-        ->getNormalTransaction();
+
+        // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
+        // ->getNormalTransaction();
 
         $monto = DB::table('plan')->where('idplan' , $request->idPlan)->first()->precio;
 
@@ -132,13 +134,16 @@ class SuscripcionController extends Controller
         $buyOrder = strval(rand(100000, 999999999));
         $returnUrl = 'https://casaeduca.cl/finalizarPago';
         $finalUrl = 'https://casaeduca.cl/volver';
-        $initResult = $transaction->initTransaction(
-                $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
 
-        $formAction = $initResult->url;
-        $tokenWs = $initResult->token;
+        // $initResult = $transaction->initTransaction(
+        //         $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
 
-        return view('Suscripcion.pagarPlan',compact('formAction','tokenWs'));
+        // $formAction = $initResult->url;
+        // $tokenWs = $initResult->token;
+
+        $response = Transaction::create($buyOrder, $sessionId, $monto, $returnUrl);
+
+        return view('Suscripcion.pagarPlan',compact('response'));
     }
 
     public function procesarRenovacion(Request $request)
