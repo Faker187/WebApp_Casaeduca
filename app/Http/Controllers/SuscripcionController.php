@@ -212,7 +212,7 @@ class SuscripcionController extends Controller
          
           
             // se realiza el pago y parte desde hoy
-            $fechaActual = date("Y-m-d");
+            $fechaActual = date("Y-m-d H:i:s");
 
             $fechaActualm =  date('Y-m-d H:i:s',strtotime('-5 hour',strtotime($fechaActual)));
 
