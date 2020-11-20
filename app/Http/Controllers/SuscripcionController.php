@@ -212,14 +212,13 @@ class SuscripcionController extends Controller
          
           
             // se realiza el pago y parte desde hoy
-            $fechaActual = date("Y-m-d H:i:s");
+            $fechaActualm = date("Y-m-d H:i:s");
 
-            $fechaActualm =  date('Y-m-d H:i:s',strtotime('-3 hour',strtotime($fechaActual)));
+            $fechaActual =  date('Y-m-d H:i:s',strtotime('-3 hour',strtotime($fechaActualm)));
 
             // y termina en la cantidad de meses seleccionada
             $fin_plan = date('Y-m-d', strtotime("+".$meses." months", strtotime($fechaActual)));
-            dd($fechaActualm, $fin_plan, $fechaActual);
-      
+                  
           
             $alumno = new Alumno;
             $alumno->nombre = 'Estudiante';
