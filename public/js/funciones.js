@@ -572,6 +572,7 @@ $('#formAgregarUnidad').submit(function(e) {
             t.row.add([
                 data.nombre,
                 data.asignatura,
+                data.examen,
                 '<center><button class="btn btn-primary editarUnidad" idUnidad="' + data.id + '"><i class="fas fa-edit"></i></button></center>',
                 '<center><button class="btn btn-primary eliminarUnidad" idUnidad="' + data.id + '"><i class="fas fa-trash-alt"></i></button></center>',
             ]).draw(false);
@@ -632,6 +633,7 @@ $('#formEditarUnidad').submit(function(e) {
             newData = [
                     data.nombre,
                     data.asignatura,
+                    data.examen,
                     '<center><button class="btn btn-primary editarUnidad" idUnidad="' + data.idunidad + '"><i class="fas fa-edit"></i></button></center>',
                     '<center><button class="btn btn-primary eliminarUnidad" idUnidad="' + data.idunidad + '"><i class="fas fa-trash-alt"></i></button></center>',
                 ] //Array, data here must match structure of table data

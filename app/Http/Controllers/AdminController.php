@@ -406,6 +406,7 @@ class AdminController extends Controller
 
         $data = Array();
         $data['nombre'] = $request->nombre;
+        $data['examen'] = $request->examen;
         $data['asignatura'] = $nombreAsignatura;
         $data['indexTr'] = $request->indexTr;
         return $data;
