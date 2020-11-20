@@ -218,7 +218,7 @@ class SuscripcionController extends Controller
 
             // y termina en la cantidad de meses seleccionada
             $fin_plan = date('Y-m-d', strtotime("+".$meses." months", strtotime($fechaActual)));
-            dd($fechaActualm, $fin_plan);
+            dd($fechaActualm, $fin_plan, $fechaActual);
       
           
             $alumno = new Alumno;
