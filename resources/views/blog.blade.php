@@ -15,7 +15,7 @@
                     <img class="card-img" src="{{ asset('public/img/blog.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
                     <strong>Revista</strong>
                 </h2>
-                <p class="mb-2 animated lightSpeedIn slower delay-3s color-ce2 text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
+                <!-- <p class="mb-2 animated lightSpeedIn slower delay-3s color-ce2 text-center">Nuestras noticias</p> -->
                 <br>
                 <br>
                 <br>
