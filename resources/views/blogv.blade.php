@@ -159,7 +159,7 @@
                 <div class="card-body">
                     <!-- Desarrollo Blog -->
                     <h1 class="card-title text-center">{{$revista->titulo}}</h1>
-                    <p><img src="{{ asset('public/storage/'.$revista->imagen) }}" style="float: left; width: 180rem;"></p>
+                    <p><img src="{{ asset('public/imgcard/'.$revista->imagen) }}" style="float: left; width: 180rem;"></p>
                     <p class="text-justify mt-3">{{$revista->contenido}}</p>
                     <p class="text-justify">{{$revista->autor}} - {{$revista->fecha}}</p>
                     <!-- Desarrollo Blog -->
