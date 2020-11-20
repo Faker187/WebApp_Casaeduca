@@ -139,7 +139,7 @@ a:hover,a:focus{
                         @if(isset($unidad->examen))
                         <li>
                             <i class="fas fa-file-alt fa-lg mt-2 color-ce0"></i>
-                            <a class="font-weight-bold cargarClase" href="{{$unidad->examen}}">Tomar Examen</a>
+                            <a class="font-weight-bold" href="{{$unidad->examen}}" target="_blank">Tomar Examen</a>
                         </li>
                         @endif
                     </ul>
