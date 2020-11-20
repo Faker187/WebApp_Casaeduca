@@ -7,4 +7,4 @@
 <p>Mensaje: {{$mensaje}}</p>
 <br>
 <p><strong>Para respoder el correo haga click en el siguiente Link</strong></p>
-<a href={{"http://caseduca.cl/responderCorreo/".$idCorreo."/".$token}}">Responder Correo</a>
+<a href={{"http://casaeduca.cl/responderCorreo/".$idCorreo."/".$token}}>Responder Correo</a>
