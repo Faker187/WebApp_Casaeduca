@@ -142,7 +142,7 @@ a:hover,a:focus{
                         <li>
                             <i class="fas fa-file-alt fa-lg mt-2 color-ce0"></i>
                             <a class="font-weight-bold" href="{{$unidad->examen}}" target="_blank">Tomar Examen</a>
-                            <span class="p-2 color-ce4">Contraseña: <b>{{$unidad->password}}</b></span>
+                            <span class="p-2 color-ce4">Contraseña: <b class="font-weight-bold">{{$unidad->password}}</b></span>
                         </li>
                         @endif
                     </ul>
