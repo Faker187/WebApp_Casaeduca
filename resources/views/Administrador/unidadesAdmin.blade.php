@@ -32,6 +32,7 @@
                 <td>{{$unidad->nombre}}</td>
                 <td>{{$unidad->nombreAsignatura}}</td>
                 <td>{{$unidad->examen}}</td>
+                <td>{{$unidad->password}}</td>
                 
                 <td class="text-center">
                     <button class="btn btn-primary editarUnidad" idUnidad="{{$unidad->idunidad}}"><i class="fas fa-edit"></i></button>
