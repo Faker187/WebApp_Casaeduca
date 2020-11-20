@@ -372,7 +372,7 @@ class AdminController extends Controller
         $unidad = new Unidad;
         $unidad->nombre = $request->nombre;
         $unidad->idasignatura = $request->asignatura;
-        $unidad->idasignatura = $request->examen;
+        $unidad->examen = $request->examen;
         $unidad->save();
 
         $nombreAsignatura = Asignatura::find($request->asignatura)->nombre;
