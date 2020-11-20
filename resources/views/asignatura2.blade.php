@@ -107,7 +107,9 @@ a:hover,a:focus{
 .bg-light2{
     background-color: #f8f9fa!important;
 }
-
+#sidebar-wrapper .sidebar-heading{
+    max-width: 335px!important;
+}
 </style>
 
 {{-- {{dd($unidades)}} --}}
@@ -115,7 +117,7 @@ a:hover,a:focus{
 
 
     <div class="bg-light2 border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading"><h1 class="color-ce0 h1-responsive my-4 wow fadeInUp">{{$asignatura->nombre}}</h1></div>
+      <div class="sidebar-heading"><h2 class="color-ce0 h2-responsive my-4 wow fadeInUp">{{$asignatura->nombre}}</h2></div>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         @foreach ($unidades as $unidad)
             <div class="panel panel-default mb-0">
