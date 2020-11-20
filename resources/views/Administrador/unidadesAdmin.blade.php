@@ -10,6 +10,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Asignatura</th>
+                <th>URL Examen</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -18,6 +19,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Asignatura</th>
+                <th>URL Examen</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -27,6 +29,7 @@
             <tr>
                 <td>{{$unidad->nombre}}</td>
                 <td>{{$unidad->nombreAsignatura}}</td>
+                <td>{{$unidad->examen}}</td>
                 
                 <td class="text-center">
                     <button class="btn btn-primary editarUnidad" idUnidad="{{$unidad->idunidad}}"><i class="fas fa-edit"></i></button>
@@ -70,6 +73,7 @@
             @csrf
             <div class="modal-body">
                 <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre" required>
+                <input type="text" name="examen" class="form-control mb-4" placeholder="URL Examen">
 
                 <select class="form-control" name="asignatura">
                     @foreach ($asignaturas as $asignatura)
