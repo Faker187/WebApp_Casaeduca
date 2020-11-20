@@ -195,8 +195,8 @@ Route::get('/Apoderado', 'AlumnoController@apoderado')->name('apoderado');
 // Route::get('/Alumno', 'AlumnoController@alumno')->name('alumno');
 Route::get('/Alumno/{id}', 'AlumnoController@portalAlumno');
 Route::get('/ContactarProfesor', 'AlumnoController@contactarProfesor')->name('contactarProfesor');
-Route::get('/responderCorreo/{id}/{token}', 'inicioController@responderCorreo')->name('responderCorreo');
-Route::post('/ResponderCorreo', 'inicioController@enviarRespuestaProfesor')->name('enviarRespuestaProfesor');
+Route::get('/responderCorreo/{id}/{token}', 'InicioController@responderCorreo')->name('responderCorreo');
+Route::post('/ResponderCorreo', 'InicioController@enviarRespuestaProfesor')->name('enviarRespuestaProfesor');
 
 Route::get('/BuscarCorreos','InicioController@buscarCorreos')->name('buscarCorreos');
 
