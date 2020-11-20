@@ -2,6 +2,8 @@
 
 <input type="text" name="examen" class="form-control mb-4" placeholder="URL examen" value="{{$unidad->examen}}">
 
+<input type="text" name="password" class="form-control mb-4" placeholder="Contraseña Examen" value="{{$unidad->password}}">
+
 <select class="form-control" name="asignatura">
     @foreach ($asignaturas as $asignatura)
     <option value="{{$asignatura->idasignatura}}"
