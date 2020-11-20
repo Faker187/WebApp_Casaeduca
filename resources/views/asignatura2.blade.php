@@ -107,17 +107,12 @@ a:hover,a:focus{
 .bg-light2{
     background-color: #f8f9fa!important;
 }
-@media only screen and (max-width: 575px) {
-  #wrapper {
-    margin-left: -9rem;
-  }
+@media (min-width: 768px){
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -37rem;
+    }
 }
 
-@media only screen and (max-width: 500px) {
-  #wrapper {
-    margin-left:-6rem;
-  }
-}
 </style>
 
 {{-- {{dd($unidades)}} --}}
@@ -125,7 +120,7 @@ a:hover,a:focus{
 
 
     <div class="bg-light2 border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading"><h1 class="color-ce0 display-4 my-4 wow fadeInUp">{{$asignatura->nombre}}</h1></div>
+      <div class="sidebar-heading"><h1 class="color-ce0 h1-responsive my-4 wow fadeInUp">{{$asignatura->nombre}}</h1></div>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         @foreach ($unidades as $unidad)
             <div class="panel panel-default mb-0">
@@ -158,9 +153,6 @@ a:hover,a:focus{
     <div id="page-content-wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-ce4 border-bottom">
         <a href="#" id="menu-toggle"><i class="fas fa-arrow-circle-left fa-2x text-white p-2"></i></a>
-        <div class="ml-auto">
-            <a href="#" class="badge bg-ce0" id="menu-toggle">Volver a mis asignaturas</a>
-        </div>
       </nav>
 
       <div class="text-dark" id="contenidoClase"></div>

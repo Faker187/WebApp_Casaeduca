@@ -162,7 +162,7 @@
         </ul>
     </nav>
     @guest
-    <nav  class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center bg-white">
+    <nav  class="navbar navbar-light navbar-expand-sm bg-faded justify-content-center bg-white" style="z-index: 1;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -501,7 +501,14 @@
                 $('nav div').removeClass('visible-title');
             }
         });
-
+        
+        if ($(window).width() <= 575) {  
+            $('#apoderado_div').removeClass('col-md-12');
+            $('#apoderado_div').addClass('col-xs-12');
+            $('.cardxs').removeClass('col-md-4');
+            $('.cardxs').addClass('col-xs-4');
+            $('#divcurso').css('position', 'initial');
+        }
         $('.jqmeter-container').jQMeter({
             goal:'$1,000',
             raised:'$200',
@@ -511,7 +518,6 @@
             barColor: '#4269B0'
         });
     });
-
 </script>
 
 

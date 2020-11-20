@@ -69,6 +69,9 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
     flex-direction: column;
   }
 }
+.inner-therm span{
+  font-size: smaller!important;
+}
 </style>
 
 <div class="container-fluid px-0 bg-ce0  mb-5">
@@ -169,17 +172,19 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
             var idAsignatura = {!! json_encode($asignatura->idasignatura) !!}
             var totalClasesAsignatura = {!! json_encode($asignatura->totalClasesAsignatura) !!}
             var cantidadClasesCompletadas = {!! json_encode($asignatura->cantidadClasesCompletadas) !!}
-   
+
+          var status1 = (isNaN(totalClasesAsignatura));
+          var status2 = (isNaN(cantidadClasesCompletadas));
 
           $('.jqmeter-containerClase'+idAsignatura).jQMeter({
             goal:'$'+totalClasesAsignatura,
             raised:'$'+cantidadClasesCompletadas,
             meterOrientation:'horizontal',
-            width:'100%',
+            width:'75%',
             height:'50px',
             barColor: '#4269B0'
           });
-          
+          $('.outer-therm').addClass('mx-auto');
           </script>
 
         

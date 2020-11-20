@@ -262,22 +262,26 @@
             $("#wrapper").toggleClass("toggled");
             
 
-            if ($(window).width() <= 575) {  
+           /*  if ($(window).width() <= 575) {  
                 if($('#wrapper').hasClass('toggled')){
-                    $('.toggled').css('margin-left','0rem');
+                    $('#wrapper').css('margin-left','0rem');
                 }else{
-                    $('#wrapper').css('margin-left','-6rem');
+                    $('#wrapper').css('margin-left','-0rem');
                 }
             }else if($(window).width() <= 500){
                 if($('#wrapper').hasClass('toggled')){
-                    $('.toggled').css('margin-left','0rem');
+                    $('#wrapper').css('margin-left','0rem');
                 }else{
                     $('#wrapper').css('margin-left','-6rem');
                 }
-            }   
+            } */
 
      
         });
+
+        /* if ($(window).width() <= 575) {  
+            $('#wrapper').css('margin-left','0rem');
+        } */
         new WOW().init();
         
         $('.cargarClase').click(function(e){
@@ -353,7 +357,8 @@
             goal:'$1,000',
             raised:'$200',
             meterOrientation:'horizontal',
-            width:'100%',
+            displayTotal: true,
+            width:'75%',
             height:'40px',
             barColor: '#5cb85c'
         });
