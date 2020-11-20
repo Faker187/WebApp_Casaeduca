@@ -107,7 +107,7 @@
                 <label for="color">Seleccione un color:</label>
                 <input type="color" class="mb-3" name="color" value="#ff0000">
        
-                <input type="text" name="examen" class="form-control mb-4" placeholder="Link Examen">
+                <!-- <input type="text" name="examen" class="form-control mb-4" placeholder="Link Examen"> -->
 
                 <textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción asignatura"></textarea>
                 
