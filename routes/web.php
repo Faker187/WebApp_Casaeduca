@@ -163,7 +163,9 @@ Route::get('/selectClasesAjax', 'AdminController@selectClases');
 Route::get('/suscribete', 'SuscripcionController@suscribirse')->name('suscribete'); //Pantalla Suscripción
 Route::get('/AgregarAlumno', 'SuscripcionController@agregarAlumno')->name('agregarAlumno');
 Route::get('/obtenerPlanes/{idCurso}', 'SuscripcionController@obtenerPlanes')->name('obtenerPlanes');
+Route::get('/verificarEmail', 'InicioController@verificarEmail')->name('verificarEmail');
 // Route::post('/renovarSuscripcion' , 'SuscripcionController@renovarSuscripción');
+
 
 Route::post('/crearSuscripcion' , 'SuscripcionController@crearSuscripcion'); //Crea cuenta inactiva
 Route::get('/pagarPlan', 'SuscripcionController@pagarPlan')->name('pagarPlan'); //Pantalla comenzar pago

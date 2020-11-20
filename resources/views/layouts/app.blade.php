@@ -518,6 +518,61 @@
             barColor: '#4269B0'
         });
     });
+
+
+    $('#submitSuscribete').click(function (e) {
+        // e.preventDefault();
+
+        let repeatPassword = $('#repeatPassword').val();
+        let password = $('#password').val();
+        let email = $('#email').val();
+    
+
+
+        $.ajax({
+        type: 'GET',
+        url: '/verificarEmail',
+        data: { email },
+        success: function(data) {
+            if (data == 'ya existe') {
+                swal('ese correo ya existe');
+                e.preventDefault();
+            }
+     
+        },
+        error: function(error) {
+            console.log(error);
+        },
+       
+    });
+
+    //     $.ajax({
+    //     type: 'GET',
+    //     url: '/verificarEmail',
+    //     data: {email},
+    //     success: function(data) {
+    //         console.log(data);
+    //         // swal.close();
+    //         // swal("Listo!", "Correo Enviado!", "success");
+    //         // console.log(data);
+
+    //         //    $('#contactarProfesorModal').modal('hide');
+    //     },
+    //     error: function(error) {
+    //         console.log(error);
+    //     },
+    //     complete: function(data) {
+    //         location.reload();
+    //     }
+    // });
+
+        if (password != repeatPassword) {
+            swal('las contraseñas no coinciden');
+            e.preventDefault();
+        }
+
+    });
+    
 </script>
 
 

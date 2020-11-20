@@ -26,9 +26,9 @@
             <div class="tab-content pt-2 pl-1" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-crearcuenta" role="tabpanel" aria-labelledby="pills-crearcuenta-tab">
 
-                  <form  action="/crearSuscripcion" method="POST">
+                  <form  id="formSuscribirse" action="/crearSuscripcion" method="POST">
                     @csrf
-                        <input type="text" id="nombreCompletoApoderado" name="nombreCompletoApoderado" class="fadeIn second " placeholder="Nombre Completo Apoderado">
+                        <input type="text" id="nombreCompletoApoderado" name="nombreCompletoApoderado" class="fadeIn second " placeholder="Nombre Completo Apoderado" required>
         
                         {{-- <input type="text" id="nombreCompletoAlumno" name="nombreCompletoAlumno" class="fadeIn second mb-4" placeholder="Nombre Completo Alumno"> --}}
 
@@ -43,9 +43,9 @@
 
                         <input id="password" type="password" class="fadeIn fourth @error('password') is-invalid @enderror" placeholder="Contraseña" name="password" required autocomplete="current-password">
 
-                        <input type="password" name="repeatPassword" id="repeatPassword" class="fadeIn fourth mb-4" placeholder="Repetir contraseña">
+                        <input type="password" name="repeatPassword" id="repeatPassword" class="fadeIn fourth mb-4" placeholder="Repetir contraseña" required>
 
-                        <input type="submit" class="fadeIn fourth" value="Suscribirme">
+                        <input type="submit" id="submitSuscribete" class="fadeIn fourth" value="Suscribirme">
                   </form>
 
                 </div>
@@ -175,4 +175,8 @@
 
 
 </div>
+
+
+
+
 @endsection

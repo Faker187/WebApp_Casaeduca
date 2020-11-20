@@ -9,6 +9,7 @@ use Mail;
 use Str;
 use Session;
 use App\Sitio;
+use App\User;
 use App\Revista;
 use App\Correo;
 
@@ -278,5 +279,17 @@ class InicioController extends Controller
         }
         
         return view('Alumno.listaCorreos', compact('correos'));
+    }
+
+    public function verificarEmail(Request $request)
+    {
+        $usuario = DB::table('users')->where('email', $request->email)->count();
+
+        if ($usuario != 0) {
+            return 'ya existe';
+        }else{
+            return 'disponible';
+        }
+        
     }
 }
