@@ -107,7 +107,7 @@
         <div id="titulo">
             <div class="row mx-auto">            
                 <div class="col-xs-12 overflow-hidden" id="titulocontainer">
-                    <h1 class="display-1 text-center animated lightSpeedIn slower color-ce0 font-weight-bold">Casa educa</h1>
+                    <h1 class="display-1 text-center animated lightSpeedIn slower color-ce0 font-weight-bold">Casa Educa</h1>
                     <h5 class="lead text-center animated lightSpeedIn slower delay-3s color-ce0">{{$eslogan}}</h5>
                 </div>
             </div>
