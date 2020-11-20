@@ -129,14 +129,20 @@ a:hover,a:focus{
             <div id="collapse_{{$unidad->idunidad}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{$unidad->idunidad}}">
                 <div class="panel-body">
 
-                    @foreach ($unidad->clases as $clase)
-                        <ul>
-                        <li>
+                    <ul>
+                        @foreach ($unidad->clases as $clase)
+                          <li>
                             <i class="fas fa-folder-open fa-lg mt-2"></i>
                             <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}" idAlumno={{$idAlumno}}>{{$clase->nombre}}</a>
+                          </li>
+                        @endforeach
+                        @if(isset($unidad->examen))
+                        <li>
+                            <i class="fas fa-file-alt fa-lg mt-2 color-ce0"></i>
+                            <a class="font-weight-bold cargarClase" href="{{$unidad->examen}}">Tomar Examen</a>
                         </li>
-                        </ul>
-                    @endforeach
+                        @endif
+                    </ul>
                 </div>
             </div>
             </div>
