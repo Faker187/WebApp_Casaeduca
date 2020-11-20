@@ -120,11 +120,11 @@
         <table class="table table-borderless table-responsive-sm">
             <thead>
                 <tr>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/profesor.svg') }}" style="width: 60%;"></br>Profesores Online</th>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/leer.svg') }}" style="width: 60%;"></br>Interacción Web</th>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/alfabeto.svg') }}" style="width: 60%;"></br>Clases Online 24/7</th>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/hablar.svg') }}" style="width: 60%;"></br>Comunicación fluida</th>
-                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/creatividad.svg') }}" style="width: 60%;"></br>Profesores Online</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/profesor.svg') }}" style="width: 60%;"></br>{{$icono1}}</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/leer.svg') }}" style="width: 60%;"></br>{{$icono2}}</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/alfabeto.svg') }}" style="width: 60%;"></br>{{$icono3}}</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/hablar.svg') }}" style="width: 60%;"></br>{{$icono4}}</th>
+                <th class="animated wow fadeInUp" scope="col" style="text-align: center;"><img src="{{ asset('public/img/creatividad.svg') }}" style="width: 60%;"></br>{{$icono5}}</th>
                 </tr>
             </thead>
         </table>

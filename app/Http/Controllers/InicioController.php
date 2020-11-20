@@ -33,6 +33,11 @@ class InicioController extends Controller
         $twitter = Sitio::where('id' ,8)->first()->valor;
         $instagram = Sitio::where('id' ,9)->first()->valor;
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
+        $icono1 = Sitio::where('id' ,19)->first()->valor;
+        $icono2 = Sitio::where('id' ,20)->first()->valor;
+        $icono3 = Sitio::where('id' ,21)->first()->valor;
+        $icono4 = Sitio::where('id' ,22)->first()->valor;
+        $icono5 = Sitio::where('id' ,23)->first()->valor;
 
 
 
@@ -41,7 +46,7 @@ class InicioController extends Controller
  
         if (Auth::user() == null) {
             return view('welcome',compact('cursos','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
-            'telefono','email','facebook','twitter','instagram','whatsapp'
+            'telefono','email','facebook','twitter','instagram','whatsapp','icono1','icono2','icono3','icono4','icono5'
         
         ));
         }else{
@@ -182,8 +187,15 @@ class InicioController extends Controller
         $instagram = Sitio::where('id' ,9)->first()->valor;
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
 
+        $planAcademicoSubtitulo = Sitio::where('id' ,14)->first()->valor;
+        $planAcademicoNuestroProEducativo = Sitio::where('id' ,15)->first()->valor;
+        $planAcademicoSuscripcionMensual = Sitio::where('id' ,16)->first()->valor;
+        $planAcademicoSoporteEducacional = Sitio::where('id' ,17)->first()->valor;
+        $planAcademicoDescripcion = Sitio::where('id' ,18)->first()->valor;
+
         return view('planacademico',compact('cursos','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
-            'telefono','email','facebook','twitter','instagram','whatsapp'
+            'telefono','email','facebook','twitter','instagram','whatsapp','planAcademicoSubtitulo','planAcademicoNuestroProEducativo',
+            'planAcademicoSuscripcionMensual','planAcademicoSoporteEducacional','planAcademicoDescripcion'
         ));
     }
 
