@@ -117,7 +117,12 @@ a:hover,a:focus{
 
 
     <div class="bg-light2 border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading"><h2 class="color-ce0 h2-responsive my-4 wow fadeInUp">{{$asignatura->nombre}}</h2></div>
+      <div class="sidebar-heading">
+        <h2 class="color-ce0 h2-responsive my-4 wow fadeInUp">{{$asignatura->nombre}}</h2>
+        <p class="lead pl-3 text-justify animated wow fadeInUp">
+            {{$asignatura->descripcion}}
+        </p>
+    </div>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         @foreach ($unidades as $unidad)
             <div class="panel panel-default mb-0">
@@ -170,9 +175,7 @@ a:hover,a:focus{
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
-                    <p class="card-text  pl-3 text-justify animated wow fadeInUp">
-                        {{$asignatura->descripcion}}
-                    </p>                    
+                                        
                 </div>
             </div>
         </div>
