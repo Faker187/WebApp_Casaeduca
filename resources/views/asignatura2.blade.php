@@ -163,11 +163,11 @@ a:hover,a:focus{
     
       <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-11">
                 <div class="card w-100 border-0">
                     <div class="card-body">
                         <h5 class="card-title pl-3 color-ce0 pt-4 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
-                        <p class="lead pl-3 text-justify animated wow fadeInUp">
+                        <p class="lead pl-3 text-justify color-ce3 animated wow fadeInUp">
                             {{$asignatura->descripcion}}
                         </p>   
                     </div>
@@ -177,17 +177,19 @@ a:hover,a:focus{
             <div class="col-md-6 my-4">
                 <div class="card w-100">
                     <div class="card-body">
-                        <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/book.png') }}" alt="libros">Documentos</h5>
-                        <div class="text-dark" id="contenidoClase"></div>
+                        <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/book.png') }}" width="70" alt="libros">Documentos</h5>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 my-4">
                 <div class="card w-100">
                     <div class="card-body">
-                        <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/youtube.png') }}" alt="libros">Videos</h5>
+                        <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/youtube.png') }}" width="70" alt="libros">Videos</h5>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-10">
+                <div class="text-dark" id="contenidoClase"></div>
             </div>
         </div>
       </div>
