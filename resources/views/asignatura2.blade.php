@@ -167,22 +167,22 @@ a:hover,a:focus{
                 <div class="card w-100 border-0">
                     <div class="card-body">
                         <h5 class="card-title pl-3 color-ce0 pt-4 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
-                        <p class="lead pl-3 text-justify color-ce3 animated wow fadeInUp">
+                        <p class="lead pl-3 text-justify py-2 color-ce3 animated wow fadeInUp">
                             {{$asignatura->descripcion}}
                         </p>   
                     </div>
                 </div>
             </div>
             <hr class="slash-1">
-            <div class="col-md-6 my-4">
-                <div class="card w-100">
+            <div class="col-md-5 my-4">
+                <div class="card w-100 border-0">
                     <div class="card-body">
                         <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/book.png') }}" style="width:70px" alt="libros">Documentos</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 my-4">
-                <div class="card w-100">
+            <div class="col-md-5 my-4">
+                <div class="card w-100 border-0">
                     <div class="card-body">
                         <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/youtube.png') }}" style="width:70px" alt="libros">Videos</h5>
                     </div>
