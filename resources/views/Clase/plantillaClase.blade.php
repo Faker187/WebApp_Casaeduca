@@ -1,5 +1,4 @@
 <div class="list-group bg-ce1 color-ce1">
-    {{-- {{dd(count($documentos))}} --}}
    @if (count($documentos) != 0)
         @foreach ($documentos as $documento)
         @php

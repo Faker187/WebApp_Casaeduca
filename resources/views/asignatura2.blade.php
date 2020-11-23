@@ -186,7 +186,6 @@ a:hover,a:focus{
                 <div class="card w-100">
                     <div class="card-body">
                         <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/youtube.png') }}" alt="libros">Videos</h5>
-                        <div class="text-dark" id="contenidoClase"></div>
                     </div>
                 </div>
             </div>
