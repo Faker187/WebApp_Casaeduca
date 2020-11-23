@@ -177,14 +177,14 @@ a:hover,a:focus{
             <div class="col-md-5 my-4">
                 <div class="card w-100 border-0">
                     <div class="card-body">
-                        <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/book.png') }}" style="width:70px" alt="libros">Documentos</h5>
+                        <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/book.png') }}" style="width:32px" alt="libros">Documentos</h5>
                     </div>
                 </div>
             </div>
             <div class="col-md-5 my-4">
                 <div class="card w-100 border-0">
                     <div class="card-body">
-                        <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="card-img" src="{{ asset('public/img/youtube.png') }}" style="width:70px" alt="libros">Videos</h5>
+                        <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:32px" alt="libros">Videos</h5>
                     </div>
                 </div>
             </div>
