@@ -77,9 +77,30 @@ class AdminController extends Controller
     {
         $correos = DB::table('correo')->get();
         foreach ($correos as $correo) {
-            $correo->nombreAsignatura = Asignatura::find($correo->idasignatura)->nombre;
-            $correo->nombreProfesor = User::find($correo->idprofesor)->name;
-            $correo->nombreAlumno = Alumno::find($correo->idalumno)->nombre;
+            $nombreAsig = Asignatura::find($correo->idasignatura)->first();
+            if ($nombreAsig != null) {
+                $correo->nombreAsignatura = $nombreAsig->nombre;
+            }else{
+                $correo->nombreAsignatura = 'Asignatura borrada';
+            }
+            
+            $nombreProf = User::find($correo->idprofesor);
+
+            if ($nombreProf != null) {
+                $correo->nombreProfesor = $nombreProf->name;
+            }else{
+                $correo->nombreProfesor = 'Profesor Borrado';
+            }
+
+            $nombreAl = Alumno::find($correo->idalumno);
+            
+
+            if ($nombreAl != null) {
+                $correo->nombreAlumno = $nombreAl->nombre;
+            }else{
+                $correo->nombreAlumno = 'Alumno Borrado';
+            }
+            
         }
  
         return view('Administrador.correosAdmin',compact('correos'));
