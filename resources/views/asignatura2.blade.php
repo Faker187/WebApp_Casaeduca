@@ -176,7 +176,7 @@ a:hover,a:focus{
             <div class="col-md-5 my-4">
                 <div class="card w-100 border-0">
                     <div class="card-body">
-                        <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/book.png') }}" style="width:64px" alt="libros">Documentos</h5>
+                        <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/books.png') }}" style="width:64px" alt="libros">Documentos</h5>
                     </div>
                 </div>
             </div>
