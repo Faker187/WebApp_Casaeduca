@@ -77,7 +77,7 @@ class AdminController extends Controller
     {
         $correos = DB::table('correo')->get();
         foreach ($correos as $correo) {
-            $nombreAsig = Asignatura::find($correo->idasignatura)->first();
+            $nombreAsig = Asignatura::find($correo->idasignatura);
             if ($nombreAsig != null) {
                 $correo->nombreAsignatura = $nombreAsig->nombre;
             }else{
@@ -100,7 +100,7 @@ class AdminController extends Controller
             }else{
                 $correo->nombreAlumno = 'Alumno Borrado';
             }
-            
+
         }
  
         return view('Administrador.correosAdmin',compact('correos'));
