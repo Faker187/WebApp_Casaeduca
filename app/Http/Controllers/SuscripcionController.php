@@ -141,8 +141,6 @@ class SuscripcionController extends Controller
         $formAction = $initResult->url;
         $tokenWs = $initResult->token;
 
-    
-
         return view('Suscripcion.pagarPlan',compact('formAction','tokenWs'));
     }
 

@@ -865,6 +865,7 @@ $('#formAgregarDocumento').submit(function(e) {
             t.row.add([
                 data.nombre,
                 data.documento,
+                data.link,
                 data.asignatura,
                 data.unidad,
                 data.clase,
@@ -936,6 +937,7 @@ $('#formEditarDocumento').submit(function(e) {
             newData = [
                     data.nombre,
                     data.documento,
+                    data.link,
                     data.asignatura,
                     data.unidad,
                     data.clase,

@@ -560,6 +560,7 @@ class AdminController extends Controller
         $documento = new Documento;
         $documento->nombre = $request->nombre;
         $documento->documento = $nombre;
+        $documento->link = $request->link;
         $documento->idAsignatura = $request->idAsignatura;
         $documento->idUnidad = $request->idUnidad;
         $documento->idClase = $request->idClase;
@@ -573,6 +574,7 @@ class AdminController extends Controller
         $data = Array();
         $data['nombre'] = $request->nombre;
         $data['documento'] = $nombre;
+        $data['link'] = $request->link;
         $data['asignatura'] = $nombreAsignatura;
         $data['unidad'] = $nombreUnidad;
         $data['clase'] = $nombreClase;
@@ -611,6 +613,7 @@ class AdminController extends Controller
         if ($file != null) {
             $documento->documento = $nombre;
         }
+        $documento->link = $request->link;
         $documento->idAsignatura = $request->idAsignatura;
         $documento->idUnidad = $request->idUnidad;
         $documento->idClase = $request->idClase;
@@ -627,7 +630,7 @@ class AdminController extends Controller
         }else{
             $data['documento'] = $documento->documento;
         }
-        
+        $data['link'] = $request->link;
         $data['asignatura'] = $nombreAsignatura;
         $data['unidad'] = $nombreUnidad;
         $data['clase'] = $nombreClase;
