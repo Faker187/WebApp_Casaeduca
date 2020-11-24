@@ -45,6 +45,8 @@
 
                 @if ($alumno->cantidadMeses == 1)
                     <td>{{$alumno->cantidadMeses}} Mes</td>
+                @elseif($alumno->cantidadMeses == 'Plan borrado')
+                    <td>{{$alumno->cantidadMeses}}</td>
                 @else
                     <td>{{$alumno->cantidadMeses}} Meses</td>
                 @endif
