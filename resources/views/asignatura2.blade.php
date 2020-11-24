@@ -119,9 +119,6 @@ a:hover,a:focus{
     <div class="bg-light2 border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">
         <h2 class="color-ce0 h2-responsive my-4 wow fadeInUp">{{$asignatura->nombre}}</h2>
-        <p class="lead pl-3 text-justify animated wow fadeInUp">
-            {{$asignatura->descripcion}}
-        </p>
     </div>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         @foreach ($unidades as $unidad)
@@ -163,33 +160,43 @@ a:hover,a:focus{
       <nav class="navbar navbar-expand-lg navbar-light bg-ce4 border-bottom">
         <a href="#" id="menu-toggle"><i class="fas fa-arrow-circle-left fa-2x text-white p-2"></i></a>
       </nav>
-
-      <div class="text-dark" id="contenidoClase"></div>
-    </div>
-
-
-  </div>
-  <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card w-100 border-0">
-                <div class="card-body">
-                    <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
-                                        
+    
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                <div class="card w-100 border-0">
+                    <div class="card-body">
+                        <h5 class="card-title pl-3 color-ce0 pt-4 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
+                        <p class="lead pl-3 text-justify py-2 color-ce3 animated wow fadeInUp">
+                            {{$asignatura->descripcion}}
+                        </p>   
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-5 my-4">
+                <div class="card w-100 border-0">
+                    <div class="card-body">
+                        <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/books.png') }}" style="width:64px" alt="libros">Documentos</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 my-4">
+                <div class="card w-100 border-0">
+                    <div class="card-body">
+                        <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:64px" alt="libros">Videos</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="text-dark" id="contenidoClase"></div>
             </div>
         </div>
-        {{-- <hr class="slash-1">
-        <div class="col-md-10 my-4">
-            <div class="card w-100 border-0">
-                <div class="card-body">
-                    <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Mi avance</h5>
-                    <div class="wow fadeInUp jqmeter-container2" title="Progreso de asignatura"></div>
-                    <p class="card-text pl-3 text-center animated wow fadeInUp mb-5">El gráfico muestra solo el avance de la asignatura actual</p>
-                </div>
-            </div>
-        </div> --}}
+      </div>
+      
     </div>
+
+
   </div>
+
 
 @endsection
