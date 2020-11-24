@@ -16,6 +16,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Documento</th>
+                <th>Video</th>
                 <th>Asignatura</th>
                 <th>Unidad</th>
                 <th>Clase</th>
@@ -27,6 +28,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Documento</th>
+                <th>Video</th>
                 <th>Asignatura</th>
                 <th>Unidad</th>
                 <th>Clase</th>
@@ -39,6 +41,7 @@
             <tr>
                 <td>{{$documento->nombre}}</td>
                 <td>{{$documento->documento}}</td>
+                <td>{{$documento->link}}</td>
                 <td>{{$documento->nombreAsignatura}}</td>
                 <td>{{$documento->nombreUnidad}}</td>
                 <td>{{$documento->nombreClase}}</td>

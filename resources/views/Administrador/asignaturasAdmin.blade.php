@@ -12,7 +12,6 @@
                 <th>Profesor</th>
                 <th>Color</th>
                 <th>Imagen</th>
-                <th>Examen</th>
                 <th>Descripción</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
@@ -24,7 +23,6 @@
                 <th>Profesor</th>
                 <th>Color</th>
                 <th>Imagen</th>
-                <th>Examen</th>
                 <th>Descripción</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
@@ -38,7 +36,6 @@
                 <td>{{$asignatura->idprofesor}}</td>
                 <td>{{$asignatura->color}}</td>
                 <td>{{$asignatura->imagen}}</td>
-                <td>{{$asignatura->examen}}</td>
                 <td>{{$asignatura->descripcion}}</td>
             
 
@@ -107,7 +104,7 @@
                 <label for="color">Seleccione un color:</label>
                 <input type="color" class="mb-3" name="color" value="#ff0000">
        
-                <input type="text" name="examen" class="form-control mb-4" placeholder="Link Examen">
+                <!-- <input type="text" name="examen" class="form-control mb-4" placeholder="Link Examen"> -->
 
                 <textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción asignatura"></textarea>
                 

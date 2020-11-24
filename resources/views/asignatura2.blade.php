@@ -107,7 +107,9 @@ a:hover,a:focus{
 .bg-light2{
     background-color: #f8f9fa!important;
 }
-
+#sidebar-wrapper .sidebar-heading{
+    max-width: 335px!important;
+}
 </style>
 
 {{-- {{dd($unidades)}} --}}
@@ -115,7 +117,12 @@ a:hover,a:focus{
 
 
     <div class="bg-light2 border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading"><h1 class="color-ce0 h1-responsive my-4 wow fadeInUp">{{$asignatura->nombre}}</h1></div>
+      <div class="sidebar-heading">
+        <h2 class="color-ce0 h2-responsive my-4 wow fadeInUp">{{$asignatura->nombre}}</h2>
+        <p class="lead pl-3 text-justify animated wow fadeInUp">
+            {{$asignatura->descripcion}}
+        </p>
+    </div>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         @foreach ($unidades as $unidad)
             <div class="panel panel-default mb-0">
@@ -129,14 +136,21 @@ a:hover,a:focus{
             <div id="collapse_{{$unidad->idunidad}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{$unidad->idunidad}}">
                 <div class="panel-body">
 
-                    @foreach ($unidad->clases as $clase)
-                        <ul>
-                        <li>
+                    <ul>
+                        @foreach ($unidad->clases as $clase)
+                          <li>
                             <i class="fas fa-folder-open fa-lg mt-2"></i>
                             <a class="font-weight-bold cargarClase" href="{{$clase->idclase}}" idAlumno={{$idAlumno}}>{{$clase->nombre}}</a>
+                          </li>
+                        @endforeach
+                        @if(isset($unidad->examen))
+                        <li>
+                            <i class="fas fa-file-alt fa-lg mt-2 color-ce0"></i>
+                            <a class="font-weight-bold" href="{{$unidad->examen}}" target="_blank">Tomar Examen</a>
+                            <span class="p-2 color-ce4">Contraseña: <b class="font-weight-bold">{{$unidad->password}}</b></span>
                         </li>
-                        </ul>
-                    @endforeach
+                        @endif
+                    </ul>
                 </div>
             </div>
             </div>
@@ -161,9 +175,7 @@ a:hover,a:focus{
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 pb-2 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
-                    <p class="card-text  pl-3 text-justify animated wow fadeInUp">
-                        {{$asignatura->descripcion}}
-                    </p>                    
+                                        
                 </div>
             </div>
         </div>

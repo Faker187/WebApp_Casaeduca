@@ -207,25 +207,19 @@ class SuscripcionController extends Controller
             $idPlan = Session::get('idPlan');
          
             $query = DB::table('plan')->where('idplan' , $idPlan)->first();
-            dd($query);
+            // dd($query);
           
             $meses = $query->cantidad_meses;
          
           
             // se realiza el pago y parte desde hoy
-            $fechaActual = date("Y-m-d");
+            $fechaActualm = date("Y-m-d H:i:s");
 
+            $fechaActual =  date('Y-m-d H:i:s',strtotime('-3 hour',strtotime($fechaActualm)));
 
-
-        
-            $fechaActual =  date('Y-m-d H:i:s',strtotime('-3 hour',strtotime($fechaActual)));
-
-          
             // y termina en la cantidad de meses seleccionada
             $fin_plan = date('Y-m-d', strtotime("+".$meses." months", strtotime($fechaActual)));
-
-        
-      
+                  
           
             $alumno = new Alumno;
             $alumno->nombre = 'Estudiante';
