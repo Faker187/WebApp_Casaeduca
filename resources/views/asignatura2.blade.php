@@ -173,7 +173,6 @@ a:hover,a:focus{
                     </div>
                 </div>
             </div>
-            <hr class="slash-1">
             <div class="col-md-5 my-4">
                 <div class="card w-100 border-0">
                     <div class="card-body">
