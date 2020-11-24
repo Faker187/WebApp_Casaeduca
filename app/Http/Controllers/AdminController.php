@@ -45,7 +45,14 @@ class AdminController extends Controller
             $alumno->name_apoderado = User::find($alumno->id_apoderado)->name;
             $alumno->email = User::find($alumno->id_apoderado)->email;
             $alumno->nombreCurso = DB::table('curso')->where('idcurso', $alumno->id_curso)->first()->nombre;
-            $alumno->cantidadMeses = DB::table('plan')->where('idplan', $alumno->id_plan)->first()->cantidad_meses;
+            $cantidadMeses = DB::table('plan')->where('idplan', $alumno->id_plan)->first();
+            if ( count($cantidadMeses != 0) ) {
+                $alumno->cantidadMeses = $cantidadMeses->cantidad_meses;
+            }else{
+                $alumno->cantidadMeses = 'Plan borrado';
+            }
+            
+            
         }
         // dd($alumnos);
         
