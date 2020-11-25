@@ -124,17 +124,7 @@ Route::get('/buscarRevista', 'AdminController@buscarRevista')->name('buscarRevis
 Route::post('/editarRevista', 'AdminController@editarRevista')->name('editarRevista');
 Route::get('/eliminarRevista', 'AdminController@eliminarRevista')->name('eliminarRevista');
 
-
-
 Route::get('/adminCorreos', 'AdminController@adminCorreos')->name('adminCorreos');
-
-
-
-
-
-
-
-
 
 Route::get('/planes/{idCurso}', 'AdminController@adminPlanes')->name('adminPlanes');
 Route::post('/agregarPlan', 'AdminController@agregarPlan')->name('agregarPlan');
@@ -142,29 +132,9 @@ Route::get('/buscarPlan', 'AdminController@buscarPlan')->name('buscarPlan');
 Route::post('/editarPlan', 'AdminController@editarPlan')->name('editarPlan');
 Route::get('/eliminarPlan', 'AdminController@eliminarPlan')->name('eliminarPlan');
 
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/selectUnidadesAjax', 'AdminController@selectUnidades');
 Route::get('/selectUnidadesDocAjax', 'AdminController@selectUnidadesDoc');
 Route::get('/selectClasesAjax', 'AdminController@selectClases');
-
-
-
-
-
-
-
-
-
 
 //Suscripcion
 Route::get('/suscribete', 'SuscripcionController@suscribirse')->name('suscribete'); //Pantalla Suscripción
@@ -190,15 +160,6 @@ Route::get('/Test/{id}', 'AsignaturaController@asignatura2');
 //Clase
 Route::get('/CargarClase/{idClase}', 'ClaseController@clase');
 
-
-
-//--------------FIN ADMIN
-
-
-//-------------BIBLIOTECA
-
-
-
 //Alumno
 Route::get('/Apoderado', 'AlumnoController@apoderado')->name('apoderado');
 // Route::get('/Alumno', 'AlumnoController@alumno')->name('alumno');
@@ -220,5 +181,3 @@ Route::get('/RegistrarClaseSesion','AsignaturaController@registrarClaseSesion');
 Route::get('/ModificarSitioWeb', 'AdminController@modificarSitioWeb')->name('modificarSitioWeb');
 Route::get('/buscarParametro', 'AdminController@buscarParametro')->name('buscarParametro');
 Route::post('/editarParametro', 'AdminController@editarParametro')->name('editarParametro');
-
-
