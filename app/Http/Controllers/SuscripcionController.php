@@ -138,7 +138,7 @@ class SuscripcionController extends Controller
         $finalUrl = 'https://casaeduca.cl/volver';
 
         $response = Transaction::create($buyOrder, $sessionId, $monto, $returnUrl);
-
+        dd($response);
         
 
         // $initResult = $transaction->initTransaction(
@@ -240,13 +240,13 @@ class SuscripcionController extends Controller
             $alumno->fecha_pago = $fechaActual;
             $alumno->fin_plan = $fin_plan;
             $alumno->id_plan = $idPlan;
-            // $alumno->save();
+            $alumno->save();
 
 
             $response = Transaction::getStatus($tokenWs); 
-            dd($response);
+         
 
-            // return view('Suscripcion.terminarPago', compact('response','tokenWs'));
+            return view('Suscripcion.terminarPago', compact('response','tokenWs'));
             // return redirect()->route('apoderado');
 
         }else{
