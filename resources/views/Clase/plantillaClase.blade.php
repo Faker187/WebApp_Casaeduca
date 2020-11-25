@@ -50,21 +50,21 @@
                                 @break
 
                             @case('png')
-                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" data-toggle="modal" data-target="#centralModalSm" rutaDocumento="{{$documento->documento}}">
                                     <i class="fas fa-file-image fa-2x pr-2 info-color"></i>
                                     {{$documento->documento}}
                                 </a>
                                 @break
 
                             @case('jpg')
-                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold"  data-toggle="modal" data-target="#centralModalSm" rutaDocumento="{{$documento->documento}}">
                                     <i class="fas fa-file-image fa-2x pr-2 info-color"></i>
                                     {{$documento->documento}}
                                 </a>
                                 @break
 
                             @default
-                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" data-toggle="modal" data-target="#centralModalSm" rutaDocumento="{{$documento->documento}}">
                                 <i class="fas fa-file fa-2x pr-2 color-ce4 "></i>
                                     {{$documento->documento}}
                                 </a>
