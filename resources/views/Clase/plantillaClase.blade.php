@@ -1,5 +1,5 @@
    @if (count($documentos) != 0)
-        <div class="col-md-5 bg-ce1 pt-4 rounded-right">
+        <div class="col-md-5 bg-ce1 py-4 h-100 rounded-left">
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/book-stack.png') }}" style="width:64px" alt="libros">Documentos</h5>
@@ -74,16 +74,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5 bg-ce1 pt-4 rounded-left">
+        <div class="col-md-5 bg-ce1 py-4 h-100 rounded-right">
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:64px" alt="libros">Videos</h5>
                     <div class="list-group bg-ce1 color-ce1">
                       @foreach ($documentos as $documento)
                         @if($documento->link)
-                            <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">{{$documento->link}}</a>
+                            <a href="{{$documento->link}}" target="_blank" style="padding: 1.1rem;" class="list-group-item list-group-item-action color-ce1 font-weight-bold">{{$documento->link}}</a>
                         @else
-                            <a href="#" class="list-group-item list-group-item-action color-ce1 font-weight-bold" style="padding: 1.1rem;">SIN VIDEO</a>
+                            <a href="#" class="list-group-item list-group-item-action color-ce1 font-weight-bold">SIN VIDEO</a>
                         @endif
                       @endforeach
                     </div>
