@@ -172,7 +172,6 @@ Route::get('/pagarPlan', 'SuscripcionController@pagarPlan')->name('pagarPlan'); 
 Route::post('/procesarPago', 'SuscripcionController@procesarPago')->name('procesarPago');
 Route::post('/procesarRenovacion', 'SuscripcionController@procesarRenovacion')->name('procesarRenovacion');
 Route::post('/finalizarPago', 'SuscripcionController@finalizarPago')->name('finalizarPago');
-Route::put('/finalizarPago', 'SuscripcionController@refund')->name('refund');
 Route::post('/renovarPlanPago', 'SuscripcionController@renovarPlanPago')->name('renovarPlanPago');
 Route::post('/activarCuenta', 'SuscripcionController@activarCuenta')->name('activarCuenta');
 Route::post('/volver', 'SuscripcionController@volver')->name('volver');
