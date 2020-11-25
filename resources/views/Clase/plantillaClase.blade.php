@@ -1,78 +1,100 @@
-<div class="list-group bg-ce1 color-ce1">
    @if (count($documentos) != 0)
-        @foreach ($documentos as $documento)
-        @php
-        $ext = explode('.', $documento->documento);
-        $extension = '';
-        if(isset($ext[1])){
-            $extension = $ext[1];
-        }
-        @endphp
-        @switch($extension)
-            @case('txt')
-                <a href="#!" class="list-group-item list-group-item-action color-ce1 documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
-                    <i class="fas fa-file fa-2x pr-2 secondary-color"></i>
-                    {{$documento->documento}}
-                </a>
-                @break
+        <div class="col-md-5 bg-ce1 pt-4 rounded-right">
+            <div class="card w-100 border-0">
+                <div class="card-body">
+                    <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/book-stack.png') }}" style="width:64px" alt="libros">Documentos</h5>
+                    <div class="list-group bg-ce1 color-ce1">
+                      @foreach ($documentos as $documento)
+                        @php
+                        $ext = explode('.', $documento->documento);
+                        $extension = '';
+                        if(isset($ext[1])){
+                            $extension = $ext[1];
+                        }
+                        @endphp
+                        
+                        @switch($extension)
+                            @case('txt')
+                                <a href="#!" class="list-group-item list-group-item-action color-ce1 documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                    <i class="fas fa-file fa-2x pr-2 secondary-color"></i>
+                                    {{$documento->documento}}
+                                </a>
+                                @break
 
-            @case('docx')
-                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
-                    <i class="fas fa-file-word fa-2x pr-2 primary-color"></i>
-                    {{$documento->documento}}
-                </a>
-                @break
+                            @case('docx')
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                    <i class="fas fa-file-word fa-2x pr-2 primary-color"></i>
+                                    {{$documento->documento}}
+                                </a>
+                                @break
 
-            @case('pptx')
-                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
-                    <i class="fas fa-file-powerpoint fa-2x pr-2 orange"></i>
-                    {{$documento->documento}}
-                </a>
-                @break
+                            @case('pptx')
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                    <i class="fas fa-file-powerpoint fa-2x pr-2 orange"></i>
+                                    {{$documento->documento}}
+                                </a>
+                                @break
 
-            @case('xlsx')
-                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
-                    <i class="fas fa-file-excel fa-2x pr-2 success-color"></i>
-                    {{$documento->documento}}
-                </a>
-                @break
+                            @case('xlsx')
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                    <i class="fas fa-file-excel fa-2x pr-2 success-color"></i>
+                                    {{$documento->documento}}
+                                </a>
+                                @break
 
-            @case('pdf')
-                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
-                    <i class="fas fa-file-pdf fa-2x pr-2 danger-color"></i>
-                    {{$documento->documento}}
-                </a>
-                @break
+                            @case('pdf')
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                    <i class="fas fa-file-pdf fa-2x pr-2 danger-color"></i>
+                                    {{$documento->documento}}
+                                </a>
+                                @break
 
-            @case('png')
-                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
-                    <i class="fas fa-file-image fa-2x pr-2 info-color"></i>
-                    {{$documento->documento}}
-                </a>
-                @break
+                            @case('png')
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                    <i class="fas fa-file-image fa-2x pr-2 info-color"></i>
+                                    {{$documento->documento}}
+                                </a>
+                                @break
 
-            @case('jpg')
-                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
-                    <i class="fas fa-file-image fa-2x pr-2 info-color"></i>
-                    {{$documento->documento}}
-                </a>
-                @break
+                            @case('jpg')
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                    <i class="fas fa-file-image fa-2x pr-2 info-color"></i>
+                                    {{$documento->documento}}
+                                </a>
+                                @break
 
-            @default
-                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
-                <i class="fas fa-file fa-2x pr-2 color-ce4 "></i>
-                    {{$documento->documento}}
-                </a>
-        @endswitch 
-        @endforeach
+                            @default
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <i class="fas fa-file fa-2x pr-2 color-ce4 "></i>
+                                    {{$documento->documento}}
+                                </a>
+                        @endswitch
+                      @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 bg-ce1 pt-4 rounded-left">
+            <div class="card w-100 border-0">
+                <div class="card-body">
+                    <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:64px" alt="libros">Videos</h5>
+                    <div class="list-group bg-ce1 color-ce1">
+                      @foreach ($documentos as $documento)
+                        @if($documento->link)
+                            <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">{{$documento->link}}</a>
+                        @else
+                            <a href="#" class="list-group-item list-group-item-action color-ce1 font-weight-bold" style="padding: 1.1rem;">SIN VIDEO</a>
+                        @endif
+                      @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
     @else
-
-    <p  class="list-group-item list-group-item-action color-ce2 font-weight-bold">
-        No hay documentos en esta clase!
-    </p>
-
-   @endif
-</div>
+        <p class="list-group-item list-group-item-action color-ce2 font-weight-bold">
+            No hay documentos en esta clase!
+        </p>
+    @endif
 
 <script>
     $('.documentoJS').click(function (e) {

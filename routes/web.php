@@ -19,63 +19,18 @@ Route::get('/Revista', 'InicioController@revista');
 Route::get('/DetalleRevista/{id}', 'InicioController@detalleRevista');
 Route::get('/Planacademico', 'InicioController@planacademico');
 
-
-
 Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
-
-
-
-
-
-
-//  Route::get('/', function () {
-//     if (Auth::user() == null) {
-//         return view('welcome');
-//     }else{
-
-//         if (Auth::user()->tipo == 0) {
-//             return redirect()->route('admin');
-//         }else{
-//             // return redirect()->route('alumno');
-//             return redirect()->route('apoderado');
-//         }
-      
-
-//     }
-    
-// }); 
-
-// Route::get('/', function () {
-//     return view('sitiocontruccion');    
-// });
 
 Route::get('/Cursos', function () {
     return view('cursos');
 });
-/* Route::get('/Test', function () {
-    return view('alumno2');
-}); */
-// Route::get('/Curso', function () {
-//     return view('curso');
-// });
-
-
-// Route::get('/Noticias', function () {
-//     return view('blogv');
-// });
-
-
-
 
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
 
 //Cuenta
 Route::get('/verificarCuenta', 'HomeController@verificarCuenta')->name('verificarCuenta');
 
 //--------------ADMIN
-
 Route::get('/Administrador', 'AdminController@admin')->name('admin');
 Route::get('/Alumnos', 'AdminController@alumnos')->name('alumnos');
 
@@ -136,7 +91,6 @@ Route::get('/obtenerPlanes/{idCurso}', 'SuscripcionController@obtenerPlanes')->n
 Route::get('/verificarEmail', 'InicioController@verificarEmail')->name('verificarEmail');
 // Route::post('/renovarSuscripcion' , 'SuscripcionController@renovarSuscripción');
 
-
 Route::post('/crearSuscripcion' , 'SuscripcionController@crearSuscripcion'); //Crea cuenta inactiva
 Route::get('/pagarPlan', 'SuscripcionController@pagarPlan')->name('pagarPlan'); //Pantalla comenzar pago
 Route::post('/procesarPago', 'SuscripcionController@procesarPago')->name('procesarPago');
@@ -145,7 +99,6 @@ Route::post('/finalizarPago', 'SuscripcionController@finalizarPago')->name('fina
 Route::post('/renovarPlanPago', 'SuscripcionController@renovarPlanPago')->name('renovarPlanPago');
 Route::post('/activarCuenta', 'SuscripcionController@activarCuenta')->name('activarCuenta');
 Route::post('/volver', 'SuscripcionController@volver')->name('volver');
-
 
 //Asignatura
 Route::get('/Asignatura/{id}', 'AsignaturaController@asignatura2');

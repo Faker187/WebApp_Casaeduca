@@ -257,8 +257,6 @@ class SuscripcionController extends Controller
                return redirect()->route('apoderado');
             }
         }else{
-
-            
             return redirect()->route('apoderado');
         }
 
