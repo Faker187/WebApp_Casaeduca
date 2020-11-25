@@ -1,0 +1,8 @@
+
+.sol {
+    background-image: url("../img/fondosol.jpg")!important;
+    background-attachment: fixed;
+    height: 72vh!important; 
+    width: 100%!important;
+    padding: 0;
+  }

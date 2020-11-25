@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144px" height="116px" viewBox="0 0 144 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="124.137931%" gradientTransform="translate(0.500000,0.000000),scale(0.805556,1.000000),rotate(180.000000),translate(-0.500000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FDD9D9" offset="79.5633129%"></stop>
+            <stop stop-color="#FA8080" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="a" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-2" transform="translate(-155.000000, -65.000000)" fill="url(#radialGradient-1)">
+            <path d="M255.166528,164.725046 C249.756361,174.416655 239.171792,181 227,181 C210.154574,181 196.349284,168.390395 195.093143,152.383041 C191.984394,153.429102 188.665516,154 185.235607,154 C168.536942,154 155,141.016258 155,125 C155,108.983742 168.536942,96 185.235607,96 C186.88449,96 188.507713,96.1212508 190.094267,96.3552271 C190.031822,95.5783879 190,94.7929102 190,94 C190,77.9837423 202.983742,65 219,65 C231.60645,65 242.334161,73.0438397 246.330561,84.278948 C250.909912,77.4755528 258.682295,73 267.5,73 C281.583261,73 293,84.4167389 293,98.5 C293,105.080157 290.507655,111.078197 286.415485,115.601597 C294.100103,120.920428 299,128.979221 299,138 C299,154.016258 283.553824,167 264.5,167 C261.534309,167 258.379588,166.176347 255.166528,164.725046 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

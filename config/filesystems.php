@@ -39,6 +39,8 @@ return [
     |
     | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace"
     |
+    /'root' => storage_path('app/public'),
+    /'url' => env('APP_URL').'/storage',
     */
 
     'disks' => [
@@ -50,8 +52,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path('imgcard'),
+            'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
 
