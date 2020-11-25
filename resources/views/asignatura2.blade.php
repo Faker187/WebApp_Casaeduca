@@ -173,9 +173,9 @@ a:hover,a:focus{
                     </div>
                 </div>
             </div>
-            <div class="col-md-10">
-                <div class="text-dark" id="contenidoClase"></div>
-            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-11" id="contenidoClase"></div>
         </div>
       </div>
       
