@@ -195,11 +195,11 @@ class SuscripcionController extends Controller
         // $output = $result->detailOutput;
         $tokenWs = $request->token_ws;
 
-        // $response = Transaction::refund($tokenWs, '10000');
+        $response = Transaction::refund($tokenWs, '10000');
 
-        $response = Transaction::commit($request->token_ws);
+        // $response = Transaction::commit($request->token_ws);
 
-        // dd($response);
+        dd($response);
     
 
 
@@ -264,10 +264,6 @@ class SuscripcionController extends Controller
 
     }
 
-    public function refund(Request $request)
-    {
-        dd('llego');
-    }
 
     public function renovarPlanPago(Request $request)
     {
