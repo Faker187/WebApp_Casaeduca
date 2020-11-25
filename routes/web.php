@@ -19,6 +19,7 @@ Route::get('/Revista', 'InicioController@revista');
 Route::get('/DetalleRevista/{id}', 'InicioController@detalleRevista');
 Route::get('/Planacademico', 'InicioController@planacademico');
 
+<<<<<<< HEAD
 
 
 Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
@@ -28,6 +29,8 @@ Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
 
 
 
+=======
+>>>>>>> 723719c8dfe09e342d5e65c4977af7d6cdc4fd94
 //  Route::get('/', function () {
 //     if (Auth::user() == null) {
 //         return view('welcome');
@@ -36,8 +39,12 @@ Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
 //         if (Auth::user()->tipo == 0) {
 //             return redirect()->route('admin');
 //         }else{
+<<<<<<< HEAD
 //             // return redirect()->route('alumno');
 //             return redirect()->route('apoderado');
+=======
+//             return redirect()->route('alumno');
+>>>>>>> 723719c8dfe09e342d5e65c4977af7d6cdc4fd94
 //         }
       
 
@@ -45,9 +52,9 @@ Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
     
 // }); 
 
-// Route::get('/', function () {
-//     return view('sitiocontruccion');    
-// });
+Route::get('/', function () {
+    return view('sitiocontruccion');    
+});
 
 Route::get('/Cursos', function () {
     return view('cursos');
