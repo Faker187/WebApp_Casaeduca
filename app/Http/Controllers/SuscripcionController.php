@@ -193,67 +193,71 @@ class SuscripcionController extends Controller
         // $tokenWs = filter_input(INPUT_POST, 'token_ws');
         // $result = $transaction->getTransactionResult($request->input("token_ws"));
         // $output = $result->detailOutput;
-        $tokenWs = $request->token_ws;
-
-        $response = Transaction::commit($request->token_ws);
+        if($request->TBK_TOKEN){
+            $tokenWs = $request->token_ws;
     
-        if ($response->status == 'AUTHORIZED') {
-            
-            // Transaccion exitosa, puedes procesar el resultado con el contenido de
-            // las variables result y output.
-            $idApoderado = Auth::id();
-
-            $pago = new Pago;
-            $pago->buyOrder = $response->buyOrder;
-            $pago->idApoderado = $idApoderado;
-            $pago->amount = $response->amount;
-            $pago->cardNumber = $response->cardDetail['card_number'];
-            $pago->transactionDate = $response->transactionDate;
-            $pago->commerceCode = $response->authorizationCode;
-            $pago->save();
-
-            $idCurso = Session::get('idCurso');
-            $idPlan = Session::get('idPlan');
-         
-            $query = DB::table('plan')->where('idplan' , $idPlan)->first();
-            // dd($query);
-          
-            $meses = $query->cantidad_meses;
-         
-          
-            // se realiza el pago y parte desde hoy
-            $fechaActualm = date("Y-m-d H:i:s");
-
-            $fechaActual =  date('Y-m-d H:i:s',strtotime('-3 hour',strtotime($fechaActualm)));
-
-            // y termina en la cantidad de meses seleccionada
-            $fin_plan = date('Y-m-d', strtotime("+".$meses." months", strtotime($fechaActual)));
-                  
-          
-            $alumno = new Alumno;
-            $alumno->nombre = 'Estudiante';
-            $alumno->id_curso = $idCurso;
-            $alumno->id_apoderado = $idApoderado;
-            $alumno->estado = 1;
-            $alumno->fecha_pago = $fechaActual;
-            $alumno->fin_plan = $fin_plan;
-            $alumno->id_plan = $idPlan;
-            $alumno->save();
-
-
-            $response = Transaction::getStatus($tokenWs); 
-         
-
-            return view('Suscripcion.terminarPago', compact('response','tokenWs'));
-            // return redirect()->route('apoderado');
-
-        }elseif ($response->status == 'FAILED') {
-
-            return redirect()->route('apoderado');
-
+            $response = Transaction::commit($request->token_ws);
+        
+            if ($response->status == 'AUTHORIZED') {
+                
+                // Transaccion exitosa, puedes procesar el resultado con el contenido de
+                // las variables result y output.
+                $idApoderado = Auth::id();
+    
+                $pago = new Pago;
+                $pago->buyOrder = $response->buyOrder;
+                $pago->idApoderado = $idApoderado;
+                $pago->amount = $response->amount;
+                $pago->cardNumber = $response->cardDetail['card_number'];
+                $pago->transactionDate = $response->transactionDate;
+                $pago->commerceCode = $response->authorizationCode;
+                $pago->save();
+    
+                $idCurso = Session::get('idCurso');
+                $idPlan = Session::get('idPlan');
+             
+                $query = DB::table('plan')->where('idplan' , $idPlan)->first();
+                // dd($query);
+              
+                $meses = $query->cantidad_meses;
+             
+              
+                // se realiza el pago y parte desde hoy
+                $fechaActualm = date("Y-m-d H:i:s");
+    
+                $fechaActual =  date('Y-m-d H:i:s',strtotime('-3 hour',strtotime($fechaActualm)));
+    
+                // y termina en la cantidad de meses seleccionada
+                $fin_plan = date('Y-m-d', strtotime("+".$meses." months", strtotime($fechaActual)));
+                      
+              
+                $alumno = new Alumno;
+                $alumno->nombre = 'Estudiante';
+                $alumno->id_curso = $idCurso;
+                $alumno->id_apoderado = $idApoderado;
+                $alumno->estado = 1;
+                $alumno->fecha_pago = $fechaActual;
+                $alumno->fin_plan = $fin_plan;
+                $alumno->id_plan = $idPlan;
+                $alumno->save();
+    
+    
+                $response = Transaction::getStatus($tokenWs); 
+             
+    
+                return view('Suscripcion.terminarPago', compact('response','tokenWs'));
+                // return redirect()->route('apoderado');
+    
+            }elseif ($response->status == 'FAILED') {
+    
+                return redirect()->route('apoderado');
+    
+            }else{
+                // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
+               return redirect()->route('apoderado');
+            }
         }else{
-            // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
-           return redirect()->route('apoderado');
+            return redirect()->route('apoderado');
         }
 
     }
