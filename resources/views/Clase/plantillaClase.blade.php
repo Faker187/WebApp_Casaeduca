@@ -1,10 +1,10 @@
-<div class="list-group bg-ce1 color-ce1">
    @if (count($documentos) != 0)
         <div class="col-md-5 my-4">
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/book-stack.png') }}" style="width:64px" alt="libros">Documentos</h5>
-                    @foreach ($documentos as $documento)
+                    <div class="list-group bg-ce1 color-ce1">
+                      @foreach ($documentos as $documento)
                         @php
                         $ext = explode('.', $documento->documento);
                         $extension = '';
@@ -69,7 +69,8 @@
                                     {{$documento->documento}}
                                 </a>
                         @endswitch
-                    @endforeach
+                      @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,11 +78,11 @@
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:64px" alt="libros">Videos</h5>
-                    @foreach ($documentos as $documento)
-                      <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">
-                        {{$documento->link}}
-                      </a>
-                    @endforeach
+                    <div class="list-group bg-ce1 color-ce1">
+                      @foreach ($documentos as $documento)
+                        <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">{{$documento->link}}</a>
+                      @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,7 +91,6 @@
             No hay documentos en esta clase!
         </p>
     @endif
-</div>
 
 <script>
     $('.documentoJS').click(function (e) {
