@@ -250,6 +250,10 @@ class SuscripcionController extends Controller
             return view('Suscripcion.terminarPago', compact('response','tokenWs'));
             // return redirect()->route('apoderado');
 
+        }elseif ($response->status == 'FAILED') {
+
+            return redirect()->route('apoderado');
+            
         }else{
             // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
            return redirect()->route('apoderado');
