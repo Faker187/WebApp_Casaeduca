@@ -186,7 +186,7 @@ class SuscripcionController extends Controller
 
     public function finalizarPago(Request $request)
     {
-        dd($request->token_ws);
+
         // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
         // ->getNormalTransaction();
 
@@ -194,7 +194,8 @@ class SuscripcionController extends Controller
         // $result = $transaction->getTransactionResult($request->input("token_ws"));
         // $output = $result->detailOutput;
 
-        $response = Transaction::commit($token);
+        $response = Transaction::commit($request->token_ws);
+        dd($response);
 
         if ($output->responseCode == 0) {
             
