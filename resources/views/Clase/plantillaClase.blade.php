@@ -83,7 +83,7 @@
                         @if($documento->link)
                             <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">{{$documento->link}}</a>
                         @else
-                            <a href="#" class="list-group-item list-group-item-action color-ce1 font-weight-bold">Sin video</a>
+                            <a href="#" class="list-group-item list-group-item-action color-ce1 font-weight-bold" style="padding: 1.1rem;">SIN VIDEO</a>
                         @endif
                       @endforeach
                     </div>
