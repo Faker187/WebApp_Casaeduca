@@ -80,7 +80,7 @@
                     <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:64px" alt="libros">Videos</h5>
                     <div class="list-group bg-ce1 color-ce1">
                       @foreach ($documentos as $documento)
-                        @if(isset($documento->link))
+                        @if($documento->link)
                             <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">{{$documento->link}}</a>
                         @else
                             <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">Sin video</a>
