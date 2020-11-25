@@ -196,7 +196,7 @@ class SuscripcionController extends Controller
         $tokenWs = $request->token_ws;
 
         $response = Transaction::commit($request->token_ws);
-
+        dd($response);
     
 
 
@@ -253,7 +253,7 @@ class SuscripcionController extends Controller
         }elseif ($response->status == 'FAILED') {
 
             return redirect()->route('apoderado');
-            
+
         }else{
             // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
            return redirect()->route('apoderado');
