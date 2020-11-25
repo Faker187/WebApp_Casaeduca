@@ -196,7 +196,8 @@ class SuscripcionController extends Controller
         $tokenWs = $request->token_ws;
 
         $response = Transaction::commit($request->token_ws);
-        
+
+        dd($response, $tokenWs);
 
 
         if ($response->status == 'AUTHORIZED') {
