@@ -1,5 +1,5 @@
    @if (count($documentos) != 0)
-        <div class="col-sm-5 bg-ce1 py-5 h-100 rounded-left">
+        <div class="col-sm-5 bg-ce1 py-4 h-100 rounded-left">
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/book-stack.png') }}" style="width:64px" alt="libros">Documentos</h5>
@@ -15,35 +15,35 @@
                         
                         @switch($extension)
                             @case('txt')
-                                <a href="#!" class="list-group-item list-group-item-action color-ce1 documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <a href="#!" class="list-group-item list-group-item-action color-ce1 documentoJS font-weight-bold" data-toggle="modal" data-target="#centralModalSm" rutaDocumento="{{$documento->documento}}">
                                     <i class="fas fa-file fa-2x pr-2 secondary-color"></i>
                                     {{$documento->documento}}
                                 </a>
                                 @break
 
                             @case('docx')
-                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" data-toggle="modal" data-target="#centralModalSm" rutaDocumento="{{$documento->documento}}">
                                     <i class="fas fa-file-word fa-2x pr-2 primary-color"></i>
                                     {{$documento->documento}}
                                 </a>
                                 @break
 
                             @case('pptx')
-                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" data-toggle="modal" data-target="#centralModalSm" rutaDocumento="{{$documento->documento}}">
                                     <i class="fas fa-file-powerpoint fa-2x pr-2 orange"></i>
                                     {{$documento->documento}}
                                 </a>
                                 @break
 
                             @case('xlsx')
-                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" data-toggle="modal" data-target="#centralModalSm" rutaDocumento="{{$documento->documento}}">
                                     <i class="fas fa-file-excel fa-2x pr-2 success-color"></i>
                                     {{$documento->documento}}
                                 </a>
                                 @break
 
                             @case('pdf')
-                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
+                                <a href="#!" class="list-group-item list-group-item-action documentoJS font-weight-bold" data-toggle="modal" data-target="#centralModalSm" rutaDocumento="{{$documento->documento}}">
                                     <i class="fas fa-file-pdf fa-2x pr-2 danger-color"></i>
                                     {{$documento->documento}}
                                 </a>
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-5 bg-ce1 py-5 h-100 rounded-right">
+        <div class="col-sm-5 bg-ce1 py-4 h-100 rounded-right">
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:64px" alt="libros">Videos</h5>
@@ -157,5 +157,3 @@
         
     });
 </script>
-
-<div id="resolte-contaniner" class="px-3"></div>
