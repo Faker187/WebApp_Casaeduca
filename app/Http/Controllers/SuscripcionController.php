@@ -193,7 +193,7 @@ class SuscripcionController extends Controller
         // $tokenWs = filter_input(INPUT_POST, 'token_ws');
         // $result = $transaction->getTransactionResult($request->input("token_ws"));
         // $output = $result->detailOutput;
-        if($request->TBK_TOKEN){
+        if(!$request->TBK_TOKEN){
             $tokenWs = $request->token_ws;
     
             $response = Transaction::commit($request->token_ws);
