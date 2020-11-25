@@ -257,8 +257,8 @@ class SuscripcionController extends Controller
                return redirect()->route('apoderado');
             }
         }else{
-            $response = Transaction::commit($request->TBK_TOKEN);
-            dd($response);
+            //$response = Transaction::commit($request->TBK_TOKEN);
+            dd($request);
             return redirect()->route('apoderado');
         }
 
