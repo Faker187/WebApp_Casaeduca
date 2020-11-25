@@ -81,9 +81,9 @@
                     <div class="list-group bg-ce1 color-ce1">
                       @foreach ($documentos as $documento)
                         @if($documento->link)
-                            <a href="{{$documento->link}}" target="_blank" style="padding: 1.1rem;" class="list-group-item list-group-item-action color-ce1 font-weight-bold">{{$documento->link}}</a>
+                            <a href="{{$documento->link}}" target="_blank" style="padding: 1rem;" class="list-group-item list-group-item-action color-ce1 font-weight-bold">{{$documento->link}}</a>
                         @else
-                            <a href="#" style="padding: 1.1rem;" class="list-group-item list-group-item-action color-ce1 font-weight-bold">SIN VIDEO</a>
+                            <a href="#" style="padding: 1rem;" class="list-group-item list-group-item-action color-ce1 font-weight-bold">SIN VIDEO</a>
                         @endif
                       @endforeach
                     </div>
