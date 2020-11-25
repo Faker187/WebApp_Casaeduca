@@ -195,14 +195,8 @@ class SuscripcionController extends Controller
         // $output = $result->detailOutput;
         $tokenWs = $request->token_ws;
 
-        $response = Transaction::refund($tokenWs, '10000');
-
-        // $response = Transaction::commit($request->token_ws);
-
-        dd($response);
+        $response = Transaction::commit($request->token_ws);
     
-
-
         if ($response->status == 'AUTHORIZED') {
             
             // Transaccion exitosa, puedes procesar el resultado con el contenido de
