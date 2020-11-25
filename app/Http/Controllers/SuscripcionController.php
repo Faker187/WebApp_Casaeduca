@@ -138,7 +138,7 @@ class SuscripcionController extends Controller
         $finalUrl = 'https://casaeduca.cl/volver';
 
         $response = Transaction::create($buyOrder, $sessionId, $monto, $returnUrl);
-        dd($response);
+        // dd($response);
         
 
         // $initResult = $transaction->initTransaction(
