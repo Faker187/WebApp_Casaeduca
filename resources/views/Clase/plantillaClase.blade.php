@@ -1,17 +1,18 @@
 <div class="list-group bg-ce1 color-ce1">
    @if (count($documentos) != 0)
-        @foreach ($documentos as $documento)
-            @php
-            $ext = explode('.', $documento->documento);
-            $extension = '';
-            if(isset($ext[1])){
-                $extension = $ext[1];
-            }
-            @endphp
-            <div class="col-md-5 my-4">
-                <div class="card w-100 border-0">
-                    <div class="card-body">
-                        <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/book-stack.png') }}" style="width:64px" alt="libros">Documentos</h5>
+        <div class="col-md-5 my-4">
+            <div class="card w-100 border-0">
+                <div class="card-body">
+                    <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/book-stack.png') }}" style="width:64px" alt="libros">Documentos</h5>
+                    @foreach ($documentos as $documento)
+                        @php
+                        $ext = explode('.', $documento->documento);
+                        $extension = '';
+                        if(isset($ext[1])){
+                            $extension = $ext[1];
+                        }
+                        @endphp
+                        
                         @switch($extension)
                             @case('txt')
                                 <a href="#!" class="list-group-item list-group-item-action color-ce1 documentoJS font-weight-bold" rutaDocumento="{{$documento->documento}}">
@@ -68,22 +69,24 @@
                                     {{$documento->documento}}
                                 </a>
                         @endswitch
-                    </div>
+                    @endforeach
                 </div>
             </div>
-            <div class="col-md-5 my-4">
-                <div class="card w-100 border-0">
-                    <div class="card-body">
-                        <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:64px" alt="libros">Videos</h5>
-                        <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">
-                            {{$documento->link}}
-                        </a>
-                    </div>
+        </div>
+        <div class="col-md-5 my-4">
+            <div class="card w-100 border-0">
+                <div class="card-body">
+                    <h5 class="card-title pl-3 color-ce0 pt-4 text-center pb-2 font-weight-bold animated wow fadeInUp"><img class="px-2" src="{{ asset('public/img/youtube.png') }}" style="width:64px" alt="libros">Videos</h5>
+                    @foreach ($documentos as $documento)
+                      <a href="{{$documento->link}}" target="_blank" class="list-group-item list-group-item-action color-ce1 font-weight-bold">
+                        {{$documento->link}}
+                      </a>
+                    @endforeach
                 </div>
-            </div> 
-        @endforeach
+            </div>
+        </div>
     @else
-        <p  class="list-group-item list-group-item-action color-ce2 font-weight-bold">
+        <p class="list-group-item list-group-item-action color-ce2 font-weight-bold">
             No hay documentos en esta clase!
         </p>
     @endif
