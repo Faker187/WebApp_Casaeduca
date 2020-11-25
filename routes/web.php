@@ -23,53 +23,11 @@ Route::get('/Planacademico', 'InicioController@planacademico');
 
 Route::get('/verificarAlumnos', 'AlumnoController@verificarAlumnos');
 
-
-
-
-
-
-//  Route::get('/', function () {
-//     if (Auth::user() == null) {
-//         return view('welcome');
-//     }else{
-
-//         if (Auth::user()->tipo == 0) {
-//             return redirect()->route('admin');
-//         }else{
-//             // return redirect()->route('alumno');
-//             return redirect()->route('apoderado');
-//         }
-      
-
-//     }
-    
-// }); 
-
-// Route::get('/', function () {
-//     return view('sitiocontruccion');    
-// });
-
 Route::get('/Cursos', function () {
     return view('cursos');
 });
-/* Route::get('/Test', function () {
-    return view('alumno2');
-}); */
-// Route::get('/Curso', function () {
-//     return view('curso');
-// });
-
-
-// Route::get('/Noticias', function () {
-//     return view('blogv');
-// });
-
-
-
 
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
 
 //Cuenta
 Route::get('/verificarCuenta', 'HomeController@verificarCuenta')->name('verificarCuenta');
