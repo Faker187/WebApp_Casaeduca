@@ -370,8 +370,24 @@ class AdminController extends Controller
     {
         //borra la asignatura
         $asignatura = Asignatura::find($request->idAsignatura);
-
         $asignatura->delete();
+
+        $unidades = Unidad::where('idasignatura', $request->idAsignatura);
+
+        $unidadesABorrar = Array();
+
+        foreach ($unidades as $unidad) {
+            $unidadesABorrar[] = $unidad->id;
+        }
+
+        $unidades->delete();
+
+        $clases = Clase::whereIn('idunidad', $unidadesABorrar);
+        $clases->delete();
+
+        $documentos = Documento::whereIn('idUnidad',$unidadesABorrar);
+        $documentos->delete();
+
         //retorno el request por que viene con todos los datos y ademas el indice de la row
         return $request;
     }
@@ -450,6 +466,13 @@ class AdminController extends Controller
     {
         $unidad = Unidad::find($request->idUnidad);
         $unidad->delete();
+
+        $clase = Clase::where('idunidad', $request->idUnidad);
+        $clase->delete();
+
+        $documento = Documento::where('idUnidad',$request->idUnidad);
+        $documento->delete();
+
         //retorno el request por que viene con todos los datos y ademas el indice de la row
         return $request;
     }
@@ -536,6 +559,10 @@ class AdminController extends Controller
     {
         $clase = Clase::find($request->idClase);
         $clase->delete();
+
+        $documento = Documento::where('idClase',$request->idClase);
+        $documento->delete();
+
         //retorno el request por que viene con todos los datos y ademas el indice de la row
         return $request;
     }

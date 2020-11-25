@@ -387,7 +387,7 @@ $('.eliminarAsignatura').click(function(e) {
 
     swal({
             title: "Atención!",
-            text: "Estas seguro que quieres eliminar el registro?",
+            text: "Estas seguro que quieres eliminar la asignatura? también borrarás todos los contenidos dentro de esta, unidades, clases y documentos",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -661,7 +661,7 @@ $('.eliminarUnidad').click(function(e) {
 
     swal({
             title: "Atención!",
-            text: "Estas seguro que quieres eliminar el registro?",
+            text: "Estas seguro que quieres eliminar la unidad? también borrarás todas las clases dentro de la unidad y los documentos de las clases.",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -803,7 +803,7 @@ $('.eliminarClase').click(function(e) {
 
     swal({
             title: "Atención!",
-            text: "Estas seguro que quieres eliminar el registro?",
+            text: "Estas seguro que quieres eliminar la clase? también borrarás todos los documentos ligados a esta clase.",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -956,6 +956,7 @@ $('#formEditarDocumento').submit(function(e) {
 
 });
 
+
 $('.eliminarDocumento').click(function(e) {
     e.preventDefault();
     let idDocumento = $(this).attr("idDocumento");
@@ -966,7 +967,7 @@ $('.eliminarDocumento').click(function(e) {
 
     swal({
             title: "Atención!",
-            text: "Estas seguro que quieres eliminar el registro?",
+            text: "Estas seguro que quieres eliminar el documento?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
