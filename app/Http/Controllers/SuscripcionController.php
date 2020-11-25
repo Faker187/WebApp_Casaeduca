@@ -193,23 +193,24 @@ class SuscripcionController extends Controller
         // $tokenWs = filter_input(INPUT_POST, 'token_ws');
         // $result = $transaction->getTransactionResult($request->input("token_ws"));
         // $output = $result->detailOutput;
+        $tokenWs = $request->token_ws;
 
         $response = Transaction::commit($request->token_ws);
-        dd($response);
+      
 
-        if ($output->responseCode == 0) {
+        if ($response->status == 'AUTHORIZED') {
             
             // Transaccion exitosa, puedes procesar el resultado con el contenido de
             // las variables result y output.
             $idApoderado = Auth::id();
 
             $pago = new Pago;
-            $pago->buyOrder = $result->buyOrder;
+            $pago->buyOrder = $response->buyOrder;
             $pago->idApoderado = $idApoderado;
-            $pago->amount = $output->amount;
-            $pago->cardNumber = $result->cardDetail->cardNumber;
-            $pago->transactionDate = $result->transactionDate;
-            $pago->commerceCode = $output->commerceCode;
+            $pago->amount = $response->amount;
+            $pago->cardNumber = $response->cardDetail['card_number'];
+            $pago->transactionDate = $response->transactionDate;
+            $pago->commerceCode = $response->authorizationCode;
             $pago->save();
 
             $idCurso = Session::get('idCurso');
@@ -240,7 +241,8 @@ class SuscripcionController extends Controller
             $alumno->id_plan = $idPlan;
             $alumno->save();
 
-            return view('Suscripcion.terminarPago', compact('result','tokenWs'));
+            // return view('Suscripcion.terminarPago', compact('response','tokenWs'));
+            return redirect()->route('apoderado');
 
         }else{
             // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
