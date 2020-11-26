@@ -202,8 +202,7 @@ a:hover,a:focus{
         <div id="resolte-contaniner" class="px-1"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+        <button type="button" class="btn bg-ce0 text-white btn-sm" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
