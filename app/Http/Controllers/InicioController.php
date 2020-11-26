@@ -75,8 +75,12 @@ class InicioController extends Controller
         $instagram = Sitio::where('id' ,9)->first()->valor;
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
 
+        $quienesSomos = Sitio::where('id' ,11)->first()->valor;
+        $mision = Sitio::where('id' ,12)->first()->valor;
+        $vision = Sitio::where('id' ,13)->first()->valor;
+
         return view('nosotros',compact('cursos','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
-            'telefono','email','facebook','twitter','instagram','whatsapp'
+            'telefono','email','facebook','twitter','instagram','whatsapp','quienesSomos','mision','vision'
         ));
     }
 

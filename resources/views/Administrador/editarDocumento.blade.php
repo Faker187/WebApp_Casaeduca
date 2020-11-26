@@ -1,7 +1,7 @@
 {{-- {{dd($documento, $asignaturas, $unidades, $clases)}} --}}
 
 <input type="text" name="nombre" value="{{$documento->nombre}}" class="form-control mb-4" placeholder="Nombre" required>
-<input type="text" name="link" value="{{$documento->link}}" class="form-control mb-4" placeholder="Link de video" required>
+<input type="text" name="link" value="{{$documento->link}}" class="form-control mb-4" placeholder="Link de video">
 
 <div class="custom-file">
     <input type="file" class="custom-file-input" name="documento">
