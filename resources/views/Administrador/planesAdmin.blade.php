@@ -7,30 +7,40 @@
     <table class="table table-bordered" id="dataTableEsp" width="100%" cellspacing="0">
         <thead>
             <tr>
+                <th>Nombre</th>
                 <th>Cantidad Meses</th>
                 <th>Precio</th>
+                <th>Estado</th>
                 <th>Editar</th>
-                <th>Eliminar</th>
+                <th>Activar/Desactivar</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
+                <th>Nombre</th>
                 <th>Cantidad Meses</th>
                 <th>Precio</th>
+                <th>Estado</th>
                 <th>Editar</th>
-                <th>Eliminar</th>
+                <th>Activar/Desactivar</th>
             </tr>
         </tfoot>
         <tbody>
             @foreach ($planes as $plan)
             <tr>
+                <td>{{$plan->nombre}}</td>
                 <td>{{$plan->cantidad_meses}}</td>
                 <td>{{$plan->precio}}</td>
+                @if ($plan->estado == 1)
+                <td>Activo</td>
+                @else
+                <td>Inactivo</td>
+                @endif
                 <td class="text-center">
                   <button class="btn btn-primary editarPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-edit"></i></button>
                 </td>
                 <td class="text-center">
-                  <button class="btn btn-primary eliminarPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-primary cambiarEstadoPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-trash-alt"></i></button>
                 </td>
             </tr>
             @endforeach
@@ -59,6 +69,7 @@
         <form id="formAgregarPlan" action="/agregarPlan" method="POST">
             @csrf
             <div class="modal-body">
+                <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre Plan" required>
                 <input type="text" name="cantidadMeses" class="form-control mb-4" placeholder="Cantidad Meses" required>
                 <input type="text" name="precio" class="form-control mb-4" placeholder="Precio" required>
                 <input type="hidden" name="idCurso" value="{{$idCurso}}">

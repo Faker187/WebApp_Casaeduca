@@ -78,7 +78,9 @@ Route::get('/planes/{idCurso}', 'AdminController@adminPlanes')->name('adminPlane
 Route::post('/agregarPlan', 'AdminController@agregarPlan')->name('agregarPlan');
 Route::get('/buscarPlan', 'AdminController@buscarPlan')->name('buscarPlan');
 Route::post('/editarPlan', 'AdminController@editarPlan')->name('editarPlan');
-Route::get('/eliminarPlan', 'AdminController@eliminarPlan')->name('eliminarPlan');
+// Route::get('/eliminarPlan', 'AdminController@eliminarPlan')->name('eliminarPlan');
+Route::get('/cambiarEstadoPlan', 'AdminController@cambiarEstadoPlan')->name('cambiarEstadoPlan');
+
 
 Route::get('/selectUnidadesAjax', 'AdminController@selectUnidades');
 Route::get('/selectUnidadesDocAjax', 'AdminController@selectUnidadesDoc');

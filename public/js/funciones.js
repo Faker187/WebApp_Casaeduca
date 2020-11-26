@@ -418,7 +418,6 @@ $('.eliminarAsignatura').click(function(e) {
         });
 
 
-
 });
 
 
@@ -1018,10 +1017,12 @@ $('#formAgregarPlan').submit(function(e) {
             let t = $('#dataTableEsp').DataTable();
 
             t.row.add([
+                data.nombre,
                 data.cantidad_meses,
                 data.precio,
+                data.estado,
                 '<center><button class="btn btn-primary editarPlan" idPlan="' + data.id + '"><i class="fas fa-edit"></i></button></center>',
-                '<center><button class="btn btn-primary eliminarPlan" idPlan="' + data.id + '"><i class="fas fa-trash-alt"></i></button></center>',
+                '<center><button class="btn btn-primary cambiarEstadoPlan" idPlan="' + data.id + '"><i class="fas fa-trash-alt"></i></button></center>',
             ]).draw(false);
             $('#basicExampleModal').modal('hide');
             location.reload();
@@ -1078,7 +1079,7 @@ $('#formEditarPlan').submit(function(e) {
                     data.cantidadMeses,
                     data.precio,
                     '<center><button class="btn btn-primary editarPlan" idPlan="' + data.idPlan + '"><i class="fas fa-edit"></i></button></center>',
-                    '<center><button class="btn btn-primary eliminarPlan" idPlan="' + data.idPlan + '"><i class="fas fa-trash-alt"></i></button></center>',
+                    '<center><button class="btn btn-primary cambiarEstadoPlan" idPlan="' + data.idPlan + '"><i class="fas fa-trash-alt"></i></button></center>',
                 ] //Array, data here must match structure of table data
             t.row(idIndex).data(newData).draw();
             $('#modalEditarPlan').modal('hide');
@@ -1089,6 +1090,31 @@ $('#formEditarPlan').submit(function(e) {
             console.log(error);
         }
     });
+
+});
+
+$('.cambiarEstadoPlan').click(function (e) {
+    e.preventDefault();
+    let idPlan = $(this).attr("idPlan");
+
+    // //Obteniendo el index de la row para cuando se actualice
+    // let t = $('#dataTableEsp').DataTable();
+    // let x = $(this).parents('tr');
+    // let indexTr = t.row(x).index();
+
+    $.ajax({
+        type: 'GET',
+        url: '/cambiarEstadoPlan',
+        data: { idPlan },
+        success: function(data) {
+            location.reload();
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+
 
 });
 
