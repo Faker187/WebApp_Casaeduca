@@ -119,8 +119,8 @@ class SuscripcionController extends Controller
 
         // Webpay Plus
         \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
-        \Transbank\Webpay\WebpayPlus::setCommerceCode(env('597036225971'));
-        \Transbank\Webpay\WebpayPlus::setApiKey(env('0a7c5a215e4626b8514cfefe35374296'));
+        \Transbank\Webpay\WebpayPlus::setCommerceCode('597036225971');
+        \Transbank\Webpay\WebpayPlus::setApiKey('0a7c5a215e4626b8514cfefe35374296');
 
         // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
         // ->getNormalTransaction();
@@ -160,8 +160,8 @@ class SuscripcionController extends Controller
     {
         // Webpay Plus
         \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
-        \Transbank\Webpay\WebpayPlus::setCommerceCode(env('597036225971'));
-        \Transbank\Webpay\WebpayPlus::setApiKey(env('0a7c5a215e4626b8514cfefe35374296'));
+        \Transbank\Webpay\WebpayPlus::setCommerceCode('597036225971');
+        \Transbank\Webpay\WebpayPlus::setApiKey('0a7c5a215e4626b8514cfefe35374296');
 
         // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
         // ->getNormalTransaction();
