@@ -42,7 +42,13 @@
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h3 class="card-title pr-2 color-ce0 text-center py-2 animated wow fadeInUp"><img class="card-img mt-0 mb-5" src="{{ asset('public/img/011-light-bulb.svg') }}" style="width: 60px;" alt="">¿Qué es importante tener presente?</h3>
-                    <p class="card-text text-justify"><img class="card-img mt-0 mb-5" src="{{ asset('public/img/FLECHAS1.png') }}" alt="primero blog"></p>                    
+                    <p class="card-text text-justify">
+                        A pesar de que las personalidades y la actitud de los niños de hoy no es la misma de hace 20 años, puesto que, entre otras cosas ahora cuentan con un acceso mucho más ilimitado a la información, lo que los hace manejar diversos temas y parecer mayores, lo cierto es que siguen siendo individuos en etapa de
+                        crecimiento, que se ven afectados por las situaciones que les tocó vivir, como también se le presentaron a nosotros en generaciones anteriores.
+                    </p>    
+                    <p class="card-text text-justify">
+                        Todos los cursos impares suelen ser más complejos para los alumnos, porque principalmente se inicia con contenido académico nuevo. Durante los años pares, generalmente se refuerzan los contenidos ya entregados.
+                    </p>  
                 </div>
             </div>
         </div>
