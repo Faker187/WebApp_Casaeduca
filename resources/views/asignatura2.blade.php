@@ -187,7 +187,7 @@ a:hover,a:focus{
   aria-hidden="true">
 
   <!-- Change class .modal-sm to change the size of the modal -->
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-xl" role="document">
 
 
     <div class="modal-content">
@@ -198,7 +198,7 @@ a:hover,a:focus{
         </button>
       </div>
       <div class="modal-body">
-      <div id="resolte-contaniner" class="px-3"></div>
+        <div id="resolte-contaniner w-100" class="px-1"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
