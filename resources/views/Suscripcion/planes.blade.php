@@ -27,6 +27,7 @@
           <hr class="border-light">
           <p class="card-text">
             <ul class="color-ce0 font-weight-bold pt-2 pl-3">
+              <li>Nombre: {{$plan->nombre}} </li>
               <li>Cantidad de meses: {{$plan->cantidad_meses}} {{$plan->cantidad_meses > 1 ? 'Meses' : 'Mes'}}</li>
               <li>Precio: ${{$plan->precio}} </li>
             </ul>
