@@ -725,14 +725,18 @@ class AdminController extends Controller
     {
         $plan = new Plan;
 
+        $plan->nombre = $request->nombre;
         $plan->cantidad_meses = $request->cantidadMeses;
         $plan->precio = $request->precio;
         $plan->id_curso = $request->idCurso;
+        $plan->estado = 1;
         $plan->save();
 
         $data = Array();
+        $data['nombre'] = $request->nombre;
         $data['cantidad_meses'] = $request->cantidadMeses;
         $data['precio'] = $request->precio;
+        $data['estado'] = 'Activo';
         $data['id'] = $plan->idplan;
         return $data;
 
@@ -755,6 +759,7 @@ class AdminController extends Controller
     public function editarPlan(Request $request)
     {
         $plan = Plan::find($request->idPlan);
+        $plan->nombre = $request->nombre;
         $plan->cantidad_meses = $request->cantidadMeses;
         $plan->precio = $request->precio;
         $plan->save();
@@ -763,13 +768,25 @@ class AdminController extends Controller
         return $request;
     }
 
-    public function eliminarPlan(Request $request)
-    {
+    // public function eliminarPlan(Request $request)
+    // {
       
+    //     $plan = Plan::find($request->idPlan);
+    //     $plan->delete();
+    //     //retorno el request por que viene con todos los datos y ademas el indice de la row
+    //     return $request;
+    // }
+
+    public function cambiarEstadoPlan(Request $request)
+    {
         $plan = Plan::find($request->idPlan);
-        $plan->delete();
-        //retorno el request por que viene con todos los datos y ademas el indice de la row
-        return $request;
+
+        if($plan->estado == 0){
+            $plan->estado = 1;
+        }else{
+            $plan->estado = 0;
+        }
+        $plan->save();
     }
 
 

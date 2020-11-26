@@ -81,7 +81,7 @@ aria-hidden="true">
         @csrf
         <div class="modal-body">
             <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre" required>
-            <input type="text" name="link" class="form-control mb-4" placeholder="Link de video" required>
+            <input type="text" name="link" class="form-control mb-4" placeholder="Link de video">
 
             <div class="custom-file">
                 <input type="file" class="custom-file-input" name="documento">
