@@ -378,6 +378,9 @@
                 $(this).children().removeClass('fa-arrow-circle-right');
             }
         });
+        $('#centralModalSm').on('hidden.bs.modal', function() {
+            $('#resolte-contaniner').empty();
+        });
     });
 
 </script>
