@@ -188,8 +188,6 @@ a:hover,a:focus{
 
   <!-- Change class .modal-sm to change the size of the modal -->
   <div class="modal-dialog modal-xl" role="document">
-
-
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
@@ -198,7 +196,7 @@ a:hover,a:focus{
         </button>
       </div>
       <div class="modal-body">
-        <div id="resolte-contaniner w-100" class="px-1"></div>
+        <div id="resolte-contaniner" class="w-100 px-1"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
