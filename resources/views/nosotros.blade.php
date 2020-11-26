@@ -21,7 +21,7 @@
               <div class="cursodatacard">
                 <h2 class="card-title h1-responsive pt-3 mb-2 animated lightSpeedIn slower color-ce0 font-weight-bold text-center">
                     <img class="card-img" src="{{ asset('public/img/REGLA_CORAZON.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
-                    <strong>Casa educa</strong>
+                    <strong>Casa Educa</strong>
                 </h2>
                 <p class="mb-2 color-ce0 animated lightSpeedIn slower delay-3s text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
                 <br>
