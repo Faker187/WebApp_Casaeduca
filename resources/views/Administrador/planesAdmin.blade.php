@@ -40,7 +40,7 @@
                   <button class="btn btn-primary editarPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-edit"></i></button>
                 </td>
                 <td class="text-center">
-                  <button class="btn btn-primary cambiarEstadoPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-primary cambiarEstadoPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-exchange-alt"></i></button>
                 </td>
             </tr>
             @endforeach

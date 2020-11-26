@@ -117,6 +117,11 @@ class SuscripcionController extends Controller
     public function procesarPago(Request $request)
     {
 
+        // Webpay Plus
+        \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
+        \Transbank\Webpay\WebpayPlus::setCommerceCode(env('TBK_COD_COMERCIO'));
+        \Transbank\Webpay\WebpayPlus::setApiKey(env('TBK_SECRET_KEY'));
+
         // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
         // ->getNormalTransaction();
 
@@ -153,6 +158,11 @@ class SuscripcionController extends Controller
 
     public function procesarRenovacion(Request $request)
     {
+        // Webpay Plus
+        \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
+        \Transbank\Webpay\WebpayPlus::setCommerceCode(env('TBK_COD_COMERCIO'));
+        \Transbank\Webpay\WebpayPlus::setApiKey(env('TBK_SECRET_KEY'));
+        
         // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
         // ->getNormalTransaction();
 
