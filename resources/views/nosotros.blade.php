@@ -23,7 +23,6 @@
                     <img class="card-img" src="{{ asset('public/img/REGLA_CORAZON.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
                     <strong>Casa Educa</strong>
                 </h2>
-                <p class="mb-2 color-ce0 animated lightSpeedIn slower delay-3s text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</p>
                 <br>
                 <br>
                 <br>
