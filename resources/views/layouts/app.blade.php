@@ -317,7 +317,6 @@
                             <div class="footer-static-title"><h4><span>Casa educa</span><span class="mobile-button visible-xs active"></span></h4></div>
                             <div class="menu-my-account-container">
                                 <ul id="menu-my-account" class="menu">
-                                    <li id="menu-item-4970" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4970"><a href="{{ url('/Cursos') }}">Cursos</a></li>
                                     <li id="menu-item-4971" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4971"><a href="{{ url('/Casaeduca') }}">Nosotros</a></li>
                                     <li id="menu-item-4972" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4972"><a href="{{ url('/Revista') }}">Revista</a></li>
                                 </ul>
