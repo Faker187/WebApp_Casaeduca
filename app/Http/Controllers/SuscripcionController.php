@@ -153,8 +153,8 @@ class SuscripcionController extends Controller
 
     public function procesarRenovacion(Request $request)
     {
-        $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
-        ->getNormalTransaction();
+        // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
+        // ->getNormalTransaction();
 
         $monto = DB::table('plan')->where('idplan' , $request->idPlan)->first()->precio;
 
@@ -175,13 +175,16 @@ class SuscripcionController extends Controller
          $buyOrder = strval(rand(100000, 999999999));
          $returnUrl = 'https://casaeduca.cl/renovarPlanPago';
          $finalUrl = 'https://casaeduca.cl/volver';
-         $initResult = $transaction->initTransaction(
-                 $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
+
+         $response = Transaction::create($buyOrder, $sessionId, $monto, $returnUrl);
+
+        //  $initResult = $transaction->initTransaction(
+        //          $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
  
-         $formAction = $initResult->url;
-         $tokenWs = $initResult->token;
- 
-         return view('Suscripcion.pagarRenovacionPlan',compact('formAction','tokenWs'));
+        //  $formAction = $initResult->url;
+        //  $tokenWs = $initResult->token;
+            
+         return view('Suscripcion.pagarRenovacionPlan',compact('response'));
     }
 
     public function finalizarPago(Request $request)
@@ -193,6 +196,7 @@ class SuscripcionController extends Controller
         // $tokenWs = filter_input(INPUT_POST, 'token_ws');
         // $result = $transaction->getTransactionResult($request->input("token_ws"));
         // $output = $result->detailOutput;
+
         if(!$request->TBK_TOKEN){
             $tokenWs = $request->token_ws;
     
@@ -265,57 +269,66 @@ class SuscripcionController extends Controller
 
     public function renovarPlanPago(Request $request)
     {
-        $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
-        ->getNormalTransaction();
+    
+        if(!$request->TBK_TOKEN){
 
-        $tokenWs = filter_input(INPUT_POST, 'token_ws');
-        $result = $transaction->getTransactionResult($request->input("token_ws"));
-        $output = $result->detailOutput;
+            $tokenWs = $request->token_ws;
+    
+            $response = Transaction::commit($request->token_ws);
 
-        if ($output->responseCode == 0) {
+            if ($response->status == 'AUTHORIZED') {
+                
+               // Transaccion exitosa, puedes procesar el resultado con el contenido de
+                // las variables result y output.
+                $idApoderado = Auth::id();
+
+                $pago = new Pago;
+                $pago->buyOrder = $result->buyOrder;
+                $pago->idApoderado = $idApoderado;
+                $pago->amount = $output->amount;
+                $pago->cardNumber = $result->cardDetail->cardNumber;
+                $pago->transactionDate = $result->transactionDate;
+                $pago->commerceCode = $output->commerceCode;
+                $pago->save();
+
+                $idCurso = Session::get('idCurso');
+                $idPlan = Session::get('idPlan');
+                $idAlumno = Session::get('idAlumno');
             
-            // Transaccion exitosa, puedes procesar el resultado con el contenido de
-            // las variables result y output.
-            $idApoderado = Auth::id();
-
-            $pago = new Pago;
-            $pago->buyOrder = $result->buyOrder;
-            $pago->idApoderado = $idApoderado;
-            $pago->amount = $output->amount;
-            $pago->cardNumber = $result->cardDetail->cardNumber;
-            $pago->transactionDate = $result->transactionDate;
-            $pago->commerceCode = $output->commerceCode;
-            $pago->save();
-
-            $idCurso = Session::get('idCurso');
-            $idPlan = Session::get('idPlan');
-            $idAlumno = Session::get('idAlumno');
-         
-            $query = DB::table('plan')->where('idplan' , $idPlan)->first();
-          
-            $meses = $query->cantidad_meses;
-         
-          
-            // se realiza el pago y parte desde hoy
-            $fechaActual = date("Y-m-d");
-            // y termina en la cantidad de meses seleccionada
-            $fin_plan = date('Y-m-d', strtotime("+".$meses." months", strtotime($fechaActual)));
-      
+                $query = DB::table('plan')->where('idplan' , $idPlan)->first();
             
-            $alumno = Alumno::find($idAlumno);
-            $alumno->estado = 1;
-            $alumno->fecha_pago = $fechaActual;
-            $alumno->fin_plan = $fin_plan;
-            $alumno->id_plan = $idPlan;
-            $alumno->save();
+                $meses = $query->cantidad_meses;
+            
+                    
+                // se realiza el pago y parte desde hoy
+                $fechaActualm = date("Y-m-d H:i:s");
+            
+                $fechaActual =  date('Y-m-d H:i:s',strtotime('-3 hour',strtotime($fechaActualm)));
 
+                // y termina en la cantidad de meses seleccionada
+                $fin_plan = date('Y-m-d', strtotime("+".$meses." months", strtotime($fechaActual)));
+        
+                
+                $alumno = Alumno::find($idAlumno);
+                $alumno->estado = 1;
+                $alumno->fecha_pago = $fechaActual;
+                $alumno->fin_plan = $fin_plan;
+                $alumno->id_plan = $idPlan;
+                $alumno->save();
 
-            return view('Suscripcion.terminarPago', compact('result','tokenWs'));
+                return view('Suscripcion.terminarPago', compact('response','tokenWs'));
+    
+            }elseif ($response->status == 'FAILED') {
+    
+                return redirect()->route('apoderado');
+    
+            }else{
+                // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
+               return redirect()->route('apoderado');
+            }
 
-        }else{
-            // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
-           return redirect()->route('apoderado');
         }
+
     }
 
     public function volver(Request $request)
