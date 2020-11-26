@@ -110,6 +110,9 @@ a:hover,a:focus{
 #sidebar-wrapper .sidebar-heading{
     max-width: 335px!important;
 }
+#all_slides_warpper .slide{
+    width: 1100px!important;
+}
 </style>
 
 {{-- {{dd($unidades)}} --}}
@@ -190,13 +193,13 @@ a:hover,a:focus{
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title w-100" id="myModalLabel">Documento</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div id="resolte-contaniner" class="w-100 px-1"></div>
+        <div id="resolte-contaniner" class="px-1"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>

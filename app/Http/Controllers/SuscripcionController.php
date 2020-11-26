@@ -58,7 +58,7 @@ class SuscripcionController extends Controller
 
     public function obtenerPlanes($idCurso)
     {
-        $planes = DB::table('plan')->where('id_curso' , $idCurso)->get();
+        $planes = DB::table('plan')->where('id_curso' , $idCurso)->where('estado' , 1)->get();
         return view('Suscripcion.planes' , compact('planes'));
     }
 
