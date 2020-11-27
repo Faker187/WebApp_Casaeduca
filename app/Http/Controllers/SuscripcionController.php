@@ -283,12 +283,17 @@ class SuscripcionController extends Controller
 
     public function renovarPlanPago(Request $request)
     {
+
+         // Webpay Plus
+         \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
+         \Transbank\Webpay\WebpayPlus::setCommerceCode('597036225971');
+         \Transbank\Webpay\WebpayPlus::setApiKey('0a7c5a215e4626b8514cfefe35374296');
     
         if(!$request->TBK_TOKEN){
 
             $tokenWs = $request->token_ws;
     
-            $response = Transaction::commit($request->token_ws);
+            $response = Transaction::commit($tokenWs);
 
             if ($response->status == 'AUTHORIZED') {
                 

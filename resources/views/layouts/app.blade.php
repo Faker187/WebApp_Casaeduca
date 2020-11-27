@@ -526,16 +526,15 @@
         let password = $('#password').val();
         let email = $('#email').val();
     
-
-
         $.ajax({
         type: 'GET',
         url: '/verificarEmail',
         data: { email },
         success: function(data) {
+            e.preventDefault();
             if (data == 'ya existe') {
                 swal('ese correo ya existe');
-                e.preventDefault();
+                
             }
      
         },
