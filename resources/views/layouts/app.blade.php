@@ -520,7 +520,7 @@
 
 
     $('#submitSuscribete').click(function (e) {
-        // e.preventDefault();
+        e.preventDefault();
 
         let repeatPassword = $('#repeatPassword').val();
         let password = $('#password').val();
@@ -531,10 +531,12 @@
         url: '/verificarEmail',
         data: { email },
         success: function(data) {
-            e.preventDefault();
+    
             if (data == 'ya existe') {
                 swal('ese correo ya existe');
                 
+            }else{
+                $('#submitSuscribete').submit();
             }
      
         },
