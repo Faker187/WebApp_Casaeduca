@@ -143,7 +143,7 @@ class SuscripcionController extends Controller
         $finalUrl = 'https://casaeduca.cl/volver';
 
         $response = Transaction::create($buyOrder, $sessionId, $monto, $returnUrl);
-        // dd($response);
+        dd($response);
         
 
         // $initResult = $transaction->initTransaction(
@@ -199,6 +199,11 @@ class SuscripcionController extends Controller
 
     public function finalizarPago(Request $request)
     {
+        // Webpay Plus
+        \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
+        \Transbank\Webpay\WebpayPlus::setCommerceCode('597036225971');
+        \Transbank\Webpay\WebpayPlus::setApiKey('0a7c5a215e4626b8514cfefe35374296');
+        
         // dd($request);
         // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
         // ->getNormalTransaction();
