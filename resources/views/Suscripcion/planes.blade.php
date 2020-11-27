@@ -27,9 +27,9 @@
           <hr class="border-light">
           <p class="card-text">
             <ul class="color-ce0 pt-2 pl-3">
-              <li class="color-ce0 ">Nombre: <span class="orange-text font-weight-bold">{{$plan->nombre}}</span> </li>
+              <li class="color-ce0 ">Nombre: <span class="orange-text">{{$plan->nombre}}</span> </li>
               <li class="color-ce0">Cantidad de meses: <span class="orange-text">{{$plan->cantidad_meses}}</span><span class="orange-text font-weight-bold">{{$plan->cantidad_meses > 1 ? 'Meses' : 'Mes'}}</span></li>
-              <li class="color-ce0">Precio: <span class="orange-text font-weight-bold">${{$plan->precio}}</span></li>
+              <li class="color-ce0">Precio: <span class="orange-text">$</span>{{$plan->precio}}</li>
             </ul>
           </p>
           <br>
