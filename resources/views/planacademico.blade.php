@@ -59,7 +59,7 @@
         <div class="col-md-6">
             <div class="card w-100 border-0">
                 <div class="card-body border-right">
-                    <h3 class="card-title pr-2 color-ce0 text-center py-2 animated wow fadeInUp"><img class="card-img mt-0 mb-5 pr-2" src="{{ asset('public/img/050-school-bell.png') }}" style="width: 60px;" alt="">Supcripción Mensual</h3>
+                    <h3 class="card-title pr-2 color-ce0 text-center py-2 animated wow fadeInUp"><img class="card-img mt-0 mb-5 pr-2" src="{{ asset('public/img/050-school-bell.png') }}" style="width: 60px;" alt="">Suscripción Mensual</h3>
                     <p class="card-text text-justify">{{$planAcademicoSuscripcionMensual}}</p>                    
                 </div>
             </div>

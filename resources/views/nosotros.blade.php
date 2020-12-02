@@ -23,6 +23,7 @@
                     <img class="card-img" src="{{ asset('public/img/REGLA_CORAZON.png') }}" style="width: 70px;margin-bottom: 1rem;" alt="regla corazon">
                     <strong>Casa Educa</strong>
                 </h2>
+                <p class="mb-2 color-ce4 text-center">{{$quienesSomosSubT}}</p> 
                 <br>
                 <br>
                 <br>
@@ -39,7 +40,8 @@
                 <div class="card-body">
                     <h3 class="card-title pr-2 color-ce3 text-center py-2 animated wow fadeInUp">¿Quiénes Somos?</h3>
                     <p class="card-text text-justify animated wow fadeInUp">{{$quienesSomos}}</p>                    
-                 
+                    <br>
+                    <p class="card-text text-justify animated wow fadeInUp">{{$quienesSomosP2}}</p>
                 </div>
             </div>
         </div>

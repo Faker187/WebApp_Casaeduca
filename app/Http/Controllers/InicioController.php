@@ -76,11 +76,13 @@ class InicioController extends Controller
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
 
         $quienesSomos = Sitio::where('id' ,11)->first()->valor;
+        $quienesSomosP2 = Sitio::where('id' ,34)->first()->valor;
+        $quienesSomosSubT = Sitio::where('id' ,35)->first()->valor;
         $mision = Sitio::where('id' ,12)->first()->valor;
         $vision = Sitio::where('id' ,13)->first()->valor;
 
         return view('nosotros',compact('cursos','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
-            'telefono','email','facebook','twitter','instagram','whatsapp','quienesSomos','mision','vision'
+            'telefono','email','facebook','twitter','instagram','whatsapp','quienesSomos','mision','vision','quienesSomosP2','quienesSomosSubT'
         ));
     }
 
