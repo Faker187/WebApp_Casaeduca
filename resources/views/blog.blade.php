@@ -26,13 +26,13 @@
 </div>
 <div class="container my-5 ">
   <div class="row justify-content-center">
-    <div class="col-sm-12 mb-5">
+    <div class="col-sm-3 mb-5">
       <div class="card-group">
        @foreach ($revistas as $revista)
 
       <div class="card m-2 animated wow fadeInUp">
         <div class="card1-header">
-            <img src="{{ asset('public/imgcard/'.$revista->imagen) }}" alt="card">
+            <img class="w-100" src="{{ asset('public/imgcard/'.$revista->imagen) }}" alt="card">
         </div>
         <div class="card1-body">
             <span class="tag1 tag1-teal" style="background-color: {{$revista->color}}">
