@@ -26,6 +26,9 @@
 </div>
 <div class="container my-5 ">
   <div class="row justify-content-center">
+  @php
+  echo count($revistas);
+  @endphp
     @if(count($revistas) == 1)
       <div class="col-sm-3 mb-5">
     @else
