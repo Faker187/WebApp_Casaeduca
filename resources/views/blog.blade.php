@@ -26,7 +26,11 @@
 </div>
 <div class="container my-5 ">
   <div class="row justify-content-center">
-    <div class="col-sm-3 mb-5">
+    @if(count($revistas) == 1)
+      <div class="col-sm-3 mb-5">
+    @else
+      <div class="col-sm-12 mb-5">
+    @endif
       <div class="card-group">
        @foreach ($revistas as $revista)
 
