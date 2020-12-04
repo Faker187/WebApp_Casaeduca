@@ -198,7 +198,7 @@ a:hover,a:focus{
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-dark">
         <div id="resolte-contaniner" class="px-1"></div>
       </div>
       <div class="modal-footer">
