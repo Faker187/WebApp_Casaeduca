@@ -131,12 +131,17 @@ class InicioController extends Controller
         $for = DB::table('sitio')->where('parametro', 'E-mail')->first()->valor;
 
         
-        Mail::send('emailFormContacto',$data, function($msj) use($subject,$for){
+        Mail::send('benjka.17@gmail.com',$data, function($msj) use($subject,$for){
         $msj->from("contacto@casaeduca.cl","Casa Educa, Nuevo Contacto");
         $msj->subject($subject);
             $msj->to($for);
         });
 
+        Mail::send('benjka.17@gmail.com',$data, function($msj2) use($subject,$for){
+            $msj2->from("contacto@casaeduca.cl","Gracias por suscribirte");
+            $msj2->subject($subject);
+                $msj2->to($for);
+            });
         return 'true';
     }
 
