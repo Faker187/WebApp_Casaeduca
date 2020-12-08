@@ -1310,10 +1310,10 @@ $('#contact-form').submit(function(e) {
             //    $('#contactarProfesorModal').modal('hide');
         },
         error: function(error) {
-            //console.log(error);
+            console.log(error);
         },
         complete: function(data) {
-            //location.reload();
+            location.reload();
         }
     });
 });
