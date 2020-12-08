@@ -113,7 +113,7 @@ class InicioController extends Controller
             "name" => $request->name,
             "subject" => $request->subject,
          ];
-         dd($request->subject);
+         echo $request->subject;
         // $subject = $request->subject;
         // $for = $request->email;
 
