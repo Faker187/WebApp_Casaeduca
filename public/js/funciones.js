@@ -1093,7 +1093,7 @@ $('#formEditarPlan').submit(function(e) {
 
 });
 
-$('.cambiarEstadoPlan').click(function (e) {
+$('.cambiarEstadoPlan').click(function(e) {
     e.preventDefault();
     let idPlan = $(this).attr("idPlan");
 
@@ -1313,7 +1313,7 @@ $('#contact-form').submit(function(e) {
             console.log(error);
         },
         complete: function(data) {
-            location.reload();
+            //location.reload();
         }
     });
 });
