@@ -95,7 +95,7 @@
             No hay documentos en esta clase!
         </p>
     @endif
-    <script src="{{ asset('public/officetohtml/jquery-1.7.1.js') }}"></script>
+    
 <script>
     $('.documentoJS').click(function (e) {
         e.preventDefault();
@@ -151,28 +151,8 @@
                 colHeaders: true,
                 width: false,
                 height:false
-            },
-            pptxSetting: {
-                slidesScale: "50%", //Change Slides scale by percent
-                slideMode: true, /** true,false*/
-                keyBoardShortCut: true,  /** true,false ,condition: slideMode: true*/
-                mediaProcess: true, /** true,false: if true then process video and audio files */
-                jsZipV2: true,
-                slideModeConfig: {
-                    first: 1,
-                    nav: true, /** true,false : show or not nav buttons*/
-                    navTxtColor: "black", /** color */
-                    keyBoardShortCut: false, /** true,false ,condition: */
-                    showSlideNum: true, /** true,false */
-                    showTotalSlideNum: true, /** true,false */
-                    autoSlide:1, /** false or seconds , F8 to active ,keyBoardShortCut: true */
-                    randomAutoSlide: false, /** true,false ,autoSlide:true */ 
-                    loop: true,  /** true,false */
-                    background: false, /** false or color*/
-                    transition: "default", /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
-                    transitionTime: 3 /** transition time between slides in seconds */               
-                }
             }
+
         }); 
         
     });
