@@ -95,7 +95,7 @@
             No hay documentos en esta clase!
         </p>
     @endif
-    <script src="https://cdn.jsdelivr.net/npm/filereader@0.10.3/FileReader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/filereader@0.10.3/FileReader.js" integrity="sha256-D6+udFghQaV9YSvj9BoCU4A91877fNNy/YphSJT1CHg=" crossorigin="anonymous"></script>
 <script>
     $('.documentoJS').click(function (e) {
         e.preventDefault();
