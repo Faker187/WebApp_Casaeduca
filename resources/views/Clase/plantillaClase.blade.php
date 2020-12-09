@@ -157,7 +157,6 @@
                 slideMode: true, /** true,false*/
                 keyBoardShortCut: true,  /** true,false ,condition: slideMode: true*/
                 mediaProcess: true, /** true,false: if true then process video and audio files */
-                jsZipV2: true,
                 slideModeConfig: {
                     first: 1,
                     nav: true, /** true,false : show or not nav buttons*/
