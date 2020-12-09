@@ -110,9 +110,6 @@ a:hover,a:focus{
 #sidebar-wrapper .sidebar-heading{
     max-width: 335px!important;
 }
-#all_slides_warpper .slide{
-    width: 1100px!important;
-}
 </style>
 
 {{-- {{dd($unidades)}} --}}
