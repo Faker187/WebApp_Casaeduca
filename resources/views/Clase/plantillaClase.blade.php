@@ -100,8 +100,6 @@
     $('.documentoJS').click(function (e) {
         e.preventDefault();
         let ruta = $(this).attr('rutaDocumento');
-        // alert(ruta);
-
         $("#resolte-contaniner").officeToHtml({
             url: '/public/imgcard/'+ruta,
             imageSetting: {
@@ -158,7 +156,7 @@
                 slideMode: true, /** true,false*/
                 keyBoardShortCut: true,  /** true,false ,condition: slideMode: true*/
                 mediaProcess: true, /** true,false: if true then process video and audio files */
-                jsZipV2: false,
+                jsZipV2: true,
                 slideModeConfig: {
                     first: 1,
                     nav: true, /** true,false : show or not nav buttons*/
@@ -171,7 +169,7 @@
                     loop: true,  /** true,false */
                     background: false, /** false or color*/
                     transition: "default", /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
-                    transitionTime: 1 /** transition time between slides in seconds */               
+                    transitionTime: 3 /** transition time between slides in seconds */               
                 }
             }
         }); 
