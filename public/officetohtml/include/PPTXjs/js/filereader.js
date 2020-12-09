@@ -1,299 +1,451 @@
-//
-// FileReader
-//
-// http://www.w3.org/TR/FileAPI/#dfn-filereader
-// https://developer.mozilla.org/en/DOM/FileReader
-(function() {
-    "use strict";
+/*!
+FileReader.js - v0.99
+A lightweight wrapper for common FileReader usage.
+Copyright 2014 Brian Grinstead - MIT License.
+See http://github.com/bgrins/filereader.js for documentation.
+*/
 
-    var fs = require("fs"),
-        EventEmitter = require("events").EventEmitter;
+(function(window, document) {
 
-    function doop(fn, args, context) {
-        if ('function' === typeof fn) {
-            fn.apply(context, args);
+    var FileReader = window.FileReader;
+    var FileReaderSyncSupport = false;
+    var workerScript = "self.addEventListener('message', function(e) { var data=e.data; try { var reader = new FileReaderSync; postMessage({ result: reader[data.readAs](data.file), extra: data.extra, file: data.file})} catch(e){ postMessage({ result:'error', extra:data.extra, file:data.file}); } }, false);";
+    var syncDetectionScript = "onmessage = function(e) { postMessage(!!FileReaderSync); };";
+    var fileReaderEvents = ['loadstart', 'progress', 'load', 'abort', 'error', 'loadend'];
+    var sync = false;
+    var FileReaderJS = window.FileReaderJS = {
+        enabled: false,
+        setupInput: setupInput,
+        setupBlob: setupBlob,
+        setupDrop: setupDrop,
+        setupClipboard: setupClipboard,
+        setSync: function(value) {
+            sync = value;
+
+            if (sync && !FileReaderSyncSupport) {
+                checkFileReaderSyncSupport();
+            }
+        },
+        getSync: function() {
+            return sync && FileReaderSyncSupport;
+        },
+        output: [],
+        opts: {
+            dragClass: "drag",
+            accept: false,
+            readAsDefault: 'DataURL',
+            readAsMap: {},
+            on: {
+                loadstart: noop,
+                progress: noop,
+                load: noop,
+                abort: noop,
+                error: noop,
+                loadend: noop,
+                skip: noop,
+                groupstart: noop,
+                groupend: noop,
+                beforestart: noop
+            }
+        }
+    };
+
+    // Setup jQuery plugin (if available)
+    if (typeof(jQuery) !== "undefined") {
+        jQuery.fn.fileReaderJS = function(opts) {
+            return this.each(function() {
+                if (jQuery(this).is("input")) {
+                    setupInput(this, opts);
+                } else {
+                    setupDrop(this, opts);
+                }
+            });
+        };
+
+        jQuery.fn.fileClipboard = function(opts) {
+            return this.each(function() {
+                setupClipboard(this, opts);
+            });
+        };
+    }
+
+    // Not all browsers support the FileReader interface. Return with the enabled bit = false.
+    if (!FileReader) {
+        return;
+    }
+
+
+    // makeWorker is a little wrapper for generating web workers from strings
+    function makeWorker(script) {
+        var URL = window.URL || window.webkitURL;
+        var Blob = window.Blob;
+        var Worker = window.Worker;
+
+        if (!URL || !Blob || !Worker || !script) {
+            return null;
+        }
+
+        var blob = new Blob([script]);
+        var worker = new Worker(URL.createObjectURL(blob));
+        return worker;
+    }
+
+    // setupClipboard: bind to clipboard events (intended for document.body)
+    function setupClipboard(element, opts) {
+
+        if (!FileReaderJS.enabled) {
+            return;
+        }
+        var instanceOptions = extend(extend({}, FileReaderJS.opts), opts);
+
+        element.addEventListener("paste", onpaste, false);
+
+        function onpaste(e) {
+            var files = [];
+            var clipboardData = e.clipboardData || {};
+            var items = clipboardData.items || [];
+
+            for (var i = 0; i < items.length; i++) {
+                var file = items[i].getAsFile();
+
+                if (file) {
+
+                    // Create a fake file name for images from clipboard, since this data doesn't get sent
+                    var matches = new RegExp("/\(.*\)").exec(file.type);
+                    if (!file.name && matches) {
+                        var extension = matches[1];
+                        file.name = "clipboard" + i + "." + extension;
+                    }
+
+                    files.push(file);
+                }
+            }
+
+            if (files.length) {
+                processFileList(e, files, instanceOptions);
+                e.preventDefault();
+                e.stopPropagation();
+            }
         }
     }
 
-    function toDataUrl(data, type) {
-        // var data = self.result;
-        var dataUrl = 'data:';
+    // setupInput: bind the 'change' event to an input[type=file]
+    function setupInput(input, opts) {
 
-        if (type) {
-            dataUrl += type + ';';
+        if (!FileReaderJS.enabled) {
+            return;
+        }
+        var instanceOptions = extend(extend({}, FileReaderJS.opts), opts);
+
+        input.addEventListener("change", inputChange, false);
+        input.addEventListener("drop", inputDrop, false);
+
+        function inputChange(e) {
+            processFileList(e, input.files, instanceOptions);
         }
 
-        if (/text/i.test(type)) {
-            dataUrl += 'charset=utf-8,';
-            dataUrl += data.toString('utf8');
+        function inputDrop(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            processFileList(e, e.dataTransfer.files, instanceOptions);
+        }
+    }
+    // setupFile: bind the 'change' event to an input[type=file]
+    function setupBlob(blob, opts) {
+
+        if (!FileReaderJS.enabled) {
+            return;
+        }
+
+        if (blob.constructor !== Array && blob.constructor !== Function) {
+            if (blob.name === undefined) {
+                blob.name = "blob";
+            }
+            blob = [blob];
         } else {
-            dataUrl += 'base64,';
-            dataUrl += data.toString('base64');
+
+            if (blob[0].name === undefined) {
+                blob[0].name = "blob";
+            }
         }
 
-        return dataUrl;
+        var instanceOptions = extend(extend({}, FileReaderJS.opts), opts);
+
+        processFileList(null, blob, instanceOptions);
+
+    }
+    // setupDrop: bind the 'drop' event for a DOM element
+    function setupDrop(dropbox, opts) {
+
+        if (!FileReaderJS.enabled) {
+            return;
+        }
+        var instanceOptions = extend(extend({}, FileReaderJS.opts), opts);
+        var dragClass = instanceOptions.dragClass;
+        var initializedOnBody = false;
+
+        // Bind drag events to the dropbox to add the class while dragging, and accept the drop data transfer.
+        dropbox.addEventListener("dragenter", onlyWithFiles(dragenter), false);
+        dropbox.addEventListener("dragleave", onlyWithFiles(dragleave), false);
+        dropbox.addEventListener("dragover", onlyWithFiles(dragover), false);
+        dropbox.addEventListener("drop", onlyWithFiles(drop), false);
+
+        // Bind to body to prevent the dropbox events from firing when it was initialized on the page.
+        document.body.addEventListener("dragstart", bodydragstart, true);
+        document.body.addEventListener("dragend", bodydragend, true);
+        document.body.addEventListener("drop", bodydrop, false);
+
+        function bodydragend(e) {
+            initializedOnBody = false;
+        }
+
+        function bodydragstart(e) {
+            initializedOnBody = true;
+        }
+
+        function bodydrop(e) {
+            if (e.dataTransfer.files && e.dataTransfer.files.length) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+        }
+
+        function onlyWithFiles(fn) {
+            return function() {
+                if (!initializedOnBody) {
+                    fn.apply(this, arguments);
+                }
+            };
+        }
+
+        function drop(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (dragClass) {
+                removeClass(dropbox, dragClass);
+            }
+            processFileList(e, e.dataTransfer.files, instanceOptions);
+        }
+
+        function dragenter(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (dragClass) {
+                addClass(dropbox, dragClass);
+            }
+        }
+
+        function dragleave(e) {
+            if (dragClass) {
+                removeClass(dropbox, dragClass);
+            }
+        }
+
+        function dragover(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (dragClass) {
+                addClass(dropbox, dragClass);
+            }
+        }
     }
 
-    function mapDataToFormat(file, data, format, encoding) {
-        // var data = self.result;
-
-        switch (format) {
-            case 'buffer':
-                return data;
-                break;
-            case 'binary':
-                return data.toString('binary');
-                break;
-            case 'dataUrl':
-                return toDataUrl(data, file.type);
-                break;
-            case 'text':
-                return data.toString(encoding || 'utf8');
-                break;
+    // setupCustomFileProperties: modify the file object with extra properties
+    function setupCustomFileProperties(files, groupID) {
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            file.extra = {
+                nameNoExtension: file.name.substring(0, file.name.lastIndexOf('.')),
+                extension: file.name.substring(file.name.lastIndexOf('.') + 1),
+                fileID: i,
+                uniqueID: getUniqueID(),
+                groupID: groupID,
+                prettySize: prettySize(file.size)
+            };
         }
     }
 
-    function FileReader() {
-        var self = this,
-            emitter = new EventEmitter,
-            file;
+    // getReadAsMethod: return method name for 'readAs*' - http://www.w3.org/TR/FileAPI/#reading-a-file
+    function getReadAsMethod(type, readAsMap, readAsDefault) {
+        for (var r in readAsMap) {
+            if (type.match(new RegExp(r))) {
+                return 'readAs' + readAsMap[r];
+            }
+        }
+        return 'readAs' + readAsDefault;
+    }
 
-        self.addEventListener = function(on, callback) {
-            emitter.on(on, callback);
+    // processFileList: read the files with FileReader, send off custom events.
+    function processFileList(e, files, opts) {
+        var filesLeft = files.length;
+        var group = {
+            groupID: getGroupID(),
+            files: files,
+            started: new Date()
         };
-        self.removeEventListener = function(callback) {
-            emitter.removeListener(callback);
+
+        function groupEnd() {
+            group.ended = new Date();
+            opts.on.groupend(group);
         }
-        self.dispatchEvent = function(on) {
-            emitter.emit(on);
+
+        function groupFileDone() {
+            if (--filesLeft === 0) {
+                groupEnd();
+            }
         }
 
-        self.EMPTY = 0;
-        self.LOADING = 1;
-        self.DONE = 2;
+        FileReaderJS.output.push(group);
+        setupCustomFileProperties(files, group.groupID);
 
-        self.error = undefined; // Read only
-        self.readyState = self.EMPTY; // Read only
-        self.result = undefined; // Road only
+        opts.on.groupstart(group);
 
-        // non-standard
-        self.on = function() {
-            emitter.on.apply(emitter, arguments);
+        // No files in group - end immediately
+        if (!files.length) {
+            groupEnd();
+            return;
         }
-        self.nodeChunkedEncoding = false;
-        self.setNodeChunkedEncoding = function(val) {
-            self.nodeChunkedEncoding = val;
-        };
-        // end non-standard
 
+        var supportsSync = sync && FileReaderSyncSupport;
+        var syncWorker;
 
+        // Only initialize the synchronous worker if the option is enabled - to prevent the overhead
+        if (supportsSync) {
+            syncWorker = makeWorker(workerScript);
+            syncWorker.onmessage = function(e) {
+                var file = e.data.file;
+                var result = e.data.result;
 
-        // Whatever the file object is, turn it into a Node.JS File.Stream
-        function createFileStream() {
-            var stream = new EventEmitter(),
-                chunked = self.nodeChunkedEncoding;
-
-            // attempt to make the length computable
-            if (!file.size && chunked && file.path) {
-                fs.stat(file.path, function(err, stat) {
-                    file.size = stat.size;
-                    file.lastModifiedDate = stat.mtime;
-                });
-            }
-
-
-            // The stream exists, do nothing more
-            if (file.stream) {
-                return;
-            }
-
-
-            // Create a read stream from a buffer
-            if (file.buffer) {
-                process.nextTick(function() {
-                    stream.emit('data', file.buffer);
-                    stream.emit('end');
-                });
-                file.stream = stream;
-                return;
-            }
-
-
-            // Create a read stream from a file
-            if (file.path) {
-                // TODO url
-                if (!chunked) {
-                    fs.readFile(file.path, function(err, data) {
-                        if (err) {
-                            stream.emit('error', err);
-                        }
-                        if (data) {
-                            stream.emit('data', data);
-                            stream.emit('end');
-                        }
-                    });
-
-                    file.stream = stream;
-                    return;
+                // Workers seem to lose the custom property on the file object.
+                if (!file.extra) {
+                    file.extra = e.data.extra;
                 }
 
-                // TODO don't duplicate this code here,
-                // expose a method in File instead
-                file.stream = fs.createReadStream(file.path);
-            }
+                file.extra.ended = new Date();
+
+                // Call error or load event depending on success of the read from the worker.
+                opts.on[result === "error" ? "error" : "load"]({ target: { result: result } }, file);
+                groupFileDone();
+            };
         }
 
+        Array.prototype.forEach.call(files, function(file) {
 
+            file.extra.started = new Date();
 
-        // before any other listeners are added
-        emitter.on('abort', function() {
-            self.readyState = self.DONE;
+            if (opts.accept && !file.type.match(new RegExp(opts.accept))) {
+                opts.on.skip(file);
+                groupFileDone();
+                return;
+            }
+
+            if (opts.on.beforestart(file) === false) {
+                opts.on.skip(file);
+                groupFileDone();
+                return;
+            }
+
+            var readAs = getReadAsMethod(file.type, opts.readAsMap, opts.readAsDefault);
+
+            if (syncWorker) {
+                syncWorker.postMessage({
+                    file: file,
+                    extra: file.extra,
+                    readAs: readAs
+                });
+            } else {
+
+                var reader = new FileReader();
+                reader.originalEvent = e;
+
+                fileReaderEvents.forEach(function(eventName) {
+                    reader['on' + eventName] = function(e) {
+                        if (eventName == 'load' || eventName == 'error') {
+                            file.extra.ended = new Date();
+                        }
+                        opts.on[eventName](e, file);
+                        if (eventName == 'loadend') {
+                            groupFileDone();
+                        }
+                    };
+                });
+                reader[readAs](file);
+            }
         });
-
-
-
-        // Map `error`, `progress`, `load`, and `loadend`
-        function mapStreamToEmitter(format, encoding) {
-            var stream = file.stream,
-                buffers = [],
-                chunked = self.nodeChunkedEncoding;
-
-            buffers.dataLength = 0;
-
-            stream.on('error', function(err) {
-                if (self.DONE === self.readyState) {
-                    return;
-                }
-
-                self.readyState = self.DONE;
-                self.error = err;
-                emitter.emit('error', err);
-            });
-
-            stream.on('data', function(data) {
-                if (self.DONE === self.readyState) {
-                    return;
-                }
-
-                buffers.dataLength += data.length;
-                buffers.push(data);
-
-                emitter.emit('progress', {
-                    // fs.stat will probably complete before this
-                    // but possibly it will not, hence the check
-                    lengthComputable: (!isNaN(file.size)) ? true : false,
-                    loaded: buffers.dataLength,
-                    total: file.size
-                });
-
-                emitter.emit('data', data);
-            });
-
-            stream.on('end', function() {
-                if (self.DONE === self.readyState) {
-                    return;
-                }
-
-                var data;
-
-                if (buffers.length > 1) {
-                    data = Buffer.concat(buffers);
-                } else {
-                    data = buffers[0];
-                }
-
-                self.readyState = self.DONE;
-                self.result = mapDataToFormat(file, data, format, encoding);
-                emitter.emit('load', {
-                    target: {
-                        // non-standard
-                        nodeBufferResult: data,
-                        result: self.result
-                    }
-                });
-
-                emitter.emit('loadend');
-            });
-        }
-
-
-        // Abort is overwritten by readAsXyz
-        self.abort = function() {
-            if (self.readState == self.DONE) {
-                return;
-            }
-            self.readyState = self.DONE;
-            emitter.emit('abort');
-        };
-
-
-
-        // 
-        function mapUserEvents() {
-            emitter.on('start', function() {
-                doop(self.onloadstart, arguments);
-            });
-            emitter.on('progress', function() {
-                doop(self.onprogress, arguments);
-            });
-            emitter.on('error', function(err) {
-                // TODO translate to FileError
-                if (self.onerror) {
-                    self.onerror(err);
-                } else {
-                    if (!emitter.listeners.error || !emitter.listeners.error.length) {
-                        throw err;
-                    }
-                }
-            });
-            emitter.on('load', function() {
-                doop(self.onload, arguments);
-            });
-            emitter.on('end', function() {
-                doop(self.onloadend, arguments);
-            });
-            emitter.on('abort', function() {
-                doop(self.onabort, arguments);
-            });
-        }
-
-
-
-        function readFile(_file, format, encoding) {
-            file = _file;
-            if (!file || !file.name || !(file.path || file.stream || file.buffer)) {
-                throw new Error("cannot read as File: " + JSON.stringify(file));
-            }
-            if (0 !== self.readyState) {
-                console.log("already loading, request to change format ignored");
-                return;
-            }
-
-            // 'process.nextTick' does not ensure order, (i.e. an fs.stat queued later may return faster)
-            // but `onloadstart` must come before the first `data` event and must be asynchronous.
-            // Hence we waste a single tick waiting
-            process.nextTick(function() {
-                self.readyState = self.LOADING;
-                emitter.emit('loadstart');
-                createFileStream();
-                mapStreamToEmitter(format, encoding);
-                mapUserEvents();
-            });
-        }
-
-        self.readAsArrayBuffer = function(file) {
-            readFile(file, 'buffer');
-        };
-        self.readAsBinaryString = function(file) {
-            readFile(file, 'binary');
-        };
-        self.readAsDataURL = function(file) {
-            readFile(file, 'dataUrl');
-        };
-        self.readAsText = function(file, encoding) {
-            readFile(file, 'text', encoding);
-        };
     }
 
-    module.exports = FileReader;
-}());
+    // checkFileReaderSyncSupport: Create a temporary worker and see if FileReaderSync exists
+    function checkFileReaderSyncSupport() {
+        var worker = makeWorker(syncDetectionScript);
+        if (worker) {
+            worker.onmessage = function(e) {
+                FileReaderSyncSupport = e.data;
+            };
+            worker.postMessage({});
+        }
+    }
+
+    // noop: do nothing
+    function noop() {
+
+    }
+
+    // extend: used to make deep copies of options object
+    function extend(destination, source) {
+        for (var property in source) {
+            if (source[property] && source[property].constructor &&
+                source[property].constructor === Object) {
+                destination[property] = destination[property] || {};
+                arguments.callee(destination[property], source[property]);
+            } else {
+                destination[property] = source[property];
+            }
+        }
+        return destination;
+    }
+
+    // hasClass: does an element have the css class?
+    function hasClass(el, name) {
+        return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(el.className);
+    }
+
+    // addClass: add the css class for the element.
+    function addClass(el, name) {
+        if (!hasClass(el, name)) {
+            el.className = el.className ? [el.className, name].join(' ') : name;
+        }
+    }
+
+    // removeClass: remove the css class from the element.
+    function removeClass(el, name) {
+        if (hasClass(el, name)) {
+            var c = el.className;
+            el.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), " ").replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        }
+    }
+
+    // prettySize: convert bytes to a more readable string.
+    function prettySize(bytes) {
+        var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+        var e = Math.floor(Math.log(bytes) / Math.log(1024));
+        return (bytes / Math.pow(1024, Math.floor(e))).toFixed(2) + " " + s[e];
+    }
+
+    // getGroupID: generate a unique int ID for groups.
+    var getGroupID = (function(id) {
+        return function() {
+            return id++;
+        };
+    })(0);
+
+    // getUniqueID: generate a unique int ID for files
+    var getUniqueID = (function(id) {
+        return function() {
+            return id++;
+        };
+    })(0);
+
+    // The interface is supported, bind the FileReaderJS callbacks
+    FileReaderJS.enabled = true;
+
+})(this, document);
