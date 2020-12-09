@@ -16,10 +16,9 @@ See http://github.com/bgrins/filereader.js for documentation.
     var FileReaderJS = window.FileReaderJS = {
         enabled: false,
         setupInput: setupInput,
-        setupBlob: setupBlob,
         setupDrop: setupDrop,
         setupClipboard: setupClipboard,
-        setSync: function (value) {
+        setSync: function(value) {
             sync = value;
 
             if (sync && !FileReaderSyncSupport) {
@@ -34,8 +33,7 @@ See http://github.com/bgrins/filereader.js for documentation.
             dragClass: "drag",
             accept: false,
             readAsDefault: 'DataURL',
-            readAsMap: {
-            },
+            readAsMap: {},
             on: {
                 loadstart: noop,
                 progress: noop,
@@ -57,8 +55,7 @@ See http://github.com/bgrins/filereader.js for documentation.
             return this.each(function() {
                 if (jQuery(this).is("input")) {
                     setupInput(this, opts);
-                }
-                else {
+                } else {
                     setupDrop(this, opts);
                 }
             });
@@ -152,30 +149,7 @@ See http://github.com/bgrins/filereader.js for documentation.
             processFileList(e, e.dataTransfer.files, instanceOptions);
         }
     }
-    // setupFile: bind the 'change' event to an input[type=file]
-    function setupBlob(blob, opts) {
-       
-        if (!FileReaderJS.enabled) {
-            return;
-        }
 
-        if(blob.constructor !== Array && blob.constructor !== Function){
-            if(blob.name === undefined){
-                blob.name = "blob";
-            }          
-            blob = [blob];
-        }else{
-
-            if(blob[0].name === undefined){
-                blob[0].name = "blob";
-            }    
-        }
-        
-        var instanceOptions = extend(extend({}, FileReaderJS.opts), opts);
-
-        processFileList(null, blob, instanceOptions);
-
-    }
     // setupDrop: bind the 'drop' event for a DOM element
     function setupDrop(dropbox, opts) {
 
@@ -206,7 +180,7 @@ See http://github.com/bgrins/filereader.js for documentation.
         }
 
         function bodydrop(e) {
-            if (e.dataTransfer.files && e.dataTransfer.files.length ){
+            if (e.dataTransfer.files && e.dataTransfer.files.length) {
                 e.stopPropagation();
                 e.preventDefault();
             }
@@ -279,6 +253,7 @@ See http://github.com/bgrins/filereader.js for documentation.
 
     // processFileList: read the files with FileReader, send off custom events.
     function processFileList(e, files, opts) {
+
         var filesLeft = files.length;
         var group = {
             groupID: getGroupID(),
@@ -355,8 +330,7 @@ See http://github.com/bgrins/filereader.js for documentation.
                     extra: file.extra,
                     readAs: readAs
                 });
-            }
-            else {
+            } else {
 
                 var reader = new FileReader();
                 reader.originalEvent = e;
@@ -381,7 +355,7 @@ See http://github.com/bgrins/filereader.js for documentation.
     function checkFileReaderSyncSupport() {
         var worker = makeWorker(syncDetectionScript);
         if (worker) {
-            worker.onmessage =function(e) {
+            worker.onmessage = function(e) {
                 FileReaderSyncSupport = e.data;
             };
             worker.postMessage({});
@@ -400,8 +374,7 @@ See http://github.com/bgrins/filereader.js for documentation.
                 source[property].constructor === Object) {
                 destination[property] = destination[property] || {};
                 arguments.callee(destination[property], source[property]);
-            }
-            else {
+            } else {
                 destination[property] = source[property];
             }
         }
@@ -416,23 +389,23 @@ See http://github.com/bgrins/filereader.js for documentation.
     // addClass: add the css class for the element.
     function addClass(el, name) {
         if (!hasClass(el, name)) {
-          el.className = el.className ? [el.className, name].join(' ') : name;
+            el.className = el.className ? [el.className, name].join(' ') : name;
         }
     }
 
     // removeClass: remove the css class from the element.
     function removeClass(el, name) {
         if (hasClass(el, name)) {
-          var c = el.className;
-          el.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), " ").replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+            var c = el.className;
+            el.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), " ").replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         }
     }
 
     // prettySize: convert bytes to a more readable string.
     function prettySize(bytes) {
         var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
-        var e = Math.floor(Math.log(bytes)/Math.log(1024));
-        return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+        var e = Math.floor(Math.log(bytes) / Math.log(1024));
+        return (bytes / Math.pow(1024, Math.floor(e))).toFixed(2) + " " + s[e];
     }
 
     // getGroupID: generate a unique int ID for groups.
