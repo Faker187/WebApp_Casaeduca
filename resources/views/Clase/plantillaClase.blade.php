@@ -153,7 +153,7 @@
                 height:false
             },
             pptxSetting: {
-                slidesScale: "50%", //Change Slides scale by percent
+                slidesScale: "70%", //Change Slides scale by percent
                 slideMode: true
             }
         });  
