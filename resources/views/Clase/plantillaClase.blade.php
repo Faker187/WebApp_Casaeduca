@@ -154,7 +154,11 @@
             },
             pptxSetting: {
                 slidesScale: "70%", //Change Slides scale by percent
-                slideMode: true
+                slideMode: true, /** true,false*/
+                keyBoardShortCut: true,  /** true,false ,condition: slideMode: true*/
+                mediaProcess: true, /** true,false: if true then process video and audio files */
+                jsZipV2: true
+                
             }
         });  
     });
