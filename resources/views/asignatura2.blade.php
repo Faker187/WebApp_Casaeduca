@@ -115,7 +115,7 @@ a:hover,a:focus{
 }
 </style>
 
-{{-- {{dd($unidades)}} --}}
+{{dd($unidades)}}
   <div class="d-flex border-bottom" id="wrapper">
 
 
