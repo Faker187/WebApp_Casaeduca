@@ -157,7 +157,11 @@
                 slideMode: true, /** true,false*/
                 keyBoardShortCut: true,  /** true,false ,condition: slideMode: true*/
                 mediaProcess: true, /** true,false: if true then process video and audio files */
-                jsZipV2: true
+                jsZipV2: true,
+                slideModeConfig: {
+                    transition: "default", /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
+                    transitionTime: 3 /** transition time between slides in seconds */               
+                }
                 
             }
         });  
