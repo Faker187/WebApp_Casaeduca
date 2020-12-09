@@ -127,7 +127,7 @@
                 ignoreEmptyParagraphs: false,
                 idPrefix: "",
                 isRtl : "auto" 
-            }
+            },
             sheetSetting: {
                 jqueryui : false,
                 activeHeaderClassName: "",
