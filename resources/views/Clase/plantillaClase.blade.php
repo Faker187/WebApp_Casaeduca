@@ -151,9 +151,11 @@
                 colHeaders: true,
                 width: false,
                 height:false
+            },
+            pptxSetting: {
+                slidesScale: "50%", //Change Slides scale by percent
+                slideMode: true
             }
-
-        }); 
-        
+        });  
     });
 </script>
