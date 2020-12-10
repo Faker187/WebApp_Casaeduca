@@ -105,7 +105,7 @@
         if(output == 'pptx' || output == 'ppt' ){
             $("#resolte-contaniner").empty().pptxToHtml({
               pptxFileUrl: "/public/imgcard/"+ruta, 
-              slidesScale: "", //Change Slides scale by percent
+              slidesScale: "70%",
               slideMode: false,
               keyBoardShortCut: false,
               mediaProcess: true, /** true,false: if true then process video and audio files */

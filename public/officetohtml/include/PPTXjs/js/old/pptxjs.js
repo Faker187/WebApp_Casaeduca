@@ -11,8 +11,8 @@
  *  - fixed div width issue
  */
 
-(function ($) {
-    $.fn.pptxToHtml = function (options) {
+(function($) {
+    $.fn.pptxToHtml = function(options) {
         //var worker;
         var $result = $(this);
         var divId = $result.attr("id");
@@ -37,22 +37,35 @@
             pptxFileUrl: "",
             fileInputId: "",
             slidesScale: "", //Change Slides scale by percent
-            slideMode: false, /** true,false*/
-            keyBoardShortCut: false,  /** true,false ,condition: slideMode: true XXXXX - need to remove - this is doublcated*/
-            mediaProcess: true, /** true,false: if true then process video and audio files */
+            slideMode: false,
+            /** true,false*/
+            keyBoardShortCut: false,
+            /** true,false ,condition: slideMode: true XXXXX - need to remove - this is doublcated*/
+            mediaProcess: true,
+            /** true,false: if true then process video and audio files */
             jsZipV2: false,
             slideModeConfig: {
                 first: 1,
-                nav: true, /** true,false : show or not nav buttons*/
-                navTxtColor: "black", /** color */
-                keyBoardShortCut: true, /** true,false ,condition: */
-                showSlideNum: true, /** true,false */
-                showTotalSlideNum: true, /** true,false */
-                autoSlide: true, /** false or seconds , F8 to active ,keyBoardShortCut: true */
-                randomAutoSlide: false, /** true,false ,autoSlide:true */
-                loop: false,  /** true,false */
-                background: false, /** false or color*/
-                transition: "default", /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
+                nav: true,
+                /** true,false : show or not nav buttons*/
+                navTxtColor: "black",
+                /** color */
+                keyBoardShortCut: true,
+                /** true,false ,condition: */
+                showSlideNum: true,
+                /** true,false */
+                showTotalSlideNum: true,
+                /** true,false */
+                autoSlide: true,
+                /** false or seconds , F8 to active ,keyBoardShortCut: true */
+                randomAutoSlide: false,
+                /** true,false ,autoSlide:true */
+                loop: false,
+                /** true,false */
+                background: false,
+                /** false or color*/
+                transition: "default",
+                /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
                 transitionTime: 1 /** transition time between slides in seconds */
             }
         }, options);
@@ -77,14 +90,14 @@
         }
 
         if (settings.keyBoardShortCut) {
-            $(document).bind("keydown", function (event) {
+            $(document).bind("keydown", function(event) {
                 event.preventDefault();
                 var key = event.keyCode;
                 console.log(key, isDone)
                 if (key == 116 && !isSlideMode) { //F5
                     isSlideMode = true;
                     $("#" + divId + " .slide").hide();
-                    setTimeout(function () {
+                    setTimeout(function() {
                         //if(isDone){
                         var slideConf = settings.slideModeConfig;
                         //console.log(key,isDone,slideConf)
@@ -119,7 +132,7 @@
                         var slidesHeight = $("#" + divId + " .slide").height();
                         //console.log(slidesHeight);
                         $("#all_slides_warpper").attr({
-                            style: trnsfrmScl  /*+ ";height: " + (numOfSlides * slidesHeight * sScaleVal) + "px"*/
+                            style: trnsfrmScl /*+ ";height: " + (numOfSlides * slidesHeight * sScaleVal) + "px"*/
                         })
                     }, 1500);
                 } else if (key == 116 && isSlideMode) {
@@ -129,7 +142,7 @@
             });
         }
         if (settings.pptxFileUrl != "") {
-            JSZipUtils.getBinaryContent(settings.pptxFileUrl, function (err, content) {
+            JSZipUtils.getBinaryContent(settings.pptxFileUrl, function(err, content) {
                 var blob = new Blob([content]);
                 var file_name = settings.pptxFileUrl;
                 var fArry = file_name.split(".");
@@ -138,7 +151,7 @@
                 FileReaderJS.setupBlob(blob, {
                     readAsDefault: "ArrayBuffer",
                     on: {
-                        load: function (e, file) {
+                        load: function(e, file) {
                             //console.log(e.target.result);
                             convertToHtml(e.target.result);
                         }
@@ -149,7 +162,7 @@
             $(".slides-loadnig-msg").remove()
         }
         if (settings.fileInputId != "") {
-            $("#" + settings.fileInputId).on("change", function (evt) {
+            $("#" + settings.fileInputId).on("change", function(evt) {
                 $result.html("");
                 var file = evt.target.files[0];
                 // var fileName = file[0].name;
@@ -159,7 +172,7 @@
                     FileReaderJS.setupBlob(file, {
                         readAsDefault: "ArrayBuffer",
                         on: {
-                            load: function (e, file) {
+                            load: function(e, file) {
                                 //console.log(e.target.result);
                                 convertToHtml(e.target.result);
                             }
@@ -170,11 +183,13 @@
                 }
             });
         }
+
         function convertToHtml(file) {
             //'use strict';
-            var zip = new JSZip(), s;
+            var zip = new JSZip(),
+                s;
             //if (typeof file === 'string') { // Load
-            zip = zip.load(file);  //zip.load(file, { base64: true });
+            zip = zip.load(file); //zip.load(file, { base64: true });
             var rslt_ary = processPPTX(zip);
             //s = readXmlFile(zip, 'ppt/tableStyles.xml');
 
@@ -212,7 +227,7 @@
                         if (settings.slideMode && !isSlideMode) {
                             isSlideMode = true;
                             $("#" + divId + " .slide").hide();
-                            setTimeout(function () {
+                            setTimeout(function() {
                                 var slideConf = settings.slideModeConfig;
                                 $(".slides-loadnig-msg").remove();
                                 $("#" + divId).divs2slides({
@@ -278,6 +293,7 @@
 
             //}
         }
+
         function processPPTX(zip) {
             var post_ary = [];
             var dateBefore = new Date();
@@ -337,6 +353,7 @@
             }
 
         }
+
         function getContentTypes(zip) {
             var ContentTypesJson = readXmlFile(zip, "[Content_Types].xml");
 
@@ -388,7 +405,6 @@
                     "width":  cWidth,
                     "height": cHeight
                 };
-
             }*/
             return rtenObj;
         }
@@ -534,7 +550,7 @@
 
             var bgColor = getSlideBackgroundFill(slideContent, slideLayoutContent, slideMasterContent, warpObj);
             var result = "<div class='slide' style='width:" + slideSize.width + "px; height:" + slideSize.height + "px;" + bgColor + "'>"
-            //result += "<div>"+getBackgroundShapes(slideContent, slideLayoutContent, slideMasterContent,warpObj) + "</div>" - TODO
+                //result += "<div>"+getBackgroundShapes(slideContent, slideLayoutContent, slideMasterContent,warpObj) + "</div>" - TODO
             for (var nodeKey in nodes) {
                 if (nodes[nodeKey].constructor === Array) {
                     for (var i = 0; i < nodes[nodeKey].length; i++) {
@@ -609,16 +625,16 @@
             var result = "";
 
             switch (nodeKey) {
-                case "p:sp":    // Shape, Text
+                case "p:sp": // Shape, Text
                     result = processSpNode(nodeValue, warpObj);
                     break;
-                case "p:cxnSp":    // Shape, Text (with connection)
+                case "p:cxnSp": // Shape, Text (with connection)
                     result = processCxnSpNode(nodeValue, warpObj);
                     break;
-                case "p:pic":    // Picture
+                case "p:pic": // Picture
                     result = processPicNode(nodeValue, warpObj);
                     break;
-                case "p:graphicFrame":    // Chart, Diagram, Table
+                case "p:graphicFrame": // Chart, Diagram, Table
                     result = processGraphicFrameNode(nodeValue, warpObj);
                     break;
                 case "p:grpSp":
@@ -672,16 +688,16 @@
         function processSpNode(node, warpObj) {
 
             /*
-            *  958    <xsd:complexType name="CT_GvmlShape">
-            *  959   <xsd:sequence>
-            *  960     <xsd:element name="nvSpPr" type="CT_GvmlShapeNonVisual"     minOccurs="1" maxOccurs="1"/>
-            *  961     <xsd:element name="spPr"   type="CT_ShapeProperties"        minOccurs="1" maxOccurs="1"/>
-            *  962     <xsd:element name="txSp"   type="CT_GvmlTextShape"          minOccurs="0" maxOccurs="1"/>
-            *  963     <xsd:element name="style"  type="CT_ShapeStyle"             minOccurs="0" maxOccurs="1"/>
-            *  964     <xsd:element name="extLst" type="CT_OfficeArtExtensionList" minOccurs="0" maxOccurs="1"/>
-            *  965   </xsd:sequence>
-            *  966 </xsd:complexType>
-            */
+             *  958    <xsd:complexType name="CT_GvmlShape">
+             *  959   <xsd:sequence>
+             *  960     <xsd:element name="nvSpPr" type="CT_GvmlShapeNonVisual"     minOccurs="1" maxOccurs="1"/>
+             *  961     <xsd:element name="spPr"   type="CT_ShapeProperties"        minOccurs="1" maxOccurs="1"/>
+             *  962     <xsd:element name="txSp"   type="CT_GvmlTextShape"          minOccurs="0" maxOccurs="1"/>
+             *  963     <xsd:element name="style"  type="CT_ShapeStyle"             minOccurs="0" maxOccurs="1"/>
+             *  964     <xsd:element name="extLst" type="CT_OfficeArtExtensionList" minOccurs="0" maxOccurs="1"/>
+             *  965   </xsd:sequence>
+             *  966 </xsd:complexType>
+             */
 
             var id = getTextByPathList(node, ["p:nvSpPr", "p:cNvPr", "attrs", "id"]);
             var name = getTextByPathList(node, ["p:nvSpPr", "p:cNvPr", "attrs", "name"]);
@@ -782,7 +798,7 @@
                     "transform: rotate(" + rotate + "deg);" +
                     "'>";
                 result += '<defs>'
-                // Fill Color
+                    // Fill Color
                 var fillColor = getShapeFill(node, true, warpObj);
                 var grndFillFlg = false;
                 var imgFillFlg = false;
@@ -908,7 +924,9 @@
                             "' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
                         break;
                     case "actionButtonBackPrevious":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, g11, g12;
 
                         dx2 = ss * 3 / 8;
@@ -931,7 +949,9 @@
 
                         break;
                     case "actionButtonBeginning":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, g11, g12, g13, g14, g15, g16, g17;
 
                         dx2 = ss * 3 / 8;
@@ -964,7 +984,9 @@
 
                         break;
                     case "actionButtonDocument":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, dx1, g11, g12, g13, g14, g15;
 
                         dx2 = ss * 3 / 8;
@@ -997,7 +1019,9 @@
 
                         break;
                     case "actionButtonEnd":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, g11, g12, g13, g14, g15, g16, g17;
 
                         dx2 = ss * 3 / 8;
@@ -1030,7 +1054,9 @@
 
                         break;
                     case "actionButtonForwardNext":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, g11, g12;
 
                         dx2 = ss * 3 / 8;
@@ -1054,7 +1080,9 @@
 
                         break;
                     case "actionButtonHelp":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g11, g13, g14, g15, g16, g19, g20, g21, g23, g24, g27, g29, g30, g31, g33, g36, g37, g41, g42;
 
                         dx2 = ss * 3 / 8;
@@ -1108,7 +1136,9 @@
 
                         break;
                     case "actionButtonHome":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33;
 
                         dx2 = ss * 3 / 8;
@@ -1166,7 +1196,9 @@
 
                         break;
                     case "actionButtonInformation":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g11, g13, g14, g17, g18, g19, g20, g22, g23, g24, g25, g28, g29, g30, g31, g32, g34, g35, g37, g38;
 
                         dx2 = ss * 3 / 8;
@@ -1221,7 +1253,9 @@
 
                         break;
                     case "actionButtonMovie":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26, g27,
                             g28, g29, g30, g31, g32, g33, g34, g35, g36, g37, g38, g39, g40, g41, g42, g43, g44, g45, g46, g47, g48;
 
@@ -1298,7 +1332,9 @@
 
                         break;
                     case "actionButtonReturn":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26, g27;
 
                         dx2 = ss * 3 / 8;
@@ -1353,7 +1389,9 @@
 
                         break;
                     case "actionButtonSound":
-                        var hc = w / 2, vc = h / 2, ss = Math.min(w, h);
+                        var hc = w / 2,
+                            vc = h / 2,
+                            ss = Math.min(w, h);
                         var dx2, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26;
 
                         dx2 = ss * 3 / 8;
@@ -1462,7 +1500,9 @@
                             "' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
                         break;
                     case "flowChartTerminator":
-                        var x1, x2, y1, cd2 = 180, cd4 = 90, c3d4 = 270;
+                        var x1, x2, y1, cd2 = 180,
+                            cd4 = 90,
+                            c3d4 = 270;
                         x1 = w * 3475 / 21600;
                         x2 = w * 18125 / 21600;
                         y1 = h * 10800 / 21600;
@@ -1492,7 +1532,8 @@
                             "' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
                         break;
                     case "flowChartOnlineStorage":
-                        var x1, y1, c3d4 = 270, cd4 = 90;
+                        var x1, y1, c3d4 = 270,
+                            cd4 = 90;
                         x1 = w * 1 / 6;
                         y1 = h * 3 / 6;
                         var d = "M" + x1 + "," + 0 +
@@ -1505,7 +1546,8 @@
                             "' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
                         break;
                     case "flowChartDisplay":
-                        var x1, x2, y1, c3d4 = 270, cd2 = 180;
+                        var x1, x2, y1, c3d4 = 270,
+                            cd2 = 180;
                         x1 = w * 1 / 6;
                         x2 = w * 5 / 6;
                         y1 = h * 3 / 6;
@@ -1520,7 +1562,11 @@
                             "' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
                         break;
                     case "flowChartDelay":
-                        var wd2 = w / 2, hd2 = h / 2, cd2 = 180, c3d4 = 270, cd4 = 90;
+                        var wd2 = w / 2,
+                            hd2 = h / 2,
+                            cd2 = 180,
+                            c3d4 = 270,
+                            cd4 = 90;
                         var d = "M" + 0 + "," + 0 +
                             " L" + wd2 + "," + 0 +
                             shapeArc(wd2, hd2, wd2, hd2, c3d4, c3d4 + cd2, false).replace("M", "L") +
@@ -1530,7 +1576,11 @@
                             "' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
                         break;
                     case "flowChartMagneticTape":
-                        var wd2 = w / 2, hd2 = h / 2, cd2 = 180, c3d4 = 270, cd4 = 90;
+                        var wd2 = w / 2,
+                            hd2 = h / 2,
+                            cd2 = 180,
+                            c3d4 = 270,
+                            cd4 = 90;
                         var idy, ib, ang1;
                         idy = hd2 * Math.sin(Math.PI / 4);
                         ib = hd2 + idy;
@@ -1557,7 +1607,10 @@
                             result += " <polyline points='" + w / 2 + " " + 0 + "," + w / 2 + " " + h + "' fill='none' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
                             result += " <polyline points='" + 0 + " " + h / 2 + "," + w + " " + h / 2 + "' fill='none' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
                         } else if (shapType == "flowChartSummingJunction") {
-                            var idx, idy, il, ir, it, ib, hc = w / 2, vc = h / 2, wd2 = w / 2, hd2 = h / 2;
+                            var idx, idy, il, ir, it, ib, hc = w / 2,
+                                vc = h / 2,
+                                wd2 = w / 2,
+                                hd2 = h / 2;
                             var angVal = Math.PI / 4;
                             idx = wd2 * Math.cos(angVal);
                             idy = hd2 * Math.sin(angVal);
@@ -1579,8 +1632,8 @@
                     case "flowChartAlternateProcess":
                     case "flowChartPunchedCard":
                         var shapAdjst_ary = getTextByPathList(node, ["p:spPr", "a:prstGeom", "a:avLst", "a:gd"]);
-                        var sAdj1, sAdj1_val;// = 0.33334;
-                        var sAdj2, sAdj2_val;// = 0.33334;
+                        var sAdj1, sAdj1_val; // = 0.33334;
+                        var sAdj2, sAdj2_val; // = 0.33334;
                         var shpTyp, adjTyp;
                         if (shapAdjst_ary !== undefined && shapAdjst_ary.constructor === Array) {
                             for (var i = 0; i < shapAdjst_ary.length; i++) {
@@ -1779,7 +1832,8 @@
                         if (shapAdjst !== undefined) {
                             adj = parseInt(shapAdjst.substr(4)) * 96 / 914400;
                         }
-                        var maxAdj, a, shd2, x1, x2, dy1, y1, y2, vc = h / 2, hd2 = h / 2;
+                        var maxAdj, a, shd2, x1, x2, dy1, y1, y2, vc = h / 2,
+                            hd2 = h / 2;
                         var ss = Math.min(w, h);
                         maxAdj = cnstVal1 * w / ss;
                         a = (adj < 0) ? 0 : (adj > maxAdj) ? maxAdj : adj;
@@ -1840,7 +1894,7 @@
                     case "star16":
                     case "star24":
                     case "star32":
-                        var shapAdjst = getTextByPathList(node, ["p:spPr", "a:prstGeom", "a:avLst", "a:gd"]);//[0]["attrs"]["fmla"];
+                        var shapAdjst = getTextByPathList(node, ["p:spPr", "a:prstGeom", "a:avLst", "a:gd"]); //[0]["attrs"]["fmla"];
                         var starNum = shapType.substr(4);
                         var shapAdjst1, adj;
                         switch (starNum) {
@@ -2218,7 +2272,12 @@
                         if (shapAdjst !== undefined) {
                             adj = parseInt(shapAdjst.substr(4)) * 96 / 914400;
                         }
-                        var vc = h / 2, cd = 360, cd2 = 180, cd4 = 90, c3d4 = 270, a, x1, x2, x3, x4, y2, y3, y4;
+                        var vc = h / 2,
+                            cd = 360,
+                            cd2 = 180,
+                            cd4 = 90,
+                            c3d4 = 270,
+                            a, x1, x2, x3, x4, y2, y3, y4;
                         if (adj < 0) a = 0
                         else if (adj > cnstVal1) a = cnstVal1
                         else a = adj
@@ -2266,7 +2325,11 @@
                                 }
                             }
                         }
-                        var vc = h / 2, cd2 = 180, cd4 = 90, c3d4 = 270, a1, a2, q1, q2, q3, y1, y2, y3, y4;
+                        var vc = h / 2,
+                            cd2 = 180,
+                            cd4 = 90,
+                            c3d4 = 270,
+                            a1, a2, q1, q2, q3, y1, y2, y3, y4;
                         if (adj2 < 0) a2 = 0
                         else if (adj2 > cnstVal2) a2 = cnstVal2
                         else a2 = adj2
@@ -2312,7 +2375,12 @@
                                 }
                             }
                         }
-                        var vc = h / 2, cd = 360, cd2 = 180, cd4 = 90, c3d4 = 270, a1, a2, q1, q2, q3, y1, y2, y3, y4;
+                        var vc = h / 2,
+                            cd = 360,
+                            cd2 = 180,
+                            cd4 = 90,
+                            c3d4 = 270,
+                            a1, a2, q1, q2, q3, y1, y2, y3, y4;
                         if (adj2 < 0) a2 = 0
                         else if (adj2 > cnstVal2) a2 = cnstVal2
                         else a2 = adj2
@@ -2349,7 +2417,12 @@
                         if (shapAdjst !== undefined) {
                             adj = parseInt(shapAdjst.substr(4)) * 96 / 914400;
                         }
-                        var r = w, b = h, cd2 = 180, cd4 = 90, c3d4 = 270, a, x1, x2, y2;
+                        var r = w,
+                            b = h,
+                            cd2 = 180,
+                            cd4 = 90,
+                            c3d4 = 270,
+                            a, x1, x2, y2;
                         if (adj < 0) a = 0
                         else if (adj > cnstVal1) a = cnstVal1
                         else a = adj
@@ -2373,7 +2446,12 @@
                         if (shapAdjst !== undefined) {
                             adj = parseInt(shapAdjst.substr(4)) * 96 / 914400;
                         }
-                        var r = w, b = h, cd2 = 180, cd4 = 90, c3d4 = 270, a, y1, y2;
+                        var r = w,
+                            b = h,
+                            cd2 = 180,
+                            cd4 = 90,
+                            c3d4 = 270,
+                            a, y1, y2;
                         if (adj < 0) a = 0
                         else if (adj > maxAdj) a = maxAdj
                         else a = adj
@@ -2397,7 +2475,11 @@
                         if (shapAdjst !== undefined) {
                             adj = parseInt(shapAdjst.substr(4)) * 96 / 914400;
                         }
-                        var cd = 360, cd2 = 180, cd4 = 90, c3d4 = 270, a, y1, y2, y3;
+                        var cd = 360,
+                            cd2 = 180,
+                            cd4 = 90,
+                            c3d4 = 270,
+                            a, y1, y2, y3;
                         if (adj < 0) a = 0
                         else if (adj > maxAdj) a = maxAdj
                         else a = adj
@@ -2418,7 +2500,7 @@
                         var shapAdjst = getTextByPathList(node, ["p:spPr", "a:prstGeom", "a:avLst", "a:gd", "attrs", "fmla"]);
                         var adj = 0.5;
                         if (shapAdjst !== undefined) {
-                            adj = parseInt(shapAdjst.substr(4)) / 100000;//*96/914400;;
+                            adj = parseInt(shapAdjst.substr(4)) / 100000; //*96/914400;;
                         }
                         var hd2, cd2, cd4;
 
@@ -2500,7 +2582,8 @@
                     case "gear6":
                     case "gear9":
                         txtRotate = 0;
-                        var gearNum = shapType.substr(4), d;
+                        var gearNum = shapType.substr(4),
+                            d;
                         if (gearNum == "6") {
                             d = shapeGear(w, h / 3.5, parseInt(gearNum));
                         } else { //gearNum=="9"
@@ -2901,15 +2984,48 @@
                         y11 = h * 15789 / 43200;
                         //Path:
                         //(path attrs: w = 43200; h = 43200; )
-                        var rX1 = w * 6753 / 43200, rY1 = h * 9190 / 43200, rX2 = w * 5333 / 43200, rY2 = h * 7267 / 43200, rX3 = w * 4365 / 43200,
-                            rY3 = h * 5945 / 43200, rX4 = w * 4857 / 43200, rY4 = h * 6595 / 43200, rY5 = h * 7273 / 43200, rX6 = w * 6775 / 43200,
-                            rY6 = h * 9220 / 43200, rX7 = w * 5785 / 43200, rY7 = h * 7867 / 43200, rX8 = w * 6752 / 43200, rY8 = h * 9215 / 43200,
-                            rX9 = w * 7720 / 43200, rY9 = h * 10543 / 43200, rX10 = w * 4360 / 43200, rY10 = h * 5918 / 43200, rX11 = w * 4345 / 43200;
-                        var sA1 = -11429249 / 60000, wA1 = 7426832 / 60000, sA2 = -8646143 / 60000, wA2 = 5396714 / 60000, sA3 = -8748475 / 60000,
-                            wA3 = 5983381 / 60000, sA4 = -7859164 / 60000, wA4 = 7034504 / 60000, sA5 = -4722533 / 60000, wA5 = 6541615 / 60000,
-                            sA6 = -2776035 / 60000, wA6 = 7816140 / 60000, sA7 = 37501 / 60000, wA7 = 6842000 / 60000, sA8 = 1347096 / 60000,
-                            wA8 = 6910353 / 60000, sA9 = 3974558 / 60000, wA9 = 4542661 / 60000, sA10 = -16496525 / 60000, wA10 = 8804134 / 60000,
-                            sA11 = -14809710 / 60000, wA11 = 9151131 / 60000;
+                        var rX1 = w * 6753 / 43200,
+                            rY1 = h * 9190 / 43200,
+                            rX2 = w * 5333 / 43200,
+                            rY2 = h * 7267 / 43200,
+                            rX3 = w * 4365 / 43200,
+                            rY3 = h * 5945 / 43200,
+                            rX4 = w * 4857 / 43200,
+                            rY4 = h * 6595 / 43200,
+                            rY5 = h * 7273 / 43200,
+                            rX6 = w * 6775 / 43200,
+                            rY6 = h * 9220 / 43200,
+                            rX7 = w * 5785 / 43200,
+                            rY7 = h * 7867 / 43200,
+                            rX8 = w * 6752 / 43200,
+                            rY8 = h * 9215 / 43200,
+                            rX9 = w * 7720 / 43200,
+                            rY9 = h * 10543 / 43200,
+                            rX10 = w * 4360 / 43200,
+                            rY10 = h * 5918 / 43200,
+                            rX11 = w * 4345 / 43200;
+                        var sA1 = -11429249 / 60000,
+                            wA1 = 7426832 / 60000,
+                            sA2 = -8646143 / 60000,
+                            wA2 = 5396714 / 60000,
+                            sA3 = -8748475 / 60000,
+                            wA3 = 5983381 / 60000,
+                            sA4 = -7859164 / 60000,
+                            wA4 = 7034504 / 60000,
+                            sA5 = -4722533 / 60000,
+                            wA5 = 6541615 / 60000,
+                            sA6 = -2776035 / 60000,
+                            wA6 = 7816140 / 60000,
+                            sA7 = 37501 / 60000,
+                            wA7 = 6842000 / 60000,
+                            sA8 = 1347096 / 60000,
+                            wA8 = 6910353 / 60000,
+                            sA9 = 3974558 / 60000,
+                            wA9 = 4542661 / 60000,
+                            sA10 = -16496525 / 60000,
+                            wA10 = 8804134 / 60000,
+                            sA11 = -14809710 / 60000,
+                            wA11 = 9151131 / 60000;
 
                         var cX0, cX1, cX2, cX3, cX4, cX5, cX6, cX7, cX8, cX9, cX10, cY0, cY1, cY2, cY3, cY4, cY5, cY6, cY7, cY8, cY9, cY10;
                         var arc1, arc2, arc3, arc4, arc5, arc6, arc7, arc8, arc9, arc10, arc11;
@@ -2992,7 +3108,8 @@
                             var d_val;
                             var cnstVal2 = 100000 * refr;
                             var ss = Math.min(w, h);
-                            var wd2 = w / 2, hd2 = h / 2;
+                            var wd2 = w / 2,
+                                hd2 = h / 2;
 
                             var dxPos, dyPos, xPos, yPos, ht, wt, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16,
                                 g17, g18, g19, g20, g21, g22, g23, g24, g25, g26, x23, x24, x25;
@@ -3112,7 +3229,10 @@
                         var cnstVal1 = 25000 * refr;
                         var cnstVal2 = 100000 * refr;
                         var ss = Math.min(w, h);
-                        var t = 0, l = 0, b = h, r = w;
+                        var t = 0,
+                            l = 0,
+                            b = h,
+                            r = w;
                         var a, ch, ch2, ch4;
                         a = (adj < 0) ? 0 : (adj > cnstVal1) ? cnstVal1 : adj;
                         ch = ss * a / cnstVal2;
@@ -3213,7 +3333,8 @@
                         var ss = Math.min(w, h);
                         var dxPos, dyPos, xPos, yPos, sdx, sdy, pang, stAng, enAng, dx1, dy1, x1, y1, dx2, dy2,
                             x2, y2, stAng1, enAng1, swAng1, swAng2, swAng,
-                            vc = h / 2, hc = w / 2;
+                            vc = h / 2,
+                            hc = w / 2;
                         dxPos = w * adj1 / cnstVal1;
                         dyPos = h * adj2 / cnstVal1;
                         xPos = hc + dxPos;
@@ -3263,7 +3384,7 @@
                             " L" + xPos + "," + yPos +
                             " L" + x2 + "," + y2 +
                             //" z" +
-                            shapeArc(hc, vc, hc, vc, 0, 360, true);// +
+                            shapeArc(hc, vc, hc, vc, 0, 360, true); // +
                         //shapeArc(hc,vc,hc,vc,stAng1Dg,stAng1Dg+swAngDg,false).replace("M","L") +
                         //" z";
                         result += "<path d='" + d_val + "' fill='" + (!imgFillFlg ? (grndFillFlg ? "url(#linGrd_" + shpId + ")" : fillColor) : "url(#imgPtrn_" + shpId + ")") +
@@ -3291,7 +3412,8 @@
                         var cnstVal1 = 100000 * 96 / 914400;
                         var dxPos, dyPos, xPos, yPos, dx, dy, dq, ady, adq, dz, xg1, xg2, x1, x2,
                             yg1, yg2, y1, y2, t1, xl, t2, xt, t3, xr, t4, xb, t5, yl, t6, yt, t7, yr, t8, yb,
-                            vc = h / 2, hc = w / 2;
+                            vc = h / 2,
+                            hc = w / 2;
                         dxPos = w * adj1 / cnstVal1;
                         dyPos = h * adj2 / cnstVal1;
                         xPos = hc + dxPos;
@@ -3375,7 +3497,8 @@
                         var ss = Math.min(w, h);
                         var dxPos, dyPos, xPos, yPos, dq, ady, adq, dz, xg1, xg2, x1, x2, yg1, yg2, y1, y2,
                             t1, xl, t2, xt, t3, xr, t4, xb, t5, yl, t6, yt, t7, yr, t8, yb, u1, u2, v2,
-                            vc = h / 2, hc = w / 2;
+                            vc = h / 2,
+                            hc = w / 2;
                         dxPos = w * adj1 / cnstVal1;
                         dyPos = h * adj2 / cnstVal1;
                         xPos = hc + dxPos;
@@ -3718,7 +3841,7 @@
                         }
 
                         console.log("shapType: ", shapType, ",isBorder:", isBorder)
-                        //if(isBorder){
+                            //if(isBorder){
                         result += "<path d='" + d_val + "' fill='" + (!imgFillFlg ? (grndFillFlg ? "url(#linGrd_" + shpId + ")" : fillColor) : "url(#imgPtrn_" + shpId + ")") +
                             "' stroke='" + border.color + "' stroke-width='" + border.width + "' stroke-dasharray='" + border.strokeDasharray + "' />";
 
@@ -3756,7 +3879,9 @@
                         var cnstVal4 = 400000 * refr;
                         var ss = Math.min(w, h);
                         var a3, maxAdj1, a1, w1, maxAdj2, a2, x1, x4, dy1, dy2, ly1, ry4, ly2, ry3, ly4, ry1,
-                            ly3, ry2, hR, x2, x3, y1, y2, wd32 = w / 32, vc = h / 2, hc = w / 2;
+                            ly3, ry2, hR, x2, x3, y1, y2, wd32 = w / 32,
+                            vc = h / 2,
+                            hc = w / 2;
 
                         a3 = (adj3 < 0) ? 0 : (adj3 > cnstVal1) ? cnstVal1 : adj3;
                         maxAdj1 = cnstVal2 - a3;
@@ -3832,7 +3957,13 @@
                         var cnstVal4 = 100000 * 96 / 914400;
                         var cnstVal5 = 200000 * 96 / 914400;
                         var cnstVal6 = 400000 * 96 / 914400;
-                        var hc = w / 2, t = 0, l = 0, b = h, r = w, wd8 = w / 8, wd32 = w / 32;
+                        var hc = w / 2,
+                            t = 0,
+                            l = 0,
+                            b = h,
+                            r = w,
+                            wd8 = w / 8,
+                            wd32 = w / 32;
                         var a1, a2, x10, dx2, x2, x9, x3, x8, x5, x6, x4, x7, y1, y2, y4, y3, hR, y6;
                         a1 = (adj1 < 0) ? 0 : (adj1 > cnstVal2) ? cnstVal2 : adj1;
                         a2 = (adj2 < cnstVal1) ? cnstVal1 : (adj2 > cnstVal3) ? cnstVal3 : adj2;
@@ -3855,7 +3986,7 @@
                             y2 = b - dy2;
                             y4 = t + dy2;
                             y3 = (y4 + b) / 2;
-                            y6 = b - hR;///////////////////
+                            y6 = b - hR; ///////////////////
                             y7 = y1 - hR;
 
                             d_val = "M" + l + "," + b +
@@ -3951,7 +4082,13 @@
                         var cnstVal2 = -10000 * 96 / 914400;
                         var cnstVal3 = 50000 * 96 / 914400;
                         var cnstVal4 = 100000 * 96 / 914400;
-                        var hc = w / 2, t = 0, l = 0, b = h, r = w, wd8 = w / 8, wd32 = w / 32;
+                        var hc = w / 2,
+                            t = 0,
+                            l = 0,
+                            b = h,
+                            r = w,
+                            wd8 = w / 8,
+                            wd32 = w / 32;
                         if (shapType == "doubleWave") {
                             var cnstVal1 = 12500 * 96 / 914400;
                             var a1, a2, y1, dy2, y2, y3, y4, y5, y6, of2, dx2, x2, dx8, x8, dx3, x3, dx4, x4, x5, x6, x7, x9, x15, x10, x11, x12, x13, x14;
@@ -4052,7 +4189,12 @@
                         var cnstVal3 = 75000 * 96 / 914400;
                         var cnstVal4 = 100000 * 96 / 914400;
                         var cnstVal5 = 200000 * 96 / 914400;
-                        var hc = w / 2, t = 0, l = 0, b = h, r = w, wd8 = w / 8;
+                        var hc = w / 2,
+                            t = 0,
+                            l = 0,
+                            b = h,
+                            r = w,
+                            wd8 = w / 8;
                         var a1, a2, q10, q11, q12, minAdj3, a3, dx2, x2, x3, x4, x5, x6, dy1, f1, q1, q2,
                             cx1, cx2, q1, dy3, q3, q4, q5, rh, q8, cx4, q9, cx5;
                         a1 = (adj1 < 0) ? 0 : (adj1 > cnstVal4) ? cnstVal4 : adj1;
@@ -4207,7 +4349,7 @@
                         break;
                     case "rightArrow":
                         var shapAdjst_ary = getTextByPathList(node, ["p:spPr", "a:prstGeom", "a:avLst", "a:gd"]);
-                        var sAdj1, sAdj1_val = 0.25;//0.5;
+                        var sAdj1, sAdj1_val = 0.25; //0.5;
                         var sAdj2, sAdj2_val = 0.5;
                         var max_sAdj2_const = w / h;
                         if (shapAdjst_ary !== undefined) {
@@ -4231,7 +4373,7 @@
                         break;
                     case "leftArrow":
                         var shapAdjst_ary = getTextByPathList(node, ["p:spPr", "a:prstGeom", "a:avLst", "a:gd"]);
-                        var sAdj1, sAdj1_val = 0.25;//0.5;
+                        var sAdj1, sAdj1_val = 0.25; //0.5;
                         var sAdj2, sAdj2_val = 0.5;
                         var max_sAdj2_const = w / h;
                         if (shapAdjst_ary !== undefined) {
@@ -4256,7 +4398,7 @@
                     case "downArrow":
                     case "flowChartOffpageConnector":
                         var shapAdjst_ary = getTextByPathList(node, ["p:spPr", "a:prstGeom", "a:avLst", "a:gd"]);
-                        var sAdj1, sAdj1_val = 0.25;//0.5;
+                        var sAdj1, sAdj1_val = 0.25; //0.5;
                         var sAdj2, sAdj2_val = 0.5;
                         var max_sAdj2_const = h / w;
                         if (shapAdjst_ary !== undefined) {
@@ -4283,7 +4425,7 @@
                         break;
                     case "upArrow":
                         var shapAdjst_ary = getTextByPathList(node, ["p:spPr", "a:prstGeom", "a:avLst", "a:gd"]);
-                        var sAdj1, sAdj1_val = 0.25;//0.5;
+                        var sAdj1, sAdj1_val = 0.25; //0.5;
                         var sAdj2, sAdj2_val = 0.5;
                         var max_sAdj2_const = h / w;
                         if (shapAdjst_ary !== undefined) {
@@ -4376,7 +4518,9 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, a1, a2, a3, q1, x1, x2, dx2, x3, dx3, x4, x5, x6, y2, y3, y4, y5, y6, maxAdj1, maxAdj3;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            a1, a2, a3, q1, x1, x2, dx2, x3, dx3, x4, x5, x6, y2, y3, y4, y5, y6, maxAdj1, maxAdj3;
                         var minWH = Math.min(w, h);
                         if (adj2 < 0) a2 = 0
                         else if (adj2 > cnstVal1) a2 = cnstVal1
@@ -4455,7 +4599,9 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, a1, a2, a3, q1, x1, x2, dx2, x3, dx3, x4, x5, x6, y2, dy2, y3, y4, y5, maxAdj1, maxAdj3;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            a1, a2, a3, q1, x1, x2, dx2, x3, dx3, x4, x5, x6, y2, dy2, y3, y4, y5, maxAdj1, maxAdj3;
                         var minWH = Math.min(w, h);
                         if (adj2 < 0) a2 = 0
                         else if (adj2 > cnstVal1) a2 = cnstVal1
@@ -4527,7 +4673,9 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, a1, a2, a3, x1, x2, dx4, dx3, x3, x4, x5, y2, y3, y4, y5, maxAdj1, maxAdj3;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            a1, a2, a3, x1, x2, dx4, dx3, x3, x4, x5, y2, y3, y4, y5, maxAdj1, maxAdj3;
                         var minWH = Math.min(w, h);
                         if (adj2 < 0) a2 = 0
                         else if (adj2 > cnstVal1) a2 = cnstVal1
@@ -4592,7 +4740,9 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, a1, a2, a3, dx1, x1, dx2, x2, dx3, x3, x4, y1, y2, dy2;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            a1, a2, a3, dx1, x1, dx2, x2, dx3, x3, x4, y1, y2, dy2;
                         var minWH = Math.min(w, h);
                         if (adj1 < 0) a1 = 0
                         else if (adj1 > cnstVal1) a1 = cnstVal1
@@ -4878,7 +5028,8 @@
                                 }
                             }
                         }
-                        var a1, a2, x1, x2, dx2, y1, dy1, y2, maxAdj2, vc = h / 2, hd2 = vc;
+                        var a1, a2, x1, x2, dx2, y1, dy1, y2, maxAdj2, vc = h / 2,
+                            hd2 = vc;
                         var minWH = Math.min(w, h);
                         maxAdj2 = cnstVal1 * w / minWH;
                         if (adj1 < 0) a1 = 0
@@ -4986,7 +5137,11 @@
                             }
                         }
                         var maxAdj2, a2, maxAdj1, a1, maxAdj3, a3, q2, maxAdj4, a4, dy1, dy2, y1, y2, y3, y4, dx3, x3, x2, x1;
-                        var vc = h / 2, r = w, b = h, l = 0, t = 0;
+                        var vc = h / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0;
                         var ss = Math.min(w, h);
                         maxAdj2 = cnstVal1 * h / ss;
                         a2 = (adj2 < 0) ? 0 : (adj2 > maxAdj2) ? maxAdj2 : adj2;
@@ -5051,7 +5206,11 @@
                             }
                         }
                         var maxAdj2, a2, maxAdj1, a1, maxAdj3, a3, q2, maxAdj4, a4, dx1, dx2, x1, x2, x3, x4, dy3, y3, y2, y1;
-                        var hc = w / 2, r = w, b = h, l = 0, t = 0;
+                        var hc = w / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0;
                         var ss = Math.min(w, h);
 
                         maxAdj2 = cnstVal1 * w / ss;
@@ -5117,7 +5276,11 @@
                             }
                         }
                         var maxAdj2, a2, maxAdj1, a1, maxAdj3, a3, q2, maxAdj4, a4, dy1, dy2, y1, y2, y3, y4, x1, dx2, x2, x3;
-                        var vc = h / 2, r = w, b = h, l = 0, t = 0;
+                        var vc = h / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0;
                         var ss = Math.min(w, h);
 
                         maxAdj2 = cnstVal1 * h / ss;
@@ -5183,7 +5346,11 @@
                             }
                         }
                         var maxAdj2, a2, maxAdj1, a1, maxAdj3, a3, q2, maxAdj4, a4, dx1, dx2, x1, x2, x3, x4, y1, dy2, y2, y3;
-                        var hc = w / 2, r = w, b = h, l = 0, t = 0;
+                        var hc = w / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0;
                         var ss = Math.min(w, h);
                         maxAdj2 = cnstVal1 * w / ss;
                         a2 = (adj2 < 0) ? 0 : (adj2 > maxAdj2) ? maxAdj2 : adj2;
@@ -5249,7 +5416,12 @@
                             }
                         }
                         var maxAdj2, a2, maxAdj1, a1, maxAdj3, a3, q2, maxAdj4, a4, dy1, dy2, y1, y2, y3, y4, x1, x4, dx2, x2, x3;
-                        var vc = h / 2, hc = w / 2, r = w, b = h, l = 0, t = 0;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0;
                         var ss = Math.min(w, h);
                         maxAdj2 = cnstVal1 * h / ss;
                         a2 = (adj2 < 0) ? 0 : (adj2 > maxAdj2) ? maxAdj2 : adj2;
@@ -5321,7 +5493,12 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, r = w, b = h, l = 0, t = 0;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0;
                         var ss = Math.min(w, h);
                         var a2, maxAdj1, a1, maxAdj3, a3, q2, maxAdj4, a4, dx2, dx3, ah, dx1, dy1, x8, x2, x7, x3, x6, x4, x5, y8, y2, y7, y3, y6, y4, y5;
                         a2 = (adj2 < 0) ? 0 : (adj2 > cnstVal1) ? cnstVal1 : adj2;
@@ -5411,7 +5588,16 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, wd2 = w / 2, r = w, b = h, l = 0, t = 0, c3d4 = 270, cd2 = 180, cd4 = 90;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            wd2 = w / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0,
+                            c3d4 = 270,
+                            cd2 = 180,
+                            cd4 = 90;
                         var ss = Math.min(w, h);
                         var maxAdj2, a2, a1, th, aw, q1, wR, q7, q8, q9, q10, q11, idy, maxAdj3, a3, ah, x3, q2, q3, q4, q5, dx, x5, x7, q6, dh, x4, x8, aw2, x6, y1, swAng, mswAng, iy, ix, q12, dang2, stAng, stAng2, swAng2, swAng3;
 
@@ -5500,7 +5686,16 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, hd2 = h / 2, r = w, b = h, l = 0, t = 0, c3d4 = 270, cd2 = 180, cd4 = 90;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            hd2 = h / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0,
+                            c3d4 = 270,
+                            cd2 = 180,
+                            cd4 = 90;
                         var ss = Math.min(w, h);
                         var maxAdj2, a2, a1, th, aw, q1, hR, q7, q8, q9, q10, q11, idx, maxAdj3, a3, ah, y3, q2, q3, q4, q5, dy, y5, y7, q6, dh, y4, y8, aw2, y6, x1, swAng, mswAng, ix, iy, q12, dang2, swAng2, swAng3, stAng3;
 
@@ -5591,7 +5786,16 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, hd2 = h / 2, r = w, b = h, l = 0, t = 0, c3d4 = 270, cd2 = 180, cd4 = 90;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            hd2 = h / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0,
+                            c3d4 = 270,
+                            cd2 = 180,
+                            cd4 = 90;
                         var ss = Math.min(w, h);
                         var maxAdj2, a2, a1, th, aw, q1, hR, q7, q8, q9, q10, q11, idx, maxAdj3, a3, ah, y3, q2, q3, q4, q5, dy, y5, y7, q6, dh, y4, y8, aw2, y6, x1, swAng, stAng, mswAng, ix, iy, q12, dang2, swAng2, swAng3, stAng3;
 
@@ -5682,7 +5886,16 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, wd2 = w / 2, r = w, b = h, l = 0, t = 0, c3d4 = 270, cd2 = 180, cd4 = 90;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            wd2 = w / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0,
+                            c3d4 = 270,
+                            cd2 = 180,
+                            cd4 = 90;
                         var ss = Math.min(w, h);
                         var maxAdj2, a2, a1, th, aw, q1, wR, q7, q8, q9, q10, q11, idy, maxAdj3, a3, ah, x3, q2, q3, q4, q5, dx, x5, x7, q6, dh, x4, x8, aw2, x6, y1, swAng, mswAng, iy, ix, q12, dang2, swAng2, mswAng2, stAng3, swAng3, stAng2;
 
@@ -5786,7 +5999,9 @@
                         var cnstVal2 = 100000 * 96 / 914400;
                         var cnstVal3 = 200000 * 96 / 914400;
                         var dVal;
-                        var hc = w / 2, vc = h / 2, hd2 = h / 2;
+                        var hc = w / 2,
+                            vc = h / 2,
+                            hd2 = h / 2;
                         if (shapType == "mathNotEqual") {
                             if (shapAdjst_ary === undefined) {
                                 adj1 = 23520 * 96 / 914400;
@@ -5801,7 +6016,8 @@
                                 cadj2, xadj2, len, bhw, bhw2, x7, dx67, x6, dx57, x5, dx47, x4, dx37,
                                 x3, dx27, x2, rx7, rx6, rx5, rx4, rx3, rx2, dx7, rxt, lxt, rx, lx,
                                 dy3, dy4, ry, ly, dlx, drx, dly, dry, xC1, xC2, yC1, yC2, yC3, yC4;
-                            var angVal1 = 70 * Math.PI / 180, angVal2 = 110 * Math.PI / 180;
+                            var angVal1 = 70 * Math.PI / 180,
+                                angVal2 = 110 * Math.PI / 180;
                             var cnstVal4 = 73490 * 96 / 914400;
                             //var cd4 = 90;
                             a1 = (adj1 < 0) ? 0 : (adj1 > cnstVal1) ? cnstVal1 : adj1;
@@ -5918,7 +6134,8 @@
                             x1 = hc - dx1;
                             x3 = hc + dx1;
                             x2 = hc - rad;
-                            var cd4 = 90, c3d4 = 270;
+                            var cd4 = 90,
+                                c3d4 = 270;
                             var cX1 = hc - Math.cos(c3d4 * Math.PI / 180) * rad;
                             var cY1 = y1 - Math.sin(c3d4 * Math.PI / 180) * rad;
                             var cX2 = hc - Math.cos(Math.PI / 2) * rad;
@@ -6109,7 +6326,8 @@
                         y1 = ss * a / cnstVal2;
                         y2 = y1 + y1;
                         y3 = h - y1;
-                        var cd2 = 180, wd2 = w / 2;
+                        var cd2 = 180,
+                            wd2 = w / 2;
 
                         var tranglRott = "";
                         if (shapType == "flowChartMagneticDrum") {
@@ -6219,7 +6437,14 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, r = w, b = h, l = 0, t = 0, wd2 = w / 2, hd2 = h / 2;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0,
+                            wd2 = w / 2,
+                            hd2 = h / 2;
                         var ss = Math.min(w, h);
                         var a5, maxAdj1, a1, enAng, stAng, th, thh, th2, rw1, rh1, rw2, rh2, rw3, rh3, wtH, htH, dxH,
                             dyH, xH, yH, rI, u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17,
@@ -6480,7 +6705,14 @@
                                 }
                             }
                         }
-                        var vc = h / 2, hc = w / 2, r = w, b = h, l = 0, t = 0, wd2 = w / 2, hd2 = h / 2;
+                        var vc = h / 2,
+                            hc = w / 2,
+                            r = w,
+                            b = h,
+                            l = 0,
+                            t = 0,
+                            wd2 = w / 2,
+                            hd2 = h / 2;
                         var ss = Math.min(w, h);
                         var cnstVal1 = 25000 * 96 / 914400;
                         var cnstVal2 = 100000 * 96 / 914400;
@@ -6762,10 +6994,10 @@
                 var arcToNodes = pathNodes["a:arcTo"];
                 var sortblAry = [];
                 if (lnToNodes !== undefined) {
-                    Object.keys(lnToNodes).forEach(function (key) {
+                    Object.keys(lnToNodes).forEach(function(key) {
                         var lnToPtNode = lnToNodes[key]["a:pt"];
                         if (lnToPtNode !== undefined) {
-                            Object.keys(lnToPtNode).forEach(function (key2) {
+                            Object.keys(lnToPtNode).forEach(function(key2) {
                                 var ptObj = {};
                                 var lnToNoPt = lnToPtNode[key2];
                                 var ptX = lnToNoPt["attrs", "x"];
@@ -6784,14 +7016,14 @@
 
                 }
                 if (cubicBezToNodes !== undefined) {
-                    Object.keys(cubicBezToNodes).forEach(function (key) {
+                    Object.keys(cubicBezToNodes).forEach(function(key) {
                         //console.log("cubicBezTo["+key+"]:");
                         var cubicBezToPtNodes = cubicBezToNodes[key]["a:pt"];
                         if (cubicBezToPtNodes !== undefined) {
-                            Object.keys(cubicBezToPtNodes).forEach(function (key2) {
+                            Object.keys(cubicBezToPtNodes).forEach(function(key2) {
                                 //console.log("cubicBezTo["+key+"]pt["+key2+"]:");
                                 var cubBzPts = cubicBezToPtNodes[key2];
-                                Object.keys(cubBzPts).forEach(function (key3) {
+                                Object.keys(cubBzPts).forEach(function(key3) {
                                     //console.log(key3, cubBzPts[key3]);
                                     var ptObj = {};
                                     var cubBzPt = cubBzPts[key3];
@@ -6836,7 +7068,7 @@
 
                 }
                 var sortByOrder = sortblAry.slice(0);
-                sortByOrder.sort(function (a, b) {
+                sortByOrder.sort(function(a, b) {
                     return a.order - b.order;
                 });
                 //console.log(sortByOrder);
@@ -6929,10 +7161,11 @@
 
             return result;
         }
+
         function shapeStar(adj, starNum) {
             var innerRadius = adj; /*1-100*/
-            var outerRadius = 100;//star.outerRadius;
-            var numPoints = starNum;/*1-100*/
+            var outerRadius = 100; //star.outerRadius;
+            var numPoints = starNum; /*1-100*/
             var center = Math.max(innerRadius, outerRadius);
             var angle = Math.PI / numPoints;
             var points = [];
@@ -6945,6 +7178,7 @@
 
             return points;
         }
+
         function shapePie(H, w, adj1, adj2, isClose) {
             var pieVal = parseInt(adj2);
             var piAngle = parseInt(adj1);
@@ -6978,24 +7212,25 @@
 
             return [d, rot];
         }
+
         function shapeGear(w, h, points) {
-            var innerRadius = h;//gear.innerRadius;
+            var innerRadius = h; //gear.innerRadius;
             var outerRadius = 1.5 * innerRadius;
-            var cx = outerRadius;//Math.max(innerRadius, outerRadius),                   // center x
-            cy = outerRadius;//Math.max(innerRadius, outerRadius),                    // center y
-            notches = points,//gear.points,                      // num. of notches
-                radiusO = outerRadius,                    // outer radius
-                radiusI = innerRadius,                    // inner radius
-                taperO = 50,                     // outer taper %
-                taperI = 35,                     // inner taper %
+            var cx = outerRadius; //Math.max(innerRadius, outerRadius),                   // center x
+            cy = outerRadius; //Math.max(innerRadius, outerRadius),                    // center y
+            notches = points, //gear.points,                      // num. of notches
+                radiusO = outerRadius, // outer radius
+                radiusI = innerRadius, // inner radius
+                taperO = 50, // outer taper %
+                taperI = 35, // inner taper %
 
                 // pre-calculate values for loop
 
-                pi2 = 2 * Math.PI,            // cache 2xPI (360deg)
-                angle = pi2 / (notches * 2),    // angle between notches
+                pi2 = 2 * Math.PI, // cache 2xPI (360deg)
+                angle = pi2 / (notches * 2), // angle between notches
                 taperAI = angle * taperI * 0.005, // inner taper offset (100% = half notch)
                 taperAO = angle * taperO * 0.005, // outer taper offset
-                a = angle,                  // iterator (angle)
+                a = angle, // iterator (angle)
                 toggle = false;
             // move to starting point
             var d = " M" + (cx + radiusO * Math.cos(taperAO)) + " " + (cy + radiusO * Math.sin(taperAO));
@@ -7008,7 +7243,7 @@
                     d += " L" + (cx + radiusO * Math.cos(a + taperAO)) + "," + (cy + radiusO * Math.sin(a + taperAO));
                 } else { // draw outer to inner line
                     d += " L" + (cx + radiusO * Math.cos(a - taperAO)) + "," + (cy + radiusO * Math.sin(a - taperAO)); // outer line
-                    d += " L" + (cx + radiusI * Math.cos(a + taperAI)) + "," + (cy + radiusI * Math.sin(a + taperAI));// inner line
+                    d += " L" + (cx + radiusI * Math.cos(a + taperAI)) + "," + (cy + radiusI * Math.sin(a + taperAI)); // inner line
 
                 }
                 // switch level
@@ -7018,12 +7253,13 @@
             d += " ";
             return d;
         }
+
         function shapeArc(cX, cY, rX, rY, stAng, endAng, isClose) {
             var dData;
             var angle = stAng;
             if (endAng >= stAng) {
                 while (angle <= endAng) {
-                    var radians = angle * (Math.PI / 180);  // convert degree to radians
+                    var radians = angle * (Math.PI / 180); // convert degree to radians
                     var x = cX + Math.cos(radians) * rX;
                     var y = cY + Math.sin(radians) * rY;
                     if (angle == stAng) {
@@ -7034,7 +7270,7 @@
                 }
             } else {
                 while (angle > endAng) {
-                    var radians = angle * (Math.PI / 180);  // convert degree to radians
+                    var radians = angle * (Math.PI / 180); // convert degree to radians
                     var x = cX + Math.cos(radians) * rX;
                     var y = cY + Math.sin(radians) * rY;
                     if (angle == stAng) {
@@ -7047,6 +7283,7 @@
             dData += (isClose ? " z" : "");
             return dData;
         }
+
         function shapeSnipRoundRect(w, h, adj1, adj2, shapeType, adjType) {
             /* 
             shapeType: snip,round
@@ -7232,20 +7469,20 @@
         function processSpPrNode(node, warpObj) {
 
             /*
-            * 2241 <xsd:complexType name="CT_ShapeProperties">
-            * 2242   <xsd:sequence>
-            * 2243     <xsd:element name="xfrm" type="CT_Transform2D"  minOccurs="0" maxOccurs="1"/>
-            * 2244     <xsd:group   ref="EG_Geometry"                  minOccurs="0" maxOccurs="1"/>
-            * 2245     <xsd:group   ref="EG_FillProperties"            minOccurs="0" maxOccurs="1"/>
-            * 2246     <xsd:element name="ln" type="CT_LineProperties" minOccurs="0" maxOccurs="1"/>
-            * 2247     <xsd:group   ref="EG_EffectProperties"          minOccurs="0" maxOccurs="1"/>
-            * 2248     <xsd:element name="scene3d" type="CT_Scene3D"   minOccurs="0" maxOccurs="1"/>
-            * 2249     <xsd:element name="sp3d" type="CT_Shape3D"      minOccurs="0" maxOccurs="1"/>
-            * 2250     <xsd:element name="extLst" type="CT_OfficeArtExtensionList" minOccurs="0" maxOccurs="1"/>
-            * 2251   </xsd:sequence>
-            * 2252   <xsd:attribute name="bwMode" type="ST_BlackWhiteMode" use="optional"/>
-            * 2253 </xsd:complexType>
-            */
+             * 2241 <xsd:complexType name="CT_ShapeProperties">
+             * 2242   <xsd:sequence>
+             * 2243     <xsd:element name="xfrm" type="CT_Transform2D"  minOccurs="0" maxOccurs="1"/>
+             * 2244     <xsd:group   ref="EG_Geometry"                  minOccurs="0" maxOccurs="1"/>
+             * 2245     <xsd:group   ref="EG_FillProperties"            minOccurs="0" maxOccurs="1"/>
+             * 2246     <xsd:element name="ln" type="CT_LineProperties" minOccurs="0" maxOccurs="1"/>
+             * 2247     <xsd:group   ref="EG_EffectProperties"          minOccurs="0" maxOccurs="1"/>
+             * 2248     <xsd:element name="scene3d" type="CT_Scene3D"   minOccurs="0" maxOccurs="1"/>
+             * 2249     <xsd:element name="sp3d" type="CT_Shape3D"      minOccurs="0" maxOccurs="1"/>
+             * 2250     <xsd:element name="extLst" type="CT_OfficeArtExtensionList" minOccurs="0" maxOccurs="1"/>
+             * 2251   </xsd:sequence>
+             * 2252   <xsd:attribute name="bwMode" type="ST_BlackWhiteMode" use="optional"/>
+             * 2253 </xsd:complexType>
+             */
 
             // TODO:
         }
@@ -7507,7 +7744,7 @@
                     var imgExt = imgPath.split(".").pop();
                     var imgMimeType = getMimeType(imgExt);
                     buImg = "<img src='data:" + imgMimeType + ";base64," + base64ArrayBuffer(imgArrayBuffer) + "' style='width: 100%; height: 100%'/>"
-                    //console.log("imgPath: "+imgPath+"\nimgMimeType: "+imgMimeType)
+                        //console.log("imgPath: "+imgPath+"\nimgMimeType: "+imgMimeType)
                 }
                 if (buPicId === undefined) {
                     buImg = "&#8227;";
@@ -7716,27 +7953,28 @@
 
                                 }
                                 //console.log(i,thisTblStyle)
-                            }/*else{
-                                var bgFillschemeClr = thisTblStyle["a:wholeTbl"]["a:tcStyle"]["a:fill"]["a:solidFill"];
-                                if(bgFillschemeClr !==undefined){
-                                    fillColor = getSolidFill(bgFillschemeClr);
-                                    colorOpacity = getColorOpacity(bgFillschemeClr);
-                                }
-                                //borders color
-                                //borders Width
-                                var borderStyl = thisTblStyle["a:wholeTbl"]["a:tcStyle"]["a:tcBdr"];
-                                if(borderStyl !== undefined){
-                                    var row_borders = getTableBorders(borderStyl);
-                                    rowsStyl += row_borders;
-                                }
-                                //console.log(thisTblStyle["a:wholeTbl"])
-                                
-                                //Text Style - TODO
-                                var rowTxtStyl = thisTblStyle["a:wholeTbl"]["a:tcTxStyle"];
-                                if(rowTxtStyl !== undefined){
-                                    
-                                }                        
-                            }*/
+                            }
+                            /*else{
+                                                            var bgFillschemeClr = thisTblStyle["a:wholeTbl"]["a:tcStyle"]["a:fill"]["a:solidFill"];
+                                                            if(bgFillschemeClr !==undefined){
+                                                                fillColor = getSolidFill(bgFillschemeClr);
+                                                                colorOpacity = getColorOpacity(bgFillschemeClr);
+                                                            }
+                                                            //borders color
+                                                            //borders Width
+                                                            var borderStyl = thisTblStyle["a:wholeTbl"]["a:tcStyle"]["a:tcBdr"];
+                                                            if(borderStyl !== undefined){
+                                                                var row_borders = getTableBorders(borderStyl);
+                                                                rowsStyl += row_borders;
+                                                            }
+                                                            //console.log(thisTblStyle["a:wholeTbl"])
+                                                            
+                                                            //Text Style - TODO
+                                                            var rowTxtStyl = thisTblStyle["a:wholeTbl"]["a:tcTxStyle"];
+                                                            if(rowTxtStyl !== undefined){
+                                                                
+                                                            }                        
+                                                        }*/
                         } else {
                             if (thisTblStyle["a:band1H"] !== undefined) {
                                 var bgFillschemeClr = getTextByPathList(thisTblStyle, ["a:band1H", "a:tcStyle", "a:fill", "a:solidFill"]);
@@ -8071,7 +8309,7 @@
                     var pSpStrToObj = JSON.parse(pSpStr);
                     //console.log("pSpStrToObj["+i+"]: ",pSpStrToObj);
                     rslt += processSpNode(pSpStrToObj, warpObj)
-                    //console.log("rslt["+i+"]: ",rslt);
+                        //console.log("rslt["+i+"]: ",rslt);
                 }
                 // dgmDrwFile: "dsp:"-> "p:"
             }
@@ -8085,7 +8323,8 @@
         function getPosition(slideSpNode, slideLayoutSpNode, slideMasterSpNode) {
 
             var off = undefined;
-            var x = -1, y = -1;
+            var x = -1,
+                y = -1;
 
             if (slideSpNode !== undefined) {
                 off = slideSpNode["a:off"]["attrs"];
@@ -8108,7 +8347,8 @@
         function getSize(slideSpNode, slideLayoutSpNode, slideMasterSpNode) {
 
             var ext = undefined;
-            var w = -1, h = -1;
+            var w = -1,
+                h = -1;
 
             if (slideSpNode !== undefined) {
                 ext = slideSpNode["a:ext"]["attrs"];
@@ -8228,12 +8468,13 @@
                 var brdClr = txBrdAry[2];
                 //var brdTyp = txBrdAry[1]; //not in use
                 textBordr = "-" + brdSize + " 0 " + brdClr + ", 0 " + brdSize + " " + brdClr + ", " + brdSize + " 0 " + brdClr + ", 0 -" + brdSize + " " + brdClr + ";"
-                //console.log(node,"txBrd: ",textBordr);
+                    //console.log(node,"txBrd: ",textBordr);
             } else {
                 textBordr = "none";
             }
             return [color, textBordr];
         }
+
         function getFontSize(node, slideLayoutSpNode, slideMasterSpNode, type, slideMasterTextStyles) {
             var fontSize = undefined;
             if (node["a:rPr"] !== undefined) {
@@ -8348,6 +8589,7 @@
             //console.log(tmp,isDir,pprAlgn,dir)
             return dir;
         }
+
         function getTableBorders(node) {
             var borderStyle = "";
             if (node["a:bottom"] !== undefined) {
@@ -8453,7 +8695,7 @@
                     strokeDasharray = "2, 5";
                     break;
                 case undefined:
-                //console.log(borderType);
+                    //console.log(borderType);
                 default:
                     cssText += "solid";
                     strokeDasharray = "0";
@@ -8557,7 +8799,7 @@
                     var trueIdx = idx - 1000;
                     var bgFillLst = themeContent["a:theme"]["a:themeElements"]["a:fmtScheme"]["a:bgFillStyleLst"];
                     var sortblAry = [];
-                    Object.keys(bgFillLst).forEach(function (key) {
+                    Object.keys(bgFillLst).forEach(function(key) {
                         var bgFillLstTyp = bgFillLst[key];
                         if (key != "attrs") {
                             if (bgFillLstTyp.constructor === Array) {
@@ -8576,7 +8818,7 @@
                         }
                     });
                     var sortByOrder = sortblAry.slice(0);
-                    sortByOrder.sort(function (a, b) {
+                    sortByOrder.sort(function(a, b) {
                         return a.idex - b.idex;
                     });
                     var bgFillLstIdx = sortByOrder[trueIdx - 1];
@@ -8658,7 +8900,7 @@
                             var trueIdx = idx - 1000;
                             var bgFillLst = themeContent["a:theme"]["a:themeElements"]["a:fmtScheme"]["a:bgFillStyleLst"];
                             var sortblAry = [];
-                            Object.keys(bgFillLst).forEach(function (key) {
+                            Object.keys(bgFillLst).forEach(function(key) {
                                 //console.log("cubicBezTo["+key+"]:");
                                 var bgFillLstTyp = bgFillLst[key];
                                 if (key != "attrs") {
@@ -8678,7 +8920,7 @@
                                 }
                             });
                             var sortByOrder = sortblAry.slice(0);
-                            sortByOrder.sort(function (a, b) {
+                            sortByOrder.sort(function(a, b) {
                                 return a.idex - b.idex;
                             });
                             var bgFillLstIdx = sortByOrder[trueIdx - 1];
@@ -8701,6 +8943,7 @@
             //console.log("bgcolor: ",bgcolor)   
             return bgcolor;
         }
+
         function getBgGradientFill(bgPr, phClr, slideMasterContent) {
             var bgcolor = "";
             if (bgPr !== undefined) {
@@ -8758,6 +9001,7 @@
             }
             return bgcolor;
         }
+
         function getBgPicFill(bgPr, sorce, warpObj) {
             var bgcolor;
             var picFillBase64 = getPicFill(sorce, bgPr["a:blipFill"], warpObj);
@@ -8767,6 +9011,7 @@
             bgcolor = "background-image: url(" + picFillBase64 + ");  z-index: " + ordr + ";";
             return bgcolor;
         }
+
         function hexToRgbNew(hex) {
             var arrBuff = new ArrayBuffer(4);
             var vw = new DataView(arrBuff);
@@ -8775,6 +9020,7 @@
 
             return arrByte[1] + "," + arrByte[2] + "," + arrByte[3];
         }
+
         function getShapeFill(node, isSvgMode, warpObj) {
 
             // 1. presentationML
@@ -8884,6 +9130,7 @@
 
             return fillType;
         }
+
         function getGradientFill(node) {
             var gsLst = node["a:gsLst"]["a:gs"];
             //get start color
@@ -8929,6 +9176,7 @@
                 "rot": rot
             }
         }
+
         function getPicFill(type, node, warpObj) {
             //Need to test/////////////////////////////////////////////
             //rId
@@ -8958,6 +9206,7 @@
             img = "data:" + imgMimeType + ";base64," + base64ArrayBuffer(imgArrayBuffer);
             return img;
         }
+
         function getPatternFill(node) {
             var color = "";
             var fgClr = node["a:fgClr"];
@@ -9015,11 +9264,13 @@
             }
             return color;
         }
+
         function toHex(n) {
             var hex = n.toString(16);
             while (hex.length < 2) { hex = "0" + hex; }
             return hex;
         }
+
         function hslToRgb(hue, sat, light) {
             var t1, t2, r, g, b;
             hue = hue / 60;
@@ -9034,6 +9285,7 @@
             b = hueToRgb(t1, t2, hue - 2) * 255;
             return { r: r, g: g, b: b };
         }
+
         function hueToRgb(t1, t2, hue) {
             if (hue < 0) hue += 6;
             if (hue >= 6) hue -= 6;
@@ -9042,6 +9294,7 @@
             else if (hue < 4) return (t2 - t1) * (4 - hue) + t1;
             else return t1;
         }
+
         function getColorName2Hex(name) {
             var hex;
             var colorName = ['AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure', 'Beige', 'Bisque', 'Black', 'BlanchedAlmond', 'Blue', 'BlueViolet', 'Brown', 'BurlyWood', 'CadetBlue', 'Chartreuse', 'Chocolate', 'Coral', 'CornflowerBlue', 'Cornsilk', 'Crimson', 'Cyan', 'DarkBlue', 'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGrey', 'DarkGreen', 'DarkKhaki', 'DarkMagenta', 'DarkOliveGreen', 'DarkOrange', 'DarkOrchid', 'DarkRed', 'DarkSalmon', 'DarkSeaGreen', 'DarkSlateBlue', 'DarkSlateGray', 'DarkSlateGrey', 'DarkTurquoise', 'DarkViolet', 'DeepPink', 'DeepSkyBlue', 'DimGray', 'DimGrey', 'DodgerBlue', 'FireBrick', 'FloralWhite', 'ForestGreen', 'Fuchsia', 'Gainsboro', 'GhostWhite', 'Gold', 'GoldenRod', 'Gray', 'Grey', 'Green', 'GreenYellow', 'HoneyDew', 'HotPink', 'IndianRed', 'Indigo', 'Ivory', 'Khaki', 'Lavender', 'LavenderBlush', 'LawnGreen', 'LemonChiffon', 'LightBlue', 'LightCoral', 'LightCyan', 'LightGoldenRodYellow', 'LightGray', 'LightGrey', 'LightGreen', 'LightPink', 'LightSalmon', 'LightSeaGreen', 'LightSkyBlue', 'LightSlateGray', 'LightSlateGrey', 'LightSteelBlue', 'LightYellow', 'Lime', 'LimeGreen', 'Linen', 'Magenta', 'Maroon', 'MediumAquaMarine', 'MediumBlue', 'MediumOrchid', 'MediumPurple', 'MediumSeaGreen', 'MediumSlateBlue', 'MediumSpringGreen', 'MediumTurquoise', 'MediumVioletRed', 'MidnightBlue', 'MintCream', 'MistyRose', 'Moccasin', 'NavajoWhite', 'Navy', 'OldLace', 'Olive', 'OliveDrab', 'Orange', 'OrangeRed', 'Orchid', 'PaleGoldenRod', 'PaleGreen', 'PaleTurquoise', 'PaleVioletRed', 'PapayaWhip', 'PeachPuff', 'Peru', 'Pink', 'Plum', 'PowderBlue', 'Purple', 'RebeccaPurple', 'Red', 'RosyBrown', 'RoyalBlue', 'SaddleBrown', 'Salmon', 'SandyBrown', 'SeaGreen', 'SeaShell', 'Sienna', 'Silver', 'SkyBlue', 'SlateBlue', 'SlateGray', 'SlateGrey', 'Snow', 'SpringGreen', 'SteelBlue', 'Tan', 'Teal', 'Thistle', 'Tomato', 'Turquoise', 'Violet', 'Wheat', 'White', 'WhiteSmoke', 'Yellow', 'YellowGreen'];
@@ -9052,6 +9305,7 @@
             }
             return hex;
         }
+
         function getColorOpacity(solidFill) {
 
             if (solidFill === undefined) {
@@ -9094,6 +9348,7 @@
 
             return opcity;
         }
+
         function getSchemeColorFromTheme(schemeClr, sldMasterNode) {
             //<p:clrMap ...> in slide master
             // e.g. tx2="dk2" bg2="lt2" tx1="dk1" bg1="lt1" slideLayoutClrOvride
@@ -9148,31 +9403,31 @@
 
             if (serNode["c:xVal"] !== undefined) {
                 var dataRow = new Array();
-                eachElement(serNode["c:xVal"]["c:numRef"]["c:numCache"]["c:pt"], function (innerNode, index) {
+                eachElement(serNode["c:xVal"]["c:numRef"]["c:numCache"]["c:pt"], function(innerNode, index) {
                     dataRow.push(parseFloat(innerNode["c:v"]));
                     return "";
                 });
                 dataMat.push(dataRow);
                 dataRow = new Array();
-                eachElement(serNode["c:yVal"]["c:numRef"]["c:numCache"]["c:pt"], function (innerNode, index) {
+                eachElement(serNode["c:yVal"]["c:numRef"]["c:numCache"]["c:pt"], function(innerNode, index) {
                     dataRow.push(parseFloat(innerNode["c:v"]));
                     return "";
                 });
                 dataMat.push(dataRow);
             } else {
-                eachElement(serNode, function (innerNode, index) {
+                eachElement(serNode, function(innerNode, index) {
                     var dataRow = new Array();
                     var colName = getTextByPathList(innerNode, ["c:tx", "c:strRef", "c:strCache", "c:pt", "c:v"]) || index;
 
                     // Category (string or number)
                     var rowNames = {};
                     if (getTextByPathList(innerNode, ["c:cat", "c:strRef", "c:strCache", "c:pt"]) !== undefined) {
-                        eachElement(innerNode["c:cat"]["c:strRef"]["c:strCache"]["c:pt"], function (innerNode, index) {
+                        eachElement(innerNode["c:cat"]["c:strRef"]["c:strCache"]["c:pt"], function(innerNode, index) {
                             rowNames[innerNode["attrs"]["idx"]] = innerNode["c:v"];
                             return "";
                         });
                     } else if (getTextByPathList(innerNode, ["c:cat", "c:numRef", "c:numCache", "c:pt"]) !== undefined) {
-                        eachElement(innerNode["c:cat"]["c:numRef"]["c:numCache"]["c:pt"], function (innerNode, index) {
+                        eachElement(innerNode["c:cat"]["c:numRef"]["c:numCache"]["c:pt"], function(innerNode, index) {
                             rowNames[innerNode["attrs"]["idx"]] = innerNode["c:v"];
                             return "";
                         });
@@ -9180,7 +9435,7 @@
 
                     // Value
                     if (getTextByPathList(innerNode, ["c:val", "c:numRef", "c:numCache", "c:pt"]) !== undefined) {
-                        eachElement(innerNode["c:val"]["c:numRef"]["c:numCache"]["c:pt"], function (innerNode, index) {
+                        eachElement(innerNode["c:val"]["c:numRef"]["c:numCache"]["c:pt"], function(innerNode, index) {
                             dataRow.push({ x: innerNode["attrs"]["idx"], y: parseFloat(innerNode["c:v"]) });
                             return "";
                         });
@@ -9294,6 +9549,7 @@
             }
             return Math.round(angle / 60000);
         }
+
         function getMimeType(imgFileExt) {
             var mimeType = "";
             //console.log(imgFileExt)
@@ -9344,6 +9600,7 @@
             }
             return mimeType;
         }
+
         function getSvgGradient(w, h, angl, color_arry, shpId) {
             var stopsArray = getMiddleStops(color_arry.length - 2);
 
@@ -9372,6 +9629,7 @@
 
             return svg
         }
+
         function getMiddleStops(s) {
             var sArry = ['0%', '100%'];
             if (s == 0) {
@@ -9386,6 +9644,7 @@
             }
             return sArry
         }
+
         function SVGangle(deg, svgHeight, svgWidth) {
             var w = parseFloat(svgWidth),
                 h = parseFloat(svgHeight),
@@ -9448,6 +9707,7 @@
                 y2 = Math.round(ty1 / h * 100 * 100) / 100;
             return [x1, y1, x2, y2];
         }
+
         function getSvgImagePattern(fillColor, shpId) {
             var ptrn = '<pattern id="imgPtrn_' + shpId + '"  patternContentUnits="objectBoundingBox"  width="1" height="1">';
             //console.log("fillColor: ", fillColor)
@@ -9477,12 +9737,12 @@
                     data = chartData;
                     chart = nv.models.lineChart()
                         .useInteractiveGuideline(true);
-                    chart.xAxis.tickFormat(function (d) { return chartData[0].xlabels[d] || d; });
+                    chart.xAxis.tickFormat(function(d) { return chartData[0].xlabels[d] || d; });
                     break;
                 case "barChart":
                     data = chartData;
                     chart = nv.models.multiBarChart();
-                    chart.xAxis.tickFormat(function (d) { return chartData[0].xlabels[d] || d; });
+                    chart.xAxis.tickFormat(function(d) { return chartData[0].xlabels[d] || d; });
                     break;
                 case "pieChart":
                 case "pie3DChart":
@@ -9494,7 +9754,7 @@
                     chart = nv.models.stackedAreaChart()
                         .clipEdge(true)
                         .useInteractiveGuideline(true);
-                    chart.xAxis.tickFormat(function (d) { return chartData[0].xlabels[d] || d; });
+                    chart.xAxis.tickFormat(function(d) { return chartData[0].xlabels[d] || d; });
                     break;
                 case "scatterChart":
 
@@ -9588,6 +9848,7 @@
                 }
             }
         }
+
         function getNumTypeNum(numTyp, num) {
             var rtrnNum = "";
             switch (numTyp) {
@@ -9625,13 +9886,15 @@
             }
             return rtrnNum;
         }
+
         function romanize(num) {
             if (!+num)
                 return false;
             var digits = String(+num).split(""),
                 key = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
                     "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
-                    "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+                    "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"
+                ],
                 roman = "",
                 i = 3;
             while (i--)
@@ -9667,12 +9930,13 @@
             [/([א-ת])([א-ת])$/, '$1״$2'],
             [/^([א-ת])$/, "$1׳"]
         ]);
+
         function archaicNumbers(arr) {
-            var arrParse = arr.slice().sort(function (a, b) { return b[1].length - a[1].length });
+            var arrParse = arr.slice().sort(function(a, b) { return b[1].length - a[1].length });
             return {
-                format: function (n) {
+                format: function(n) {
                     var ret = '';
-                    jQuery.each(arr, function () {
+                    jQuery.each(arr, function() {
                         var num = this[0];
                         if (parseInt(num) > 0) {
                             for (; n >= num; n -= num) ret += this[1];
@@ -9684,6 +9948,7 @@
                 }
             }
         }
+
         function alphaNumeric(num, upperLower) {
             num = Number(num) - 1;
             var aNum = "";
@@ -9694,6 +9959,7 @@
             }
             return aNum;
         }
+
         function base64ArrayBuffer(arrayBuffer) {
             var base64 = '';
             var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
@@ -9742,13 +10008,140 @@
                 '"': '&quot;',
                 "'": '&#039;'
             };
-            return text.replace(/[&<>"']/g, function (m) { return map[m]; });
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
         }
         /////////////////////////////////////tXml///////////////////////////
         /*
         This is my custom tXml.js file
         */
-        function tXml(t, r) { "use strict"; function e() { for (var r = []; t[l];)if (t.charCodeAt(l) == s) { if (t.charCodeAt(l + 1) === h) return l = t.indexOf(u, l), l + 1 && (l += 1), r; if (t.charCodeAt(l + 1) === v) { if (t.charCodeAt(l + 2) == m) { for (; -1 !== l && (t.charCodeAt(l) !== d || t.charCodeAt(l - 1) != m || t.charCodeAt(l - 2) != m || -1 == l);)l = t.indexOf(u, l + 1); -1 === l && (l = t.length) } else for (l += 2; t.charCodeAt(l) !== d && t[l];)l++; l++; continue } var e = a(); r.push(e) } else { var i = n(); i.trim().length > 0 && r.push(i), l++ } return r } function n() { var r = l; return l = t.indexOf(c, l) - 1, -2 === l && (l = t.length), t.slice(r, l + 1) } function i() { for (var r = l; -1 === A.indexOf(t[l]) && t[l];)l++; return t.slice(r, l) } function a() { var r = {}; l++, r.tagName = i(); for (var n = !1; t.charCodeAt(l) !== d && t[l];) { var a = t.charCodeAt(l); if (a > 64 && 91 > a || a > 96 && 123 > a) { for (var f = i(), c = t.charCodeAt(l); c && c !== p && c !== g && !(c > 64 && 91 > c || c > 96 && 123 > c) && c !== d;)l++, c = t.charCodeAt(l); if (n || (r.attributes = {}, n = !0), c === p || c === g) { var s = o(); if (-1 === l) return r } else s = null, l--; r.attributes[f] = s } l++ } if (t.charCodeAt(l - 1) !== h) if ("script" == r.tagName) { var u = l + 1; l = t.indexOf("</script>", l), r.children = [t.slice(u, l - 1)], l += 8 } else if ("style" == r.tagName) { var u = l + 1; l = t.indexOf("</style>", l), r.children = [t.slice(u, l - 1)], l += 7 } else -1 == C.indexOf(r.tagName) && (l++, r.children = e(f)); else l++; return r } function o() { var r = t[l], e = ++l; return l = t.indexOf(r, e), t.slice(e, l) } function f() { var e = new RegExp("\\s" + r.attrName + "\\s*=['\"]" + r.attrValue + "['\"]").exec(t); return e ? e.index : -1 } r = r || {}; var l = r.pos || 0, c = "<", s = "<".charCodeAt(0), u = ">", d = ">".charCodeAt(0), m = "-".charCodeAt(0), h = "/".charCodeAt(0), v = "!".charCodeAt(0), p = "'".charCodeAt(0), g = '"'.charCodeAt(0), A = "\n	>/= ", C = ["img", "br", "input", "meta", "link"], y = null; if (void 0 !== r.attrValue) { r.attrName = r.attrName || "id"; for (var y = []; -1 !== (l = f());)l = t.lastIndexOf("<", l), -1 !== l && y.push(a()), t = t.substr(l), l = 0 } else y = r.parseNode ? a() : e(); return r.filter && (y = tXml.filter(y, r.filter)), r.simplify && (y = tXml.simplify(y)), y.pos = l, y } var _order = 1; tXml.simplify = function (t) { var r = {}; if (void 0 === t) return {}; if (1 === t.length && "string" == typeof t[0]) return t[0]; t.forEach(function (t) { if ("object" == typeof t) { r[t.tagName] || (r[t.tagName] = []); var e = tXml.simplify(t.children || []); r[t.tagName].push(e), t.attributes && (e.attrs = t.attributes), void 0 === e.attrs ? e.attrs = { order: _order } : e.attrs.order = _order, _order++ } }); for (var e in r) 1 == r[e].length && (r[e] = r[e][0]); return r }, tXml.filter = function (t, r) { var e = []; return t.forEach(function (t) { if ("object" == typeof t && r(t) && e.push(t), t.children) { var n = tXml.filter(t.children, r); e = e.concat(n) } }), e }, tXml.stringify = function (t) { function r(t) { if (t) for (var r = 0; r < t.length; r++)"string" == typeof t[r] ? n += t[r].trim() : e(t[r]) } function e(t) { n += "<" + t.tagName; for (var e in t.attributes) n += null === t.attributes[e] ? " " + e : -1 === t.attributes[e].indexOf('"') ? " " + e + '="' + t.attributes[e].trim() + '"' : " " + e + "='" + t.attributes[e].trim() + "'"; n += ">", r(t.children), n += "</" + t.tagName + ">" } var n = ""; return r(t), n }, tXml.toContentString = function (t) { if (Array.isArray(t)) { var r = ""; return t.forEach(function (t) { r += " " + tXml.toContentString(t), r = r.trim() }), r } return "object" == typeof t ? tXml.toContentString(t.children) : " " + t }, tXml.getElementById = function (t, r, e) { var n = tXml(t, { attrValue: r, simplify: e }); return e ? n : n[0] }, tXml.getElementsByClassName = function (t, r, e) { return tXml(t, { attrName: "class", attrValue: "[a-zA-Z0-9-s ]*" + r + "[a-zA-Z0-9-s ]*", simplify: e }) }, tXml.parseStream = function (t, r) { if ("function" == typeof r && (cb = r, r = 0), "string" == typeof r && (r = r.length + 2), "string" == typeof t) { var e = require("fs"); t = e.createReadStream(t, { start: r }), r = 0 } var n = r, i = "", a = 0; return t.on("data", function (r) { a++, i += r; for (var e = 0; ;) { n = i.indexOf("<", n) + 1; var o = tXml(i, { pos: n, parseNode: !0 }); if (n = o.pos, n > i.length - 1 || e > n) return void (e && (i = i.slice(e), n = 0, e = 0)); t.emit("xml", o), e = n } i = i.slice(n), n = 0 }), t.on("end", function () { console.log("end") }), t }, "object" == typeof module && (module.exports = tXml);
+        function tXml(t, r) {
+            "use strict";
+
+            function e() {
+                for (var r = []; t[l];)
+                    if (t.charCodeAt(l) == s) {
+                        if (t.charCodeAt(l + 1) === h) return l = t.indexOf(u, l), l + 1 && (l += 1), r;
+                        if (t.charCodeAt(l + 1) === v) {
+                            if (t.charCodeAt(l + 2) == m) { for (; - 1 !== l && (t.charCodeAt(l) !== d || t.charCodeAt(l - 1) != m || t.charCodeAt(l - 2) != m || -1 == l);) l = t.indexOf(u, l + 1); - 1 === l && (l = t.length) } else
+                                for (l += 2; t.charCodeAt(l) !== d && t[l];) l++;
+                            l++;
+                            continue
+                        }
+                        var e = a();
+                        r.push(e)
+                    } else {
+                        var i = n();
+                        i.trim().length > 0 && r.push(i), l++
+                    }
+                return r
+            }
+
+            function n() { var r = l; return l = t.indexOf(c, l) - 1, -2 === l && (l = t.length), t.slice(r, l + 1) }
+
+            function i() { for (var r = l; - 1 === A.indexOf(t[l]) && t[l];) l++; return t.slice(r, l) }
+
+            function a() {
+                var r = {};
+                l++, r.tagName = i();
+                for (var n = !1; t.charCodeAt(l) !== d && t[l];) {
+                    var a = t.charCodeAt(l);
+                    if (a > 64 && 91 > a || a > 96 && 123 > a) {
+                        for (var f = i(), c = t.charCodeAt(l); c && c !== p && c !== g && !(c > 64 && 91 > c || c > 96 && 123 > c) && c !== d;) l++, c = t.charCodeAt(l);
+                        if (n || (r.attributes = {}, n = !0), c === p || c === g) { var s = o(); if (-1 === l) return r } else s = null, l--;
+                        r.attributes[f] = s
+                    }
+                    l++
+                }
+                if (t.charCodeAt(l - 1) !== h)
+                    if ("script" == r.tagName) {
+                        var u = l + 1;
+                        l = t.indexOf("</script>", l), r.children = [t.slice(u, l - 1)], l += 8
+                    } else if ("style" == r.tagName) {
+                    var u = l + 1;
+                    l = t.indexOf("</style>", l), r.children = [t.slice(u, l - 1)], l += 7
+                } else -1 == C.indexOf(r.tagName) && (l++, r.children = e(f));
+                else l++;
+                return r
+            }
+
+            function o() {
+                var r = t[l],
+                    e = ++l;
+                return l = t.indexOf(r, e), t.slice(e, l)
+            }
+
+            function f() { var e = new RegExp("\\s" + r.attrName + "\\s*=['\"]" + r.attrValue + "['\"]").exec(t); return e ? e.index : -1 }
+            r = r || {};
+            var l = r.pos || 0,
+                c = "<",
+                s = "<".charCodeAt(0),
+                u = ">",
+                d = ">".charCodeAt(0),
+                m = "-".charCodeAt(0),
+                h = "/".charCodeAt(0),
+                v = "!".charCodeAt(0),
+                p = "'".charCodeAt(0),
+                g = '"'.charCodeAt(0),
+                A = "\n	>/= ",
+                C = ["img", "br", "input", "meta", "link"],
+                y = null;
+            if (void 0 !== r.attrValue) { r.attrName = r.attrName || "id"; for (var y = []; - 1 !== (l = f());) l = t.lastIndexOf("<", l), -1 !== l && y.push(a()), t = t.substr(l), l = 0 } else y = r.parseNode ? a() : e();
+            return r.filter && (y = tXml.filter(y, r.filter)), r.simplify && (y = tXml.simplify(y)), y.pos = l, y
+        }
+        var _order = 1;
+        tXml.simplify = function(t) {
+            var r = {};
+            if (void 0 === t) return {};
+            if (1 === t.length && "string" == typeof t[0]) return t[0];
+            t.forEach(function(t) {
+                if ("object" == typeof t) {
+                    r[t.tagName] || (r[t.tagName] = []);
+                    var e = tXml.simplify(t.children || []);
+                    r[t.tagName].push(e), t.attributes && (e.attrs = t.attributes), void 0 === e.attrs ? e.attrs = { order: _order } : e.attrs.order = _order, _order++
+                }
+            });
+            for (var e in r) 1 == r[e].length && (r[e] = r[e][0]);
+            return r
+        }, tXml.filter = function(t, r) {
+            var e = [];
+            return t.forEach(function(t) {
+                if ("object" == typeof t && r(t) && e.push(t), t.children) {
+                    var n = tXml.filter(t.children, r);
+                    e = e.concat(n)
+                }
+            }), e
+        }, tXml.stringify = function(t) {
+            function r(t) {
+                if (t)
+                    for (var r = 0; r < t.length; r++) "string" == typeof t[r] ? n += t[r].trim() : e(t[r])
+            }
+
+            function e(t) {
+                n += "<" + t.tagName;
+                for (var e in t.attributes) n += null === t.attributes[e] ? " " + e : -1 === t.attributes[e].indexOf('"') ? " " + e + '="' + t.attributes[e].trim() + '"' : " " + e + "='" + t.attributes[e].trim() + "'";
+                n += ">", r(t.children), n += "</" + t.tagName + ">"
+            }
+            var n = "";
+            return r(t), n
+        }, tXml.toContentString = function(t) { if (Array.isArray(t)) { var r = ""; return t.forEach(function(t) { r += " " + tXml.toContentString(t), r = r.trim() }), r } return "object" == typeof t ? tXml.toContentString(t.children) : " " + t }, tXml.getElementById = function(t, r, e) { var n = tXml(t, { attrValue: r, simplify: e }); return e ? n : n[0] }, tXml.getElementsByClassName = function(t, r, e) { return tXml(t, { attrName: "class", attrValue: "[a-zA-Z0-9-s ]*" + r + "[a-zA-Z0-9-s ]*", simplify: e }) }, tXml.parseStream = function(t, r) {
+            if ("function" == typeof r && (cb = r, r = 0), "string" == typeof r && (r = r.length + 2), "string" == typeof t) {
+                var e = require("fs");
+                t = e.createReadStream(t, { start: r }), r = 0
+            }
+            var n = r,
+                i = "",
+                a = 0;
+            return t.on("data", function(r) {
+                a++, i += r;
+                for (var e = 0;;) {
+                    n = i.indexOf("<", n) + 1;
+                    var o = tXml(i, { pos: n, parseNode: !0 });
+                    if (n = o.pos, n > i.length - 1 || e > n) return void(e && (i = i.slice(e), n = 0, e = 0));
+                    t.emit("xml", o), e = n
+                }
+                i = i.slice(n), n = 0
+            }), t.on("end", function() { console.log("end") }), t
+        }, "object" == typeof module && (module.exports = tXml);
     };
 
     /*!
@@ -9757,7 +10150,45 @@
     (c) 2014 Stuart Knightley, David Duponchel
     Dual licenced under the MIT license or GPLv3. See https://raw.github.com/Stuk/jszip-utils/master/LICENSE.markdown.
     */
-    !function (a) { "object" == typeof exports ? module.exports = a() : "function" == typeof define && define.amd ? define(a) : "undefined" != typeof window ? window.JSZipUtils = a() : "undefined" != typeof global ? global.JSZipUtils = a() : "undefined" != typeof self && (self.JSZipUtils = a()) }(function () { return function a(b, c, d) { function e(g, h) { if (!c[g]) { if (!b[g]) { var i = "function" == typeof require && require; if (!h && i) return i(g, !0); if (f) return f(g, !0); throw new Error("Cannot find module '" + g + "'") } var j = c[g] = { exports: {} }; b[g][0].call(j.exports, function (a) { var c = b[g][1][a]; return e(c ? c : a) }, j, j.exports, a, b, c, d) } return c[g].exports } for (var f = "function" == typeof require && require, g = 0; g < d.length; g++)e(d[g]); return e }({ 1: [function (a, b) { "use strict"; function c() { try { return new window.XMLHttpRequest } catch (a) { } } function d() { try { return new window.ActiveXObject("Microsoft.XMLHTTP") } catch (a) { } } var e = {}; e._getBinaryFromXHR = function (a) { return a.response || a.responseText }; var f = window.ActiveXObject ? function () { return c() || d() } : c; e.getBinaryContent = function (a, b) { try { var c = f(); c.open("GET", a, !0), "responseType" in c && (c.responseType = "arraybuffer"), c.overrideMimeType && c.overrideMimeType("text/plain; charset=x-user-defined"), c.onreadystatechange = function () { var d, f; if (4 === c.readyState) if (200 === c.status || 0 === c.status) { d = null, f = null; try { d = e._getBinaryFromXHR(c) } catch (g) { f = new Error(g) } b(f, d) } else b(new Error("Ajax error for " + a + " : " + this.status + " " + this.statusText), null) }, c.send() } catch (d) { b(new Error(d), null) } }, b.exports = e }, {}] }, {}, [1])(1) });
+    ! function(a) { "object" == typeof exports ? module.exports = a() : "function" == typeof define && define.amd ? define(a) : "undefined" != typeof window ? window.JSZipUtils = a() : "undefined" != typeof global ? global.JSZipUtils = a() : "undefined" != typeof self && (self.JSZipUtils = a()) }(function() {
+        return function a(b, c, d) {
+            function e(g, h) {
+                if (!c[g]) {
+                    if (!b[g]) { var i = "function" == typeof require && require; if (!h && i) return i(g, !0); if (f) return f(g, !0); throw new Error("Cannot find module '" + g + "'") }
+                    var j = c[g] = { exports: {} };
+                    b[g][0].call(j.exports, function(a) { var c = b[g][1][a]; return e(c ? c : a) }, j, j.exports, a, b, c, d)
+                }
+                return c[g].exports
+            }
+            for (var f = "function" == typeof require && require, g = 0; g < d.length; g++) e(d[g]);
+            return e
+        }({
+            1: [function(a, b) {
+                "use strict";
+
+                function c() { try { return new window.XMLHttpRequest } catch (a) {} }
+
+                function d() { try { return new window.ActiveXObject("Microsoft.XMLHTTP") } catch (a) {} }
+                var e = {};
+                e._getBinaryFromXHR = function(a) { return a.response || a.responseText };
+                var f = window.ActiveXObject ? function() { return c() || d() } : c;
+                e.getBinaryContent = function(a, b) {
+                    try {
+                        var c = f();
+                        c.open("GET", a, !0), "responseType" in c && (c.responseType = "arraybuffer"), c.overrideMimeType && c.overrideMimeType("text/plain; charset=x-user-defined"), c.onreadystatechange = function() {
+                            var d, f;
+                            if (4 === c.readyState)
+                                if (200 === c.status || 0 === c.status) {
+                                    d = null, f = null;
+                                    try { d = e._getBinaryFromXHR(c) } catch (g) { f = new Error(g) }
+                                    b(f, d)
+                                } else b(new Error("Ajax error for " + a + " : " + this.status + " " + this.statusText), null)
+                        }, c.send()
+                    } catch (d) { b(new Error(d), null) }
+                }, b.exports = e
+            }, {}]
+        }, {}, [1])(1)
+    });
 
     /**
      * Colorz (or Colz) is a Javascript "library" to help
@@ -9771,9 +10202,9 @@
      * http://carloscabo.com
      *
      * Some formulas borrowed from Wikipedia or other authors.
-    */
+     */
 
-    (function (name, definition) {
+    (function(name, definition) {
         if (typeof define === "function") {
             define(definition);
         } else if (typeof module !== "undefined" && module.exports) {
@@ -9782,13 +10213,13 @@
             var theModule = definition(),
                 global = this,
                 old = global[name];
-            theModule.noConflict = function () {
+            theModule.noConflict = function() {
                 global[name] = old;
                 return theModule;
             };
             global[name] = theModule;
         }
-    })("colz", function () {
+    })("colz", function() {
         var round = Math.round,
             toString = "toString",
             colz = colz || {},
@@ -9810,50 +10241,50 @@
             hsvToHsl,
             hsvToRgb,
             randomColor;
-        Rgb = colz.Rgb = function (col) {
+        Rgb = colz.Rgb = function(col) {
             this.r = col[0];
             this.g = col[1];
             this.b = col[2];
         };
-        Rgb.prototype[toString] = function () {
+        Rgb.prototype[toString] = function() {
             return "rgb(" + this.r + "," + this.g + "," + this.b + ")";
         };
-        Rgba = colz.Rgba = function (col) {
+        Rgba = colz.Rgba = function(col) {
             this.r = col[0];
             this.g = col[1];
             this.b = col[2];
             this.a = col[3];
         };
-        Rgba.prototype[toString] = function () {
+        Rgba.prototype[toString] = function() {
             return (
                 "rgba(" + this.r + "," + this.g + "," + this.b + "," + this.a + ")"
             );
         };
-        Hsl = colz.Hsl = function (col) {
+        Hsl = colz.Hsl = function(col) {
             this.h = col[0];
             this.s = col[1];
             this.l = col[2];
         };
-        Hsl.prototype[toString] = function () {
+        Hsl.prototype[toString] = function() {
             return "hsl(" + this.h + "," + this.s + "%," + this.l + "%)";
         };
-        Hsla = colz.Hsla = function (col) {
+        Hsla = colz.Hsla = function(col) {
             this.h = col[0];
             this.s = col[1];
             this.l = col[2];
             this.a = col[3];
         };
-        Hsla.prototype[toString] = function () {
+        Hsla.prototype[toString] = function() {
             return (
                 "hsla(" + this.h + "," + this.s + "%," + this.l + "%," + this.a + ")"
             );
         };
-        Color = colz.Color = function () {
+        Color = colz.Color = function() {
             this.hex = this.r = this.g = this.b = this.h = this.s = this.l = this.a = this.hsl = this.hsla = this.rgb = this.rgba = null;
             this.init(arguments);
         };
         var colorPrototype = Color.prototype;
-        colorPrototype.init = function (arg) {
+        colorPrototype.init = function(arg) {
             var _this = this;
             if (typeof arg[0] === "string") {
                 if (arg[0].charAt(0) !== "#") {
@@ -9909,33 +10340,33 @@
             _this.l = _this.hsl.l;
             _this.hsla = new Hsla([_this.h, _this.s, _this.l, _this.a]);
         };
-        colorPrototype.setHue = function (newhue) {
+        colorPrototype.setHue = function(newhue) {
             var _this = this;
             _this.h = newhue;
             _this.hsl.h = newhue;
             _this.hsla.h = newhue;
             _this.updateFromHsl();
         };
-        colorPrototype.setSat = function (newsat) {
+        colorPrototype.setSat = function(newsat) {
             var _this = this;
             _this.s = newsat;
             _this.hsl.s = newsat;
             _this.hsla.s = newsat;
             _this.updateFromHsl();
         };
-        colorPrototype.setLum = function (newlum) {
+        colorPrototype.setLum = function(newlum) {
             var _this = this;
             _this.l = newlum;
             _this.hsl.l = newlum;
             _this.hsla.l = newlum;
             _this.updateFromHsl();
         };
-        colorPrototype.setAlpha = function (newalpha) {
+        colorPrototype.setAlpha = function(newalpha) {
             this.a = newalpha;
             this.hsla.a = newalpha;
             this.rgba.a = newalpha;
         };
-        colorPrototype.updateFromHsl = function () {
+        colorPrototype.updateFromHsl = function() {
             this.rgb = null;
             this.rgb = new Rgb(colz.hslToRgb([this.h, this.s, this.l]));
             this.r = this.rgb.r;
@@ -9947,25 +10378,24 @@
             this.hex = null;
             this.hex = rgbToHex([this.r, this.g, this.b]);
         };
-        randomColor = colz.randomColor = function () {
+        randomColor = colz.randomColor = function() {
             var r = "#" + Math.random().toString(16).slice(2, 8);
             return new Color(r);
         };
-        hexToRgb = colz.hexToRgb = function (hex) {
+        hexToRgb = colz.hexToRgb = function(hex) {
             var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return result
-                ? [
+            return result ? [
                     parseInt(result[1], 16),
                     parseInt(result[2], 16),
                     parseInt(result[3], 16)
-                ]
-                : null;
+                ] :
+                null;
         };
-        componentToHex = colz.componentToHex = function (c) {
+        componentToHex = colz.componentToHex = function(c) {
             var hex = c.toString(16);
             return hex.length === 1 ? "0" + hex : hex;
         };
-        rgbToHex = colz.rgbToHex = function () {
+        rgbToHex = colz.rgbToHex = function() {
             var arg, r, g, b;
             arg = arguments;
             if (arg.length > 1) {
@@ -9979,7 +10409,7 @@
             }
             return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
         };
-        rgbToHsl = colz.rgbToHsl = function () {
+        rgbToHsl = colz.rgbToHsl = function() {
             var arg, r, g, b, h, s, l, d, max, min;
             arg = arguments;
             if (typeof arg[0] === "number") {
@@ -10020,7 +10450,7 @@
             l = round(l * 100);
             return [h, s, l];
         };
-        hue2rgb = colz.hue2rgb = function (p, q, t) {
+        hue2rgb = colz.hue2rgb = function(p, q, t) {
             if (t < 0) {
                 t += 1;
             }
@@ -10038,7 +10468,7 @@
             }
             return p;
         };
-        hslToRgb = colz.hslToRgb = function () {
+        hslToRgb = colz.hslToRgb = function() {
             var arg, r, g, b, h, s, l, q, p;
             arg = arguments;
             if (typeof arg[0] === "number") {
@@ -10061,7 +10491,7 @@
             }
             return [round(r * 255), round(g * 255), round(b * 255)];
         };
-        rgbToHsb = colz.rgbToHsb = function (r, g, b) {
+        rgbToHsb = colz.rgbToHsb = function(r, g, b) {
             var max, min, h, s, v, d;
             r = r / 255;
             g = g / 255;
@@ -10092,7 +10522,7 @@
             v = round(v * 100);
             return [h, s, v];
         };
-        hsbToRgb = colz.hsbToRgb = function (h, s, v) {
+        hsbToRgb = colz.hsbToRgb = function(h, s, v) {
             var r, g, b, i, f, p, q, t;
             if (v === 0) {
                 return [0, 0, 0];
@@ -10135,12 +10565,12 @@
             b = Math.floor(b * 255);
             return [r, g, b];
         };
-        hsbToHsl = colz.hsbToHsl = function (h, s, b) {
+        hsbToHsl = colz.hsbToHsl = function(h, s, b) {
             return colz.rgbToHsl(colz.hsbToRgb(h, s, b));
         };
         hsvToHsl = colz.hsvToHsl = colz.hsbToHsl;
         hsvToRgb = colz.hsvToRgb = colz.hsbToRgb;
-        ColorScheme = colz.ColorScheme = function (color_val, angle_array) {
+        ColorScheme = colz.ColorScheme = function(color_val, angle_array) {
             this.palette = [];
             if (angle_array === undefined && color_val instanceof Array) {
                 this.createFromColors(color_val);
@@ -10149,7 +10579,7 @@
             }
         };
         var colorSchemePrototype = ColorScheme.prototype;
-        colorSchemePrototype.createFromColors = function (color_val) {
+        colorSchemePrototype.createFromColors = function(color_val) {
             for (var i in color_val) {
                 if (color_val.hasOwnProperty(i)) {
                     this.palette.push(new Color(color_val[i]));
@@ -10157,7 +10587,7 @@
             }
             return this.palette;
         };
-        colorSchemePrototype.createFromAngles = function (color_val, angle_array) {
+        colorSchemePrototype.createFromAngles = function(color_val, angle_array) {
             this.palette.push(new Color(color_val));
             for (var i in angle_array) {
                 if (angle_array.hasOwnProperty(i)) {
@@ -10171,22 +10601,22 @@
             }
             return this.palette;
         };
-        ColorScheme.Compl = function (color_val) {
+        ColorScheme.Compl = function(color_val) {
             return new ColorScheme(color_val, [180]);
         };
-        ColorScheme.Triad = function (color_val) {
+        ColorScheme.Triad = function(color_val) {
             return new ColorScheme(color_val, [120, 240]);
         };
-        ColorScheme.Tetrad = function (color_val) {
+        ColorScheme.Tetrad = function(color_val) {
             return new ColorScheme(color_val, [60, 180, 240]);
         };
-        ColorScheme.Analog = function (color_val) {
+        ColorScheme.Analog = function(color_val) {
             return new ColorScheme(color_val, [-45, 45]);
         };
-        ColorScheme.Split = function (color_val) {
+        ColorScheme.Split = function(color_val) {
             return new ColorScheme(color_val, [150, 210]);
         };
-        ColorScheme.Accent = function (color_val) {
+        ColorScheme.Accent = function(color_val) {
             return new ColorScheme(color_val, [-45, 45, 180]);
         };
         return colz;

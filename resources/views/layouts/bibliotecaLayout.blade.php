@@ -230,11 +230,15 @@
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/pdf/pdf.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/docx/jszip-utils.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/docx/mammoth.browser.min.js') }}"></script>
+
+
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/jszip.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/filereader.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/d3.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/nv.d3.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/pptxjs.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/divs2slides.js') }}"></script>
+
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/SheetJS/handsontable.full.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/SheetJS/shim.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/SheetJS/xlsx.full.min.js') }}"></script>
