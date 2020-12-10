@@ -170,7 +170,6 @@ a:hover,a:focus{
                         <p class="lead pl-3 text-justify py-2 color-ce3 animated wow fadeInUp">
                             {{$asignatura->descripcion}}
                         </p>  
-                        <iframe src="https://casaeduca.cl/public/imgcard/demo1.pptx" style="width:550px; height:450px;" frameborder="0"></iframe> 
                     </div>
                 </div>
             </div>
