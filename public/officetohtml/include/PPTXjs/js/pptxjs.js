@@ -345,7 +345,7 @@
         }
 
         function readXmlFile(zip, filename) {
-            console.log(zip + filename)
+            console.log(zip)
             var xmlData = tXml(zip.file(filename).asText(), { simplify: 1 });
             if (xmlData["?xml"] !== undefined) {
                 return xmlData["?xml"];
