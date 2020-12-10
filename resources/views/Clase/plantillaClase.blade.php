@@ -102,104 +102,81 @@
         let ruta = $(this).attr('rutaDocumento');
       
         var output = ruta.split(/[. ]+/).pop();
-        if(output == 'pptx' || output == 'ppt' ){
-            $("#resolte-contaniner").empty().pptxToHtml({
-              pptxFileUrl: "/public/imgcard/"+ruta, 
-              slidesScale: "70%",
-              slideMode: false,
-              keyBoardShortCut: false,
-              mediaProcess: true, /** true,false: if true then process video and audio files */
-              slideModeConfig: {  //on slide mode (slideMode: true)
-                first: 1,
-                nav: false, /** true,false : show or not nav buttons*/
-                navTxtColor: "white", /** color */
-                showPlayPauseBtn: false,/** true,false */
-                keyBoardShortCut: false, /** true,false */
-                showSlideNum: false, /** true,false */
-                showTotalSlideNum: false, /** true,false */
-                autoSlide: false, /** false or seconds (the pause time between slides) , F8 to active(keyBoardShortCut: true) */
-                randomAutoSlide: false, /** true,false ,autoSlide:true */ 
-                loop: false,  /** true,false */
-                background: "black", /** false or color*/
-                transition: "default", /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
-                transitionTime: 1 /** transition time in seconds */           
-              }
-            });
-        }else{
-            $("#resolte-contaniner").empty().officeToHtml({
-                url: '/public/imgcard/'+ruta,
-                imageSetting: {
-                    frame: ['100%', '100%',false],
-                    maxZoom: '900%',
-                    zoomFactor: '10%',
-                    mouse: true,
-                    keyboard: true,
-                    toolbar: true,
-                    rotateToolbar: false
-                },
-                pdfSetting: {
-                    openFileBtn: false,
-                    printBtn: false,
-                    downloadBtn: false,
-                    bookmarkBtn: false, 
-                },
-                docxSetting: {
-                    styleMap : null,
-                    includeEmbeddedStyleMap: true,
-                    includeDefaultStyleMap: true,
-                    convertImage: null,
-                    ignoreEmptyParagraphs: false,
-                    idPrefix: "",
-                    isRtl : "auto" 
-                },
-                sheetSetting: {
-                    jqueryui : false,
-                    activeHeaderClassName: "",
-                    allowEmpty: true,
-                    autoColumnSize: true,
-                    autoRowSize: false,
-                    columns: false,
-                    columnSorting: true,
-                    contextMenu: false,
-                    copyable: true,
-                    customBorders: false,
-                    fixedColumnsLeft: 0,
-                    fixedRowsTop: 0,
-                    language:'en-US',
-                    search: false,
-                    selectionMode: 'single',
-                    sortIndicator: false,
-                    readOnly: false,
-                    startRows: 1,
-                    startCols: 1,
-                    rowHeaders: true,
-                    colHeaders: true,
-                    width: false,
-                    height:false
-                },
-                pptxSetting: {
-                    slidesScale: "70%", //Change Slides scale by percent
-                    slideMode: true, /** true,false*/
-                    keyBoardShortCut: true,  /** true,false ,condition: slideMode: true*/
-                    mediaProcess: true, /** true,false: if true then process video and audio files */
-                    slideModeConfig: {
-                        first: 1,
-                        nav: true, /** true,false : show or not nav buttons*/
-                        navTxtColor: "black", /** color */
-                        keyBoardShortCut: true, /** true,false ,condition: */
-                        showSlideNum: true, /** true,false */
-                        showTotalSlideNum: true, /** true,false */
-                        autoSlide:1, /** false or seconds , F8 to active ,keyBoardShortCut: true */
-                        randomAutoSlide: false, /** true,false ,autoSlide:true */ 
-                        loop: true,  /** true,false */
-                        background: false, /** false or color*/
-                        transition: "default", /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
-                        transitionTime: 3 /** transition time between slides in seconds */               
-                    }
-                    
+        if(output == 'pptx' || output == 'ppt' ){}
+        console.log(output);
+        $("#resolte-contaniner").officeToHtml({
+            url: '/public/imgcard/'+ruta,
+            imageSetting: {
+                frame: ['100%', '100%',false],
+                maxZoom: '900%',
+                zoomFactor: '10%',
+                mouse: true,
+                keyboard: true,
+                toolbar: true,
+                rotateToolbar: false
+            },
+            pdfSetting: {
+                openFileBtn: false,
+                printBtn: false,
+                downloadBtn: false,
+                bookmarkBtn: false, 
+            },
+            docxSetting: {
+                styleMap : null,
+                includeEmbeddedStyleMap: true,
+                includeDefaultStyleMap: true,
+                convertImage: null,
+                ignoreEmptyParagraphs: false,
+                idPrefix: "",
+                isRtl : "auto" 
+            },
+            sheetSetting: {
+                jqueryui : false,
+                activeHeaderClassName: "",
+                allowEmpty: true,
+                autoColumnSize: true,
+                autoRowSize: false,
+                columns: false,
+                columnSorting: true,
+                contextMenu: false,
+                copyable: true,
+                customBorders: false,
+                fixedColumnsLeft: 0,
+                fixedRowsTop: 0,
+                language:'en-US',
+                search: false,
+                selectionMode: 'single',
+                sortIndicator: false,
+                readOnly: false,
+                startRows: 1,
+                startCols: 1,
+                rowHeaders: true,
+                colHeaders: true,
+                width: false,
+                height:false
+            },
+            pptxSetting: {
+                slidesScale: "70%", //Change Slides scale by percent
+                slideMode: true, /** true,false*/
+                keyBoardShortCut: true,  /** true,false ,condition: slideMode: true*/
+                mediaProcess: true, /** true,false: if true then process video and audio files */
+                slideModeConfig: {
+                    first: 1,
+                    nav: true, /** true,false : show or not nav buttons*/
+                    navTxtColor: "black", /** color */
+                    keyBoardShortCut: true, /** true,false ,condition: */
+                    showSlideNum: true, /** true,false */
+                    showTotalSlideNum: true, /** true,false */
+                    autoSlide:1, /** false or seconds , F8 to active ,keyBoardShortCut: true */
+                    randomAutoSlide: false, /** true,false ,autoSlide:true */ 
+                    loop: true,  /** true,false */
+                    background: false, /** false or color*/
+                    transition: "default", /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
+                    transitionTime: 3 /** transition time between slides in seconds */               
                 }
-            });  
-        }
+                
+            }
+        });  
 
 
        
