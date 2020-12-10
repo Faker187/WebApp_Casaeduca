@@ -235,7 +235,7 @@
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/jszip.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/filereader.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/d3.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/nv.d3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/nv.d3.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/pptxjs.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/officetohtml/include/PPTXjs/js/divs2slides.js') }}"></script>
 
