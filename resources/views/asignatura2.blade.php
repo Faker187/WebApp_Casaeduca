@@ -110,6 +110,12 @@ a:hover,a:focus{
 #sidebar-wrapper .sidebar-heading{
     max-width: 335px!important;
 }
+#viewerContainer {
+  height: 43.4vh!important;
+}
+#mainPdfWarrper {
+  height: 50vh!important;
+}
 </style>
 
 {{-- {{dd($unidades)}} --}}
@@ -195,7 +201,7 @@ a:hover,a:focus{
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-dark">
+      <div class="modal-body text-dark h-100">
         <div id="resolte-contaniner" class="px-1"></div>
       </div>
       <div class="modal-footer">
