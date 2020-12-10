@@ -100,7 +100,9 @@
     $('.documentoJS').click(function (e) {
         e.preventDefault();
         let ruta = $(this).attr('rutaDocumento');
-        console.log('/public/imgcard/'+ruta);
+      
+        var output = ruta.split(/[. ]+/).pop();
+        console.log(output);
         $("#resolte-contaniner").officeToHtml({
             url: '/public/imgcard/'+ruta,
             imageSetting: {
@@ -174,5 +176,9 @@
                 
             }
         });  
+
+
+       
     });
 </script>
+
