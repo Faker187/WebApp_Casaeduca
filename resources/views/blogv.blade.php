@@ -23,10 +23,10 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card w-100 border-0">
-                <div class="card-body">
+                <div class="card-body mx-auto">
                     <!-- Desarrollo Blog -->
                     <h1 class="card-title text-center">{{$revista->titulo}}</h1>
-                    <img src="{{ asset('public/imgcard/'.$revista->imagen) }}" class="img-fluid mx-auto">
+                    <img src="{{ asset('public/imgcard/'.$revista->imagen) }}" class="img-fluid">
                     <p class="text-justify mx-auto mt-3">{{$revista->contenido}}</p>
                     <p class="text-justify">{{$revista->autor}} - {{$revista->fecha}}</p>
                     <!-- Desarrollo Blog -->
