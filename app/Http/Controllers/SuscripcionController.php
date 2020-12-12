@@ -64,6 +64,7 @@ class SuscripcionController extends Controller
 
     public function crearSuscripcion(Request $request)
     {
+        dd($request);
         $user = User::all()->where('email', $request->email)->first();
 
         if (!$user) {

@@ -519,7 +519,7 @@
     });
 
 
-    $('#submitSuscribete').click(function (e) {
+    /* $('#submitSuscribete').click(function (e) {
         e.preventDefault();
 
         let repeatPassword = $('#repeatPassword').val();
@@ -527,51 +527,29 @@
         let email = $('#email').val();
     
         $.ajax({
-        type: 'GET',
-        url: '/verificarEmail',
-        data: { email },
-        success: function(data) {
-            console.log(data)
-            if (data == 'ya existe') {
-                swal('ese correo ya existe');
-                
-            }else{
-                $('#submitSuscribete').submit();
+            type: 'GET',
+            url: '/verificarEmail',
+            data: { email },
+            success: function(data) {
+                console.log(data)
+                if (data == 'ya existe') {
+                    swal('ese correo ya existe');
+                    
+                }else if( == 'disponible'){
+                    if (password != repeatPassword) {
+                        swal('las contraseñas no coinciden');
+                        e.preventDefault();
+                    }
+                    $('#submitSuscribete').submit();
+                }
+        
+            },
+            error: function(error) {
+                console.log(error);
             }
-     
-        },
-        error: function(error) {
-            console.log(error);
-        },
-       
-    });
-
-    //     $.ajax({
-    //     type: 'GET',
-    //     url: '/verificarEmail',
-    //     data: {email},
-    //     success: function(data) {
-    //         console.log(data);
-    //         // swal.close();
-    //         // swal("Listo!", "Correo Enviado!", "success");
-    //         // console.log(data);
-
-    //         //    $('#contactarProfesorModal').modal('hide');
-    //     },
-    //     error: function(error) {
-    //         console.log(error);
-    //     },
-    //     complete: function(data) {
-    //         location.reload();
-    //     }
-    // });
-
-        if (password != repeatPassword) {
-            swal('las contraseñas no coinciden');
-            e.preventDefault();
-        }
-
-    });
+        
+        });
+    }); */
     
 </script>
 
