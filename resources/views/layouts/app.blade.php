@@ -519,10 +519,10 @@
     });
 
 
-    /* $('#submitSuscribete').click(function (e) {
+    $('#submitSuscribete').click(function (e) {
         e.preventDefault();
-
-        let repeatPassword = $('#repeatPassword').val();
+        $('#submitSuscribete').submit();
+        /* let repeatPassword = $('#repeatPassword').val();
         let password = $('#password').val();
         let email = $('#email').val();
     
@@ -540,7 +540,7 @@
                         swal('las contraseñas no coinciden');
                         e.preventDefault();
                     }
-                    $('#submitSuscribete').submit();
+                    
                 }
         
             },
@@ -548,8 +548,8 @@
                 console.log(error);
             }
         
-        });
-    }); */
+        }); */
+    });
     
 </script>
 
