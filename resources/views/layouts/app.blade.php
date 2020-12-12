@@ -519,37 +519,36 @@
     });
 
 
-    /* $('#submitSuscribete').click(function (e) {
+    $('#submitSuscribete').click(function (e) {
         e.preventDefault();
-        $('#submitSuscribete').submit();
+
         let repeatPassword = $('#repeatPassword').val();
         let password = $('#password').val();
         let email = $('#email').val();
     
-        $.ajax({
-            type: 'GET',
-            url: '/verificarEmail',
-            data: { email },
-            success: function(data) {
-                console.log(data)
-                if (data == 'ya existe') {
-                    swal('ese correo ya existe');
-                    
-                }else if( == 'disponible'){
-                    if (password != repeatPassword) {
-                        swal('las contraseñas no coinciden');
-                        e.preventDefault();
+        if (password != repeatPassword) {
+            swal('las contraseñas no coinciden');
+        }else{
+            $.ajax({
+                type: 'GET',
+                url: '/verificarEmail',
+                data: { email },
+                success: function(data) {
+                    console.log(data)
+                    if (data == 'ya existe') {
+                        swal('ese correo ya existe');
+                    }else if( == 'disponible'){
+                        $('#formSuscribirse').submit();
                     }
-                    
+            
+                },
+                error: function(error) {
+                    console.log(error);
                 }
-        
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        
-        });
-    }); */
+            
+            });
+        }
+    });
     
 </script>
 
