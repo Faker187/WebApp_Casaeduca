@@ -519,10 +519,10 @@
     });
 
 
-    $('#submitSuscribete').click(function (e) {
+    /* $('#submitSuscribete').click(function (e) {
         e.preventDefault();
         $('#submitSuscribete').submit();
-        /* let repeatPassword = $('#repeatPassword').val();
+        let repeatPassword = $('#repeatPassword').val();
         let password = $('#password').val();
         let email = $('#email').val();
     
@@ -548,8 +548,8 @@
                 console.log(error);
             }
         
-        }); */
-    });
+        });
+    }); */
     
 </script>
 
