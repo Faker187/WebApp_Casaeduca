@@ -531,7 +531,7 @@
         url: '/verificarEmail',
         data: { email },
         success: function(data) {
-    
+            console.log(data)
             if (data == 'ya existe') {
                 swal('ese correo ya existe');
                 
