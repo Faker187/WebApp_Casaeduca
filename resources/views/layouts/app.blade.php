@@ -537,7 +537,7 @@
                     console.log(data)
                     if (data == 'ya existe') {
                         swal('ese correo ya existe');
-                    }else if( == 'disponible'){
+                    }else if(data == 'disponible'){
                         $('#formSuscribirse').submit();
                     }
             
