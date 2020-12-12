@@ -101,7 +101,7 @@ class SuscripcionController extends Controller
             dd('Ya existe un usuario con ese correo');
         }
 
-        dd('Crear Suscripcion' , $request);
+        
     }
 
 

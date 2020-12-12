@@ -126,7 +126,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 text-white mx-auto pl-5 overflow-hidden">
             <div class="text-white text-left py-5 px-4 my-5">
-              <div class="cursodatacard">
+              <div class="aa">
                 <h2 class="card-title h1-responsive pt-3 mb-2 font-bold color-ce4 text-center">
                     <img class="card-img" src="{{ asset('public/img/noticias.svg') }}" style="width: 70px;margin-bottom: 1rem;" alt="pagina web">
                     <strong>Noticias Casa Educa</strong>
@@ -159,8 +159,8 @@
                 <div class="card-body">
                     <!-- Desarrollo Blog -->
                     <h1 class="card-title text-center">{{$revista->titulo}}</h1>
-                    <p><img src="{{ asset('public/imgcard/'.$revista->imagen) }}" style="float: left; width: 180rem;"></p>
-                    <p class="text-justify mt-3">{{$revista->contenido}}</p>
+                    <p><img src="{{ asset('public/imgcard/'.$revista->imagen) }}" class="img-fluid mx-auto"></p>
+                    <p class="text-justify mx-auto mt-3">{{$revista->contenido}}</p>
                     <p class="text-justify">{{$revista->autor}} - {{$revista->fecha}}</p>
                     <!-- Desarrollo Blog -->
                 </div>
