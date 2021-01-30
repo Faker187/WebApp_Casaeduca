@@ -10,6 +10,7 @@ use App\Pago;
 use App\Sitio;
 use Auth;
 use DB;
+use Mail;
 use Session;
 use Transbank\Webpay\Configuration;
 use Transbank\Webpay\Webpay;
@@ -37,7 +38,6 @@ class SuscripcionController extends Controller
         return view('Suscripcion.suscribete', compact('eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
         'telefono','email','facebook','twitter','instagram','whatsapp'));
     }
-
 
     public function agregarAlumno (Request $request)
     {
@@ -94,7 +94,27 @@ class SuscripcionController extends Controller
                     'estado' => 0
                 ]);
     
-                 return view('Suscripcion.suscripcionRealizada',compact('eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
+                $data = [
+                    'name' => $request->nombreCompletoApoderado,
+                    'email' => $request->email,
+                ];
+                $subject = "Nueva Suscripción!";
+                $for = "noreply@casaeduca.cl";
+                Mail::send('emailFormContacto',$data, function($msj2) use($subject,$for){
+                    $msj2->from("noreply@casaeduca.cl","Casa Educa, Nueva suscripcion");
+                    $msj2->subject($subject);
+                    $msj2->to($for);
+                });
+
+                $subject2 = "Bienvenido a Casaeduca!";
+                $for2 = $request->email;
+                Mail::send('emailFormContacto', function($msj3) use($subject2,$for2){
+                    $msj3->from("contacto@casaeduca.cl","Casa Educa, Gracias por suscribirte!");
+                    $msj3->subject($subject2);
+                    $msj3->to($for2);
+                });
+
+                return view('Suscripcion.suscripcionRealizada',compact('eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
                  'telefono','email','facebook','twitter','instagram','whatsapp')); //invitar a loguear junto con el mensaje de felicitaciones
         
         }else{
@@ -103,7 +123,6 @@ class SuscripcionController extends Controller
         dd('Crear Suscripcion' , $request);
         
     }
-
 
     public function pagarPlan(Request $request)
     {
@@ -279,7 +298,6 @@ class SuscripcionController extends Controller
         }
 
     }
-
 
     public function renovarPlanPago(Request $request)
     {
