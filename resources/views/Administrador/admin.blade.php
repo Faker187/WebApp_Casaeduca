@@ -12,6 +12,7 @@
         <link href="{{ asset('public/dist/css/styles.css') }}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -45,7 +46,7 @@
                 </li>
             </ul>
         </nav>
-        <div id="layoutSidenav">
+        <div id="layoutSidenav">    
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -254,8 +255,14 @@
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('public/dist/js/datatables-demo.js') }}"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="{{asset("public/js/funciones.js")}}"></script> 
-
+        <script src="{{asset('public/js/funciones.js')}}"></script> 
+        <script>
+            $(document).ready(function(){
+                tinymce.init({
+                    selector: '#valor'
+                });
+            });
+        </script>
 
 
 
