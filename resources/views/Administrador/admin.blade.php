@@ -10,10 +10,8 @@
         <meta name="author" content="" />
         <title>Panel Administrador - Casa Educa</title>
         <link href="{{ asset('public/dist/css/styles.css') }}" rel="stylesheet" />
-        <link href="{{ asset('public/css/style.css') }}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -258,14 +256,13 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
         <script src="{{asset('public/js/ckeditor.js')}}"></script> 
+
+        <!-- ACA VAN LAS FUNCIONES DE EDITOR -->
         <script>
+        
             CKEDITOR.replace('editor');
-            $(document).ready(function(){
-               CKEDITOR.replace('editor');
-            });
         </script>
-
-
+        <!-- FIN -->
 
     </body>
 </html>
