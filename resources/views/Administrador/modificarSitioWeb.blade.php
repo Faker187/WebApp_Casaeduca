@@ -4,7 +4,7 @@
 <h1 class="mt-4">Parametros</h1>
 <!-- ACA PUEDES METER CODIGO -->
 <form action="" method="post">
-  <textarea name="editor" id="editor" cols="80" rows="10"></textarea>
+  <textarea name="editor" cols="80" rows="10"></textarea>
   <input type="submit" value="Guardar">
 </form>
 <!-- FIN -->
