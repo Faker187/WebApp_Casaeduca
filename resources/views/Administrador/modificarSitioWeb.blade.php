@@ -1,7 +1,7 @@
 @extends('Administrador.admin')
 
 @section('content')
-<h1 class="mt-4">Parametros</h1>
+<h1 class="mt-4">Parámetros</h1>
 <!-- ACA PUEDES METER CODIGO -->
 <form action="" method="post">
   <textarea name="editor" cols="80" rows="10"></textarea>
@@ -61,10 +61,7 @@
       </div>
       <form id="formEditarParametro" action="/editarParametro" method="POST">
         @csrf
-        <div id="divEditarParametro" class="modal-body">
-            {{-- <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre" required>
-            <input type="email" name="email" class="form-control mb-4" placeholder="Correo Electrónico" required> --}}
-          </div>
+        <div id="divEditarParametro" class="modal-body"></div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             <button type="submit" class="btn btn-primary">Editar</button>
