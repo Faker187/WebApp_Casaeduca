@@ -255,7 +255,7 @@
         <script src="{{ asset('public/dist/js/datatables-demo.js') }}"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
-        <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
     </body>
 </html>
 
