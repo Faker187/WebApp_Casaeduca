@@ -232,7 +232,7 @@ $('#formEditarParametro').submit(function(e) {
     let form = $(this);
     let url = form.attr('action');
     let cantidad_letras = $('#valor').val().length;
-console.log(cantidad_letras);
+console.log(form);
     
 
 
