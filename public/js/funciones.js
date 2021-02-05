@@ -201,18 +201,6 @@ $('.eliminarProfesor').click(function(e) {
 $('#modalEditarParametro').on('hidden.bs.modal', function() {
     $('#divEditarParametro').empty();
 });
-$('#modalEditarParametro').on('show.bs.modal', function() {
-    let editor;
-    ClassicEditor
-        .create( document.querySelector( 'textarea[name="editor"]' ))
-        .then( newEditor => {
-            editor = newEditor;
-            console.log( newEditor );
-        } )
-        .catch( error => {
-                console.error( error );
-        } );
-});
 
 $('.editarParametro').click(function(e) {
     e.preventDefault();
