@@ -1,5 +1,5 @@
 {{-- <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre" value="{{$profesor->name}}" required> --}}
-@switch('$parametro->parametro')
+@switch($parametro->parametro)
     @case('Invitación Plan Académico')
         <textarea class="form-control" id="valor" name="editor" cols="80" rows="10">{{$parametro->valor}}</textarea>
         @break
