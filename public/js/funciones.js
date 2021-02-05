@@ -261,7 +261,7 @@ $('#formEditarParametro').submit(function(e) {
                 // ] //Array, data here must match structure of table data
                 // t.row(idIndex).data( newData ).draw();
                 $('#modalEditarParametro').modal('hide');
-                // location.reload();
+                location.reload();
 
             },
             error: function(error) {
