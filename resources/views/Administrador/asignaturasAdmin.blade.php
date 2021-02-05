@@ -152,19 +152,6 @@
     </div>
   </div>
 </div>
-
-<script>
-    var editor;
-    ClassicEditor
-        .create( document.querySelector( 'textarea[name="descripcion"]' ))
-        .then( newEditor => {
-            editor = newEditor;
-            console.log( newEditor );
-        } )
-        .catch( error => {
-                console.error( error );
-        } );
-</script>
 @endsection
 
 

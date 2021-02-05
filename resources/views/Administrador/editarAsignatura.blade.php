@@ -28,7 +28,7 @@
   <label for="color">Seleccione un color:</label>
   <input type="color" name="color" value="{{$asignatura->color}}">
   <!-- <input type="text" name="examen" class="form-control mb-4" placeholder="Link Examen"> -->
-  <textarea class="form-control" name="descripcion" rows="10" placeholder="Descripción asignatura">{{$asignatura->descripcion}}</textarea>
+  <textarea class="form-control" name="descripcion" id="descripcionAsig" rows="10" placeholder="Descripción asignatura">{{$asignatura->descripcion}}</textarea>
 
 
 <input type="hidden" name="idAsignatura" value="{{$asignatura->idasignatura}}">
@@ -37,7 +37,7 @@
 <script>
     var editor;
     ClassicEditor
-        .create( document.querySelector( 'textarea[name="descripcion"]' ))
+        .create( document.querySelector( '#descripcionAsig' ))
         .then( newEditor => {
             editor = newEditor;
             console.log( newEditor );
