@@ -123,11 +123,11 @@ class AdminController extends Controller
 
     public function editarParametro(Request $request)
     {
-        $parametro = Sitio::find($request->idParametro);
+        /* $parametro = Sitio::find($request->idParametro);
         $parametro->valor = $request->valor;
-        $parametro->save();
+        $parametro->save(); */
         //retorno el request por que viene con todos los datos y ademas el indice de la row
-        return $request;
+        return $request->valor;;
     }
 
     public function agregarProfesor(Request $request)
