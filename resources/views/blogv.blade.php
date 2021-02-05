@@ -26,7 +26,7 @@
                 <div class="card-body mx-auto">
                     <!-- Desarrollo Blog -->
                     <h1 class="card-title text-center">{{$revista->titulo}}</h1>
-                    <img src="{{ asset('public/imgcard/'.$revista->imagen) }}" class="img-fluid">
+                    <img style=" width: 200px; " src="{{ asset('public/imgcard/'.$revista->imagen) }}" class="img-fluid">
                     <p class="text-justify mx-auto mt-3">{!!$revista->contenido!!}</p>
                     <p class="text-justify">{{$revista->autor}} - {{$revista->fecha}}</p>
                     <!-- Desarrollo Blog -->

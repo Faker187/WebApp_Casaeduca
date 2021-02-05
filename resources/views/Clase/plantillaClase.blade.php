@@ -118,7 +118,7 @@
             pdfSetting: {
                 openFileBtn: false,
                 printBtn: false,
-                downloadBtn: false,
+                downloadBtn: true,
                 bookmarkBtn: false, 
             },
             docxSetting: {
