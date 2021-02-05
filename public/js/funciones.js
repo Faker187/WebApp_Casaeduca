@@ -233,6 +233,10 @@ $('#formEditarParametro').submit(function(e) {
     let url = form.attr('action');
     let cantidad_letras = $('#valor').val().length;
 
+    let parametros = {
+        'idParametro': $('#idParametro').val(),
+        'valor': $('#valor').val()
+    }
     if (cantidad_letras > 2000) {
         swal("No puede tener mas de 2000 letras");
     } else {
