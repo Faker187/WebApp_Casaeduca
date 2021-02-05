@@ -96,7 +96,8 @@ class SuscripcionController extends Controller
     
                 $data = [
                     'name' => $request->nombreCompletoApoderado,
-                    'email' => $request->email
+                    'email' => $request->email,
+                    'subject' => "Nueva Suscripción!"
                 ];
                 $vista_email = Sitio::where('id' ,36)->first()->valor;
                 $data2 = [
