@@ -38,12 +38,9 @@
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
 <script>
     ClassicEditor
-        .create( document.querySelector( 'textarea[name="editor"]' ),{
+        .create( document.querySelector( 'textarea[name="editor"]' ), {
             simpleUpload: {
                 uploadUrl: 'https://casaeduca.cl/public/img/',
-                headers: {
-                    ...
-                }
             }
         } )
         .then( editor => {

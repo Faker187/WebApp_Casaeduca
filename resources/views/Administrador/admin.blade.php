@@ -256,12 +256,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
-        <script src="{{asset('public/js/filereader.js')}}"></script> 
-        <script src="{{asset('public/js/filerepository.js')}}"></script> 
-        <script src="{{asset('public/js/index.js')}}"></script> 
-        <script src="{{asset('public/js/ui/filedialogbuttonview.js')}}"></script> 
-        <script src="{{asset('public/js/adapters/base64uploadadapter.js')}}"></script> 
-        <script src="{{asset('public/js/adapters/simpleuploadadapter.js')}}"></script> 
+
     </body>
 </html>
 
