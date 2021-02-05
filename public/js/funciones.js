@@ -241,7 +241,7 @@ $('#formEditarParametro').submit(function(e) {
             url: url,
             data: form.serialize(),
             success: function(data) {
-                // console.log(data);
+                console.log(data);
                 let t = $('#dataTableEsp').DataTable();
                 let idIndex = data.indexTr;
                 // newData = [ 
