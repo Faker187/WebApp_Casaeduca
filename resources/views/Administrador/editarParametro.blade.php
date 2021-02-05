@@ -36,6 +36,13 @@
 
 <input type="hidden" name="idParametro" value="{{$parametro->id}}">
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
-<script> 
-    CKEDITOR.replace('editor');
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#valor' ) )
+        .then( editor => {
+                console.log( editor );
+        } )
+        .catch( error => {
+                console.error( error );
+        } );
 </script>
