@@ -232,34 +232,8 @@ $('#formEditarParametro').submit(function(e) {
     let form = $(this);
     let url = form.attr('action');
     let cantidad_letras = $('#valor').val().length;
-
-    if (cantidad_letras > 2000) {
-        swal("No puede tener mas de 2000 letras");
-    } else {
-        $.ajax({
-            type: 'POST',
-            url: url,
-            data: form.serialize(),
-            success: function(data) {
-                // console.log(data);
-                let t = $('#dataTableEsp').DataTable();
-                let idIndex = data.indexTr;
-                // newData = [ 
-                //     data.valor,
-                //     data.email, 
-                //     '<center><button class="btn btn-primary editarParametro" idParametro="'+data.id +'"><i class="fas fa-edit"></i></button></center>',
-                //     '<center><button class="btn btn-primary eliminarParametro" idParametro="'+data.id+'"><i class="fas fa-trash-alt"></i></button></center>',
-                // ] //Array, data here must match structure of table data
-                // t.row(idIndex).data( newData ).draw();
-                $('#modalEditarParametro').modal('hide');
-                // location.reload();
-
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
-    }
+console.log(cantidad_letras);
+    
 
 
 
