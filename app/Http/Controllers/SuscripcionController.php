@@ -283,7 +283,27 @@ class SuscripcionController extends Controller
     
     
                 $response = Transaction::getStatus($tokenWs); 
-             
+
+                $user = User::all()->where('id', $idApoderado)->first();
+                $data1 = [
+                    'monto' => $response->amount,
+                    'fecha' => $response->transactionDate,
+                    'codigo' => $response->authorizationCode,
+                    'orden' => $response->buyOrder,
+                    'nombre' => $user->name,
+                    'email' => $user->email
+                ];
+                Mail::send('emails.pagosuscripcion',$data1, function($msj2){
+                    $msj2->from("noreply@casaeduca.cl","Casa Educa, Se ha realizado un pago de suscripcion")->subject('PAGO DE SUSCRIPCION');
+                    $msj2->to("contacto@casaeduca.cl");
+                });
+
+                $emailto = $user->email;
+                Mail::send('emails.pagosuscripcion', $data2, function($message)use($emailto){
+                    $message->from('noreply@casaeduca.cl', 'Casa educa')->subject('Comprobante de pago Casa educa');
+                    $message->to($emailto);
+
+                });
     
                 return view('Suscripcion.terminarPago', compact('response','tokenWs'));
                 // return redirect()->route('apoderado');

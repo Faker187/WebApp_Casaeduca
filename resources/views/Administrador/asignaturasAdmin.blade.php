@@ -106,7 +106,7 @@
        
                 <!-- <input type="text" name="examen" class="form-control mb-4" placeholder="Link Examen"> -->
 
-                <textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción asignatura"></textarea>
+                <textarea class="form-control" name="descripcion" rows="10" placeholder="Descripción asignatura"></textarea>
                 
                 <input type="hidden" name="idCurso" value="{{$idCurso}}">
 
@@ -153,7 +153,18 @@
   </div>
 </div>
 
-
+<script>
+    var editor;
+    ClassicEditor
+        .create( document.querySelector( 'textarea[name="descripcion"]' ))
+        .then( newEditor => {
+            editor = newEditor;
+            console.log( newEditor );
+        } )
+        .catch( error => {
+                console.error( error );
+        } );
+</script>
 @endsection
 
 
