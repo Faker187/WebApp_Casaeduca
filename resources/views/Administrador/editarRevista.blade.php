@@ -17,16 +17,3 @@
   <input type="color" name="color" value="{{$revista->color}}">
   <input type="hidden" name="idRevista" value="{{$revista->id}}">
   <input type="hidden" name="fecha" value="{{$revista->fecha}}">
-
-  <script>
-    var editor;
-    ClassicEditor
-        .create( document.querySelector( 'textarea[name="contenido"]' ))
-        .then( newEditor => {
-            editor = newEditor;
-            console.log( newEditor );
-        } )
-        .catch( error => {
-                console.error( error );
-        } );
-</script>
