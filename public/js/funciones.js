@@ -240,6 +240,11 @@ $('#formEditarParametro').submit(function(e) {
     if (cantidad_letras > 2000) {
         swal("No puede tener mas de 2000 letras");
     } else {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('input[name="_token"]').val()
+            }
+        });
         $.ajax({
             type: 'POST',
             url: url,
