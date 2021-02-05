@@ -233,18 +233,13 @@ $('#formEditarParametro').submit(function(e) {
     let url = form.attr('action');
     let cantidad_letras = $('#valor').val().length;
 
-    let parametros = {
-        'idParametro': $('#idParametro').val(),
-        'valor': $('#valor').val()
-    }
     if (cantidad_letras > 2000) {
         swal("No puede tener mas de 2000 letras");
     } else {
         $.ajax({
             type: 'POST',
             url: url,
-            headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
-            data: parametros,
+            data: form.serialize(),
             success: function(data) {
                 console.log(data);
                 let t = $('#dataTableEsp').DataTable();
