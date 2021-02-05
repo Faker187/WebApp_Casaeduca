@@ -94,7 +94,7 @@ class SuscripcionController extends Controller
                     'estado' => 0
                 ]);
     
-                $data = [
+                $data1 = [
                     'name' => $request->nombreCompletoApoderado,
                     'email' => $request->email,
                     'subject' => "Nueva Suscripción!"
