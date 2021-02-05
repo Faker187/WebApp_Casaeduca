@@ -229,10 +229,12 @@ $('.editarParametro').click(function(e) {
 //Guardar Parametro editado
 $('#formEditarParametro').submit(function(e) {
     e.preventDefault();
+    const editorData = editor.getData();
+    console.log(editorData);
     let form = $(this);
     let url = form.attr('action');
     let cantidad_letras = $('#valor').val().length;
-
+    var content = CKEDITOR.instances[instance].getData()
     if (cantidad_letras > 2000) {
         swal("No puede tener mas de 2000 letras");
     } else {

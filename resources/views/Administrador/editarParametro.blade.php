@@ -48,9 +48,11 @@
 <input type="hidden" name="idParametro" value="{{$parametro->id}}">
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
 <script>
+    let editor;
     ClassicEditor
         .create( document.querySelector( 'textarea[name="editor"]' ))
         .then( editor => {
+            editor = newEditor;
                 console.log( editor );
         } )
         .catch( error => {
