@@ -124,7 +124,7 @@ class AdminController extends Controller
     public function editarParametro(Request $request)
     {
         $parametro = Sitio::find($request->idParametro);
-        if($request->idParametro == 2){
+        if($request->opcion == 2){
             $parametro->valor = $request->editor;
         }else{
             $parametro->valor = $request->valor;
