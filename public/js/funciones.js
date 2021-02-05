@@ -231,10 +231,13 @@ $('#formEditarParametro').submit(function(e) {
     e.preventDefault();
     const editorData = editor.getData();
     console.log(editorData);
+    if(editorData){
+        $('textarea[name="editor"]').text(editorData);
+    }
     let form = $(this);
     let url = form.attr('action');
     let cantidad_letras = $('#valor').val().length;
-    var content = CKEDITOR.instances[instance].getData()
+
     if (cantidad_letras > 2000) {
         swal("No puede tener mas de 2000 letras");
     } else {
