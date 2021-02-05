@@ -40,6 +40,10 @@
         <textarea class="form-control" id="valor" name="editor" cols="80" rows="10">{{$parametro->valor}}</textarea>
         <input type="hidden" name="opcion" value="2">
         @break
+    @case('Bienvenida - Email')
+        <textarea class="form-control" id="valor" name="editor" cols="80" rows="10">{{$parametro->valor}}</textarea>
+        <input type="hidden" name="opcion" value="2">
+        @break
     @default
         <textarea class="form-control" id="valor" name="valor" rows="3">{{$parametro->valor}}</textarea>
         <input type="hidden" name="opcion" value="1">
