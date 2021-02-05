@@ -77,7 +77,7 @@
             <div class="card w-100 border-0">
                 <div class="card-body">
                     <h5 class="card-title pr-2 color-ce3">Descripción</h5>
-                    <p class="card-text text-justify">{{$curso->descripcion}}</p>
+                    <p class="card-text text-justify">{!!$curso->descripcion!!}</p>
                 </div>
             </div>
             <div class="card border-0 align-items-center my-2">

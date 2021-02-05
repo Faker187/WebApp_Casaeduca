@@ -174,7 +174,7 @@ a:hover,a:focus{
                     <div class="card-body">
                         <h5 class="card-title pl-3 color-ce0 pt-4 font-weight-bold animated wow fadeInUp">Acerca de este curso</h5>
                         <p class="lead pl-3 text-justify py-2 color-ce3 animated wow fadeInUp">
-                            {{$asignatura->descripcion}}
+                            {!!$asignatura->descripcion!!}
                         </p>  
                     </div>
                 </div>
