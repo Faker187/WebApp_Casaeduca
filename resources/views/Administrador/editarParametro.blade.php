@@ -51,9 +51,9 @@
     let editor;
     ClassicEditor
         .create( document.querySelector( 'textarea[name="editor"]' ))
-        .then( editor => {
+        .then( newEditor => {
             editor = newEditor;
-                console.log( editor );
+            console.log( newEditor );
         } )
         .catch( error => {
                 console.error( error );
