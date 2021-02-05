@@ -97,7 +97,6 @@ class SuscripcionController extends Controller
                 $data1 = [
                     'name' => $request->nombreCompletoApoderado,
                     'email' => $request->email,
-                    'subject' => "Nueva Suscripción!"
                 ];
                 $vista_email = Sitio::where('id' ,36)->first()->valor;
                 $data2 = [
@@ -107,7 +106,7 @@ class SuscripcionController extends Controller
                 ];
                 $subject = "Nueva Suscripción!";
                 $for = "contacto@casaeduca.cl";
-                Mail::send('emailFormContacto',$data1, function($msj2) use($subject,$for){
+                Mail::send('emails.suscripcion',$data1, function($msj2) use($subject,$for){
                     $msj2->from("noreply@casaeduca.cl","Casa Educa, Nueva suscripcion");
                     $msj2->subject($subject);
                     $msj2->to($for);
