@@ -257,6 +257,18 @@
         <script src="{{asset('public/js/funciones.js')}}"></script> 
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
 
+        <script>
+            var editor;
+            ClassicEditor
+                .create( document.querySelector( 'textarea[name="contenido"]' ))
+                .then( newEditor => {
+                    editor = newEditor;
+                    console.log( newEditor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+        </script>
     </body>
 </html>
 
