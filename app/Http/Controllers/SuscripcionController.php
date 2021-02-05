@@ -110,10 +110,8 @@ class SuscripcionController extends Controller
                     $msj2->to("contacto@casaeduca.cl");
                 });
                 $emailto = $request->email;
-                echo "$emailto";
                 Mail::send('emails.bienvenido', $data2, function($message) use ($emailto){
-                    $message->from('contacto@casaeduca.cl', 'Casa educa')->subject('Bienvenido a Casa educa');
-                    $message->to("$emailto");
+                    $message->from('contacto@casaeduca.cl', 'Casa educa')->subject('Bienvenido a Casa educa')->to($emailto);
                 });
 
 
