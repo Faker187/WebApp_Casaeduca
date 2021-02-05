@@ -2,13 +2,6 @@
 
 @section('content')
 <h1 class="mt-4">Parámetros</h1>
-<!-- ACA PUEDES METER CODIGO -->
-<form action="" method="post">
-  <textarea name="editor" cols="80" rows="10"></textarea>
-  <input type="submit" value="Guardar">
-</form>
-<!-- FIN -->
-
 
 <br>
 <div class="table-responsive">
