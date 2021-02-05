@@ -237,6 +237,7 @@ $('#formEditarParametro').submit(function(e) {
         'idParametro': $('#idParametro').val(),
         'valor': $('#valor').val()
     }
+    console.log( $('input[name="_token"]').val());
     if (cantidad_letras > 2000) {
         swal("No puede tener mas de 2000 letras");
     } else {
