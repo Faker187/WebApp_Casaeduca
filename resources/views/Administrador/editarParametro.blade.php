@@ -38,9 +38,7 @@
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
 <script>
     ClassicEditor
-        .create( document.querySelector( 'textarea[name="editor"]' ), {
-            toolbar: ['imageInsert' ]
-        } )
+        .create( document.querySelector( 'textarea[name="editor"]' ))
         .then( editor => {
                 console.log( editor );
         } )
