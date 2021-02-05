@@ -243,7 +243,7 @@ $('#formEditarParametro').submit(function(e) {
         $.ajax({
             type: 'POST',
             url: url,
-            data: form.serialize(),
+            data: parametros,
             success: function(data) {
                 console.log(data);
                 let t = $('#dataTableEsp').DataTable();
