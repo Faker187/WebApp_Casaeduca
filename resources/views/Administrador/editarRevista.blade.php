@@ -1,7 +1,7 @@
 <input type="text" name="autor" class="form-control mb-4" value="{{$revista->autor}}" placeholder="Nombre Autor" required>
 <input type="text" name="titulo" class="form-control mb-4" value="{{$revista->titulo}}" placeholder="Título" required>
 <input type="text" name="tema" value="{{$revista->tema}}" class="form-control mb-4" placeholder="Tema" required>
-<textarea class="form-control mb-4" name="contenido" rows="10" placeholder="Contenido">{{$revista->contenido}}</textarea>
+<textarea class="form-control mb-4" name="contenido" id="editarcontenidoR" rows="10" placeholder="Contenido">{{$revista->contenido}}</textarea>
 <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
@@ -17,11 +17,11 @@
   <input type="color" name="color" value="{{$revista->color}}">
   <input type="hidden" name="idRevista" value="{{$revista->id}}">
   <input type="hidden" name="fecha" value="{{$revista->fecha}}">
-  
+
 <script>
   var editor;
   ClassicEditor
-      .create( document.querySelector( 'textarea[name="contenido"]' ))
+      .create( document.querySelector( '#editarcontenidoR' ))
       .then( newEditor => {
           editor = newEditor;
           console.log( newEditor );
