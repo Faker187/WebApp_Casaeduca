@@ -39,7 +39,7 @@
 <script>
     ClassicEditor
         .create( document.querySelector( 'textarea[name="editor"]' ), {
-            toolbar: [ ... , 'imageInsert' ]
+            toolbar: ['imageInsert' ]
         } )
         .then( editor => {
                 console.log( editor );
