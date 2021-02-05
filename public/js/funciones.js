@@ -237,18 +237,13 @@ $('#formEditarParametro').submit(function(e) {
         'idParametro': $('#idParametro').val(),
         'valor': $('#valor').val()
     }
-    console.log( $('input[name="_token"]').val());
     if (cantidad_letras > 2000) {
         swal("No puede tener mas de 2000 letras");
     } else {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val()
-            }
-        });
         $.ajax({
             type: 'POST',
             url: url,
+            headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
             data: parametros,
             success: function(data) {
                 console.log(data);
