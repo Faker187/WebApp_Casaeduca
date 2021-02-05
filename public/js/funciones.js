@@ -437,7 +437,11 @@ $('#formAgregarRevista').submit(function(e) {
     e.preventDefault();
     let form = $(this);
     let url = form.attr('action');
-
+    const editorData = editor.getData();
+    console.log(editorData);
+    if(editorData){
+        $('textarea[name="contenido"]').text(editorData);
+    }
     var formData = new FormData(this);
     formData.append('_token', $('input[name=_token]').val());
 
