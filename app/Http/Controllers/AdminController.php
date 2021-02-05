@@ -127,6 +127,7 @@ class AdminController extends Controller
         $parametro->valor = $request->valor;
         $parametro->save(); */
         //retorno el request por que viene con todos los datos y ademas el indice de la row
+        echo $request->idParametro;
         dd($request->idParametro);
     }
 
