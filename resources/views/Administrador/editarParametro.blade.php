@@ -32,10 +32,13 @@
         <textarea class="form-control" id="valor" name="editor" cols="80" rows="10">{{$parametro->valor}}</textarea>
         @break
     @default
-        <textarea name="valor" rows="3">{{$parametro->valor}}</textarea>
+        <textarea class="form-control" id="valor" name="valor" rows="3">{{$parametro->valor}}</textarea>
 @endswitch
 
 
 
 <input type="hidden" name="idParametro" value="{{$parametro->id}}">
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
+<script> 
+    CKEDITOR.replace('editor');
+</script>
