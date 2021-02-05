@@ -82,7 +82,7 @@
                     <h3 class="card-title pr-2 color-ce0 text-center py-2 animated wow fadeInUp"><img class="card-img mt-0 mb-5 pr-2" src="{{ asset('public/img/008-blackboard.svg') }}" style="width: 60px;" alt="">Descripción</h3>
                     <div class="row">
                         <div >
-                            <p class="card-text text-justify">{{htmlspecialchars($planAcademicoDescripcion)}}</p>  
+                            <p class="card-text text-justify">{{htmlspecialchars_decode(stripslashes($planAcademicoDescripcion))}}</p>  
                         </div>
                         {{-- <div class="col-md-6">
                             <p class="card-text text-justify">Los objetivos particulares de aprendizaje a su vez contarán con un objetivo general y cuatro unidades temáticas con el contenido en detalle a desarrollar, que a su vez tendrán contenido teórico, guías, ejercicios y pruebas.</p>                  
