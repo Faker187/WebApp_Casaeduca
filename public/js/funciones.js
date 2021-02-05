@@ -282,7 +282,11 @@ $('#formAgregarAsignatura').submit(function(e) {
     e.preventDefault();
     let form = $(this);
     let url = form.attr('action');
-
+    const editorData = editor.getData();
+    console.log(editorData);
+    if(editorData){
+        $('textarea[name="descripcion"]').text(editorData);
+    }
     var formData = new FormData(this);
     formData.append('_token', $('input[name=_token]').val());
 
@@ -350,7 +354,11 @@ $('.editarAsignatura').click(function(e) {
 $('#formEditarAsignatura').submit(function(e) {
     e.preventDefault();
 
-
+    const editorData = editor.getData();
+    console.log(editorData);
+    if(editorData){
+        $('textarea[name="descripcion"]').text(editorData);
+    }
     var formData = new FormData(this);
     formData.append('_token', $('input[name=_token]').val());
     // let url = formData.attr('action');
@@ -495,7 +503,11 @@ $('.editarRevista').click(function(e) {
 //Guardar Revista editado
 $('#formEditarRevista').submit(function(e) {
     e.preventDefault();
-
+    const editorData = editor.getData();
+    console.log(editorData);
+    if(editorData){
+        $('textarea[name="contenido"]').text(editorData);
+    }
     var formData = new FormData(this);
     formData.append('_token', $('input[name=_token]').val());
     // let url = formData.attr('action');
