@@ -38,7 +38,7 @@
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
 <script>
     ClassicEditor
-        .create( document.querySelector( '#valor' ) )
+        .create( document.querySelector( 'input[name="editor"]' ) )
         .then( editor => {
                 console.log( editor );
         } )
