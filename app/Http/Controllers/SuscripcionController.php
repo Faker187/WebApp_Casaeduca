@@ -96,23 +96,27 @@ class SuscripcionController extends Controller
     
                 $data = [
                     'name' => $request->nombreCompletoApoderado,
+                    'email' => $request->email
+                ];
+                $vista_email = Sitio::where('id' ,36)->first()->valor;
+                $data2 = [
+                    'name' => $request->nombreCompletoApoderado,
                     'email' => $request->email,
+                    'body' => $vista_email
                 ];
                 $subject = "Nueva Suscripción!";
-                $for = "noreply@casaeduca.cl";
-                Mail::send('emailFormContacto',$data, function($msj2) use($subject,$for){
+                $for = "contacto@casaeduca.cl";
+                Mail::send('emailFormContacto',$data1, function($msj2) use($subject,$for){
                     $msj2->from("noreply@casaeduca.cl","Casa Educa, Nueva suscripcion");
                     $msj2->subject($subject);
                     $msj2->to($for);
                 });
-
-                $subject2 = "Bienvenido a Casaeduca!";
-                $for2 = $request->email;
-                Mail::send('emailFormContacto', function($msj3) use($subject2,$for2){
-                    $msj3->from("contacto@casaeduca.cl","Casa Educa, Gracias por suscribirte!");
-                    $msj3->subject($subject2);
-                    $msj3->to($for2);
+                
+                Mail::send('emails.bienvenido', $data2, function($message){
+                    $message->from($for, 'Casa educa');
+                    $message->to($request->email);
                 });
+
 
                 return view('Suscripcion.suscripcionRealizada',compact('eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
                  'telefono','email','facebook','twitter','instagram','whatsapp')); //invitar a loguear junto con el mensaje de felicitaciones
