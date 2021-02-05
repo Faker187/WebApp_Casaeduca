@@ -132,16 +132,16 @@
 </div>
 
 <script>
-    var editor;
-    ClassicEditor
-        .create( document.querySelector( 'textarea[name="contenido"]' ))
-        .then( newEditor => {
-            editor = newEditor;
-            console.log( newEditor );
-        } )
-        .catch( error => {
-                console.error( error );
-        } );
+  var editor;
+  ClassicEditor
+      .create( document.querySelector( 'textarea[name="contenido"]' ))
+      .then( newEditor => {
+          editor = newEditor;
+          console.log( newEditor );
+      } )
+      .catch( error => {
+              console.error( error );
+      } );
 </script>
 
 @endsection
