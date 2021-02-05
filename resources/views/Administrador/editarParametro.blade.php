@@ -39,9 +39,8 @@
 <script>
     ClassicEditor
         .create( document.querySelector( 'textarea[name="editor"]' ), {
-            simpleUpload: {
-                uploadUrl: 'https://casaeduca.cl/public/img/',
-            }
+            plugins: [ ... , ImageInsert ],
+            toolbar: [ ... , 'imageInsert' ]
         } )
         .then( editor => {
                 console.log( editor );
