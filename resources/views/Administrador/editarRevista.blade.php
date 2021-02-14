@@ -2,11 +2,11 @@
 <input type="text" name="titulo" class="form-control mb-4" value="{{$revista->titulo}}" placeholder="Título" required>
 <input type="text" name="tema" value="{{$revista->tema}}" class="form-control mb-4" placeholder="Tema" required>
 <div class="card border-1">
-  <div class="card-body">
-    <a href="#" class="btn btn-primary"><i class="fas fa-align-right"></i></a>
-    <a href="#" class="btn btn-primary"><i class="fas fa-align-left"></i></a>
-    <a href="#" class="btn btn-primary"><i class="fas fa-align-justify"></i></a>
-    <a href="#" class="btn btn-primary"><i class="fas fa-align-center"></i></a>
+  <div class="card-body mx-auto p-1">
+    <a href="#" id="textA-right" class="btn btn-light"><i class="fas fa-align-right"></i></a>
+    <a href="#" id="textA-left" class="btn btn-light"><i class="fas fa-align-left"></i></a>
+    <a href="#" id="textA-justify" class="btn btn-light"><i class="fas fa-align-justify"></i></a>
+    <a href="#" id="textA-center" class="btn btn-light"><i class="fas fa-align-center"></i></a>
   </div>
 </div>
 <textarea class="form-control mb-4" name="contenido" id="editarcontenidoR" rows="10" placeholder="Contenido">{{$revista->contenido}}</textarea>
