@@ -260,21 +260,7 @@
 
         <script>
             var editor;
-            
-            const editor = CKEDITOR.replace('my-editor');
-
-            function align(align) {
-                const range = editor.createRange();
-                range.selectNodeContents(editor.editable());
-                // Create selection and set range.
-                const sel = editor.getSelection();
-                sel.selectRanges([range]);
-                editor.execCommand('justify' + align);
-                // Remove selection.
-                sel.removeAllRanges();
-            }
-
-            
+                        
             ClassicEditor
                 .create( document.querySelector( 'textarea[name="contenido"]' ))
                 .then( newEditor => {

@@ -28,10 +28,8 @@
 
   <script type="text/javascript">
     bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-  </script>
-<script>
-  var editor;
-  ClassicEditor
+    var editor;
+    ClassicEditor
       .create( document.querySelector( '#editarcontenidoR' ))
       .then( newEditor => {
           editor = newEditor;
@@ -39,21 +37,5 @@
       } )
       .catch( error => {
               console.error( error );
-      } );
-
-      $('#textA-left').click(() => {
-        align('left');
-      });
-
-      $('#textA-right').click(() => {
-        align('right');
-      });
-
-      $('#textA-justify').click(() => {
-        align('justify');
-      });
-
-      $('#textA-center').click(() => {
-        align('center');
-      });
-</script>
+    } );
+  </script>
