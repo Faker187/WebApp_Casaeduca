@@ -283,7 +283,7 @@
                 } );
         </script>
         <script>
-            $('.ck-dropdown__button').click(function(){
+            $('button.ck-dropdown__button').click(function(){
                 alert('llege')
             });
         </script>
