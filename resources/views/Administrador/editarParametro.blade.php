@@ -56,11 +56,8 @@
     ClassicEditor
         .create( document.querySelector( 'textarea[name="editor"]' ),{
             alignment: {
-                options: [ 'left', 'right','center','justify']
+                options: [ 'left', 'right','center']
             },
-            toolbar: [
-                'heading', '|', 'bulletedList', 'numberedList', 'alignment', 'undo', 'redo'
-            ]
         })
         .then( newEditor => {
             editor = newEditor;

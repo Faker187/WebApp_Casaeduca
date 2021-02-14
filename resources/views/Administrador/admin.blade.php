@@ -278,7 +278,7 @@
             ClassicEditor
                 .create( document.querySelector( 'textarea[name="descripcion"]' ),{
                     alignment: {
-                        options: [ 'left', 'right','center','justify']
+                        options: [ 'left', 'right','center']
                     },
                 })
                 .then( newEditor => {
