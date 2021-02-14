@@ -258,7 +258,17 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
 
         <script>
-            
+            function align(align) {
+                const range = editor.createRange();
+                range.selectNodeContents(editor.editable());
+                // Create selection and set range.
+                const sel = editor.getSelection();
+                sel.selectRanges([range]);
+                editor.execCommand('justify' + align);
+                // Remove selection.
+                sel.removeAllRanges();
+            }
+
             var editor;
             ClassicEditor
                 .create( document.querySelector( 'textarea[name="contenido"]' ))
@@ -281,36 +291,6 @@
                 .catch( error => {
                         console.error( error );
                 } );
-        </script>
-        <script>
-            var editor;
-
-            jQuery('#textA-left').click(() => {
-                align('left');
-            });
-
-            jQuery('#textA-right').click(() => {
-                align('right');
-            });
-
-            jQuery('#textA-justify').click(() => {
-                align('justify');
-            });
-
-            jQuery('#textA-center').click(() => {
-                align('center');
-            });
-
-            function align(align) {
-                const range = editor.createRange();
-                range.selectNodeContents(editor.editable());
-                // Create selection and set range.
-                const sel = editor.getSelection();
-                sel.selectRanges([range]);
-                editor.execCommand('justify' + align);
-                // Remove selection.
-                sel.removeAllRanges();
-            }
         </script>
     </body>
 </html>

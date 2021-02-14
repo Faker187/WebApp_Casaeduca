@@ -27,6 +27,16 @@
   <input type="hidden" name="fecha" value="{{$revista->fecha}}">
 
 <script>
+  function align(align) {
+    const range = editor.createRange();
+    range.selectNodeContents(editor.editable());
+    // Create selection and set range.
+    const sel = editor.getSelection();
+    sel.selectRanges([range]);
+    editor.execCommand('justify' + align);
+    // Remove selection.
+    sel.removeAllRanges();
+  }
   var editor;
   ClassicEditor
       .create( document.querySelector( '#editarcontenidoR' ))
@@ -37,4 +47,20 @@
       .catch( error => {
               console.error( error );
       } );
+
+      $('#textA-left').click(() => {
+        align('left');
+      });
+
+      $('#textA-right').click(() => {
+        align('right');
+      });
+
+      $('#textA-justify').click(() => {
+        align('justify');
+      });
+
+      $('#textA-center').click(() => {
+        align('center');
+      });
 </script>
