@@ -27,6 +27,8 @@
   <input type="hidden" name="fecha" value="{{$revista->fecha}}">
 
 <script>
+var editor;
+const editor = CKEDITOR.replace('#editarcontenidoR');
   function align(align) {
     const range = editor.createRange();
     range.selectNodeContents(editor.editable());
@@ -37,7 +39,7 @@
     // Remove selection.
     sel.removeAllRanges();
   }
-  var editor;
+  
   ClassicEditor
       .create( document.querySelector( '#editarcontenidoR' ))
       .then( newEditor => {

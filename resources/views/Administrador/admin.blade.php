@@ -260,6 +260,8 @@
         <script>
             var editor;
             
+            const editor = CKEDITOR.replace('my-editor');
+
             function align(align) {
                 const range = editor.createRange();
                 range.selectNodeContents(editor.editable());
