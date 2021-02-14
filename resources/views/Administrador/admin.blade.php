@@ -10,6 +10,9 @@
         <meta name="author" content="" />
         <title>Panel Administrador - Casa Educa</title>
         <link href="{{ asset('public/dist/css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('public/css/quill.css') }}" rel="stylesheet" />
+        <link href="{{ asset('public/css/quill.snow.css') }}" rel="stylesheet" />
+        <link href="{{ asset('public/css/quill.bubble.css') }}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -246,6 +249,7 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="{{ asset('public/dist/js/scripts.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('public/dist/js/chart-area-demo.js') }}"></script>
@@ -256,11 +260,8 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
-        <script type="text/javascript" src="{{asset('public/js/nicEdit.js')}}"></script>
-        <script type="text/javascript">
-    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-   
-  </script>
+        <script type="text/javascript" src="{{asset('public/js/sprite.svg.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/bootstrap-quill.js')}}"></script>
         <script>
             var editor;
 
