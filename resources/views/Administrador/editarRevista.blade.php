@@ -1,8 +1,16 @@
 <input type="text" name="autor" class="form-control mb-4" value="{{$revista->autor}}" placeholder="Nombre Autor" required>
 <input type="text" name="titulo" class="form-control mb-4" value="{{$revista->titulo}}" placeholder="Título" required>
 <input type="text" name="tema" value="{{$revista->tema}}" class="form-control mb-4" placeholder="Tema" required>
+<div class="card border-1">
+  <div class="card-body">
+    <a href="#" class="btn btn-primary"><i class="fas fa-align-right"></i></a>
+    <a href="#" class="btn btn-primary"><i class="fas fa-align-left"></i></a>
+    <a href="#" class="btn btn-primary"><i class="fas fa-align-justify"></i></a>
+    <a href="#" class="btn btn-primary"><i class="fas fa-align-center"></i></a>
+  </div>
+</div>
 <textarea class="form-control mb-4" name="contenido" id="editarcontenidoR" rows="10" placeholder="Contenido">{{$revista->contenido}}</textarea>
-<div class="input-group mb-3">
+<div class="input-group my-3">
     <div class="input-group-prepend">
       <span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
     </div>
