@@ -260,7 +260,11 @@
         <script>
             var editor;
             ClassicEditor
-                .create( document.querySelector( 'textarea[name="contenido"]' ))
+                .create( document.querySelector( 'textarea[name="contenido"]' ),{
+                    alignment: {
+                        options: [ 'left', 'right','center','justify']
+                    },
+                })
                 .then( newEditor => {
                     editor = newEditor;
                     console.log( newEditor );
@@ -272,7 +276,11 @@
         <script>
             var editor;
             ClassicEditor
-                .create( document.querySelector( 'textarea[name="descripcion"]' ))
+                .create( document.querySelector( 'textarea[name="descripcion"]' ),{
+                    alignment: {
+                        options: [ 'left', 'right','center','justify']
+                    },
+                })
                 .then( newEditor => {
                     editor = newEditor;
                     console.log( newEditor );

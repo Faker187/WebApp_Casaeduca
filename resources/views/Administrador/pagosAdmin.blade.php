@@ -1,6 +1,14 @@
 @extends('Administrador.admin')
 
 @section('content')
+<style>
+.enMoney::before {
+    content:"$";
+}
+.negMoney {
+    color:red;
+}
+</style>
 <h1 class="mt-4">Pagos</h1>
 <br>
 <div class="table-responsive">
@@ -35,7 +43,7 @@
                 <td>{{$pago->idPago}}</td>
                 <td>{{$pago->buyOrder}}</td>
                 <td>{{$pago->idAlumno}}</td>
-                <td>{{$pago->amount}}</td>
+                <td><span class="enMoney"></span>{{$pago->amount}}</td>
                 <td>{{$pago->cardNumber}}</td>
                 <td>{{$pago->transactionDate}}</td>
                 <td>{{$pago->commerceCode}}</td>
