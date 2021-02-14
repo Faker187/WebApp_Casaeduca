@@ -282,11 +282,6 @@
                         console.error( error );
                 } );
         </script>
-        <script>
-            $('button.ck-dropdown__button').click(function(){
-                alert('llege')
-            });
-        </script>
     </body>
 </html>
 
