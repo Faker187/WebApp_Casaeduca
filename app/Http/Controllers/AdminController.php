@@ -42,7 +42,7 @@ class AdminController extends Controller
         $alumnos = Alumno::all();
         
         foreach ($alumnos as $alumno) {
-            $alumno->name_apoderado = User::find($alumno->id_apoderado)->value('name');
+            $alumno->name_apoderado = User::where('id', $alumno->id_apoderado)->value('name');
             $alumno->email = User::find($alumno->id_apoderado)->email;
             $alumno->nombreCurso = DB::table('curso')->where('idcurso', $alumno->id_curso)->first()->nombre;
             $cantidadMeses = DB::table('plan')->where('idplan', $alumno->id_plan)->first();
