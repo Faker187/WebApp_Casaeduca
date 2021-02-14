@@ -10,9 +10,7 @@
         <meta name="author" content="" />
         <title>Panel Administrador - Casa Educa</title>
         <link href="{{ asset('public/dist/css/styles.css') }}" rel="stylesheet" />
-        <link href="{{ asset('public/css/quill.css') }}" rel="stylesheet" />
-        <link href="{{ asset('public/css/quill.snow.css') }}" rel="stylesheet" />
-        <link href="{{ asset('public/css/quill.bubble.css') }}" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -260,8 +258,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
-        <script type="text/javascript" src="{{asset('public/js/sprite.svg.js')}}"></script>
-        <script type="text/javascript" src="{{asset('public/js/bootstrap-quill.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         <script>
             var editor;
 
