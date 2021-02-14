@@ -258,13 +258,10 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
 
         <script>
+            
             var editor;
             ClassicEditor
-                .create( document.querySelector( 'textarea[name="contenido"]' ),{
-                    alignment: {
-                        options: [ 'left', 'right','center','justify']
-                    },
-                })
+                .create( document.querySelector( 'textarea[name="contenido"]' ))
                 .then( newEditor => {
                     editor = newEditor;
                     console.log( newEditor );
@@ -276,11 +273,7 @@
         <script>
             var editor;
             ClassicEditor
-                .create( document.querySelector( 'textarea[name="descripcion"]' ),{
-                    alignment: {
-                        options: [ 'left', 'right','center']
-                    },
-                })
+                .create( document.querySelector( 'textarea[name="descripcion"]' ))
                 .then( newEditor => {
                     editor = newEditor;
                     console.log( newEditor );
@@ -288,6 +281,11 @@
                 .catch( error => {
                         console.error( error );
                 } );
+        </script>
+        <script>
+            $('.ck-dropdown__button').click(function(){
+                alert('llege')
+            });
         </script>
     </body>
 </html>
