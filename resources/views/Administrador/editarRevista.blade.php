@@ -28,7 +28,7 @@
 
   <script type="text/javascript">
     bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-    var editor;
+   /*  var editor;
     ClassicEditor
       .create( document.querySelector( '#editarcontenidoR' ))
       .then( newEditor => {
@@ -37,5 +37,5 @@
       } )
       .catch( error => {
               console.error( error );
-    } );
+    } ); */
   </script>
