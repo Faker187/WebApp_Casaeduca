@@ -9,7 +9,7 @@
     <a href="#" id="textA-center" class="btn btn-light"><i class="fas fa-align-center"></i></a>
   </div>
 </div>
-<textarea class="form-control mb-4" name="contenido" id="editarcontenidoR" rows="10" placeholder="Contenido">{{$revista->contenido}}</textarea>
+<textarea class="form-control mb-4"  id="editarcontenidoR" rows="10" placeholder="Contenido">{{$revista->contenido}}</textarea>
 <div class="input-group my-3">
     <div class="input-group-prepend">
       <span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
@@ -26,17 +26,10 @@
   <input type="hidden" name="idRevista" value="{{$revista->id}}">
   <input type="hidden" name="fecha" value="{{$revista->fecha}}">
 
+  <script type="text/javascript">
+    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  </script>
 <script>
-  function align(align) {
-    const range = editor.createRange();
-    range.selectNodeContents(editor.editable());
-    // Create selection and set range.
-    const sel = editor.getSelection();
-    sel.selectRanges([range]);
-    editor.execCommand('justify' + align);
-    // Remove selection.
-    sel.removeAllRanges();
-  }
   var editor;
   ClassicEditor
       .create( document.querySelector( '#editarcontenidoR' ))

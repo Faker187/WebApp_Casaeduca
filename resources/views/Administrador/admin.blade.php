@@ -256,10 +256,13 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+        <script type="text/javascript" src="{{asset('public/js/nicEdit.js')}}"></script>
 
         <script>
             var editor;
             
+            const editor = CKEDITOR.replace('my-editor');
+
             function align(align) {
                 const range = editor.createRange();
                 range.selectNodeContents(editor.editable());
