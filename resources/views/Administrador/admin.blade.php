@@ -258,6 +258,8 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
 
         <script>
+            var editor;
+            
             function align(align) {
                 const range = editor.createRange();
                 range.selectNodeContents(editor.editable());
@@ -269,7 +271,7 @@
                 sel.removeAllRanges();
             }
 
-            var editor;
+            
             ClassicEditor
                 .create( document.querySelector( 'textarea[name="contenido"]' ))
                 .then( newEditor => {
