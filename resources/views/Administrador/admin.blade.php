@@ -10,6 +10,7 @@
         <meta name="author" content="" />
         <title>Panel Administrador - Casa Educa</title>
         <link href="{{ asset('public/dist/css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('public/css/summernote-bs4.css') }}" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
@@ -258,7 +259,8 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+        <script src="{{asset('public/js/summernote-bs4.min.js')}}"></script>
+        <script src="{{asset('public/js/summernote-es-ES.js')}}"></script>
         <script>
             var editor;
 
