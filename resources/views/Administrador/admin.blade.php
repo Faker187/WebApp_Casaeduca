@@ -259,7 +259,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
-        <script src="{{asset('public/js/summernote-bs4.min.js')}}"></script>
+        <script src="{{asset('public/js/summernote-bs4.js')}}"></script>
         <script src="{{asset('public/js/summernote-es-ES.js')}}"></script>
         <script>
             var editor;
