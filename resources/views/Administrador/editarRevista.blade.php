@@ -2,7 +2,7 @@
 <input type="text" name="titulo" class="form-control mb-4" value="{{$revista->titulo}}" placeholder="Título" required>
 <input type="text" name="tema" value="{{$revista->tema}}" class="form-control mb-4" placeholder="Tema" required>
 
-<textarea class="form-control mb-4"  id="editarcontenidoR" rows="10" placeholder="Contenido">{{$revista->contenido}}</textarea>
+<textarea class="form-control mb-4"  id="editarcontenidoR" name="contenido" rows="10" placeholder="Contenido">{{$revista->contenido}}</textarea>
 <div class="input-group my-3">
     <div class="input-group-prepend">
       <span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
