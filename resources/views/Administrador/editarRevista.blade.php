@@ -23,14 +23,4 @@
     $(document).ready(function() {
         $('#editarcontenidoR').summernote();
     });
-    /* var editor;
-    ClassicEditor
-      .create( document.querySelector( '#editarcontenidoR' ))
-      .then( newEditor => {
-          editor = newEditor;
-          console.log( newEditor );
-      } )
-      .catch( error => {
-              console.error( error );
-    } ); */
   </script>
