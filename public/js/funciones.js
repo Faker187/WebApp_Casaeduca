@@ -503,15 +503,12 @@ $('.editarRevista').click(function(e) {
 //Guardar Revista editado
 $('#formEditarRevista').submit(function(e) {
     e.preventDefault();
-    const editorData = editor.getData();
-    console.log(editorData);
-    if(editorData){
-        $('textarea[name="contenido"]').text(editorData);
-    }
     var formData = new FormData(this);
     formData.append('_token', $('input[name=_token]').val());
     // let url = formData.attr('action');
-
+    for(var pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
+     }
     $.ajax({
         type: 'POST',
         url: '/editarRevista',
