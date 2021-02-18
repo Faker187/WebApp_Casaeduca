@@ -166,7 +166,7 @@ class AlumnoController extends Controller
        
             if ($asignatura->idprofesor != 0) {
 
-                $profesor = User::find($asignatura->idprofesor);
+                $profesor = User::where("id", $asignatura->idprofesor);
 
                 $asignatura->nombreProfesor = $profesor->name;
                 $asignatura->correoProfesor = $profesor->email;

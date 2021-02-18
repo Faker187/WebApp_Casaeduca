@@ -35,14 +35,9 @@
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
 
 <script>
-    var editor;
-    ClassicEditor
-        .create( document.querySelector( '#descripcionAsig' ))
-        .then( newEditor => {
-            editor = newEditor;
-            console.log( newEditor );
-        } )
-        .catch( error => {
-                console.error( error );
-        } );
+  $(document).ready(function() {
+    $("#descripcionAsig").summernote({
+        lang: 'es-ES'
+    });
+  });
 </script>

@@ -52,14 +52,9 @@
 <input type="hidden" name="idParametro" value="{{$parametro->id}}">
 <input type="hidden" name="indexTr" value="{{$indexTr}}">
 <script>
-    var editor;
-    ClassicEditor
-        .create( document.querySelector( 'textarea[name="editor"]' ))
-        .then( newEditor => {
-            editor = newEditor;
-            console.log( newEditor );
-        } )
-        .catch( error => {
-                console.error( error );
-        } );
+    $(document).ready(function() {
+        $("textarea[name='editor']").summernote({
+            lang: 'es-ES'
+        });
+    });
 </script>

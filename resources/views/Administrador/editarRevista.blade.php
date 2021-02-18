@@ -21,8 +21,8 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-        $('#editarcontenidoR').summernote({
-          lang: 'es-ES'
-        });
+      $('#editarcontenidoR').summernote({
+        lang: 'es-ES'
+      });
     });
   </script>
