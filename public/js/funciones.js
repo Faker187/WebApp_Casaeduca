@@ -233,11 +233,6 @@ $('.editarParametro').click(function(e) {
 //Guardar Parametro editado
 $('#formEditarParametro').submit(function(e) {
     e.preventDefault();
-    const editorData = editor.getData();
-    console.log(editorData);
-    if(editorData){
-        $('textarea[name="editor"]').text(editorData);
-    }
     let form = $(this);
     let url = form.attr('action');
     let cantidad_letras = $('#valor').val().length;
@@ -508,7 +503,7 @@ $('#formEditarRevista').submit(function(e) {
     // let url = formData.attr('action');
     for(var pair of formData.entries()) {
         console.log(pair[0]+ ', ' + pair[1]); 
-     }
+    }
     $.ajax({
         type: 'POST',
         url: '/editarRevista',

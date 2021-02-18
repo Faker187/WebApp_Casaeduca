@@ -258,33 +258,17 @@
         <script src="{{ asset('public/dist/js/datatables-demo.js') }}"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('public/js/funciones.js')}}"></script> 
-        <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
         <script src="{{asset('public/js/summernote-bs4.js')}}"></script>
         <script src="{{asset('public/js/summernote-es-ES.js')}}"></script>
         <script>
-            var editor;
-
-            ClassicEditor
-                .create( document.querySelector( 'textarea[name="contenido"]' ))
-                .then( newEditor => {
-                    editor = newEditor;
-                    console.log( newEditor );
-                } )
-                .catch( error => {
-                        console.error( error );
-                } );
-        </script>
-        <script>
-            var editor;
-            ClassicEditor
-                .create( document.querySelector( 'textarea[name="descripcion"]' ))
-                .then( newEditor => {
-                    editor = newEditor;
-                    console.log( newEditor );
-                } )
-                .catch( error => {
-                        console.error( error );
-                } );
+        $(document).ready(function() {
+            $("textarea[name='contenido']").summernote({
+                lang: 'es-ES'
+            });
+            $("textarea[name='descripcion']").summernote({
+                lang: 'es-ES'
+            });
+        });
         </script>
     </body>
 </html>
