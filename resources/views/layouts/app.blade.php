@@ -301,13 +301,13 @@
                             <div class="footer-static-title"><h4><span>Sobre nosotros</span><span class="mobile-button visible-xs active"></span></h4></div>
                             <div class="textwidget">
                                 <p class="mg4">
-                                {{$sobreNosotros}}
+                                    {!!$sobreNosotros!!}
                                 </p>
                                 <ul class="social-media">
-                                    <li><a class="facebook" href="{{$facebook}}">Facebook</a></li>
-                                    <li><a class="twitter" href="{{$twitter}}">Twitter</a></li>
-                                    <li><a class="instagram" href="{{$instagram}}">Instagram</a></li>
-                                    <li><a class="whatsapp" href="{{$whatsapp}}">Whatsapp</a></li>
+                                    <li><a class="facebook" target="_blank" href="{{$facebook}}">Facebook</a></li>
+                                    <li><a class="twitter" target="_blank" href="{{$twitter}}">Twitter</a></li>
+                                    <li><a class="instagram" target="_blank" href="{{$instagram}}">Instagram</a></li>
+                                    <li><a class="whatsapp" target="_blank" href="{{$whatsapp}}">Whatsapp</a></li>
                                 </ul>
                             </div>
                         </aside>
@@ -386,7 +386,7 @@
 <script src="{{ asset('public/js/funciones.js')}}"></script>
 
 <script src="{{ asset('public/js/jqmeter.min.js') }}"></script>
-
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LY505DP3NW"></script>
 <script>

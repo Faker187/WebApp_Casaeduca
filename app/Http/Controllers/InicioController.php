@@ -12,6 +12,8 @@ use App\Sitio;
 use App\User;
 use App\Revista;
 use App\Correo;
+use App\Rules\Captcha;
+use Dotenv\Validator;
 
 class InicioController extends Controller
 {
@@ -85,7 +87,15 @@ class InicioController extends Controller
             'telefono','email','facebook','twitter','instagram','whatsapp','quienesSomos','mision','vision','quienesSomosP2','quienesSomosSubT'
         ));
     }
-
+    public function validator(array $data){
+        return Validator::make($data,[
+            "email" => 'required|string|email|max:255',
+            "mensaje" => 'required|string|max:255',
+            "name" => 'required|string|max:255',
+            "subject" => 'required|string|max:255',
+            "g-captcha-response" => new Captcha(),
+        ]);
+    }
     public function contacto()
     {
         $eslogan = Sitio::where('id' ,1)->first()->valor;
@@ -98,6 +108,11 @@ class InicioController extends Controller
         $twitter = Sitio::where('id' ,8)->first()->valor;
         $instagram = Sitio::where('id' ,9)->first()->valor;
         $whatsapp = Sitio::where('id' ,10)->first()->valor;
+        
+        if(!isset($cursos)){
+            $cursos = '';
+        }
+        
 
         return view('contacto',compact('cursos','eslogan','invitacionPlanAcademico','sobreNosotros','direccion',
             'telefono','email','facebook','twitter','instagram','whatsapp'
@@ -111,9 +126,11 @@ class InicioController extends Controller
             "email" => $request->email,
             "mensaje" => $request->message,
             "name" => $request->name,
-            "subject" => $request->subject,
+            "subject" => $request->subject
          ];
-
+<<<<<<< HEAD
+=======
+         var_dump(validator($data));exit;
         // $subject = $request->subject;
         // $for = $request->email;
 
@@ -125,23 +142,18 @@ class InicioController extends Controller
 
         // $subject = "test";
         // $for = "casaeduca@yopmail.com";
+>>>>>>> 4ce81f686b00e83bc8efe16e9b6a93f263689319
 
         $subject = $request->subject;
         // $for = $request->email;
         $for = DB::table('sitio')->where('parametro', 'E-mail')->first()->valor;
 
         
-        /* Mail::send('emailFormContacto',$data, function($msj) use($subject,$for){
-        $msj->from("contacto@casaeduca.cl","Casa Educa, Nuevo Contacto");
-        $msj->subject($subject);
-            $msj->to('benjka.17@gmail.com');
-        }); */
+        Mail::send('emailFormContacto',$data, function($msj2){
+            $msj2->from("noreply@casaeduca.cl","Casa Educa, Formulario de contacto")->subject('Formulario de contacto');
+            $msj2->to("contacto@casaeduca.cl");
+        });
 
-        Mail::send('emailFormContacto',$data, function($msj2) use($subject,$for){
-            $msj2->from("contacto@casaeduca.cl","Casa Educa, Nuevo Contacto");
-            $msj2->subject($subject);
-                $msj2->to($for);
-            });
         return 'true';
     }
 

@@ -61,12 +61,12 @@ class AsignaturaController extends Controller
 
         $asignatura = DB::table('asignatura')->where('idasignatura', $id)->first();
 
-        $unidades = \App\Unidad::where('idasignatura', $id)->get();
+        $unidades = \App\Unidad::where('idasignatura', $id)->orderBy('nombre', 'ASC')->get();
         foreach ($unidades as $unidad) {
-            $unidad->clases = \App\Clase::where('idunidad', $unidad->idunidad)->get();
+            $unidad->clases = \App\Clase::where('idunidad', $unidad->idunidad)->orderBy('nombre', 'ASC')->get();
 
             foreach ($unidad->clases as $clase) {
-                $doc = DB::table('documento')->where('idClase', $clase->idclase)->value('documento');
+                $doc = DB::table('documento')->where('idClase', $clase->idclase)->orderBy('documento', 'ASC')->value('documento');
                 $clase->tipo_documento =  $doc;
             }
 

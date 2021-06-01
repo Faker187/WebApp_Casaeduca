@@ -82,15 +82,9 @@ class SuscripcionController extends Controller
                 //Se crea el nuevo Usuario
                 User::create([
                     'name' => $request->nombreCompletoApoderado,
-                    // 'name_apoderado' => $request->nombreCompletoApoderado,
-                    // 'genero' => $request->genero,
-                    // 'id_curso' => $request->curso,
-                    // 'id_plan' => $request->plan,
                     'email' => $request->email,
                     'password' => \Hash::make($request->password),
                     'tipo' => 1, //0 es admin 2 es profesor
-                    // 'fecha_pago' => $fechaActual,
-                    // 'fin_plan' => $fin_plan,
                     'estado' => 0
                 ]);
     
@@ -130,8 +124,8 @@ class SuscripcionController extends Controller
     public function pagarPlan(Request $request)
     {
 
-            $planes = Plan::all();
-            return view('Suscripcion.seleccionarPlan',compact('planes'));
+        $planes = Plan::all();
+        return view('Suscripcion.seleccionarPlan',compact('planes'));
   
 
     }
@@ -143,9 +137,6 @@ class SuscripcionController extends Controller
         \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
         \Transbank\Webpay\WebpayPlus::setCommerceCode('597036225971');
         \Transbank\Webpay\WebpayPlus::setApiKey('0a7c5a215e4626b8514cfefe35374296');
-
-        // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
-        // ->getNormalTransaction();
 
         $monto = DB::table('plan')->where('idplan' , $request->idPlan)->first()->precio;
 
@@ -165,15 +156,7 @@ class SuscripcionController extends Controller
         $finalUrl = 'https://casaeduca.cl/volver';
 
         $response = Transaction::create($buyOrder, $sessionId, $monto, $returnUrl);
-    
 
-        // $initResult = $transaction->initTransaction(
-        //         $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
-
-        // $formAction = $initResult->url;
-        // $tokenWs = $initResult->token;
-
-        // return view('Suscripcion.pagarPlan',compact('formAction','tokenWs'));
         return view('Suscripcion.pagarPlan',compact('response'));
     }
 
@@ -183,9 +166,6 @@ class SuscripcionController extends Controller
         \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
         \Transbank\Webpay\WebpayPlus::setCommerceCode('597036225971');
         \Transbank\Webpay\WebpayPlus::setApiKey('0a7c5a215e4626b8514cfefe35374296');
-
-        // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
-        // ->getNormalTransaction();
 
         $monto = DB::table('plan')->where('idplan' , $request->idPlan)->first()->precio;
 
@@ -207,14 +187,7 @@ class SuscripcionController extends Controller
          $returnUrl = 'https://casaeduca.cl/renovarPlanPago';
          $finalUrl = 'https://casaeduca.cl/volver';
 
-         $response = Transaction::create($buyOrder, $sessionId, $monto, $returnUrl);
-
-        //  $initResult = $transaction->initTransaction(
-        //          $monto, $buyOrder, $sessionId, $returnUrl, $finalUrl);
- 
-        //  $formAction = $initResult->url;
-        //  $tokenWs = $initResult->token;
-            
+         $response = Transaction::create($buyOrder, $sessionId, $monto, $returnUrl);            
          return view('Suscripcion.pagarRenovacionPlan',compact('response'));
     }
 
@@ -224,14 +197,6 @@ class SuscripcionController extends Controller
         \Transbank\Webpay\WebpayPlus::setIntegrationType("LIVE");
         \Transbank\Webpay\WebpayPlus::setCommerceCode('597036225971');
         \Transbank\Webpay\WebpayPlus::setApiKey('0a7c5a215e4626b8514cfefe35374296');
-
-        // dd($request);
-        // $transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
-        // ->getNormalTransaction();
-
-        // $tokenWs = filter_input(INPUT_POST, 'token_ws');
-        // $result = $transaction->getTransactionResult($request->input("token_ws"));
-        // $output = $result->detailOutput;
 
         if(!$request->TBK_TOKEN){
             $tokenWs = $request->token_ws;
@@ -281,7 +246,6 @@ class SuscripcionController extends Controller
                 $alumno->id_plan = $idPlan;
                 $alumno->save();
     
-    
                 $response = Transaction::getStatus($tokenWs); 
 
                 $user = User::all()->where('id', $idApoderado)->first();
@@ -299,21 +263,19 @@ class SuscripcionController extends Controller
                 });
 
                 $emailto = $user->email;
-                Mail::send('emails.pagosuscripcion', $data2, function($message)use($emailto){
+                Mail::send('emails.pagosuscripcion', $data1, function($message) use ($emailto){
                     $message->from('noreply@casaeduca.cl', 'Casa educa')->subject('Comprobante de pago Casa educa');
                     $message->to($emailto);
 
                 });
     
                 return view('Suscripcion.terminarPago', compact('response','tokenWs'));
-                // return redirect()->route('apoderado');
     
             }elseif ($response->status == 'FAILED') {
     
                 return redirect()->route('apoderado');
     
             }else{
-                // return view('Suscripcion.terminarPago', compact('result','tokenWs'));
                return redirect()->route('apoderado');
             }
         }else{

@@ -4,7 +4,7 @@ $fecha = date("Y-m-d G:i:s");
 
 @endphp
 
-<p>Profesor: {{$profesor->name_apoderado}}</p>
+<p>Profesor: {{$profesor->name}}</p>
 <p>Asignatura: {{$asignatura->nombre}}</p>
 <p>Cantidad Intentos: {{$cantidadIntentos}}</p>
 
