@@ -237,17 +237,18 @@ $('#formEditarParametro').submit(function(e) {
     let url = form.attr('action');
     let cantidad_letras = $('#valor').val().length;
 
-    if (cantidad_letras > 2000) {
-        swal("No puede tener mas de 2000 letras");
-    } else {
+    
         $.ajax({
             type: 'POST',
             url: url,
             data: form.serialize(),
+            beforeSend:function(){
+                swal('cargando...');        
+            },
             success: function(data) {
                 console.log(data);
-                let t = $('#dataTableEsp').DataTable();
-                let idIndex = data.indexTr;
+                //let t = $('#dataTableEsp').DataTable();
+                //let idIndex = data.indexTr;
                 // newData = [ 
                 //     data.valor,
                 //     data.email, 
@@ -263,7 +264,7 @@ $('#formEditarParametro').submit(function(e) {
                 console.log(error);
             }
         });
-    }
+    
 
 
 
@@ -348,12 +349,6 @@ $('.editarAsignatura').click(function(e) {
 //Guardar Asignatura editado
 $('#formEditarAsignatura').submit(function(e) {
     e.preventDefault();
-
-    const editorData = editor.getData();
-    console.log(editorData);
-    if(editorData){
-        $('textarea[name="descripcion"]').text(editorData);
-    }
     var formData = new FormData(this);
     formData.append('_token', $('input[name=_token]').val());
     // let url = formData.attr('action');
@@ -440,11 +435,11 @@ $('#formAgregarRevista').submit(function(e) {
     e.preventDefault();
     let form = $(this);
     let url = form.attr('action');
-    const editorData = editor.getData();
+   /*  const editorData = editor.getData();
     console.log(editorData);
     if(editorData){
         $('textarea[name="contenido"]').text(editorData);
-    }
+    } */
     var formData = new FormData(this);
     formData.append('_token', $('input[name=_token]').val());
 

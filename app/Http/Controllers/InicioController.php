@@ -114,34 +114,16 @@ class InicioController extends Controller
             "subject" => $request->subject,
          ];
 
-        // $subject = $request->subject;
-        // $for = $request->email;
-
-        // Mail::send('emailFormContacto',$request->all(), function($msj) use($subject,$for){
-        //     $msj->from("contact@casaeduca.cl","Casa Educa, Nuevo Contacto");
-        //     $msj->subject($subject);
-        //     $msj->to($for);
-        // });
-
-        // $subject = "test";
-        // $for = "casaeduca@yopmail.com";
-
         $subject = $request->subject;
         // $for = $request->email;
         $for = DB::table('sitio')->where('parametro', 'E-mail')->first()->valor;
 
         
-        /* Mail::send('emailFormContacto',$data, function($msj) use($subject,$for){
-        $msj->from("contacto@casaeduca.cl","Casa Educa, Nuevo Contacto");
-        $msj->subject($subject);
-            $msj->to('benjka.17@gmail.com');
-        }); */
+        Mail::send('emailFormContacto',$data, function($msj2){
+            $msj2->from("noreply@casaeduca.cl","Casa Educa, Formulario de contacto")->subject('Formulario de contacto');
+            $msj2->to("contacto@casaeduca.cl");
+        });
 
-        Mail::send('emailFormContacto',$data, function($msj2) use($subject,$for){
-            $msj2->from("contacto@casaeduca.cl","Casa Educa, Nuevo Contacto");
-            $msj2->subject($subject);
-                $msj2->to($for);
-            });
         return 'true';
     }
 

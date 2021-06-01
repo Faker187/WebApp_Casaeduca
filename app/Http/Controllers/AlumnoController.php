@@ -166,8 +166,7 @@ class AlumnoController extends Controller
        
             if ($asignatura->idprofesor != 0) {
 
-                $profesor = User::where('id', $asignatura->idprofesor);
-                dd($profesor);
+                $profesor = User::find($asignatura->idprofesor);
                 $asignatura->nombreProfesor = $profesor->name;
                 $asignatura->correoProfesor = $profesor->email;
             }else{
@@ -189,7 +188,7 @@ class AlumnoController extends Controller
 
         $idAlumno = $request->idAlumno;
         $idCurso = DB::table('alumno')->where('id', $idAlumno)->first()->id_curso;
-        $cantidadIntentos = 99;
+        $cantidadIntentos = 8;
 
         $correosEsteMes = DB::table('correo')
         ->where('idalumno' , $idAlumno)
@@ -225,26 +224,23 @@ class AlumnoController extends Controller
         $correo->save();
 
    
-        $data = [
+        $data1 = [
             "nombreAlumno" => $request->nombreAlumno,
             "nombreAsignatura" => $request->nombreAsignatura,
             "nombreCurso" => $request->nombreCurso,
             "mensaje" => $request->mensaje,
             "idCorreo" => $correo->id,
-            "token" => $correo->token
+            "token" => $correo->token,
+            "for" => $request->correo
          ];
-
+        
         $subject = $request->asunto;
         $for = $request->correo;
 
-        Mail::send('email',$data, function($msj) use($subject,$for){
-            $msj->from("contacto@casaeduca.cl","Casa Educa, Mensaje Alumno");
-            $msj->subject($subject);
-            $msj->to($for);
+        Mail::send('emails.email',$data1, function($msj2) use ($for){
+            $msj2->from("noreply@casaeduca.cl","Casa Educa, Casa Educa, Mensaje Alumno")->subject('PREGUNTA AL PROFESOR');
+            $msj2->to($for);
         });
-
-        
-
         return $request;
     }
 

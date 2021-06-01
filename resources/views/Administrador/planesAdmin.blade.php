@@ -32,16 +32,23 @@
                 <td>{{$plan->cantidad_meses}}</td>
                 <td>{{$plan->precio}}</td>
                 @if ($plan->estado == 1)
-                <td>Activo</td>
+                <td class="bg-primary"><span class="text-white">Activo</span></td>
                 @else
-                <td>Inactivo</td>
+                <td class="bg-dark"><span class="text-white">Inactivo</span></td>
                 @endif
                 <td class="text-center">
                   <button class="btn btn-primary editarPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-edit"></i></button>
                 </td>
+                @if ($plan->estado == 1)
                 <td class="text-center">
                   <button class="btn btn-primary cambiarEstadoPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-exchange-alt"></i></button>
                 </td>
+                @else
+                <td class="text-center">
+                  <button class="btn btn-dark cambiarEstadoPlan" idPlan="{{$plan->idplan}}"><i class="fas fa-exchange-alt"></i></button>
+                </td>
+                @endif
+                
             </tr>
             @endforeach
           

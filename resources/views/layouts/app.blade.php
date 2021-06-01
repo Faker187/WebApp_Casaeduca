@@ -301,13 +301,13 @@
                             <div class="footer-static-title"><h4><span>Sobre nosotros</span><span class="mobile-button visible-xs active"></span></h4></div>
                             <div class="textwidget">
                                 <p class="mg4">
-                                {{$sobreNosotros}}
+                                    {!!$sobreNosotros!!}
                                 </p>
                                 <ul class="social-media">
-                                    <li><a class="facebook" href="{{$facebook}}">Facebook</a></li>
-                                    <li><a class="twitter" href="{{$twitter}}">Twitter</a></li>
-                                    <li><a class="instagram" href="{{$instagram}}">Instagram</a></li>
-                                    <li><a class="whatsapp" href="{{$whatsapp}}">Whatsapp</a></li>
+                                    <li><a class="facebook" target="_blank" href="{{$facebook}}">Facebook</a></li>
+                                    <li><a class="twitter" target="_blank" href="{{$twitter}}">Twitter</a></li>
+                                    <li><a class="instagram" target="_blank" href="{{$instagram}}">Instagram</a></li>
+                                    <li><a class="whatsapp" target="_blank" href="{{$whatsapp}}">Whatsapp</a></li>
                                 </ul>
                             </div>
                         </aside>
