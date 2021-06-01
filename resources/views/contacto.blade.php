@@ -9,6 +9,19 @@
         padding: 0px;
     }
 </style>
+
+<script>
+    function loadCaptcha()    {    
+      grecaptcha.render($('#recaptcha'), {
+          'sitekey' : '6LepkOgaAAAAAAVL0qyao7XSv3PGFJ9JwQhvgaFv'
+        });
+    };
+</script>
+<script>
+$(document).ready(function(){
+    loadCaptcha();
+});
+</script>
 <div class="container-fluid px-0 bg-ce0 mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8 text-white mx-auto pl-5 overflow-hidden">
@@ -72,14 +85,24 @@
 
                                         </div>
                                     </div>
-
+                                    <div id="recaptcha"></div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6 offset-md-4">
+                                            <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                                            @if($errors->has('g-recapcha-response'))
+                                                <span class="invalid-feedback" style="display: block;">
+                                                    <strong>{{$errors->first('g-captcha-response')}}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="text-center text-md-left">
                                         <button type="submit" class="btn rounded bg-ce4 text-white">Enviar</button>
                                     </div>
 
                                 </form>
 
-                                
+                                {!!  GoogleReCaptchaV2::render('recaptcha') !!}
                                 <div class="status"></div>
                             </div>
 

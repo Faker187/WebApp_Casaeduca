@@ -387,7 +387,7 @@
 <script src="{{ asset('public/js/funciones.js')}}"></script>
 
 <script src="{{ asset('public/js/jqmeter.min.js') }}"></script>
-
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LY505DP3NW"></script>
 <script>
