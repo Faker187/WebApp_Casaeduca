@@ -128,21 +128,6 @@ class InicioController extends Controller
             "name" => $request->name,
             "subject" => $request->subject
          ];
-<<<<<<< HEAD
-=======
-         var_dump(validator($data));exit;
-        // $subject = $request->subject;
-        // $for = $request->email;
-
-        // Mail::send('emailFormContacto',$request->all(), function($msj) use($subject,$for){
-        //     $msj->from("contact@casaeduca.cl","Casa Educa, Nuevo Contacto");
-        //     $msj->subject($subject);
-        //     $msj->to($for);
-        // });
-
-        // $subject = "test";
-        // $for = "casaeduca@yopmail.com";
->>>>>>> 4ce81f686b00e83bc8efe16e9b6a93f263689319
 
         $subject = $request->subject;
         // $for = $request->email;
