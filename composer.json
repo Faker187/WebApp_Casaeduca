@@ -10,14 +10,9 @@
     "require": {
         "php": "^7.1.3",
         "anhskohbo/no-captcha": "^3.3",
-<<<<<<< HEAD
         "biscolab/laravel-recaptcha": "^4.4",
         "fideloper/proxy": "^4.0",
         "josiasmontag/laravel-recaptchav3": "^0.6.0",
-=======
-        "fideloper/proxy": "^4.0",
-        "google/recaptcha": "~1.1",
->>>>>>> 4ce81f686b00e83bc8efe16e9b6a93f263689319
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "laraveles/spanish": "^1.5",
