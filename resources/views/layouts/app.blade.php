@@ -388,14 +388,14 @@
 <script src="{{ asset('public/js/jqmeter.min.js') }}"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LY505DP3NW"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-LY505DP3NW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-LY505DP3NW');
-</script>
+</script> -->
 
 <script>
     $(document).ready(function(){
