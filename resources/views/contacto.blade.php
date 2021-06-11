@@ -16,11 +16,9 @@
           'sitekey' : '6LepkOgaAAAAAAVL0qyao7XSv3PGFJ9JwQhvgaFv'
         });
     };
+    loadCaptcha();
 </script>
 <script>
-$(document).ready(function(){
-    loadCaptcha();
-});
 </script>
 <div class="container-fluid px-0 bg-ce0 mb-5">
     <div class="row justify-content-center">
