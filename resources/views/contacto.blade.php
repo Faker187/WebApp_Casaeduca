@@ -44,7 +44,7 @@
                             <div class="col-md-9 mb-md-0 mb-5">
                                 <form id="contact-form" name="contact-form" action="/formularioContacto" method="POST">
                                     @csrf
-                                    <input type="hidden" name="recaptcha" id="recaptcha">
+                                    <!-- <input type="hidden" name="recaptcha" id="recaptcha"> -->
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="md-form mb-0">
@@ -76,7 +76,7 @@
 
                                         </div>
                                     </div>
-                                    <div id="recaptcha"></div>
+                                    <!-- <div id="recaptcha"></div> -->
                                     <div class="form-group row">
                                         <div class="col-md-6 offset-md-4">
                                             <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
@@ -87,10 +87,11 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                                    <a href="https://policies.google.com/terms">Terms of Service</a> apply.
                                     <div class="text-center text-md-left">
                                         <button type="submit" class="btn rounded bg-ce4 text-white">Enviar</button>
                                     </div>
-
                                 </form>
 
                                 {!!  GoogleReCaptchaV2::render('recaptcha') !!}
@@ -122,12 +123,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
-    function loadCaptcha()    {    
+    /* function loadCaptcha()    {    
       grecaptcha.render($('#recaptcha'), {
           'sitekey' : '6LepkOgaAAAAAAVL0qyao7XSv3PGFJ9JwQhvgaFv'
         });
     };
-    loadCaptcha();
+    loadCaptcha(); */
 </script>
 <!-- ====== Contactanos ====== -->
 @endsection
