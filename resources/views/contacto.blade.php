@@ -123,12 +123,11 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
-    /* function loadCaptcha()    {    
+    function loadCaptcha()    {    
       grecaptcha.render($('#recaptcha'), {
           'sitekey' : '6LepkOgaAAAAAAVL0qyao7XSv3PGFJ9JwQhvgaFv'
         });
     };
-    loadCaptcha(); */
 </script>
 <!-- ====== Contactanos ====== -->
 @endsection
