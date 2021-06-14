@@ -119,5 +119,14 @@
         </div>
     </div>
 </div>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+    function loadCaptcha()    {    
+      grecaptcha.render($('#recaptcha'), {
+          'sitekey' : '6LepkOgaAAAAAAVL0qyao7XSv3PGFJ9JwQhvgaFv'
+        });
+    };
+    loadCaptcha();
+</script>
 <!-- ====== Contactanos ====== -->
 @endsection

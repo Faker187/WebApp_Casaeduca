@@ -398,14 +398,9 @@
 </script> -->
 
 <script>
-    function loadCaptcha()    {    
-      grecaptcha.render($('#recaptcha'), {
-          'sitekey' : '6LepkOgaAAAAAAVL0qyao7XSv3PGFJ9JwQhvgaFv'
-        });
-    };
     $(document).ready(function(){
         new WOW().init();
-        loadCaptcha();
+        
         $('.cargarClase').click(function(e){
             e.preventDefault();
             let idClase = $(this).attr('href');
