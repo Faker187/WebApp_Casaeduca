@@ -44,7 +44,7 @@
                             <div class="col-md-9 mb-md-0 mb-5">
                                 <form id="contact-form" name="contact-form" action="/formularioContacto" method="POST">
                                     @csrf
-                                    <!-- <input type="hidden" name="recaptcha" id="recaptcha"> -->
+                                    <input type="hidden" name="recaptcha" id="recaptcha">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="md-form mb-0">
@@ -119,6 +119,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     function loadCaptcha()    {    
