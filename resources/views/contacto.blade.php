@@ -11,14 +11,6 @@
 </style>
 
 <script>
-    function loadCaptcha()    {    
-      grecaptcha.render($('#recaptcha'), {
-          'sitekey' : '6LepkOgaAAAAAAVL0qyao7XSv3PGFJ9JwQhvgaFv'
-        });
-    };
-    loadCaptcha();
-</script>
-<script>
 </script>
 <div class="container-fluid px-0 bg-ce0 mb-5">
     <div class="row justify-content-center">
