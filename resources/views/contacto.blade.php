@@ -87,8 +87,13 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-                                    <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                                    <div class="form-group row">
+                                        <div class="col-md-6 offset-md-4">
+                                            <a href="https://policies.google.com/privacy">Política de privacidad</a> y
+                                            <a href="https://policies.google.com/terms">Términos de servicio</a>
+                                        </div>
+                                    </div>
+                                   
                                     <div class="text-center text-md-left">
                                         <button type="submit" class="btn rounded bg-ce4 text-white">Enviar</button>
                                     </div>
