@@ -172,7 +172,7 @@
             </a>
             <ul class="navbar-nav w-100 justify-content-center">
                 <li class="nav-item {{ '/' == request()->path() ? 'active'  :  ''}}">
-                    <a class="nav-link color-ce4"  href="{{ url('/') }}">Casaeduca</a>
+                    <a class="nav-link color-ce4"  href="{{ url('/') }}">Casa educa</a>
                 </li>
                 <li class="nav-item {{ 'Casaeduca' == request()->path() ? 'active'  :  ''}}">
                     <a class="nav-link color-ce4"  href="{{ url('/Casaeduca') }}">Nosotros</a>
