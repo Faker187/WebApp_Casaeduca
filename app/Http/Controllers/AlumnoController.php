@@ -78,7 +78,7 @@ class AlumnoController extends Controller
              $fecha_expiracion = strtotime($alumno->fin_plan);
              // dd($fecha_expiracion);
  
-             if (1611705900 > $fecha_expiracion) {
+             if ($fechaHoy > $fecha_expiracion) {
                  //Desactiva Alumno
                  $alumnodesactivado = Alumno::find($alumno->id);
                  $alumnodesactivado->estado = 0;
